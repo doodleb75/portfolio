@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>eNETner Cloud</title>
+	<link rel="stylesheet" type="text/css" href="/ksign/../css/import.css" />
+	<link rel="stylesheet" type="text/css" href="/ksign/../css/mycloud/membership.css" />
+	<script type="text/javascript" src="../../../js/jquery-1.6.1.min.js"></script>
+	<script type="text/javascript" src="../../../js/jquery-ui-1.8.16.custom.min.js"></script>
+	<script type="text/javascript" src="../../../js/dui_prototype.js"></script>
+	<script type="text/javascript" src="../../../js/dui_effect.js"></script>
+	<script type="text/javascript" src="../../../js/dui_dragndrop.js"></script>
+	<script type="text/javascript" src="../../../js/dui_hhmenu.js"></script>
+	<script type="text/javascript" src="../../../js/dui_tree.js"></script>
+	<script type="text/javascript" src="../../../js/dui_slidemenu.js"></script>
+	<script type="text/javascript" src="../../../js/dui_tab.js"></script>
+	<script type="text/javascript" src="../../../js/dui_calendar.js"></script>
+	<script type="text/javascript" src="../../../js/common.js"></script>
+	<script type="text/javascript" src="../../../js/shell_mycloud.js"></script>
+</head>
+
+<body>
+<!-- skip메뉴 -->
+<div id="LblockSkipLink">
+	<p><a href="#LblockTopMenu">주메뉴 바로가기</a></p>
+	<p><a href="#LblockLeftMenu">서브메뉴 바로가기</a></p>
+	<p><a href="#LblockBody">콘텐츠 바로가기</a></p>
+</div>
+<!-- //skip메뉴 -->
+
+<div id="LblockWrapper">
+	<!-- header영역 -->
+	<div id="LblockHeader">
+		<div id="LblockHeaderIn">
+			<div id="LblockTopLogo">
+				<h1><a href="#"><img src="../../../images/topLogo.jpg" alt="eNETner Cloud" /></a></h1>
+			</div>
+			<div id="LblockWelcome">
+				<p>2011.11.22 <span>홍길동</span></p><a href="#"><img src="../images/infoChange.gif" alt="" /></a><a href="#">로그아웃</a><img src="../../../images/img_mycloud.gif" alt="" />
+			</div>
+			<div id="LblockTopMenu">
+				<h2  class="Lhide">대메뉴</h2>
+				<ul class="Lclear">
+					<li class="Lfirst LitemService"><span class="cont"><a href="../mgmt/svc_list.html"><span>서비스관리</span></a></span></li>
+					<li class="Lidx1 LitemManagement"><span class="cont"><a href="../mgmt/vm_configuration.html"><span>서비스운영관리</span></a></span></li>
+					<li class="Lidx2 LitemApplication"><span class="cont"><a href="../apply/pkg_websecu.html"><span>서비스신청</span></a></span></li>
+					<li class="Lidx3 LitemMonitoring"><span class="cont"><a href="../monitoring/guide.html"><span>모니터링</span></a></span></li>
+					<li class="Lidx4 LitemMember Lcurrent"><span class="cont"><a href="../mem/edit_meminfo.html"><span>회원정보관리</span></a></span></li>
+					<li class="Lidx5 LitemBilling"><span class="cont"><a href="../billing/charges.html"><span>이용료관리</span></a></span></li>
+					<li class="Llast LitemSupport"><span class="cont"><a href="../support/svcguide.html"><span>고객센터</span></a></span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- //header영역 -->
+	<div id="LblockContainer" class="Lclear">
+		<!-- leftmenu영역 -->
+		<div id="LblockLeft">
+			<div id="LblockLeftTitle">
+				<h2><img src="../../../images/lnbMenu.gif" alt="회원정보관리" /></h2>
+			</div>
+			<div id="LblockLeftMenu" class="LslideMenu">
+				<h3 class="Lhide">회원정보관리 하위메뉴</h3>
+				<ul>
+					<li class="Lfirst Lcurrent"><span><a href="./edit_meminfo.html">회원정보수정</a></span></li>
+					<li class="Lidx1"><span><a href="./edit_companyinfo.html">사업자등록정보수정</a></span></li>
+					<li class="Lidx1 LhasChild"><span><a href="#">청약정보수정</a></span>
+						<ul>
+							<li class="Lfirst"><span><a href="./edit_subsinfo_billing.html">납부방법 수정</a></span></li>
+							<li class="Lidx1"><span><a href="./edit_subsinfo_payment.html">결제정보 수정</a></span></li>
+						</ul>
+					</li>
+					<li class="Lidx2"><span><a href="./transfer.html">명의변경</a></span></li>
+					<li class="Llast"><span><a href="./quit.html">회원탈퇴</a></span></li>
+				</ul>
+			</div>
+		</div>
+		<!-- //leftmenu영역 -->
+		<div id="LblockBodySetter">
+			<!-- 컨텐츠영역 -->
+			<div id="LblockBody">
+				<!-- 페이지타이틀 영역 -->
+				<div id="LblockPageHeader">
+					<div id="LblockPageTitle">
+						<h1>명의변경</h1>
+					</div>
+					<div id="LblockPageLocation">
+						<ul>
+							<li class="Lfirst"><span><a href="#">HOME</a></span></li>
+							<li><span><a href="#">회원정보관리</a></span></li>
+							<li class="Llast"><span>명의변경</span></li>
+						</ul>
+					</div>
+				</div>
+				<!-- //페이지타이틀 영역 -->
+				<!-- 페이지내용영역 -->
+				<div id="LblockBodyMain" class="LpageTransfer form-switch">
+					<div class="LBoxLine radio-select">
+						<input type="radio" name="transferTo" id="select-to-company" value="1" checked="checked" /><label for="select-to-company">기업</label>
+						<input type="radio" name="transferTo" id="select-to-individual" value="2" /><label for="select-to-individual">개인</label>
+					</div>
+					<!-- 기업 양식 -->
+					<div id="forms-for-company" class="form-section">
+						<!-- 서브 타이틀 -->
+						<div id="LblockPageSubtitle01" class="LblockPageSubtitle">
+							<h2>아이디확인</h2>
+						</div>
+						<!-- 서브 타이틀 -->
+						<!-- text영역 -->
+						<div class="txtBox">
+							<div class="txtBoxFront">
+								<ul>
+									<li>- 소유권 이전 받을 분의 회원정보를 확인해주세요.</li>
+									<li>- 소유권 이전 받으시는 분이 기존회원이 아닌 경우 신규회원가입을 하셔야 합니다.</li>
+									<li>- 명의변경은 개인회원만 가능합니다.</li>
+								</ul>
+							</div>
+						</div>
+						<!-- //text영역 -->
+						<!-- 리스트 테이블 -->
+						<div id="LblockDetail01" class="LblockDetail">
+							<table summary="아이디확인 조건">
+								<caption>아이디확인 조건</caption>
+								<colgroup>
+								<col width="20%" />
+								<col width="25%" />
+								<col width="20%" />
+								<col width="35%" />
+								</colgroup>
+								<tbody>
+									<tr>
+										<th><label for="sEmpDepart">아이디 입력</label></th>
+										<td>
+											<input type="text" class="Ltext" id="sEmpDepart" size="20" /> 
+										</td>
+										<th><label for="sEmpDepart">사업자번호</label></th>
+										<td>
+											<input type="text" class="Ltext" id="sEmpDepart" size="5" /> - 
+											<input type="text" class="Ltext" id="sEmpDepart" size="5" /> - 
+											<input type="text" class="Ltext" id="sEmpDepart" size="5" />
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">확인</span></a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!-- //리스트 테이블 -->
+						<!-- 3서브 타이틀 -->
+						<div id="LblockPageSubtitle01" class="LblockPageSubtitle">
+							<h2>입력하신 아이디에 대한 회원정보는 다음과 같습니다.</h2>
+						</div>
+						<!-- 3서브 타이틀 -->
+						<!-- 리스트 테이블 -->
+						<div id="LblockDetail01" class="LblockDetail">
+							<table summary="아이디확인 조건">
+								<caption>아이디확인 조건</caption>
+								<colgroup>
+									<col width="20%" />
+									<col width="25%" />
+									<col width="20%" />
+									<col width="35%" />
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>법인명/상호</th>
+										<td>길동이네</td>
+										<th>대표자성명</th>
+										<td>홍길동</td>
+									</tr>
+									<tr>
+										<th>사업장주소</th>
+										<td colspan="3"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!-- //리스트 테이블 -->
+					</div>
+					<!-- //기업 양식 -->
+
+					<!-- 개인 양식 -->
+					<div id="forms-for-individual" class="form-section">
+						<!-- 서브 타이틀 -->
+						<div id="LblockPageSubtitle01" class="LblockPageSubtitle">
+							<h2>아이디확인</h2>
+						</div>
+						<!-- 서브 타이틀 -->
+						<!-- text영역 -->
+						<div class="txtBox">
+							<div class="txtBoxFront">
+								<ul>
+									<li>- 소유권 이전 받을 분의 회원정보를 확인해주세요.</li>
+									<li>- 소유권 이전 받으시는 분이 기존회원이 아닌 경우 신규회원가입을 하셔야 합니다.</li>
+									<li>- 명의변경은 개인회원만 가능합니다.</li>
+								</ul>
+							</div>
+						</div>
+						<!-- //text영역 -->
+						<!-- 리스트 테이블 -->
+						<div id="LblockDetail01" class="LblockDetail">
+							<table summary="아이디확인 조건">
+								<caption>아이디확인 조건</caption>
+								<colgroup>
+									<col width="20%" />
+									<col width="80%" />
+								</colgroup>
+								<tbody>
+									<tr>
+										<th><label for="sEmpDepart">아이디 입력</label></th>
+										<td>
+											<input type="text" class="Ltext" id="sEmpDepart" size="20" /> 
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">확인</span></a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!-- //리스트 테이블 -->
+						<!-- 3서브 타이틀 -->
+						<div id="LblockPageSubtitle01" class="LblockPageSubtitle">
+							<h2>입력하신 아이디에 대한 회원정보는 다음과 같습니다.</h2>
+						</div>
+						<!-- 3서브 타이틀 -->
+						<!-- 리스트 테이블 -->
+						<div id="LblockDetail01" class="LblockDetail">
+							<table summary="아이디확인 조건">
+								<caption>아이디확인 조건</caption>
+								<colgroup>
+									<col width="20%" />
+									<col width="25%" />
+									<col width="20%" />
+									<col width="35%" />
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>이름</th>
+										<td>길동이네</td>
+										<th>아이디</th>
+										<td>honggggg</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!-- //리스트 테이블 -->
+					</div>
+					<!-- //개인 양식 -->
+
+					<!-- 서브 타이틀 -->
+					<div id="LblockPageSubtitle01" class="LblockPageSubtitle">
+						<h2>기타</h2>
+					</div>
+					<!-- 서브 타이틀 -->
+					<!-- 리스트 테이블 -->
+					<div id="LblockDetail01" class="LblockDetail">
+						<table summary="기타내입력">
+							<caption>기타내입력</caption>
+							<colgroup>
+								<col width="20%" />
+								<col width="80%" />
+							</colgroup>
+							<tbody>
+								<tr>
+									<th><label for="sEmpDepart">기타내입력</label></th>
+									<td><textarea name="" id="sEmpDepart" cols="80" rows="3">기타내역 나불나불~</textarea></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- //리스트 테이블 -->
+					<!-- text영역 -->
+					<div class="txtBox">
+						<div class="txtBoxFront">
+							<p>*소유권을 이전받는 분은 신청자신분증 사본과 공문을  FAX로 보내주시기 바립니다.<br />*공문에 반드시 들어갈 내용 : 사유 / 신청자이름, 도장(서명) / 명의변경대상자 성함 및 아이디 , 도장(서명)<br /><br />사본을 팩스로 보내지 않으시면 명의변경이 정상적으로 완료되지 않습니다.<br />신청 후 1일 이내에 첨부서류 확인 안될 시 접수가 최소될 수 있습니다.<br />명의변경 시 미납요금 및 이용요금은 이관대상자에게 승계됩니다. </p>
+						</div>
+					</div>
+					<!-- //text영역 -->
+					<!-- 페이지버튼영역 -->
+					<div id="LblockCenterButton">
+						<a class="Lbtn4" href="#"><span onclick="doSomething();">명의변경신청</span></a>
+					</div>
+					<!-- //페이지버튼영역 -->
+
+
+
+				</div>
+				<!-- 페이지내용영역 -->
+			</div>
+			<!-- //컨텐츠영역 -->
+		</div>
+	</div>
+	<hr />
+	<!--footer영역-->
+	<div id="LblockFooter">
+		<div id="LblockFooterIn" class="Lclear">
+			<div id="LblockFooterLogo">
+				<a href="#"><img src="../../../images/footerLogo.gif" alt="(주)엘림넷" /></a>
+			</div>
+			<div id="LblockFooterSetter">
+				<div id="LblockFooterBody">
+					<ul id="LblockFooterMenu">
+						<li class="Lfirst"><a href="#"><img src="../../../images/footerMenu_01.gif" alt="회사소개" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_02.gif" alt="서비스약관" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_03.gif" alt="개인정보취급방침" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_04.gif" alt="FAQ" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_05.gif" alt="Q&A" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_06.gif" alt="제휴문의" /></a></li>
+					</ul>
+					<address><img src="../../../images/address.gif" alt="서울시 서대문구 충정로3가 32-11 엘림넷빌딩  사업자등록번호: 220-81-97656  개인정보 관리책임자: 송태호 부장 (thshong@elim.net)" /></address>
+					<p><img src="../../../images/copyright.gif" alt="Copyright (C) 2012 BY ELIMNET CO.,LTD. ALL RIGHTS RESERVED." /></p>
+				</div>
+			</div>
+			<div id="LblockFooterHelp"><img src="../../../images/callservice.gif" alt="고객지원센터 TEL:02-3149-4900 FAX:02-3149-4998" /></div>
+		</div>
+	</div>
+	<!--//footer영역-->
+</div>
+</body>
+</html>

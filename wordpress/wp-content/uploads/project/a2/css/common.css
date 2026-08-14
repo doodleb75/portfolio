@@ -1,0 +1,121 @@
+@charset "euc-kr";
+/* Design Team (i72mouse@naver.com) dalgona 2010.05.21 */ 
+
+/* Type Selector */
+*{margin:0; padding:0; font-family:"돋움", "Verdana", Gulim, AppleGothic, Sans-serif; line-height:1.5em;}
+html{_overflow:scroll;_overflow-x:auto;}
+body{background:url("../images/common/bgTop.gif") center top repeat-x;width:100%;text-align:center;}
+img, fieldset, button{border:none;}
+select {text-align:left;behavior: url('../js/selectbox.htc');}
+hr, button img{display:none;}
+li{list-style:none;}
+a{font-size:12px;color:#999;text-decoration:none;}
+a:hover, a:active, a:focus{font-size:12px;color:#999;text-decoration:underline;}
+textarea{overflow:auto;} 
+legend {position:absolute; top:0; left:0; width:0; height:0; overflow:hidden; visibility:hidden; font-size:0; line-height:0;} /* For Screen Reader */ 
+
+/* Main Layout Selector */
+#wrap{width:960px; _text-align:left; margin:0 auto;background:#fff;}
+#header{width:100%; height:104px;}
+#container{width:100%;margin:0 auto;}
+.mainBody{background:url("../images/common/bgMain.gif") center top repeat-x;}
+.mainVisual{width:958px;padding:0 1px;height:255px;background:url("../images/common/mainVisualBg.gif") center no-repeat;}
+:root .mainVisual{float:left;}
+#content{position:  relative;width:960px; float:left; background:url("../images/common/mainBg.gif"); background-repeat:repeat-y;} /* 메인 전체영역 */
+#snb{width:225px; float:left;margin:0} /* 메인 왼쪽영역 */
+#contentMiddle{width:463px; float:left;margin:17px 0 0 24px;text-align:left;}
+#contentRight{width:248px;float:left;text-align:center;margin-top:-84px;background:url("../images/common/mainBg.gif") top right;     position: absolute;
+    right: 0;
+    top: 180px;}
+#footer{width:100%;}
+.clear{display:block; float:none; clear:both; height:0; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.cursor{cursor:pointer;}
+.noneBg{background-image:none;}
+.noneBorder{border:none;}
+.none_css {display:none;}
+.verT{vertical-align:top;}
+.verM{vertical-align:middle;}
+.verB{vertical-align:bottom;}
+.alignC{text-align:center;}
+.alignR{text-align:right;}
+.bold{font-weight:bold;}
+.inputTypeA{margin:0; padding:0; font-size:11px; border:1px solid #bebebe; height:18px; line-height:18px;}
+.png24 { tmp:expression(setPng24(this)); } 
+
+/* Sub Layout Selector */
+#contentSub{width:960px; float:left; background:url("../images/common/subBg.gif"); background-repeat:repeat-y;} /* 서브 전체영역 */
+#snbSubNew{position:absolute; z-index:10;width:208px;float:left;margin-top:-84px;background:url("../images/common/lnbTilteBg.gif") no-repeat;} /* 서브 왼쪽영역 */
+#snbSub{position:absolute; z-index:10;width:208px;float:left;margin-top:121px;background:url("../images/common/lnbTilteBg.gif") no-repeat;} /* 서브 왼쪽영역 */
+#contentSubLeft{width:208px; float:left; height:300px;} /* 서브 전체영역 */
+#contentSubMain{margin-right:15px;_margin-right:7px;width:716px; float:right;} /* 서브 오른쪽영역 */
+
+/* Header */
+#header h1{padding:18px 0 0 18px; float:left;}
+#header ul{margin:38px 0 0 0; float:right;}
+#header ul li{display:inline; position:relative; padding:0 8px 0 10px; font-size:11px; white-space:nowrap; background:url("../images/common/dvHeader.gif") no-repeat 0 2px;}
+#header ul li *{font-size:11px;}
+#header ul li img{vertical-align:top;margin-top:-5px;_position:relative;}
+#header ul li.first{background:none; padding:0 8px 0 4px;}
+.top{width:960px; height:69px; background:#000;}
+#gnb{position:absolute; z-index:10; width:960px; height:155px; background:url("../images/common/gnbBg.gif") no-repeat;}
+#gnb ul{margin:0;}
+#gnb ul li{display:inline;white-space:nowrap;background-image:none;padding:0;}
+#gnb ul li.navi{float:left;width:700px;}
+#gnb ul li.tSearch{float:right;line-height:0;padding-top:7px;padding-right:15px;}
+#gnb ul li.tSearch input.keyword{margin:0; padding-left:7px; border:1px solid #4a4a4a; width:120px; height:17px; line-height:16px;background:#373737; vertical-align:middle;} 
+#gnb ul li.tSearch input.btnSearch{
+	font-family:"돋움";
+	font-size:11px;
+	width:40px;
+	height:19px;
+	text-align:center;
+	vertical-align:middle;
+	background:url("../images/common/btnSearch.gif") no-repeat;
+	border-style:none;
+	padding-top:2px;
+	color:#fff;
+	cursor:pointer;
+}
+
+/* Footer */
+#footer {background:#000; width:auto; height:103px;}
+#footer a{text-decoration:none; color:#909090;}
+#footer a:visited{text-decoration:none; color:#909090;}
+#footer a:hover{text-decoration:underline;}
+#footer h1{padding:21px 0 0 27px; float:left;}
+:root #footer h1{padding:21px 0 0 27px;height:33px; float:left;background:#000;}
+#footer ul{padding:24px 0 12px 60px; float:left;}
+:root #footer ul{width:731px;padding:24px 0 12px 60px; float:left;background:#000;}
+#footer ul li{display:inline; position:relative; padding:0 8px 0 10px; font-size:12px; white-space:nowrap; background:url("../images/common/dvFooter.gif") no-repeat 0 1px;}
+#footer ul li *{font-size:12px;}
+#footer ul li.first{background:none; padding:0 8px 0 0;}
+#footer ul a{letter-spacing:-1px;}
+#footer .address{float:left; padding-left:228px;}
+:root #footer .address{float:left; width:732px;height:45px;padding-left:228px;background:#000;}
+
+/* margin */
+.mar1{display:block; float:none; clear:both; height:1px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar2{display:block; float:none; clear:both; height:2px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar3{display:block; float:none; clear:both; height:3px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar5{display:block; float:none; clear:both; height:5px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar7{display:block; float:none; clear:both; height:7px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar9{display:block; float:none; clear:both; height:9px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar10{display:block; float:none; clear:both; height:10px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar12{display:block; float:none; clear:both; height:12px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar13{display:block; float:none; clear:both; height:13px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar15{display:block; float:none; clear:both; height:15px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar16{display:block; float:none; clear:both; height:16px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar17{display:block; float:none; clear:both; height:17px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar18{display:block; float:none; clear:both; height:18px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar19{display:block; float:none; clear:both; height:19px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar22{display:block; float:none; clear:both; height:22px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar25{display:block; float:none; clear:both; height:25px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar26{display:block; float:none; clear:both; height:26px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar30{display:block; float:none; clear:both; height:30px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar32{display:block; float:none; clear:both; height:32px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar33{display:block; float:none; clear:both; height:33px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar35{display:block; float:none; clear:both; height:35px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar36{display:block; float:none; clear:both; height:36px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar40{display:block; float:none; clear:both; height:40px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar60{display:block; float:none; clear:both; height:60px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar72{display:block; float:none; clear:both; height:72px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}

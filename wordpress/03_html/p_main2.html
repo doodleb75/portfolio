@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<!--
+/*************************************************************************
+* @ 서비스명   : 화면 > 체크아웃
+* @ 파일명     : 01.html/p_main2.html
+* @ 페이지설명  : 레이아웃
+* @ 작성자     : 배대현
+* @ 작성일     : 2021-10-02
+************************** 수정이력 ****************************************
+* 날짜                    작업자                 변경내용
+*_________________________________________________________________________
+* 2021-10-02             배대현                 최초작성
+*************************************************************************/
+-->
+
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>화면 > index</title>
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="./css/default.css">
+    <script src="js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+
+    </script>
+    <style>
+        /* .cir-box {
+            --v: calc(((18/5) * var(--p) - 90)*1deg);
+            width: 64px;
+            height: 64px;
+            display: inline-block;
+            border-radius: 50%;
+            padding: 5px;
+            position: absolute;
+            left: -3px;
+            top: -3px;
+            background: linear-gradient(var(--v), #a9b1b8 50%, transparent 0) 0/min(100%, (50 - var(--p))*100%), linear-gradient(var(--v), transparent 50%, #838f99 0) 0/min(100%, (var(--p) - 50)*100%), linear-gradient(to right, #a9b1b8 50%, #838f99 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+        }
+
+        .crew-select .cir-box {
+            background: linear-gradient(var(--v), #627180 50%, transparent 0) 0/min(100%, (50 - var(--p))*100%), linear-gradient(var(--v), transparent 50%, #3a3f4b 0) 0/min(100%, (var(--p) - 50)*100%), linear-gradient(to right, #627180 50%, #3a3f4b 0);
+        } */
+    </style>
+</head>
+
+<body>
+
+    <!-- Modal Structure ////// 동반자추가 popup -->
+
+    <div id="modal2" class="modal bottom-sheet">
+        <div class="alert-btn-group">
+            <button type="button" id="confirm1">동반자 추가</button>
+            <button type="button" id="confirm2">추가안됨</button>
+            <button type="button" id="alert">경고창</button>
+        </div>
+
+        <div class="modal-content">
+            <div class="modal-add-header">
+                <span class="thumb">
+                    <object type="image/svg+xml" data="img/img_add_companion.svg" class="add-thumb"></object>
+                </span>
+                <span class="add-title">
+                    <p>설명</p>
+                    <h4>동반자 추가</h4>
+                </span>
+                <button type="button" class="modal-close pop-close" href="#modal2"></button>
+            </div>
+            <ul class="modal-add-body">
+                <li>
+                    <button type="button" class="url-copy">
+                        URL 복사 후 단톡방에 붙여넣기
+                        <p> 사전내장등록 URL 복사</p>
+                    </button>
+
+                    <button type="button" class="kakao-send">
+                        카카오톡으로 예약정보 전달
+                        <p> 카카오톡 친구에게 전달</p>
+                        <span class="arr"></span>
+                    </button>
+
+                    <button type="button" class="insert-number">
+                        알림톡으로 예약정보 전달
+                        <p> 휴대폰번호 입력</p>
+                        <span class="arr"></span>
+                    </button>
+                </li>
+            </ul>
+            <!-- <div class="row---">
+                    <h4>STUFF GOES HERE!</h4>
+                </div> -->
+        </div>
+    </div>
+
+    <!-- Modal Structure 팀정산 방식 -->
+    <div id="checkout-calculate" class="modal bottom-sheet info-agree">
+        <div class="modal-content">
+            <div class="modal-add-header">
+                <div class="modal-padding-box">
+                    <span class="thumb">
+                        <object type="image/svg+xml" data="img/img_checkout_normal.svg" class="add-thumb"></object>
+                    </span>
+                    <span class="add-title">
+                        <p>터치 한 번이면 체크아웃이 자동으로 진행됩니다.</p>
+                        <h4>체크아웃</h4>
+                    </span>
+                    <button type="button" class="modal-close pop-close" href="#checkout-calculate"></button>
+                </div>
+            </div>
+
+            <div class="calculate-method">
+                <div class="modal-padding-box">
+                    <h3>정산방식</h3>
+                    <ul class="calc-group in-modal">
+                        <li>
+                            <input type="radio" id="calc01" name="calculate">
+                            <label class="chk-price-sel" for="calc01">
+                                팀 전체요금을 1/N로 나눠 결제
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="calc02" name="calculate">
+                            <label class="chk-price-sel" for="calc02">
+                                팀 전체요금을 1인이 모두 결제
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="calc03" name="calculate">
+                            <label class="chk-price-sel" for="calc03">
+                                본인 입장료만 결제
+                                <p class="pee-category">그린피 + 카트피</p>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="calc04" name="calculate">
+                            <label class="chk-price-sel" for="calc04">
+                                본인 입장료 + 식음료 1/N
+                                <p class="pee-category">그린피 + 카트피</p>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="calc05" name="calculate">
+                            <label class="chk-price-sel" for="calc05">
+                                본인 입장료 + 본인 식음료
+                                <p class="pee-category">그린피 + 카트피</p>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="calc06" name="calculate">
+                            <label class="chk-price-sel" for="calc06">
+                                본인 입장료 + 식음료 총액
+                                <p class="pee-category">그린피 + 카트피</p>
+                            </label>
+                        </li>
+                    </ul>
+                    <div class="price-summary">
+                        <div>
+                            <span>결제예정금액</span>
+                            <span class="total">267,500<i>원</i></span>
+                        </div>
+                        <ul class="collapsible expandable ex-box">
+                            <li class="">
+
+                                <div class="collapsible-body etc-pay" style="display: block;">
+                                    <div class="info">
+                                        <span>그린피[각자결제]</span>
+                                        <span class="line"></span>
+                                        <span>62,000 원</span>
+                                    </div>
+                                    <div class="info">
+                                        <span>카트피[각자결제]</span>
+                                        <span class="line"></span>
+                                        <span>2,000 원</span>
+                                    </div>
+                                    <div class="info">
+                                        <span>식음료[전체결제 - <i>박병호</i>]</span>
+                                        <span class="line"></span>
+                                        <span>12,000 원</span>
+                                    </div>
+                                </div>
+                                <div class="collapsible-header detail-folding" tabindex="0">
+                                    상세내역
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bot-btn-group b-width-100">
+                        <button type="button" class="btn-regist modal-close pop-close" href="#checkout-calculate">결제 /
+                            체크아웃</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Structure ////// 체크인 선결제 popup -->
+
+    <div id="modal3" class="modal bottom-sheet modal-sm">
+        <div class="modal-content checkout-bg-svg">
+            <div class="modal-add-header">
+                <div class="modal-padding-box">
+                    <span class="thumb">
+                        <object type="image/svg+xml" data="img/img_checkout_normal.svg" class="add-thumb"></object>
+                    </span>
+                    <span class="add-title">
+                        <p>터치 한 번이면 체크아웃이 자동으로 진행됩니다.</p>
+                        <h4>체크아웃</h4>
+                    </span>
+                    <button type="button" class="modal-close pop-close" href="#modal2"></button>
+                </div>
+            </div>
+            <p class="chkout-comment">
+                이용내역은 해당 메뉴에서</br> 확인해주세요.
+            </p>
+
+        </div>
+
+        <div class="bot-btn-group b-width-100 position-abs">
+            <button type="button" class="btn-regist modal-close pop-close" href="#modal2">체크아웃</button>
+        </div>
+    </div>
+
+    <!-- Sub Contents Start // -->
+
+    <div id="wrap" class="main-wrap-class" data-title="none">
+
+        <!-- 체크아웃 후 Gray / checkout-status 옆에 chk-disabled 추가 -->
+        <div class="top-info-box checkout-status">
+
+            <header id="header">
+                <!-- Logo Area -->
+                <img src="./img/sage_logo.png" />
+            </header>
+
+            <div class="mem-total-info">
+                <div class="course-info">
+                    <p>세이지 우드 홍천</p>
+                    <p>08:24 마우나코스</p>
+                    <p>2021-06-21</p>
+                </div>
+
+                <a href="" class="locker-number">
+
+                    <span class="mem_name">황진욱 <i>님</i></span>
+                    <div class="locker-name">
+                        <div class="permission-locker locker-sort">
+                            <h2>1061</h2><i>[님]</i> <span class="lock-info" id="alert1">i</span>
+                        </div>
+                        <div class="no-permission ">
+                            <h3>라커 미사용고객</h3><span class="lock-info" id="alert2">i</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="step-btn-box">
+                <div class="res-step-info">
+                    <span class="one res-finish">
+                        <p class="step-status-txt">예약완료</p>
+                    </span>
+                    <span class="two"></span>
+                    <span class="three"></span>
+                    <span class="four"></span>
+                </div>
+                <span class="r_btn">
+                    <button type="button" class="gnb-top-btn">이용내역</button>
+                    <button type="button" class="gnb-top-btn">영수증</button>
+                </span>
+            </div>
+        </div>
+        <div class="content-box">
+            <div class="checkin-status">
+                <button type="button" class="btn modal-trigger chkout" href="#modal3">
+                    <span>
+                        <!-- <p>터치 한번이면 체크인 완료</p> -->
+                        <p class="nmj-large-txt">체크아웃</p>
+                    </span>
+                    <span class="arr-bool"></span>
+                </button>
+                <!-- <button type="button">
+                    <span class="ch-img-01">
+                        <object type="image/svg+xml" data="./img/img_checkout_normal.svg" class="checkin-man"></object>
+                    </span>
+                    <span>
+                        <p>터치 한번이면 체크인 완료</p>
+                        <p>간편체크인</p>
+                    </span>
+                    <span class="arr-bool"></span>
+                </button> -->
+            </div>
+
+            <div class="mid-useinfo-link">
+                <button>
+                    <span>
+                        <p>프론트데스크가 휴대폰 속으로</p>
+                        <p>모바일 체크인/체크아웃 이용안내</p>
+                    </span>
+                    <span class="arr-bool"></span>
+                </button>
+            </div>
+
+            <div class="crew-box">
+                <h3>동반자</h3>
+                <p>동반자를 미리 등록하면 동반자도 경기 당일 모바일로 편하게 이용 가능.</p>
+                <button class="refresh-btn"></button>
+                <ul class="crew-thumb-list">
+                    <li class="">
+                        <span class="crew-thumb woman">
+                            <!-- info input percentage -->
+                            <!-- <div class="cir-box" style="--p:50;"></div> -->
+                            <div class="percent-guage-block guage01"></div>
+                            <!--// info input percentage -->
+                        </span>
+                        <span class="crew-name">황진욱</span>
+                    </li>
+
+                    <li class="">
+                        <span class="crew-thumb woman">
+                            <!-- info input percentage -->
+                            <!-- <div class="cir-box" style="--p:19;"></div> -->
+                            <div class="percent-guage-block guage02"></div>
+                            <!--// info input percentage -->
+                        </span>
+                        <span class="crew-name">황진욱</span>
+                    </li>
+
+                    <li class="">
+                        <span class="crew-thumb man">
+                            <!-- info input percentage -->
+                            <!-- <div class="cir-box" style="--p:75;"></div> -->
+                            <div class="percent-guage-block guage03"></div>
+                            <!--// info input percentage -->
+                        </span>
+                        <span class="crew-name">황진욱</span>
+                    </li>
+
+                    <li class="">
+                        <span class="crew-thumb woman">
+                            <!-- info input percentage -->
+                            <!-- <div class="cir-box" style="--p:30;"></div> -->
+                            <div class="percent-guage-block guage01"></div>
+                            <!--// info input percentage -->
+                        </span>
+                        <span class="crew-name">황진욱</span>
+                    </li>
+
+                </ul>
+            </div>
+
+            <button type="button" class="btn-regist modal-trigger" href="#checkout-calculate"
+                style="margin: 0 auto; position: absolute; top: 57px; left: 30px;  z-index: 1000000;">팀정산
+                방식 버튼</button>
+        </div>
+    </div>
+
+    </div>
+    <script>
+        $(document).ready(function () {
+            /* Modal Initialized */
+            $('.modal-trigger').leanModal();
+        });
+
+        // click 후 -> 확인 버튼
+        /* var onBtnClicked = (btnId) => {
+            Swal.close();
+            if (btnId != "취소") Swal.fire("you choosed: " + btnId);
+        }; */
+
+        /* D */
+        btn1Trigger1.onclick = () => {
+            Swal.fire({
+                customClass: {
+                    popup: 'custom-popup'
+                },
+                html: "<h3 class='cs-pop-text'>락커이용안내 : 열기/닫기 관련</h3>"
+            })
+        };
+
+        /* E */
+        btn1Trigger2.onclick = () => {
+            Swal.fire({
+                confirmButtonText: '닫기',
+                customClass: {
+                    popup: 'custom-popup'
+                },
+                html: "<h3 class='cs-pop-text'>락커미발급 안내 : </h3>"
+            })
+        };
+
+        /* E-2 */
+        btn1Trigger3.onclick = () => {
+            Swal.fire({
+                confirmButtonText: '닫기',
+                customClass: {
+                    popup: 'custom-popup'
+                },
+                html: "<h3 class='cs-pop-text'>체크아웃 가능한 시간대가 아닙니다. </h3>"
+            })
+        };
+
+        /* E */
+        btn1Trigger4.onclick = () => {
+            Swal.fire({
+                confirmButtonText: '닫기',
+                customClass: {
+                    popup: 'custom-popup'
+                },
+                html: "<h3 class='cs-pop-text'>유효하지 않은 경기입니다. </h3>"
+            })
+        };
+
+    </script>
+</body>
+
+</html>

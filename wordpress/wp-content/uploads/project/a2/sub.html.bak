@@ -1,0 +1,14 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<style>
+*{margin:0; padding:0;border:0;}
+body {margin:0 auto;width:960px;text-align:center;background:url('images/main/subBg.gif') repeat-x ;}
+</style>
+</head>
+
+<body>
+	<a href="index2.html" target="_self"><img src="images/main/ad_design.jpg" /></a>
+</body>
+
+</html>

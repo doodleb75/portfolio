@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>eNETner Cloud</title>
+	<link rel="shortcut icon" href="./favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="../css/import.css" />
+	<script type="text/javascript" src="../js/dui_prototype.js"></script>
+	<script type="text/javascript" src="../js/dui_effect.js"></script>
+	<script type="text/javascript" src="../js/dui_dragndrop.js"></script>
+	<script type="text/javascript" src="../js/dui_hhmenu.js"></script>
+	<script type="text/javascript" src="../js/dui_tree.js"></script>
+	<script type="text/javascript" src="../js/dui_slidemenu.js"></script>
+	<script type="text/javascript" src="../js/dui_tab.js"></script>
+	<script type="text/javascript" src="../js/dui_calendar.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+</head>
+
+<body>
+<!-- skip메뉴 -->
+<div id="LblockSkipLink">
+	<p><a href="#LblockTopMenu">주메뉴 바로가기</a></p>
+	<p><a href="#LblockLeftMenu">서브메뉴 바로가기</a></p>
+	<p><a href="#LblockBody">콘텐츠 바로가기</a></p>
+</div>
+<!-- //skip메뉴 -->
+
+<div id="LblockWrapper">
+	<!-- header영역 -->
+	<div id="LblockHeader">
+		<div id="LblockHeaderIn">
+			<div id="LblockTopLogo">
+				<h1><a href="#"><img src="../images/topLogo.jpg" alt="eNETner Cloud" /></a></h1>
+			</div>
+			<div id="LblockWelcome">
+				<p>2011.11.22 <span>홍길동</span></p><a href="#"><img src="../images/logout.gif" alt="" /></a><a href="#">로그아웃</a><img src="../images/img_mycloud.gif" alt="" />
+			</div>
+			<div id="LblockTopMenu">
+				<h2  class="Lhide">대메뉴</h2>
+				<ul class="Lclear">
+					<li class="Lfirst LitemService Lcurrent"><span class="cont"><a href="web_admin_logging.html"><span>서비스관리</span></a></span></li>
+					<li class="Lidx1 LitemManagement"><span class="cont"><a href="web_admin_logging.html"><span>서비스운영관리</span></a></span></li>
+					<li class="Lidx2 LitemApplication"><span class="cont"><a href="web_admin_logging.html"><span>서비스신청</span></a></span></li>
+					<li class="Lidx3 LitemMonitoring"><span class="cont"><a href="web_admin_logging.html"><span>모니터링</span></a></span></li>
+					<li class="Lidx4 LitemMember"><span class="cont"><a href="web_admin_logging.html"><span>회원정보관리</span></a></span></li>
+					<li class="Lidx5 LitemBilling"><span class="cont"><a href="web_admin_logging.html"><span>이용료관리</span></a></span></li>
+					<li class="Llast LitemSupport"><span class="cont"><a href="web_admin_logging.html"><span>고객센터</span></a></span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- //header영역 -->
+	<div id="LblockContainer" class="Lclear">
+		<!-- leftmenu영역 -->
+		<div id="LblockLeft">
+			<div id="LblockLeftTitle">
+				<h2><img src="../images/lnbMenu.gif" alt="서비스관리" /></h2>
+			</div>
+			<div id="LblockLeftMenu" class="LslideMenu">
+				<h3 class="Lhide">서비스관리 하위메뉴</h3>
+				<ul>
+					<li class="Lfirst LhasChildn Lopen Lcurrent"><span><a href="#">작업일정관리</a></span></li>
+					<li class="LhasChild"><span><a href="#">VM생성관리</a></span>
+						<ul>
+							<li class="Lfirst"><span><a href="#">시험용 VM생성</a></span></li>
+							<li class="Llast"><span><a href="#">담당자용 VM생성</a></span></li>
+						</ul>
+					</li>
+					<li class="LhasChild"><span><a href="#">VM폐기관리</a></span>
+						<ul>
+							<li class="Lfirst"><span><a href="#">시험용 VM폐기</a></span></li>
+							<li class="Llast"><span><a href="#">담당자용 VM폐기</a></span></li>
+						</ul>
+					</li>
+					<li class="Llast LhasChildn"><span><a href="#">AD등록관리</a></span></li>
+				</ul>
+			</div>
+		</div>
+		<!-- //leftmenu영역 -->
+		<div id="LblockBodySetter">
+			<!-- 컨텐츠영역 -->
+			<div id="LblockBody">
+				<!-- 페이지타이틀 영역 -->
+				<div id="LblockPageHeader">
+					<div id="LblockPageTitle">
+						<h1>작업일정관리</h1>
+					</div>
+					<div id="LblockPageLocation">
+						<ul>
+							<li class="Lfirst"><span><a href="#">HOME</a></span></li>
+							<li><span><a href="#">VM작업관리</a></span></li>
+							<li class="Llast"><span>작업일정관리</span></li>
+						</ul>
+					</div>
+				</div>
+				<!-- //페이지타이틀 영역 -->
+				<!-- 페이지내용영역 -->
+				<div id="LblockBodyMain">
+					<!-- 서브 타이틀 -->
+					<div id="LblockPageSubtitle01" class="LblockPageSubtitle">
+						<h2>서브타이틀</h2>
+						<span class="h2sub">
+							<span>*비밀번호는 8자 이상 영문 숫자</span>
+						</span>
+					</div>
+					<!-- //서브타이틀 -->
+					<!-- 해딩 버튼 -->
+					<div class="header_btn">
+						<img src="../images/btn_useGuide.gif" alt="상품이용가이드" />
+						<img src="../images/btn_placeInfo.gif" alt="가격정보" />
+					</div>
+					<!-- //해딩 버튼 -->
+					<!-- box 영역 -->
+					<div id="LblockTextBox">
+						<p>VM의 구성항목을 조합하여 선택하시면 예상비용이 합산되어 보여집니다. 네트워크 방화벽 및  SSL VPN은 기본서비스로 제공됩니다.</p>
+					</div>
+					<!-- //box 영역 -->
+					<!-- 검색 -->
+					<div id="LblockSearch">
+						<div id="SearchFront">
+							<form method="get" action="">
+								<table summary="작업일정 검색조건">
+									<caption>작업일정 검색조건</caption>
+									<colgroup>
+										<col width="" />
+										<col width="" />
+										<col width="" />
+										<col width="" />
+									</colgroup>
+									<tbody>
+									<tr>
+										<th><label for="sEmpNo">상태</label></th>
+										<td>
+											<select id="sEmpLevel">
+												<option value="01">사용중</option> 
+												<option value="02">사용안함</option> 
+											</select> 
+										</td>
+										<th><label for="sEmpNm">상품분류</label></th>
+										<td>
+											<select id="sEmpLevel_01">
+												<option value="01">사용중</option> 
+												<option value="02">사용안함</option> 
+											</select>
+										</td>
+										<th><label for="sEmpNo">시작일</label></th>
+										<td>
+											<input type="text" class="Ltext" id="sDateFrom" size="10" /> <a href="#" onclick="dui.Calendar.open('sDateFrom'); return false;"><img class="Lbtn" src="../images/btn_icon_calendar.gif" alt="날짜" /></a>
+											~
+											<input type="text" class="Ltext" id="sDateTo" size="10" /> <a href="#" onclick="dui.Calendar.open('sDateTo'); return false;"><img class="Lbtn" src="../images/btn_icon_calendar.gif" alt="날짜" /></a>
+										</td>
+										<th><label for="sEmpNo">서버명</label></th>
+										<td>
+											<input type="text" class="Ltext" id="sEmpLevel" size="11"><a href="#" onclick="return false;"><img class="Lbtn" src="../images/btn_icon_search.gif" alt="검색" /></a></input>
+										</td>
+									</tr>
+									
+									</tbody>
+								</table>
+								<input type="image" class="Limage" src="../images/btn_search.gif" />
+							</form>
+						</div>
+					</div>
+					<!-- //검색 -->
+					<!-- Tab버튼영역 -->
+					<div id="LblockTab01" class="LblockTab">
+						<ul class="Lclear">
+							<li class="Lfirst Lcurrent"><span><a href="#LblockDetail01">탭버튼</a></span></li>
+							<li><span><a href="#LblockDetail02">탭버튼</a></span></li>
+							<li><span><a href="#LblockDetail02">탭버튼</a></span></li>
+							<li class="Llast"><span><a href="#LblockDetail02">탭버튼</a></span></li>
+						</ul>
+					</div>
+					<!-- //Tab버튼영역 -->
+					<!-- subTab버튼영역 -->
+					<div id="LblockTab02" class="LblocksubTab">
+						<ul class="Lclear">
+							<li class="Lfirst"><span><a href="#LblockDetail01">탭버튼</a></span></li>
+							<li><span><a href="#LblockDetail03">탭버튼</a></span></li>
+							<li><span><a href="#LblockDetail04">탭버튼</a></span></li>
+							<li class="Llast Lcurrent"><span><a href="#LblockDetail05">탭버튼</a></span></li>
+						</ul>
+					</div>
+					<!-- //Tab버튼영역 -->
+					<!-- 서브 타이틀 -->
+					<div id="LblockPageSubtitle01" class="LblockPageSubtitle">
+						<h2>서브타이틀</h2>
+					</div>
+					<!-- //서브타이틀 -->
+					<div class="header_btn">
+						<span class="btn_type1"><a href="#" class="travel_info">요금즉시납부</a></span>
+					</div>
+					<!-- text영역 -->
+					<div class="txtBox">
+						<div class="txtBoxFront">
+							<p>VM의 구성항목을 조합하여 선택하시면 예상비용이 합산되어 보여집니다. 네트워크 방화벽 및  SSL VPN은 기본서비스로 제공됩니다.<br />VM의 구성항목을 조합하여 선택하시면 예상비용이 합산되어 보여집니다. 네트워크 방화벽 및  SSL VPN은 기본서비스로 제공됩니다.</p>
+						</div>
+					</div>
+					<!-- //text영역 -->
+					<!-- 리스트테이블 -->
+					<div id="LblockListTable01" class="LblockListTable">
+						<div class="Lwrapper">
+							
+							<table summary="사원 리스트">
+								<caption>사원 리스트</caption>
+								<thead>
+								<tr>
+									<th class="Lfirst"><input type="checkbox" class="Lcheckbox" /></th>
+									<th>시험유형</th>
+									<th>사용자유형</th>
+									<th>작업유형</th>
+									<th>작업예정일</th>
+									<th>대상건수</th>
+									<th>시험상태</th>
+									<th class="Llast">작성일</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr class="Lfirst">
+									<td class="Lfirst"><input type="checkbox" class="Lcheckbox" /></td>
+									<td>모의고사2차</td>
+									<td>수험생VM</td>
+									<td>2011.12.10 <a class="Lbtn3" href="#"><span onclick="doSomething();">일정변경</span></a></td>
+									<td>15,000</td>
+									<td>예정 (2011.01.01 ~ 2011.02.01)</td>
+									<td>2011.12.01</td>
+									<td class="Llast">2011.12.01</td>
+								</tr>
+								<tr class="Leven">
+									<td class="Lfirst"><input type="checkbox" class="Lcheckbox" /></td>
+									<td>모의고사2차</td>
+									<td>수험생VM</td>
+									<td>2011.12.10 <a class="Lbtn3" href="#"><span onclick="doSomething();">일정변경</span></a></td>
+									<td>15,000</td>
+									<td>예정 (2011.01.01 ~ 2011.02.01)</td>
+									<td>2011.12.01</td>
+									<td class="Llast">2011.12.01</td>
+								</tr>
+								<tr>
+									<td class="Lfirst"><input type="checkbox" class="Lcheckbox" /></td>
+									<td>모의고사2차</td>
+									<td>수험생VM</td>
+									<td>2011.12.10 <a class="Lbtn3" href="#"><span onclick="doSomething();">일정변경</span></a></td>
+									<td>15,000</td>
+									<td>예정 (2011.01.01 ~ 2011.02.01)</td>
+									<td>2011.12.01</td>
+									<td class="Llast">2011.12.01</td>
+								</tr>
+								<tr class="Leven">
+									<td class="Lfirst"><input type="checkbox" class="Lcheckbox" /></td>
+									<td>모의고사2차</td>
+									<td>수험생VM</td>
+									<td>2011.12.10 <a class="Lbtn3" href="#"><span onclick="doSomething();">일정변경</span></a></td>
+									<td>15,000</td>
+									<td>예정 (2011.01.01 ~ 2011.02.01)</td>
+									<td>2011.12.01</td>
+									<td class="Llast">2011.12.01</td>
+								</tr>
+								<tr>
+									<td class="Lfirst"><input type="checkbox" class="Lcheckbox" /></td>
+									<td>모의고사2차</td>
+									<td>수험생VM</td>
+									<td>2011.12.10 <a class="Lbtn3" href="#"><span onclick="doSomething();">일정변경</span></a></td>
+									<td>15,000</td>
+									<td>예정 (2011.01.01 ~ 2011.02.01)</td>
+									<td>2011.12.01</td>
+									<td class="Llast">2011.12.01</td>
+								</tr>
+								<tr class="Leven">
+									<td class="Lfirst"><input type="checkbox" class="Lcheckbox" /></td>
+									<td>모의고사2차</td>
+									<td>수험생VM</td>
+									<td>2011.12.10 <a class="Lbtn3" href="#"><span onclick="doSomething();">일정변경</span></a></td>
+									<td>15,000</td>
+									<td>예정 (2011.01.01 ~ 2011.02.01)</td>
+									<td>2011.12.01</td>
+									<td class="Llast">2011.12.01</td>
+								</tr>
+								<tr>
+									<td class="Lfirst"><input type="checkbox" class="Lcheckbox" /></td>
+									<td>모의고사2차</td>
+									<td>수험생VM</td>
+									<td>2011.12.10 <a class="Lbtn3" href="#"><span onclick="doSomething();">일정변경</span></a></td>
+									<td>15,000</td>
+									<td>예정 (2011.01.01 ~ 2011.02.01)</td>
+									<td>2011.12.01</td>
+									<td class="Llast">2011.12.01</td>
+								</tr>
+								<tr class="Leven">
+									<td class="Lfirst"><input type="checkbox" class="Lcheckbox" /></td>
+									<td>모의고사2차</td>
+									<td>수험생VM</td>
+									<td>2011.12.10 <a class="Lbtn3" href="#"><span onclick="doSomething();">일정변경</span></a></td>
+									<td>15,000</td>
+									<td>예정 (2011.01.01 ~ 2011.02.01)</td>
+									<td>2011.12.01</td>
+									<td class="Llast">2011.12.01</td>
+								</tr>
+								<tr>
+									<td class="Lfirst"><input type="checkbox" class="Lcheckbox" /></td>
+									<td>모의고사2차</td>
+									<td>수험생VM</td>
+									<td>2011.12.10 <a class="Lbtn3" href="#"><span onclick="doSomething();">일정변경</span></a></td>
+									<td>15,000</td>
+									<td>예정 (2011.01.01 ~ 2011.02.01)</td>
+									<td>2011.12.01</td>
+									<td class="Llast">2011.12.01</td>
+								</tr>
+								<tr class="Llast Leven">
+									<td class="Lfirst"><input type="checkbox" class="Lcheckbox" /></td>
+									<td>모의고사2차</td>
+									<td>수험생VM</td>
+									<td>2011.12.10 <a class="Lbtn3" href="#"><span onclick="doSomething();">일정변경</span></a></td>
+									<td>15,000</td>
+									<td>예정 (2011.01.01 ~ 2011.02.01)</td>
+									<td>2011.12.01</td>
+									<td class="Llast">2011.12.01</td>
+								</tr>
+								</tbody>
+							</table>
+							<!-- paging -->
+							<ul>
+								<li class="Lprevious"><span><a href="#" onclick="doSomething(); return false;"><img src="../images/list_page_previous.gif" alt="이전페이지" /></a></span></li>
+								<li class="Lfirst"><span>11</span></li>
+								<li><span><a href="#" onclick="doSomething(); return false;">12</a></span></li>
+								<li><span><a href="#" onclick="doSomething(); return false;">13</a></span></li>
+								<li><span><a href="#" onclick="doSomething(); return false;">14</a></span></li>
+								<li><span><a href="#" onclick="doSomething(); return false;">15</a></span></li>
+								<li><span><a href="#" onclick="doSomething(); return false;">16</a></span></li>
+								<li><span><a href="#" onclick="doSomething(); return false;">17</a></span></li>
+								<li><span><a href="#" onclick="doSomething(); return false;">18</a></span></li>
+								<li><span><a href="#" onclick="doSomething(); return false;">19</a></span></li>
+								<li class="Llast"><span><a href="#" onclick="doSomething(); return false;">20</a></span></li>
+								<li class="Lnext"><span><a href="#" onclick="doSomething(); return false;"><img src="../images/list_page_next.gif" alt="다음페이지" /></a></span></li>
+							</ul>
+							<!-- //paging -->
+							<!-- 리스트현황 -->
+							<div class="LblockListInfo">
+								<span class="Ltotal">총<strong>45</strong>건 <strong>1</strong>/<strong>4</strong>화면</span>
+							</div>
+							<!-- //리스트현황 -->
+						</div>
+					</div>
+					<!-- //리스트테이블 -->
+					<!-- 리스트테이블 -->
+					<div id="LblockDetail01" class="LblockDetail">
+						<table summary="사원 상세정보">
+							<caption>사원 상세정보</caption>
+							<tbody>
+								<tr>
+									<th><label for="dEmpNm2">사원명</label></th>
+									<td><input id="dEmpNm2" name="dEmpNm2" type="text" class="Ltext" value="임꺽정" /></td>
+									<th>사번</th>
+									<td><input id="dEmpNo2" name="dEmpNo2" type="text" class="Ltext" value="66103" /></td>
+								</tr>
+								<tr>
+									<th>생년월일</th>
+									<td>1970.08.20(+)</td>
+									<th>최종학력</th>
+									<td>대졸</td>
+								</tr>
+								<tr>
+									<th>사무실 전화번호</th>
+									<td>02-6363-0923</td>
+									<th>핸드폰 번호</th>
+									<td>019-434-6724</td>
+								</tr>
+								<tr>
+									<th><label for="dEmpDate">입사일</label></th>
+									<td><input id="dEmpDate" name="dEmpDate" type="text" class="Ltext" value="1999.12.16" /> <a href="#" onclick="dui.Calendar.open('dEmpDate'); return false;"><img class="Lbtn" src="../images/btn_icon_calendar.gif" alt="날짜" /></a></td>
+									<th>기술등급</th>
+									<td>
+										<input type="radio" class="Lradio" id="dEmpSkillLevel2_1" name="dEmpSkillLevel" /><label for="dEmpSkillLevel2_1">초급</label>
+										<input type="radio" class="Lradio" id="dEmpSkillLevel2_2" name="dEmpSkillLevel" checked="checked" /><label for="dEmpSkillLevel2_2">중급</label>
+										<input type="radio" class="Lradio" id="dEmpSkillLevel2_3" name="dEmpSkillLevel" /><label for="dEmpSkillLevel2_3">고급</label>
+									</td>
+								</tr>
+								<tr>
+									<th>집 주소</th>
+									<td colspan="3">서울특별시 광진구 자양동 현대그린빌 A동 308호 <a class="Lbtn4" href="#"><span onclick="doSomething();">변경</span></a></td>
+								</tr>
+								<tr>
+									<th>기타사항</th>
+									<td colspan="3"><textarea cols="70" rows="5"></textarea></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- //리스트테이블 -->
+					<div id="LblockSubbutton01" class="LblockSubbutton">
+						<a class="Lbtn2" href="#"><span onclick="doSomething();">저장</span></a>
+						<a class="Lbtn2" href="#"><span onclick="doSomething();">취소</span></a>
+					</div>
+					<!-- 페이지버튼영역 -->
+					<div id="LblockButton">
+						<a class="Lbtn" href="#"><span onclick="doSomething();">저장</span></a>
+						<a class="Lbtn" href="#"><span onclick="doSomething();">취소</span></a>
+					</div>
+					<!-- //페이지버튼영역 -->
+					<!-- 페이지버튼영역 -->
+					<div id="LblockCenterButton">
+						<a class="Lbtn4" href="#"><span onclick="doSomething();">명의변경신청</span></a>
+					</div>
+					<!-- //페이지버튼영역 -->
+				</div>
+				<!-- 페이지내용영역 -->
+			</div>
+			<!-- //컨텐츠영역 -->
+		</div>
+	</div>
+	<hr />
+	<!-- footer영역 -->
+	<div id="LblockFooter">
+		<div id="LblockFooterIn" class="Lclear">
+			<div id="LblockFooterLogo">
+				<a href="#"><img src="../images/footerLogo.gif" alt="(주)엘림넷" /></a>
+			</div>
+			<div id="LblockFooterSetter">
+				<div id="LblockFooterBody">
+					<ul id="LblockFooterMenu">
+						<li class="Lfirst"><a href="#"><img src="../images/footerMenu_01.gif" alt="회사소개" /></a></li>
+						<li><a href="#"><img src="../images/footerMenu_02.gif" alt="서비스약관" /></a></li>
+						<li><a href="#"><img src="../images/footerMenu_03.gif" alt="개인정보취급방침" /></a></li>
+						<li><a href="#"><img src="../images/footerMenu_04.gif" alt="FAQ" /></a></li>
+						<li><a href="#"><img src="../images/footerMenu_05.gif" alt="Q&A" /></a></li>
+						<li><a href="#"><img src="../images/footerMenu_06.gif" alt="제휴문의" /></a></li>
+					</ul>
+					<address><img src="../images/address.gif" alt="서울시 서대문구 충정로3가 32-11 엘림넷빌딩  사업자등록번호: 220-81-97656  개인정보 관리책임자: 송태호 부장 (thshong@elim.net)" /></address>
+					<p><img src="../images/copyright.gif" alt="Copyright (C) 2012 BY ELIMNET CO.,LTD. ALL RIGHTS RESERVED." /></p>
+				</div>
+			</div>
+			<div id="LblockFooterHelp"><img src="../images/callservice.gif" alt="고객지원센터 TEL:02-3149-4900 FAX:02-3149-4998" /></div>
+		</div>
+	</div>
+	<!-- //footer영역 -->
+</div>
+</body>
+</html>

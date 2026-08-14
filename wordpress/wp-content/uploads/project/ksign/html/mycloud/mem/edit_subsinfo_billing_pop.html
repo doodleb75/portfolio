@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>eNETner Cloud</title>
+	<link rel="stylesheet" type="text/css" href="/ksign/../css/import.css" />
+	<script type="text/javascript" src="../../../js/jquery-1.6.1.min.js"></script>
+	<script type="text/javascript" src="../../../js/jquery-ui-1.8.16.custom.min.js"></script>
+	<script type="text/javascript" src="../../../js/dui_prototype.js"></script>
+	<script type="text/javascript" src="../../../js/dui_effect.js"></script>
+	<script type="text/javascript" src="../../../js/dui_dragndrop.js"></script>
+	<script type="text/javascript" src="../../../js/dui_hhmenu.js"></script>
+	<script type="text/javascript" src="../../../js/dui_tree.js"></script>
+	<script type="text/javascript" src="../../../js/dui_slidemenu.js"></script>
+	<script type="text/javascript" src="../../../js/dui_tab.js"></script>
+	<script type="text/javascript" src="../../../js/dui_calendar.js"></script>
+	<script type="text/javascript" src="../../../js/common.js"></script>
+	<script type="text/javascript" src="../../../js/shell_mycloud.js"></script>
+	<style type="text/css">
+	body { background-image:none !important }
+	</style>
+</head>
+<body>
+<div class="LpageEditCompanyInfo-Sep" style="padding:10px">
+	<div class="content form-switch">
+		<h3>납부방법 변경</h3>
+		<div class="LBoxLine radio-select">
+			<input type="radio" name="transferTo" id="bill-to-email" value="1" checked="checked" /><label for="bill-to-email">이메일 청구</label>
+			<input type="radio" name="transferTo" id="bill-to-giro" value="2" /><label for="bill-to-giro">지로 청구</label>
+		</div>
+
+		<div id="LblockDetail01" class="LblockDetail">
+			<table summary="납부정보 내용입력">
+				<caption>납부정보 내용입력</caption>
+				<colgroup>
+					<col width="20%" />
+					<col width="25%" />
+					<col width="20%" />
+					<col width="35%" />
+				</colgroup>
+				<tbody>
+					<tr>
+						<th><label for="sEmpDepart">이메일 주소</label></th>
+						<td colspan="3">
+							<input type="text" class="Ltext" id="sEmpDepart" size="10" />
+							@
+							<input type="text" class="Ltext" id="sEmpDepart" size="10" />
+							<select id="sEmpLevel">
+								<option value="01">직접입력</option> 
+								<option value="02">naver.com</option> 
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th rowspan="3"><label for="sEmpDepart">사업장주소</label></th>
+						<td colspan="3">
+							<input type="text" class="Ltext" id="sEmpDepart" size="5" /> - 
+							<input type="text" class="Ltext" id="sEmpDepart" size="5" /> 
+							<a class="Lbtn3" href="#"><span onclick="doSomething();">우편번호검색</span></a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<input type="text" class="Ltext" id="sEmpDepart" size="40" />
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<input type="text" class="Ltext" id="sEmpDepart" size="40" /> 상세 주소를 입력해주세요.
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<!-- 페이지버튼영역 -->
+		<div id="LblockButton">
+			<a class="Lbtn" href="#"><span onclick="doSomething();">확인</span></a>
+			<a class="Lbtn" href="#"><span onclick="doSomething();">취소</span></a>
+		</div>
+		<!-- //페이지버튼영역 -->
+	</div>
+</div>
+</body>
+</html>

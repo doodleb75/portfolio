@@ -1,0 +1,61 @@
+﻿@charset 'utf-8';
+
+/* HTML Elements
+---------------------------------------------------------*/
+* {
+	margin:0;
+	padding:0;
+}
+body {
+	font:75%/1.5em 굴림,Gulim,돋움,Dotum,Verdana,Tahoma,Arial,AppleGothic,sans-serif;
+	color:#464646;
+	background:#fff;
+}
+ul {list-style:none;}
+a:link, a:visited {color: #21528D;text-decoration: none;}
+a:hover, a:active {color: #0770FF;text-decoration: underline;}
+hr { display: none; }
+h1 { font-size:1.2em; }
+img {	border:none; vertical-align:middle; }
+img.Lbtn { cursor:pointer; padding-left:5px;}
+select, input.Ltext, textarea { 
+	font-family:Dotum;
+	font-size:1em; 
+	padding:2px;
+	border:1px solid #CCC;
+	vertical-align:middle;
+}
+input.Limage { vertical-align:middle; }
+legend { display:none; }
+fieldset { border:none; }
+
+/* Global Classes
+--------------------------------------------------------- */
+.Lclear:after {content:"."; display: block; clear: both; visibility: hidden; height: 0; font-size: 0;}
+.Lclear {display: inline-block;}
+* html .Lclear {height: 1%;}
+.Lclear {display: block;}
+
+.Lhide { position:absolute; width:0; height:0; font-size:0; line-height:0; overflow:hidden; visibility:hidden; }
+.Lnodisplay { display:none; }
+.LtextLeft { text-align:left !important; }
+.LtextCenter { text-align:center !important; }
+.LtextRight { text-align:right !important; }
+
+
+/* 텍스트 (레드) 컬러 추가
+--------------------------------------------------*/
+.txtRed {color:#de0a0a !important; font-weight:bold;}
+
+/* 텍스트sub
+--------------------------------------------------*/
+.txtSub {color:#aaa !important; font-size:90%;}
+
+/* Block : bullet 
+---------------------------------------------------------*/
+.txt_bul {background:url(../../images/bul_import.gif) no-repeat 2px 7px; padding:5px 0 2px 16px; margin:0; color:#777777; line-height:120%; font-size:95%;}
+
+
+/* Block : bullet 
+------------------------------------------------------*/
+.importTxt {font-size:130%; color:#ff0000;text-align:left;padding:20px 0;}

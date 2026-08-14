@@ -1,0 +1,141 @@
+*{margin:0;padding:0}
+html, body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin:0;
+	overflow: hidden;
+	font-size: 0.9em; 
+	font-family: Verdana, Arial, sans-serif;
+}
+.north, .south, .west, .east, .center {
+	display: inline-block;
+	background-color: #F8F8F8;
+}
+.north {
+	height: 50px; 
+	background-color: #3F3F3F;
+	border-bottom: 1px solid black;
+}
+.south {
+	height: 2em;
+	background-color: #3F3F3F;
+	border-top: 1px solid black;
+	font-size: 0.65em;
+	color: rgb(200, 200, 200);
+	padding: 0.5em 2em;
+}
+.east {
+	width: 25em;				
+	height: 100%;
+	font-size: 0.78em;
+}
+.west {
+	width: 20em;
+	font-size: 0.78em;
+}
+.ui-resizable-handle {
+	background-color: #BBBBBB;
+	border-left: 1px solid #9A9A9A;
+	border-right: 1px solid #9A9A9A;
+}
+.ui-resizable-handle:hover {
+	background-color: #bbbbcd;
+	border-left: 1px solid #afafc0;
+	border-right: 1px solid #afafc0;
+}
+.ui-resizable-e {
+    right: -6px;
+	width: 4px;
+}
+.ui-resizable-helper-west {
+	border-right: 6px solid #bbbbcd;
+}
+.ui-resizable-helper-east {
+	border-left: 6px solid #bbbbcd;
+}
+.ui-resizable-w {
+    left: -6px;
+	width: 4px;
+}
+.ui-resizable-e {
+    right: -6px;
+	width: 4px;
+}
+.ui-resizable-helper-east {
+	border-right: 6px solid #bbbbcd;
+}
+.center {
+	font-size: 0.9em;
+	overflow: auto;
+	background-color: white;
+}
+.ui-tabs {
+	padding: 0em;
+	border: none;
+}
+.ui-tabs-nav {
+	border-left: none;
+	border-right: none;
+}
+.west .panel {
+	width: 15em;
+	display: inline-block;
+	overflow: auto;
+}
+.panel p {
+	margin: 1em;
+}
+a {
+	color: lightblue;
+}
+.north h1 {
+	font-size: 1em;
+	color: white;
+	padding-left: 1em;
+}
+#eq span {
+	font-size: 0.6em;
+	height: 120px;
+	float: left;
+	margin: 15px; 
+}
+
+#progressbar {
+	font-size: 0.6em;
+	margin: 1em;
+}
+
+#datepicker {
+	margin: 0.5em;
+	font-size: 0.78em;
+}
+ul { 
+	margin:0; padding:0; 
+	list-style: none;
+} 
+.lmenu{
+	cursor:pointer;
+}
+/**Tab Style**/
+.main_tab_ul{
+	height:30px;
+	font-size:13px;
+}
+.main_tab_li{
+
+}
+
+
+.life_contents_title{
+	margin: 6px 0 5px;
+}
+.line_block{
+	border-top: 1px solid #EAEAEA;
+    height: 31px;
+    position: relative;
+}
+.ui-widget-content
+{
+	background: #ffffff;
+}

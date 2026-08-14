@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title> new document </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<script src="js/insertFlash.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+<!--header-->
+<div id="header">
+  <div id="h_box">
+    <div class="h_left"></div>
+    <div class="h_right"></div>
+  </div>
+  
+  <!--로고영역-->
+  <div class="logo_area"><a href=""><img src="images/mon_logo.gif" alt="모니터링시스템" title="모니터링시스템"/></a></div>
+  <!--//로고영역-->
+
+  <!--상단메뉴-->
+  <div class="top_menu">
+   
+   <div class="m_menu" style="width:650px;">
+     <ul>
+	   <li><a href="" title="모니터링"><img src="images/icon_monitor.png" alt="" title=""/>모니터링</a></li>
+	   <li><a href=""><img src="images/icon_system.png" alt="" title=""/>운행관리</a></li>
+	   <li><a href=""><img src="images/icon_system.png" alt="" title=""/>시스템</a></li>
+	   <li><a href=""><img src="images/icon_search.png" alt="" title=""/>장애이력조회</a></li>
+	   <li><a href="" class="last"><img src="images/icon_message.png" alt="" title=""/>긴급메시지</a></li>
+	 </ul>
+   </div>
+
+<!-- 모니터링 서브메뉴-->
+   <!--div class="s_menu" style="width:700px;">
+      <ul>
+	   <li><a href="" class="system">시스템 상태</a><span class="s_line"></span></li>
+	   <li><a href="" class="five">5호선 운행현황</a><span class="s_line"></span></li>
+	   <li><a href="" class="six">6호선 운행현황</a><span class="s_line"></span></li>
+	   <li><a href="" class="seven">7호선 운행현황</a><span class="s_line"></span></li>
+	   <li><a href="" class="eight">8호선 운행현황</a></li>
+	 </ul>
+   </div-->
+<!-- //모니터링 서브메뉴-->
+
+<!-- 운행관리 서브메뉴-->
+   <!--div class="s_menu" style="width:420px;">
+      <ul>
+	   <li><a href="" class="system">DIA 조회</a><span class="s_line"></span></li>
+	   <li><a href="" class="system">운행실적 조회</a><span class="s_line"></span></li>
+	   <li><a href="" class="system">TTC로그 조회</a></li>
+	 </ul>
+   </div-->
+<!-- //운행관리 서브메뉴-->
+
+<!-- 장애이력조회 서브메뉴-->
+   <!--div class="s_menu" style="width:820px;">
+      <ul>
+	   <li><a href="" class="system">IT 관리센터 장애 이력</a><span class="s_line"></span></li>
+	   <li><a href="" class="five">5호선 장애이력</a><span class="s_line"></span></li>
+	   <li><a href="" class="six">6호선 장애이력</a><span class="s_line"></span></li>
+	   <li><a href="" class="seven">7호선 장애이력</a><span class="s_line"></span></li>
+	   <li><a href="" class="eight">8호선 장애이력</a></li>
+	 </ul>
+   </div-->	
+<!-- //장애이력조회 서브메뉴-->
+
+<!-- 시스템 서브메뉴-->
+   <!--div class="s_menu" style="width:1000px;">
+      <ul>
+	   <li><a href="" class="system">사용자 관리</a><span class="s_line"></span></li>
+	   <li><a href="" class="system">기술관리소 관리</a><span class="s_line"></span></li>
+	   <li><a href="" class="system">역정보 관리</a><span class="s_line"></span></li>
+	   <li><a href="" class="system">게시기 관리</a><span class="s_line"></span></li>
+	   <li><a href="" class="system">승강장 표출문구 관리</a><span class="s_line"></span></li>
+	   <li><a href="" class="system">승강장 시나리오 관리</a><span class="s_line"></span></li>
+	   <li><a href="" class="system">로그조회</a></li>
+	 </ul>
+   </div-->
+<!-- //시스템 서브메뉴-->
+
+<!-- 긴급메시지 서브메뉴-->
+   <div class="s_menu" style="width:450px;">
+      <ul>
+	   <li><a href="" class="system">긴급 메시지</a></li>
+	 </ul>
+   </div>
+<!-- //긴급메시지 서브메뉴-->
+
+
+  </div>
+  <!--//상단메뉴-->
+
+  <!--상단 오른쪽-->
+  <div id="header_right">
+    <div class="admin">
+	 <span class="admin_bool"><img src="images/admin_bool.gif" alt="" title=""/><strong>admin</strong>님 반갑습니다.</span>
+	 <span class="logout_btn"><a href=""><img src="images/btn_logout.gif" alt="로그아웃 버튼" title="로그아웃"/></a></span>
+	</div>
+	<div class="clock">00:00:00</div>
+	<div class="small_logo"><a href=""><img src="images/5678_logo.gif" alt="5678도시철도 로고" title="5678도시철도" /></a></div>
+  </div>
+  <!--//상단 오른쪽-->
+</div>
+<!--//header-->
+
+<!--contents-->
+<div id="contents">
+  <div class="con_box">
+  <!--img src="images/sample_img.gif"-->
+  <!--img src="images/Line5-ver2.png"-->
+  <script type="text/javascript"> 
+  insertFlash("ui_guide.swf", "1903px", "912px", "", "","");
+  </script>
+
+  </div>
+</div>
+<!--//contents-->
+
+<div id="bg_left"></div>
+<div id="bg_right"></div>
+
+<!--footer-->
+<div id="footer">
+  <div id="f_box">
+    <div class="f_left"></div>
+    <div class="f_right"></div>
+  </div>
+</div>
+<!--//footer-->
+</body>
+</html>

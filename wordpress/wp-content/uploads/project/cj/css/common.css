@@ -1,0 +1,152 @@
+body{
+	overflow: auto;
+}
+.ui-autocomplete {
+	max-height: 200px; 
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding-right: 20px;
+}
+.md_main_loadding{display:none;}
+.hide{display:none;}
+#menuContainer { 
+	position: relative;
+	height : 25px;
+	padding : 5px;
+	background-color: #eeeeee;
+	border-top : 1px solid #f8f8f8;
+	border-left: 1px solid #f8f8f8;
+	border-bottom : 1px solid #808080;
+	border-right : 1px solid #808080;
+} 
+
+.ms-ul{list-style:none; margin:0;padding:0;}
+.ms-li{list-style:none; margin-top:1px;}
+/* COMBOBOX CSS*/
+.ms-button { display: inline-block; position: relative; padding: 0; margin-left: .1em; margin-right: .1em; text-decoration: none !important; cursor: pointer; text-align: center; zoom: 1; overflow: visible; } /* the overflow property removes extra width in IE */
+#btnContainer {
+	position: relative;
+	margin-top: 5px;
+	padding : 5px;
+	height : 25px;
+}
+
+#mainContainer {
+	position: relative;
+	overflow: auto;
+	margin-top: 5px;
+}
+
+/* devfuner add start*/
+
+.gridContainer {
+	position: relative;
+	overflow: auto;
+	margin-top: 5px;
+}
+
+.btnContainer {
+	position: relative;
+	margin-top: 5px;
+	padding : 5px;
+	height : 25px;
+}
+/* devfuner add end */
+
+.label {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+ 
+/* POPUP CSS*/
+.popup_back{
+	display:none;
+	position:fixed;
+	_position:absolute; /* hack for internet explorer 6*/
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	background:#000000;
+	border:1px solid #cecece;
+}
+.popup_layer{
+	/* overflow:auto; */
+	display:none;
+	position:fixed;
+	_position:absolute; /* hack for internet explorer 6*/
+	border:1px solid #cecece;
+	padding:10px 10px 10px 10px;   
+	font-size:13px;
+	background:#FFFFFF;
+	box-sizing: border-box; /* 박스 사이즈 포함 정도 */
+	border-radius: 20px; /* 모깎기 - 왼쪽 위, 오른쪽 위, 오른쪽 아래, 왼쪽 아래 */
+	border: 2px solid #fff; /* 선 - 두께, 스타일, 컬러 */
+	
+}
+/* Jeong Chan Myeong(dece24@gmail.com) */
+/* Button Reset */
+.button,
+.button a,
+.button button,
+.button input { position:relative; margin:0; display:-moz-inline-stack; display:inline-block; text-decoration:none !important; border:0; font-size:12px; white-space:nowrap; background:url(../images/buttonWhite.gif) no-repeat; overflow:visible; color:#333;}
+.button { height:23px; padding:0; vertical-align:middle; margin-right:2px; background-position:left top;}
+.button a,
+.button button,
+.button input{ left:2px; vertical-align:top; cursor:pointer;}
+
+/* Button Size */
+.button.large { height:29px; background-position:left -30px; }
+.button.xLarge { height:35px; background-position:left -65px; }
+.button.small { height:18px; background-position:left -107px; }
+.button a,
+.button button,
+.button input { height:23px; padding:0 10px 0 8px; font-size:12px; line-height:23px; background-position:right top;}
+.button.large a,
+.button.large button,
+.button.large input { height:30px; padding:0 10px 0 8px; font-size:16px; line-height:29px; background-position:right -30px;}
+.button.xLarge a,
+.button.xLarge button,
+.button.xLarge input { height:35px; padding:0 10px 0 8px; font-size:20px; line-height:35px; background-position:right -65px;}
+.button.small a,
+.button.small button,
+.button.small input { height:18px; padding:0 6px 0 4px; font-size:11px; line-height:18px; background-position:right -107px;}
+
+/* Button Text Color */
+.button *:hover,
+.button *:active,
+.button *:focus{ font-weight: bold;}
+.button.green,
+.button.green a,
+.button.green button,
+.button.green input { background-image:url(../images/buttonGreen.gif); color:#ffffff;}
+.button.green *:hover,
+.button.green *:active,
+.button.green *:focus{ color:#ffffff;}
+.button.black,
+.button.black a,
+.button.black button,
+.button.black input { background-image:url(../images/buttonBlack.gif); color:#ffffff;}
+.button.black *:hover,
+.button.black *:active,
+.button.black *:focus{ color:#ffffff;}
+.button.red,
+.button.red a,
+.button.red button,
+.button.red input { background-image:url(../images/buttonRed.gif); color:#ffffff;}
+.button.red *:hover,
+.button.red *:active,
+.button.red *:focus{ color:#ffffff;}
+.button.blue,
+.button.blue a,
+.button.blue button,
+.button.blue input { background-image:url(../images/buttonBlue.gif); color:#ffffff;}
+.button.blue *:hover,
+.button.blue *:active,
+.button.blue *:focus{ color:#ffffff;}
+
+/* Button Text Strong */
+.button.strong * { font-weight:bold !important;}
+li.navActive  {color:#666; background:#fff; }  
+

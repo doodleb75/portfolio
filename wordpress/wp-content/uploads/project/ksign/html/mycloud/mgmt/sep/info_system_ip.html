@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>eNETner Cloud</title>
+	<link rel="stylesheet" type="text/css" href="/ksign/../../css/import.css" />
+	<script type="text/javascript" src="../../../../js/dui_prototype.js"></script>
+	<script type="text/javascript" src="../../../../js/dui_effect.js"></script>
+	<script type="text/javascript" src="../../../../js/dui_dragndrop.js"></script>
+	<script type="text/javascript" src="../../../../js/dui_hhmenu.js"></script>
+	<script type="text/javascript" src="../../../../js/dui_tree.js"></script>
+	<script type="text/javascript" src="../../../../js/dui_slidemenu.js"></script>
+	<script type="text/javascript" src="../../../../js/dui_tab.js"></script>
+	<script type="text/javascript" src="../../../../js/dui_calendar.js"></script>
+	<script type="text/javascript" src="../../../../js/common.js"></script>
+	<style type="text/css">
+	body { background-image:none !important }
+	</style>
+</head>
+
+<body>
+<div style="padding:10px">
+	<div class="content">
+		<h3>아이피정보</h3>
+		<div class="LBoxLine">
+			아이피선택 : 
+			<select id="sEmpLevel">
+				<option value="01">100.22.222.111</option>
+				<option value="02">1.33.222.111</option>
+				<option value="03">1.33.222.111</option>
+			</select>
+		</div>
+		<!-- 리스트테이블 -->
+		<div id="LblockListTable01" class="LblockListTable">
+			<div class="Lwrapper">
+			<table summary="방화벽 종류 선택">
+				<caption>방화벽 종류 선택</caption>
+				<colgroup>
+					<col width="80" />
+					<col width="120" />
+					<col width="150" />
+				</colgroup>
+				<tbody>
+				<tr>
+					<th rowspan="3">IP정보</th>
+					<th>IPAddress</th>
+					<td>100.22.222.111</td>
+				</tr>
+				<tr>
+					<th>Subnet mask</th>
+					<td>100.22.222.111</td>
+				</tr>
+				<tr>
+					<th>Default G/W</th>
+					<td>100.22.222.111</td>
+				</tr>
+				</tbody>
+			</table>
+			</div>
+		</div>
+		<!-- //리스트테이블 -->
+		<!-- 페이지버튼영역 -->
+		<div id="LblockButton">
+			<a class="Lbtn" href="#"><span onclick="doSomething();">신청</span></a>
+			<a class="Lbtn" href="#"><span onclick="doSomething();">닫기</span></a>
+		</div>
+		<!-- //페이지버튼영역 -->
+	</div>
+</div>
+</body>
+</html>

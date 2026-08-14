@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+/*
+Filename : /css/layout.css
+Data : 2011-12-01
+Copyright : www.elim.net Jang-Woong
+Charset : utf-8
+*/
+
+
+/* 리스트스타일1 */
+ul.listStyle li{background:url(/images/portal/bullet/bu_square.gif) left 5px no-repeat; padding-left:10px; line-height:1.4em}
+ul.listStyle li ul.innerList li{background:url(/images/portal/bullet/bu_hyphen.gif) left 6px no-repeat; padding-left:10px}
+ul.listStyle li ul.innerList{margin:15px 0}
+.orange{color:#fd4c0d}
+
+/* FAQ 리스트 */
+.faqList{background:url(/images/portal/board/bg_th.gif) left top no-repeat}
+.faqList table{table-layout:fixed}
+.faqList th{height:39px}
+.faqList td{word-break:break-all; word-wrap:break-word; white-space:normal; text-align:center; line-height:1em}
+.faqList td span.title{color:#646464}
+.faqList td.brdB{border-bottom:1px solid #dcdcdc}
+.faqList td.num{vertical-align:top; padding-top:8px}
+.faqList td.num span{display:inline-block; width:100%; padding:0 0 8px 0; border-bottom:1px solid #dcdcdc}
+.faqList td.subject{text-align:left}
+.faqList .faqQ{background:url(/images/portal/icon/icon_q.gif) left 6px no-repeat; padding:8px 0 8px 25px; border-bottom:1px solid #dcdcdc}
+.faqList .faqA{background:url(/images/portal/icon/icon_a.gif) left 14px no-repeat; padding:15px 0 15px 25px; line-height:1.4em; display:none}
+
+/* 테이블스타일 */
+.tableStyle{border-top:2px solid #fe4e12}
+.tableStyle th{border-right:1px solid #dcdcdc; border-bottom:1px solid #dcdcdc; background-color:#fafafa; padding:4px 10px; color:#8c8c8c; font-weight:normal; text-align:left}
+.tableStyle td{border-right:1px solid #dcdcdc; border-bottom:1px solid #dcdcdc; padding:4px 10px; color:#8c8c8c}
+.tableStyle tr.notInput td{padding:8px 10px}
+.tableStyle td .comment{display:inline-block; vertical-align:middle; font-size:.9em; color:#c8c8c8; line-height:1.3em}
+.tableStyle td ul.comment li{padding:2px 0}
+.tableStyle td.last{border-right:none}
+.text_pilsoo{color:#8c8c8c; float:right; font-weight:normal}
+.notice{color:#fd4c0d; font-size:.9em; padding-top:10px}
+
+/* 테이블스타일2 */
+.tableStyle2{border-top:2px solid #fe4e12}
+.tableStyle2 th{border-right:1px solid #dcdcdc; border-bottom:1px solid #dcdcdc; background-color:#fafafa; padding:9px 0 8px 0; color:#646464}
+.tableStyle2 td{border-right:1px solid #dcdcdc; padding:4px 10px; color:#8c8c8c}
+.tableStyle2 .last{border-right:none}
+.commonList li{margin:5px 0 15px 0}
+.commonList li.last{margin-bottom:5px}
+
+/* 게시판 리스트 */
+.listTable{background:url(/images/portal/board/bg_th.gif) left top no-repeat}
+.listTable table{table-layout:fixed}
+.listTable th{height:39px}
+.listTable td{word-break:break-all; word-wrap:break-word; white-space:normal; border-bottom:1px solid #dcdcdc; padding:8px 0; text-align:center}
+.listTable td span.title{color:#646464}
+.listTable td.subject{text-align:left}
+.listTable td .icon{margin:-2px 3px -2px 0}
+
+/* 게시판 보기 */
+.viewTable table{border-top:2px solid #fe4e12; table-layout:fixed}
+.viewTable .thArea th,.viewTable .thArea td{border-top:1px solid #8c8c8c; border-bottom:1px solid #dcdcdc}
+.viewTable .title{font-weight:normal; color:#fd4c0d}
+.viewTable th{text-align:left; padding:10px 20px}
+.viewTable td{word-break:break-all; word-wrap:break-word; white-space:normal; border-bottom:1px solid #dcdcdc; padding:8px 0; text-align:left}
+.viewTable td.viewText{padding:40px 20px; line-height:1.4em}
+.viewTable td span.title{color:#646464}
+.viewTable td.subject{text-align:left}
+.viewTable td .icon{margin:-2px 3px -2px 0}
+
+/* 이전글 다음글 */
+.prev_next{border-top:1px solid #dcdcdc; margin-top:28px}
+.prev_next dt{border-bottom:1px solid #dcdcdc; float:left; width:70px; text-align:center; height:25px; padding-top:15px; font-size:0}
+.prev_next dd{border-bottom:1px solid #dcdcdc; margin-left:70px; height:25px; padding-top:15px}

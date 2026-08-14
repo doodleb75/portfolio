@@ -1,0 +1,39 @@
+h_main.swf Movie Report
+
+
+
+Frame #    Frame Bytes    Total Bytes    Scene
+
+    
+    
+    
+
+      1            274            274    Scene 1 (AS 2.0 Classes Export Frame)
+
+Scene                        Shape Bytes    Text Bytes    ActionScript Bytes
+
+    
+    
+    
+
+Scene 1                              117             0                     0
+
+Symbol                       Shape Bytes    Text Bytes    ActionScript Bytes
+
+    
+    
+    
+
+Symbol 9                              37             0                     0
+Symbol 8                               0             0                     0
+Symbol 7                               0             0                     0
+Symbol 6                               0             0                     0
+Symbol 5                               0             0                     0
+Symbol 4                               0             0                     0
+Symbol 3                               0             0                     0
+Symbol 2                               0             0                     0
+Symbol 1                               0             0                     0
+
+
+
+

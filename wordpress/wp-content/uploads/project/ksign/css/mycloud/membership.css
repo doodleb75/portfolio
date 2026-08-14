@@ -1,0 +1,23 @@
+@charset 'utf-8';
+
+.form-switch .radio-select:after, .LpageQuit .form-cert:after { content:"."; display: block; clear: both; visibility: hidden; height: 0; font-size: 0 }
+.form-switch .radio-select, .LpageQuit .form-cert { *zoom:1 }
+
+/* Page : Transfer
+---------------------------------------------------------*/
+.form-switch .radio-select * { float:left }
+.form-switch .radio-select input { margin:5px 4px 4px; *margin:1px 0 0 }
+.form-switch .radio-select label { padding:2px 20px 2px 2px; cursor:pointer }
+
+/* Page : Quit
+---------------------------------------------------------*/
+.LpageQuit .form-cert .setter { float:left; width:100% }
+.LpageQuit .form-cert .cont { margin-right:15% }
+.LpageQuit .form-cert .action { float:left; width:15%; margin-left:-15%; text-align:right }
+.LpageQuit .form-cert .action .Lbtn2 { margin-right:4px }
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+<html>
+	<head><title></title></head>
+	<script language="javascript"> 
+	  <!--  
+	  function popup(s_link, n_width, n_height) { 
+		   n_left = (screen.width - n_width)/2;
+		   n_top = (screen.height - n_height)/2;
+		   args = "left="+n_left+", top="+n_top+", toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=yes, width="+n_width+", height="+n_height+"";
+		   w = window.open(s_link,"", args);
+		   w.focus();
+	  }
+	  //--> 
+	</script> 
+<style>
+	body{background:#c4dd88;}
+	h1{font:bold 26px 돋움,verdana,helvetica;}
+	h1 a{text-decoration:none;color:#4D866F;}
+</style>
+	<body>
+<table align=center height=100% border=0>
+<tr>
+  <td>
+    <h1><a href="javascript:popup('01/main.html', 976, 686);">식품영양재단</a></h1>
+</td>
+</tr>
+<table>
+		
+
+	</body>
+</html>

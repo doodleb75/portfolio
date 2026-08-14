@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>eNETner Cloud</title>
+	<link rel="stylesheet" type="text/css" href="/ksign/../css/import.css" />
+	<link rel="stylesheet" type="text/css" href="/ksign/../css/mycloud/membership.css" />
+	<style type="text/css">
+	body { background-image:none !important }
+	</style>
+</head>
+<body>
+<div class="sep-pop" style="padding:10px">
+	<div class="content">
+		<h3>기업회원 인증</h3>
+		<div class="LBoxLine radio-select">
+			<input type="radio" name="company" id="certify-personal" value="1" checked="checked" /><label for="certify-personal">개인기업</label>
+			<input type="radio" name="company" id="certify-corporation" value="2" /><label for="certify-corporation">법인기업</label>
+		</div>
+
+		<div id="LblockDetail01" class="LblockDetail">
+			<table summary="사업자등록정보입력 상세정보">
+				<caption>사업자등록정보입력 상세정보</caption>
+				<colgroup>
+					<col width="40%" />
+					<col width="*" />
+				</colgroup>
+				<tbody>
+					<tr>
+						<th><label for="sEmpDepart">사업자등록번호</label></th>
+						<td>
+							<input type="text" class="Ltext" id="sEmpDepart" size="5" /> - 
+							<input type="text" class="Ltext" id="sEmpDepart" size="5" /> - 
+							<input type="text" class="Ltext" id="sEmpDepart" size="5" />
+						</td>
+					</tr>
+					<tr>
+						<th><label for="sEmpDepart">법인명(이름)</label></th>
+						<td><input type="text" class="Ltext" id="sEmpDepart" size="30" /></td>
+					</tr>
+					<tr>
+						<th><label for="sEmpDepart">법인(주민)등록번호</label></th>
+						<td>
+							<input type="text" class="Ltext" id="sEmpDepart" size="8" /> - 
+							<input type="text" class="Ltext" id="sEmpDepart" size="10" />
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<!--//리스트테이블-->
+		<!-- 페이지버튼영역 -->
+		<div id="LblockButton">
+			<a class="Lbtn" href="status_crs_edit.html"><span onclick="doSomething();">기업인증</span></a>
+		</div>
+		<!-- //페이지버튼영역 -->
+	</div>
+</div>
+</body>
+</html>

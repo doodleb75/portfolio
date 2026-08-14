@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<title>팝업뛰우기</title>
+<script language="javascript">
+ function Wopen(){
+ 	window.open("index.html","","top=50,left=50,width=1000,height=760,scrollbars=no,status=no");
+ }
+
+</script>
+<style type="text/css">
+
+body,
+html{
+	margin: 0;
+	padding: 0;
+	overflow:  hidden;
+	height:  100%;
+	background:  #c2deef;
+
+}
+.style1 {
+	font-size: 36px;
+	font-weight: bold;
+}
+div{
+	width:  100%;
+	height:  100%;
+	display: table;
+}
+div span{
+	display:  table-cell;
+	text-align:  center;
+	vertical-align:  middle;
+}
+div span a{
+	text-decoration:  none;
+	color:  #3b7aa0;
+}
+div span a:hover{
+	color:  #255673;
+}
+</style>
+</head>
+
+<body>
+<div>
+		<span class="style1"><a href="javascript:Wopen();">Wave Jungle Go</a></span>
+</div>
+</body>
+</html>

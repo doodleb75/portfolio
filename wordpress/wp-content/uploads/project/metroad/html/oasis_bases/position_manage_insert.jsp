@@ -1,0 +1,147 @@
+<%@ page language="java"  pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" %>
+<%@ include file="../../inc/metro_dtype.jsp" %>
+<body>
+
+<div id="popBox" style="width:650px;">
+	<!-- popupBox 헤더 -->
+	<div class="pop_header">
+		<h1>매체위치정보 등록</h1>
+		<span class="p_close"><a href=""><img src="../../images/common/b_pop_close.png" alt="닫기버튼" title="닫기"/></a></span>
+	</div>
+	<!-- //popupBox 헤더 -->
+	<!-- popupBox 컨텐츠 -->
+	<div class="pop_body">
+		<div class="mass_location_regist">
+			<div class="massLocation_field">
+				<p class="no-border">
+					<span class="line">
+						<label for="호선" class="label_inline">호선</label>
+						<select name="" style="width:;">
+							<option>3호선</option>
+							<option>3호선</option>
+							<option>3호선</option>
+							<option>3호선</option>
+						</select>
+					</span>
+					<span class="station">
+						<label for="역사" class="label_inline">역사</label>
+						<select name="" style="width:140px;">
+							<option>대하(킨텍스)</option>
+							<option>대하(킨텍스)</option>
+							<option>대하(킨텍스)</option>
+							<option>대하(킨텍스)</option>
+						</select>
+					</span>
+					<span class="location">
+						<label for="위치" class="label_inline">위치</label>
+						<select name="" style="width:80px;">
+							<option>대합실</option>
+							<option>대합실</option>
+							<option>대합실</option>
+							<option>대합실</option>
+						</select>
+					</span>
+				</p>
+			</div>
+			<hr></hr>
+				<p>
+					<span class="massLocation">
+						<label for="매체위치">매체위치</label>
+						<input type="text" id="" name="" />
+					</span>
+				</p>
+				<p>
+					<span class="standard">
+						<label for="규격">규격</label>
+						<select name="" style="width:180px;">
+							<option>액자형</option>
+							<option>액자형</option>
+							<option>액자형</option>
+							<option>액자형</option>
+						</select>
+						<select name="" style="width:240px;">
+							<option>A(54cm x 39cm)</option>
+							<option>A(54cm x 39cm)</option>
+							<option>A(54cm x 39cm)</option>
+							<option>A(54cm x 39cm)</option>
+						</select>
+					</span>
+				</p>
+				<p>
+					<span class="grade">
+						<label for="등급">등급</label>
+						<select name="" style="width:;">
+							<option>SA</option>
+							<option>SA</option>
+							<option>SA</option>
+							<option>SA</option>
+						</select>
+					</span>
+				</p>
+				<p>
+					<span class="useInfo">
+						<label for="사용유무">사용유무</label>
+						<input type="radio" name="grade_radio"> <label for="사용" class="option_label">사용</label>
+						<input type="radio" name="grade_radio"> <label for="사용" class="option_label">사용정지</label>
+					</span>
+				</p>
+				<p>
+					<span class="startDate">
+						<label for="시작일자">시작일자</label>
+						<select name="" style="width:;">
+							<option>2012</option>
+							<option>2012</option>
+							<option>2012</option>
+							<option>2012</option>
+						</select>년
+						<select name="" style="width:;">
+							<option>12</option>
+							<option>12</option>
+							<option>12</option>
+							<option>12</option>
+						</select>월
+						<select name="" style="width:;">
+							<option>30</option>
+							<option>30</option>
+							<option>30</option>
+							<option>30</option>
+						</select>일
+					</span>
+
+					<span class="endDate">
+						<label for="정지일자" class="label_inline">정지일자</label>
+						<select name="" style="width:;">
+							<option>2012</option>
+							<option>2012</option>
+							<option>2012</option>
+							<option>2012</option>
+						</select>년
+						<select name="" style="width:;">
+							<option>12</option>
+							<option>12</option>
+							<option>12</option>
+							<option>12</option>
+						</select>월
+						<select name="" style="width:;">
+							<option>30</option>
+							<option>30</option>
+							<option>30</option>
+							<option>30</option>
+						</select>일
+					</span>
+				</p>
+				<p  class="no-border">
+					<label for="정지사유">정지사유</label>
+					<textarea cols=60 rows=2></textarea>
+				</p>
+		</div>
+		
+			<div class="Block_alignC">
+				<span class="button small-g strong icon"><span class="confirm"></span><a href="#" title="닫기">저장</a></span>
+				<span class="button small-g strong icon"><span class="cancel"></span><a href="#" title="닫기">닫기</a></span>
+			</div>
+	</div>
+	<!-- //popupBox 컨텐츠 -->
+</div>
+</body>
+</html>

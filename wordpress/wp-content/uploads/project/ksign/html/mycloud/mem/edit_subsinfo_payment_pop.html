@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>eNETner Cloud</title>
+	<link rel="stylesheet" type="text/css" href="/ksign/../css/import.css" />
+	<script type="text/javascript" src="../../../js/jquery-1.6.1.min.js"></script>
+	<script type="text/javascript" src="../../../js/jquery-ui-1.8.16.custom.min.js"></script>
+	<script type="text/javascript" src="../../../js/dui_prototype.js"></script>
+	<script type="text/javascript" src="../../../js/dui_effect.js"></script>
+	<script type="text/javascript" src="../../../js/dui_dragndrop.js"></script>
+	<script type="text/javascript" src="../../../js/dui_hhmenu.js"></script>
+	<script type="text/javascript" src="../../../js/dui_tree.js"></script>
+	<script type="text/javascript" src="../../../js/dui_slidemenu.js"></script>
+	<script type="text/javascript" src="../../../js/dui_tab.js"></script>
+	<script type="text/javascript" src="../../../js/dui_calendar.js"></script>
+	<script type="text/javascript" src="../../../js/common.js"></script>
+	<script type="text/javascript" src="../../../js/shell_mycloud.js"></script>
+	<style type="text/css">
+	body { background-image:none !important }
+	</style>
+</head>
+<body>
+<div class="LpageEditSubsInfo-Payment-Sep" style="padding:10px">
+	<div class="content form-switch">
+		<h3>결제방법 변경</h3>
+		<div class="LBoxLine radio-select">
+			<input type="radio" name="billTo" id="" id="select-to-card" class="sel-card" value="1" checked="checked" /><label for="select-to-card">신용카드자동이체</label>
+			<input type="radio" name="billTo" id="" id="select-to-bank" class="sel-bank" value="2" /><label for="select-to-bank">계좌자동이체</label>
+		</div>
+
+		<!-- 신용카드정보 -->
+		<div id="forms-for-card" class="LblockDetail form-section">
+			<table>
+				<caption>신용카드 정보</caption>
+				<colgroup>
+					<col width="20%" />
+					<col width="80%" />
+				</colgroup>
+				<tbody>
+				<tr>
+					<th>카드선택</th>
+					<td colspan="3">
+						<select id="sEmpLevel">
+							<option value="01">카드선택</option> 
+							<option value="02">비씨카드</option> 
+							<option value="03">우리카드</option> 
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>카드소유자</th>
+					<td colspan="3">
+						<input type="text" class="Ltext" size="11" />
+					</td>
+				</tr>
+				<tr>
+					<th>카드번호</th>
+					<td colspan="3">
+						<input type="text" class="Ltext" size="4" />
+						<input type="text" class="Ltext" size="4" />
+						<input type="text" class="Ltext" size="4" />
+						<input type="text" class="Ltext" size="4" />
+					</td>
+				</tr>
+				<tr>
+					<th>만료일</th>
+					<td colspan="3">
+						<select id="sEmpLevel">
+							<option value="01">01월</option>
+							<option value="02">02월</option>
+							<option value="03">03월</option>
+							<option value="04">04월</option>
+							<option value="05">05월</option>
+							<option value="06">06월</option>
+							<option value="07">07월</option>
+							<option value="08">08월</option>
+							<option value="09">09월</option>
+							<option value="10">10월</option>
+							<option value="11">11월</option>
+							<option value="12">12월</option>
+						</select>
+						<select id="sEmpLevel">
+							<option value="2016">2016년</option>
+							<option value="2015">2015년</option>
+							<option value="2014">2014년</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>청구일</th>
+					<td colspan="3">
+						매월 22일
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- //신용카드정보 -->
+
+		<!-- 계좌정보 -->
+		<div id="forms-for-bank" class="LblockDetail form-section">
+			<table>
+				<caption>계좌정보</caption>
+				<colgroup>
+					<col width="20%" />
+					<col width="80%" />
+				</colgroup>
+				<tbody>
+				<tr>
+					<th>은행</th>
+					<td colspan="3">
+						<select id="sEmpLevel">
+							<option value="01">은행선택</option> 
+							<option value="02">비씨카드</option> 
+							<option value="03">우리카드</option> 
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>계좌번호</th>
+					<td colspan="3">
+						<input type="text" class="Ltext" size="20" value="계좌번호는 -없이 입력"  />
+					</td>
+				</tr>
+				<tr>
+					<th>예금주</th>
+					<td colspan="3">
+						<input type="text" class="Ltext" size="20" value="" />
+					</td>
+				</tr>
+				<tr>
+					<th>청구일</th>
+					<td colspan="3">
+						매월 22일
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- //계좌정보 -->
+
+		<!-- 페이지버튼영역 -->
+		<div id="LblockButton">
+			<a class="Lbtn" href="#"><span onclick="doSomething();">확인</span></a>
+			<a class="Lbtn" href="#"><span onclick="doSomething();">취소</span></a>
+		</div>
+		<!-- //페이지버튼영역 -->
+	</div>
+</div>
+</body>
+</html>

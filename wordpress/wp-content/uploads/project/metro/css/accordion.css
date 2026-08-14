@@ -1,0 +1,65 @@
+#acc_main h2 {background-color:#f0f0f0}
+#acc_main h4 a {padding:10px 7px;font-size:12px;text-decoration:none;color:#000;}
+ 
+#side, #side h2, #side h3 {background:#000; color:#e3e3e3}
+ 
+#side h2 {border-bottom:1px solid #484b51}
+ 
+/* --- Links --- */
+a {padding:1px; border:0 solid #e0e0e0; color:#05b}
+ 
+a, .accordion .switch a {border-width:0 0 1px 0; text-decoration:none}
+ 
+.accordion a{border-width:1px; text-decoration:underline}
+ 
+a:hover, a:focus, a:active {border-color:#bcd; text-decoration:none; outline:0 none}
+ 
+#side a {display:block; border-width:0 0 1px; border-color:#445; color:#f0f0f0}
+ 
+#side a:hover, #side a:active, #side a:focus {background-color:#334}
+ 
+/* --- Accordion --- */
+.js #acc_main .accordion {visibility:hidden}
+ 
+.js #side .accordion {display:none}
+ 
+.accordion {margin:0; padding:0 10px}
+ 
+.accordion li {list-style-type:none}
+ 
+.accordion li.last-child {margin-left:19px; list-style-type:disc}
+ 
+#side ul.accordion ul {margin:0; padding:0 0 0 20px;}
+ 
+.accordion .outer {border:1px solid #dadada; border-width:0 1px 1px; background: #fff}
+ 
+.accordion .inner {margin-bottom:0; padding:.5em 20px 1em; overflow:hidden}
+ 
+.accordion .inner .inner {padding-bottom:0}
+ 
+.accordion .h {padding-top:.3em}
+ 
+.accordion p {margin:.5em 0 1em}
+ 
+.switch {margin-bottom:.5em}
+ 
+/*  
+  Add styles for all links in the 'accordion':
+.accordion a {...}
+*/    
+ 
+a.trigger {display:block; padding-left:20px; background-image: url(../images/common/accordion_up.png); background-repeat: no-repeat; background-position: right 50%;  font-weight:700}
+ 
+a.trigger.open {background-image: url(../images/common/accordion_down.png)}
+ 
+.last-child a.trigger{padding-left:1px; background-image:none; font-weight:normal}
+ 
+#acc_main a.trigger {background-color:#f0f0f0}
+ 
+#acc_main a.trigger.open {border-color:#dadada; background-color:#e7e7e7}
+ 
+#acc_main a:hover.trigger.open, #acc_main a:focus.trigger.open, #acc_main a:active.trigger.open {border-color:#bcd}
+ 
+#acc_main .switch a.open {background:transparent none}
+ 
+#side a.active{font-weight:700; color:#f72; text-decoration:none}

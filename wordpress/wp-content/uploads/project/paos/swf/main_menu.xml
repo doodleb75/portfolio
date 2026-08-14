@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<xmlMenu>
+
+<!----------- 대메뉴1 title=한글타이틀 title=영문타이틀 link=링크경로 target=브라우저타겟설정 mCount=열개수 emOver=메인메뉴오버시 텍스트색상 barColor=오버시 변경되는 바색상 -->
+<main  title="" etitle="회사소개" link="company/sub1_1.php"  target="_self" mCount="0" emOver="EB4F4F" barColor="FF7A31">
+		<sub title="CEO 인사말" link="company/sub1_1.php" target="_self">
+		</sub>
+		<sub title="주요사업분야" link="company/sub1_2.php" target="_self">
+	  </sub>
+		<sub title="연혁" link="company/sub1_3.php" target="_self">
+		</sub>
+		<sub title="조직도" link="company/sub1_4.php" target="_self">
+		</sub>
+		<sub title="오시는 길" link="company/sub1_5.php" target="_self">
+		</sub>
+</main>
+	
+<!----------- 대메뉴2 -------------------------------------------------------------------------------------------------------->
+<main  title="" etitle="사업소개" link="business/sub2_11.php"  target="_self" mCount="0" emOver="77BC1E" barColor="84C126">
+    <sub title="솔루션비지니스" link="business/sub2_11.php" target="_self">
+		</sub>
+		<sub title="시스템컨설팅" link="business/sub2_211.php" target="_self">
+	  </sub>
+		<sub title="텔레비지니스" link="business/sub2_31.php" target="_self">
+		</sub>
+</main>
+	
+<!----------- 대메뉴3 -------------------------------------------------------------------------------------------------------->
+<main  title="" etitle="협력사" link="partner/sub3_1.php"  target="_self" mCount="0" emOver="E85AA0" barColor="EF6EB1">
+		<sub title="협력사" link="partner/sub3_1.php" target="_self">
+		</sub>
+</main>
+	
+<!----------- 대메뉴4 -------------------------------------------------------------------------------------------------------->
+<main  title="" etitle="고객센터" link="customer/subNotice_list.php"  target="_self" mCount="0" emOver="F86E12" barColor="F8AA12">
+		
+		<sub title="공지사항" link="customer/subNotice_list.php" target="_self">
+		</sub>
+				<sub title="새소식" link="customer/subNews_list.php" target="_self">
+		</sub>
+				<sub title="자료실" link="customer/subData_list.php" target="_self">
+		</sub>
+				<sub title="Q & A" link="customer/subQnA_list.php" target="_self">
+		</sub>
+</main>
+	
+
+
+</xmlMenu>

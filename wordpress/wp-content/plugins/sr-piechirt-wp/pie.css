@@ -1,0 +1,23 @@
+#canvas .circle {display: inline-block;}
+#canvas {}
+#canvas :after{display:none}
+.copy_right p {color: #45aeea;font-size: 40px;margin: 0;text-align: center;text-shadow: 2px 2px 1px #d43a43;text-transform: uppercase;}
+.cercle_text {float: left;
+margin: 45px 15px 30px;
+text-align: center;}
+.cercle_text h2{font-size: 15px;
+margin: 0 0 33px;
+text-align: center;}	
+
+div.pie {
+
+  display: inline-block;
+  overflow: hidden;
+
+}
+.circles-text ,.circles-number{
+box-sizing: border-box
+}
+.circles {
+  padding: 0 0 8px;
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--
+/*************************************************************************
+* @ 서비스명   : 화면 > 사전내장등록
+* @ 파일명     : 01.html/p_sub2.html
+* @ 페이지설명  : 레이아웃
+* @ 작성자     : 배대현
+* @ 작성일     : 2021-10-02
+************************** 수정이력 ****************************************
+* 날짜                    작업자                 변경내용
+*_________________________________________________________________________
+* 2021-10-02             배대현                 최초작성
+*************************************************************************/
+-->
+
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>화면 > index</title>
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="./css/default.css">
+    <script src="js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+    </script>
+</head>
+
+<body>
+
+    <!-- Modal Structure -->
+    <div id="modal2" class="modal bottom-sheet info-agree">
+        <div class="modal-content">
+            <div class="modal-add-header">
+                <div class="modal-padding-box">
+                    <h4>개인정보 수집 방침 제목</h4>
+                </div>
+            </div>
+
+            <div class="use-p-info">
+                <textarea id="info-field">
+
+                    </textarea>
+            </div>
+            <div class="bot-btn-group b-width-100 position-abs">
+                <button type="button" class="btn-regist modal-close pop-close" href="#modal2">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sub Contents Start // -->
+
+    <div id="wrap" data-title="none">
+        <div class="sub-header">
+            <h2 class="sub-title"><button></button>사전내장등록</h2>
+            <p>
+                설명: 사전내장등록을 완료하면 당일 체크인이 간편해 집니다.
+            </p>
+        </div>
+        <div class="sub-content-box">
+            <button type="button" class="m-use-info">
+                <div class="title">
+                    프론트데스크가 휴대폰 속으로
+                    <h3>모바일 체크인/체크아웃 이용안내</h3>
+                </div>
+                <span class="link-arr"></span>
+            </button>
+
+            <div class="input-pre-regist">
+                <h4>내장등록을 미리 하시면 경기일에 체크인이 빨라집니다.</h4>
+                <div class="input-use-info">
+                    <dl>
+                        <dt>이름</dt>
+                        <dd><input type="text" value="" placeholder="유영철"></dd>
+                    </dl>
+                    <dl>
+                        <dt>휴대폰 번호</dt>
+                        <dd>
+                            <input type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" name="cellPhone"
+                                id="cellPhone" maxlength="13" placeholder="010-258-3468">
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>성별</dt>
+                        <dd class="sel-gen-group">
+                            <span>
+                                <input type="radio" id="gen1" class="gen-chk" name="gender">
+                                <label for="gen1">남</label>
+                            </span>
+                            <span>
+                                <input type="radio" id="gen2" class="gen-chk" name="gender">
+                                <label for="gen2">여</label>
+                            </span>
+                        </dd>
+                    </dl>
+                </div>
+
+                <div class="info-collect-agree">
+                    <input type="checkbox" id="agree" name="i-agree">
+                    <label for="agree">내장고객의 개인정보 수집에 동의합니다.</label>
+                    <button type="button" class="link-arr"></button>
+                </div>
+
+                <div class="bot-btn-group">
+                    <button type="button" class="btn-cancel">취소</button>
+                    <button type="button" class="btn-regist modal-trigger" href="#modal2">등록</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                /* Modal Initialized */
+                $('.modal-trigger').leanModal();
+            });
+
+            // click 후 -> 확인 버튼
+            /* var onBtnClicked = (btnId) => {
+                Swal.close();
+                if (btnId != "취소") Swal.fire("you choosed: " + btnId);
+            }; */
+
+            /* E */
+            btn1Trigger1.onclick = () => {
+                Swal.fire({
+                    customClass: {
+                        popup: 'custom-popup'
+                    },
+                    html: "<h3 class='cs-pop-text'>이름, 휴대폰번호, 성별을 입력해주세요.</h3>"
+                })
+            };
+
+            /* F */
+            btn1Trigger2.onclick = () => {
+                Swal.fire({
+                    confirmButtonText: '닫기',
+                    customClass: {
+                        popup: 'custom-popup'
+                    },
+                    html: "<h3 class='cs-pop-text'>개인정보 제공에 동의해주세요.</h3>"
+                })
+            };
+
+            /* G */
+
+            btn1Trigger3.onclick = () => {
+                Swal.fire({
+                    confirmButtonText: '닫기',
+                    customClass: {
+                        popup: 'custom-popup'
+                    },
+                    html: `
+                <h3 class='cs-pop-text'>이미 사전내장등록 완료된 고객입니다.</h3>`
+                });
+            };
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<!--
+/*************************************************************************
+* @ 서비스명   : 화면 > 사전내장등록
+* @ 파일명     : 01.html/p_sub2.html
+* @ 페이지설명  : 레이아웃
+* @ 작성자     : 배대현
+* @ 작성일     : 2021-10-02
+************************** 수정이력 ****************************************
+* 날짜                    작업자                 변경내용
+*_________________________________________________________________________
+* 2021-10-02             배대현                 최초작성
+*************************************************************************/
+-->
+
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>화면 > index</title>
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="./css/default.css">
+    <script src="js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        function check(it) {
+            tr = it.parentNode.parentNode.parentNode.parentNode.parentNode;
+            tr.style.backgroundColor = (it.checked) ? "#eef0f1" : "";
+        }
+        // Change the selector if needed
+        var $table = $('table.t_scroll'),
+            $bodyCells = $table.find('tbody tr:first').children(),
+            colWidth;
+
+        // Adjust the width of thead cells when window resizes
+        $(window).resize(function () {
+            // Get the tbody columns width array
+            colWidth = $bodyCells.map(function () {
+                return $(this).width();
+            }).get();
+
+            // Set the width of thead columns
+            $table.find('thead tr').children().each(function (i, v) {
+                $(v).width(colWidth[i]);
+            });
+        }).resize(); // Trigger resize handler
+
+
+
+    </script>
+</head>
+
+<body>
+
+    <!-- Modal Structure 이용약관 -->
+    <div id="modal1" class="modal bottom-sheet info-agree">
+        <div class="modal-content">
+            <div class="modal-add-header">
+                <div class="modal-padding-box">
+                    <h4>조편성 이용안내</h4>
+                </div>
+            </div>
+
+            <div class="use-p-info">
+                <textarea id="info-field">
+
+                </textarea>
+            </div>
+            <div class="bot-btn-group b-width-100 position-abs">
+                <button type="button" class="btn-regist modal-close pop-close" href="#modal2">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Structure 멤버리스트-->
+    <div id="modal2" class="modal bottom-sheet">
+        <div class="modal-wrapper1 mem-list-modal open">
+            <div class="modal-title crew-list-pop">
+                <object type="image/svg+xml" data="./img/e-team.svg" class="crew-thumbnail"></object>
+                <div class="title">
+                    <p>회원명부</p>
+                    <h2>패스원 골프팀</h2>
+                </div>
+            </div>
+            <!--  <div class="table_wrap">
+                <div class="fixed-table-container" style="width:100%;">
+                    <div class="fixed-table-header-bg"></div>
+                    <div class="fixed-table-wrapper">
+                        <table id="tbl_employee" class="fixed-table">
+                            <thead>
+                                <tr>
+                                    <th style="width:25%">
+                                        <div class="th-text">이름</div>
+                                    </th>
+                                    <th>
+                                        <div class="th-text">성별</div>
+                                    </th>
+                                    <th style="width:45%">
+                                        <div class="th-text">연락처</div>
+                                    </th>
+                                    <th>
+                                        <div class="th-text">회원정보</div>
+                                    </th>
+                                    <th>
+                                        <div class="th-text"></div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="m_list_name">김＊로</td>
+                                    <td class="m_list_name">남</td>
+                                    <td class="m_list_name">010-24**-**689</td>
+                                    <td class="m_list_name">회원</td>
+                                    <td class="m_list_name">
+                                        <div>
+                                            <ul>
+                                                <li><input id="checkbox2" name="checkbox" type="checkbox"
+                                                        onclick="check(this)"> <label for="checkbox2"></label></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="m_list_name">김＊로</td>
+                                    <td class="m_list_name">남</td>
+                                    <td class="m_list_name">010-24**-**689</td>
+                                    <td class="m_list_name">회원</td>
+                                    <td class="m_list_name">
+                                        <div>
+                                            <ul>
+                                                <li><input id="checkbox3" name="checkbox" type="checkbox"
+                                                        onclick="check(this)"> <label for="checkbox3"></label></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="m_list_name">김＊로</td>
+                                    <td class="m_list_name">남</td>
+                                    <td class="m_list_name">010-24**-**689</td>
+                                    <td class="m_list_name">회원</td>
+                                    <td class="m_list_name">
+                                        <div>
+                                            <ul>
+                                                <li><input id="checkbox4" name="checkbox" type="checkbox"
+                                                        onclick="check(this)"> <label for="checkbox4"></label></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="m_list_name">김＊로</td>
+                                    <td class="m_list_name">남</td>
+                                    <td class="m_list_name">010-24**-**689</td>
+                                    <td class="m_list_name">회원</td>
+                                    <td class="m_list_name">
+                                        <div>
+                                            <ul>
+                                                <li><input id="checkbox5" name="checkbox" type="checkbox"
+                                                        onclick="check(this)"> <label for="checkbox5"></label></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+
+                                <tr>
+                                    <td class="m_list_name">김＊로</td>
+                                    <td class="m_list_name">남</td>
+                                    <td class="m_list_name">010-24**-**689</td>
+                                    <td class="m_list_name">회원</td>
+                                    <td class="m_list_name">
+                                        <div>
+                                            <ul>
+                                                <li><input id="checkbox6" name="checkbox" type="checkbox"
+                                                        onclick="check(this)"> <label for="checkbox6"></label></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="m_list_name">김＊로</td>
+                                    <td class="m_list_name">남</td>
+                                    <td class="m_list_name">010-24**-**689</td>
+                                    <td class="m_list_name">회원</td>
+                                    <td class="m_list_name">
+                                        <div>
+                                            <ul>
+                                                <li><input id="checkbox7" name="checkbox" type="checkbox"
+                                                        onclick="check(this)"> <label for="checkbox7"></label></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="m_list_name">김＊로</td>
+                                    <td class="m_list_name">남</td>
+                                    <td class="m_list_name">010-24**-**689</td>
+                                    <td class="m_list_name">회원</td>
+                                    <td class="m_list_name">
+                                        <div>
+                                            <ul>
+                                                <li><input id="checkbox8" name="checkbox" type="checkbox"
+                                                        onclick="check(this)"> <label for="checkbox8"></label></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="m_list_name">김＊로</td>
+                                    <td class="m_list_name">남</td>
+                                    <td class="m_list_name">010-24**-**689</td>
+                                    <td class="m_list_name">회원</td>
+                                    <td class="m_list_name">
+                                        <div>
+                                            <ul>
+                                                <li><input id="checkbox9" name="checkbox" type="checkbox"
+                                                        onclick="check(this)"> <label for="checkbox9"></label></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="m_list_name">김＊로</td>
+                                    <td class="m_list_name">남</td>
+                                    <td class="m_list_name">010-24**-**689</td>
+                                    <td class="m_list_name">회원</td>
+                                    <td class="m_list_name">
+                                        <div>
+                                            <ul>
+                                                <li><input id="checkbox10" name="checkbox" type="checkbox"
+                                                        onclick="check(this)"> <label for="checkbox10"></label></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="m_list_name">김＊로</td>
+                                    <td class="m_list_name">남</td>
+                                    <td class="m_list_name">010-24**-**689</td>
+                                    <td class="m_list_name">회원</td>
+                                    <td class="m_list_name">
+                                        <div>
+                                            <ul>
+                                                <li><input id="checkbox11" name="checkbox" type="checkbox"
+                                                        onclick="check(this)"> <label for="checkbox11"></label></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="m_list_name">김＊로</td>
+                                    <td class="m_list_name">남</td>
+                                    <td class="m_list_name">010-24**-**689</td>
+                                    <td class="m_list_name">회원</td>
+                                    <td class="m_list_name">
+                                        <div>
+                                            <ul>
+                                                <li><input id="checkbox12" name="checkbox" type="checkbox"
+                                                        onclick="check(this)"> <label for="checkbox12"></label></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div> -->
+            <!-- //table wrap -->
+
+            <div class="table_wrapper">
+                <table class="t_scroll">
+                    <thead>
+                        <tr>
+                            <th>
+                                이름
+                            </th>
+                            <th>
+                                성별
+                            </th>
+                            <th>
+                                연락처
+                            </th>
+                            <th>
+                                회원정보
+                            </th>
+                            <th>
+
+                            </th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="m_list_name">김＊로</td>
+                            <td class="m_list_name">남</td>
+                            <td class="m_list_name">010-24**-**689</td>
+                            <td class="m_list_name">회원</td>
+                            <td class="m_list_name">
+                                <div>
+                                    <ul>
+                                        <li><input id="checkbox2" name="checkbox" type="checkbox" onclick="check(this)">
+                                            <label for="checkbox2"></label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="m_list_name">김＊로</td>
+                            <td class="m_list_name">남</td>
+                            <td class="m_list_name">010-24**-**689</td>
+                            <td class="m_list_name">회원</td>
+                            <td class="m_list_name">
+                                <div>
+                                    <ul>
+                                        <li><input id="checkbox3" name="checkbox" type="checkbox" onclick="check(this)">
+                                            <label for="checkbox3"></label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="m_list_name">김＊로</td>
+                            <td class="m_list_name">남</td>
+                            <td class="m_list_name">010-24**-**689</td>
+                            <td class="m_list_name">회원</td>
+                            <td class="m_list_name">
+                                <div>
+                                    <ul>
+                                        <li><input id="checkbox4" name="checkbox" type="checkbox" onclick="check(this)">
+                                            <label for="checkbox4"></label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="m_list_name">김＊로</td>
+                            <td class="m_list_name">남</td>
+                            <td class="m_list_name">010-24**-**689</td>
+                            <td class="m_list_name">회원</td>
+                            <td class="m_list_name">
+                                <div>
+                                    <ul>
+                                        <li><input id="checkbox5" name="checkbox" type="checkbox" onclick="check(this)">
+                                            <label for="checkbox5"></label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+
+
+
+                        <tr>
+                            <td class="m_list_name">김＊로</td>
+                            <td class="m_list_name">남</td>
+                            <td class="m_list_name">010-24**-**689</td>
+                            <td class="m_list_name">회원</td>
+                            <td class="m_list_name">
+                                <div>
+                                    <ul>
+                                        <li><input id="checkbox6" name="checkbox" type="checkbox" onclick="check(this)">
+                                            <label for="checkbox6"></label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="m_list_name">김＊로</td>
+                            <td class="m_list_name">남</td>
+                            <td class="m_list_name">010-24**-**689</td>
+                            <td class="m_list_name">회원</td>
+                            <td class="m_list_name">
+                                <div>
+                                    <ul>
+                                        <li><input id="checkbox7" name="checkbox" type="checkbox" onclick="check(this)">
+                                            <label for="checkbox7"></label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="m_list_name">김＊로</td>
+                            <td class="m_list_name">남</td>
+                            <td class="m_list_name">010-24**-**689</td>
+                            <td class="m_list_name">회원</td>
+                            <td class="m_list_name">
+                                <div>
+                                    <ul>
+                                        <li><input id="checkbox8" name="checkbox" type="checkbox" onclick="check(this)">
+                                            <label for="checkbox8"></label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="m_list_name">김＊로</td>
+                            <td class="m_list_name">남</td>
+                            <td class="m_list_name">010-24**-**689</td>
+                            <td class="m_list_name">회원</td>
+                            <td class="m_list_name">
+                                <div>
+                                    <ul>
+                                        <li><input id="checkbox9" name="checkbox" type="checkbox" onclick="check(this)">
+                                            <label for="checkbox9"></label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="m_list_name">김＊로</td>
+                            <td class="m_list_name">남</td>
+                            <td class="m_list_name">010-24**-**689</td>
+                            <td class="m_list_name">회원</td>
+                            <td class="m_list_name">
+                                <div>
+                                    <ul>
+                                        <li><input id="checkbox10" name="checkbox" type="checkbox"
+                                                onclick="check(this)">
+                                            <label for="checkbox10"></label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="m_list_name">김＊로</td>
+                            <td class="m_list_name">남</td>
+                            <td class="m_list_name">010-24**-**689</td>
+                            <td class="m_list_name">회원</td>
+                            <td class="m_list_name">
+                                <div>
+                                    <ul>
+                                        <li><input id="checkbox11" name="checkbox" type="checkbox"
+                                                onclick="check(this)">
+                                            <label for="checkbox11"></label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="m_list_name">김＊로</td>
+                            <td class="m_list_name">남</td>
+                            <td class="m_list_name">010-24**-**689</td>
+                            <td class="m_list_name">회원</td>
+                            <td class="m_list_name">
+                                <div>
+                                    <ul>
+                                        <li><input id="checkbox12" name="checkbox" type="checkbox"
+                                                onclick="check(this)">
+                                            <label for="checkbox12"></label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="bot-btn-group b-width-100 mt-20">
+            <button type="button" class="btn-regist modal-close pop-close" href="#modal2">닫기</button>
+        </div>
+    </div>
+
+    <!-- Modal Structure 직접입력-->
+    <div id="modal3" class="modal bottom-sheet self-insert">
+        <div class="modal-content">
+            <div class="modal-title crew-list-pop">
+                <object type="image/svg+xml" data="./img/e-typing.svg" class="crew-thumbnail"></object>
+                <div class="title">
+                    <p>경기에 참여할 회원 회원 이름을 입력해주세요</p>
+                    <h2>직접 입력</h2>
+                </div>
+            </div>
+
+            <div class="self-insert-box">
+                <p>
+                    <label>이름</label>
+                    <input type="text">
+                </p>
+                <p>
+                    <label>휴대폰번호</label>
+                    <input type="text">
+                </p>
+            </div>
+            <div class="bot-btn-group position-abs">
+                <button type="button" class="btn-cancel modal-close pop-close" href="#modal3">취소</button>
+                <button type="button" class="btn-regist modal-close pop-close" href="#modal3">등록</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Sub Contents Start // -->
+
+    <div id="wrap" data-title="none">
+        <div class="sub-header">
+            <h2 class="sub-title"><button></button>모바일 조편성</h2>
+            <!-- <p>
+                설명: 사전내장등록을 완료하면 당일 체크인이 간편해 집니다.
+            </p> -->
+        </div>
+        <div class="sub-content-box">
+            <button type="button" class="m-use-info modal-trigger" href="#modal1">
+                <div class="title">
+                    휴대폰으로 조편성을 쉽고 빠르게
+                    <h3>단체팀 모바일 조편성 이용안내</h3>
+                </div>
+                <span class="link-arr"></span>
+            </button>
+
+            <div class="cmm-radius-box none team_info">
+                <dl class="cmm-info-box none info-comment">
+                    <dt class="icon1">예약정보</dt>
+                    <dd class="t-justify">
+                        <span>단&nbsp;&nbsp;체&nbsp;&nbsp;명 :</span>
+                        <span>패스원골프</span>
+                    </dd>
+                    <dd>
+                        <span>회&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;장 :</span>
+                        <span>황프로</span>
+                    </dd>
+                    <dd>
+                        <span>총&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;무 :</span>
+                        <span>김프로 </span>
+                    </dd>
+                    <dd>
+                        <span>경기일시 :</span>
+                        <span>2020년 4월 1일(화) 7시 7분 부터 </span>
+                    </dd>
+                    <dd>
+                        <span>예약팀수 :</span>
+                        <span>2팀 </span>
+                    </dd>
+                </dl>
+            </div>
+            <!-- 1조 시작 -->
+            <div class="cmm-radius-box none team">
+                <dl class="cmm-info-box none team">
+                    <!-- <dt class="icon1"> -->
+                    <dt class="team mem_list">
+                        <span class="mem_title_bg">
+                            1조
+                        </span>
+                        <button type="button" class="mem_list_btn modal-trigger" href="#modal2">
+                            <img src="./img/memList-thumb.png" />회원명부</button>
+                    </dt>
+                    <dd class="mem_num">
+                        <label>
+                            <span class="crew-thumb man">
+                                <button id="btn1Trigger4" class="crew-remove"></button>
+                            </span>
+                        </label>
+                        <span class="mem-profile"><strong>김*영 (남)</strong> <br>010-24**-**54
+                        </span>
+                        <span class="btn_block">
+                            <button type="button" class="mem_treat_btn modal-trigger" href="#modal3">직접입력</button>
+                            <button type=" button" class="del_btn"><img src="./img/icon-close.png"></button>
+                        </span>
+                    </dd>
+                    <dd class="mem_num">
+                        <label>
+                            <span class="crew-thumb woman">
+                                <button id="btn1Trigger4" class="crew-remove"></button>
+                            </span>
+                        </label>
+                        <span class="mem-profile"><strong>김*영 (남)</strong> <br>010-24**-**54
+                        </span>
+                        <span class="btn_block">
+                            <button type="button" class="mem_treat_btn modal-trigger" href="#modal3">직접입력</button>
+                        </span>
+                    </dd>
+                    <dd class="mem_num">
+                        <label>
+                            <span class="crew-thumb man">
+                                <button id="btn1Trigger4" class="crew-remove"></button>
+                            </span>
+                        </label>
+                        <span class="mem-profile"><strong>김*영 (남)</strong> <br>010-24**-**54
+                        </span>
+                        <span class="btn_block">
+                            <button type="button" class="mem_treat_btn modal-trigger" href="#modal3">직접입력</button>
+                        </span>
+                    </dd>
+                    <dd class="mem_num">
+                        <label>
+                            <span class="crew-thumb woman">
+                                <button id="btn1Trigger4" class="crew-remove"></button>
+                            </span>
+                        </label>
+                        <span class="mem-profile"><strong>김*영 (남)</strong> <br>010-24**-**54
+                        </span>
+                        <span class="btn_block">
+                            <button type="button" class="mem_treat_btn modal-trigger" href="#modal3">직접입력</button>
+                            <button type="button" class="del_btn"><img src="./img/icon-close.png"></button>
+                        </span>
+                    </dd>
+
+                </dl>
+            </div>
+            <!-- 1조 끝 -->
+            <!-- 2조 시작 -->
+            <div class="cmm-radius-box none team">
+                <dl class="cmm-info-box none team">
+                    <!-- <dt class="icon1"> -->
+                    <dt class="team mem_list">
+                        <span class="mem_title_bg">
+                            2조
+                        </span>
+                        <button type="button" class="mem_list_btn modal-trigger" href="#modal2">
+                            <img src="./img/memList-thumb.png" />회원명부</button>
+                    </dt>
+                    <dd class="mem_num">
+                        <label>
+                            <span class="crew-thumb man">
+                                <button id="btn1Trigger4" class="crew-remove"></button>
+                            </span>
+                        </label>
+                        <span class="mem-profile"><strong>김*영 (남)</strong> <br>010-24**-**54
+                        </span>
+                        <span class="btn_block">
+                            <button type="button" class="mem_treat_btn modal-trigger" href="#modal3">직접입력</button>
+                            <button type="button" class="del_btn"><img src="./img/icon-close.png"></button>
+                        </span>
+                    </dd>
+                    <dd class="mem_num">
+                        <label>
+                            <span class="crew-thumb man">
+                                <button id="btn1Trigger4" class="crew-remove"></button>
+                            </span>
+                        </label>
+                        <span class="mem-profile"><strong>김*영 (남)</strong> <br>010-24**-**54
+                        </span>
+                        <span class="btn_block">
+                            <button type="button" class="mem_treat_btn modal-trigger" href="#modal3">직접입력</button>
+                            <button type="button" class="del_btn"><img src="./img/icon-close.png"></button>
+                        </span>
+                    </dd>
+                    <dd class="mem_num">
+                        <label>
+                            <span class="crew-thumb man">
+                                <button id="btn1Trigger4" class="crew-remove"></button>
+                            </span>
+                        </label>
+                        <span class="mem-profile"><strong>김*영 (남)</strong> <br>010-24**-**54
+                        </span>
+                        <span class="btn_block">
+                            <button type="button" class="mem_treat_btn modal-trigger" href="#modal3">직접입력</button>
+                        </span>
+                    </dd>
+                    <dd class="mem_num">
+                        <label>
+                            <span class="crew-thumb man">
+                                <button id="btn1Trigger4" class="crew-remove"></button>
+                            </span>
+                        </label>
+                        <span class="mem-profile"><strong>김*영 (남)</strong> <br>010-24**-**54
+                        </span>
+                        <span class="btn_block">
+                            <button type="button" class="mem_treat_btn modal-trigger" href="#modal3">직접입력</button>
+                        </span>
+                    </dd>
+
+                </dl>
+            </div>
+            <!-- 2조 끝 -->
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                /* Modal Initialized */
+                $('.modal-trigger').leanModal();
+            });
+
+            // click 후 -> 확인 버튼
+            /* var onBtnClicked = (btnId) => {
+                Swal.close();
+                if (btnId != "취소") Swal.fire("you choosed: " + btnId);
+            }; */
+
+            /* E */
+            btn1Trigger1.onclick = () => {
+                Swal.fire({
+                    customClass: {
+                        popup: 'custom-popup'
+                    },
+                    html: "<h3 class='cs-pop-text'>이름, 휴대폰번호, 성별을 입력해주세요.</h3>"
+                })
+            };
+
+            /* F */
+            btn1Trigger2.onclick = () => {
+                Swal.fire({
+                    confirmButtonText: '닫기',
+                    customClass: {
+                        popup: 'custom-popup'
+                    },
+                    html: "<h3 class='cs-pop-text'>개인정보 제공에 동의해주세요.</h3>"
+                })
+            };
+
+            /* G */
+
+            btn1Trigger3.onclick = () => {
+                Swal.fire({
+                    confirmButtonText: '닫기',
+                    customClass: {
+                        popup: 'custom-popup'
+                    },
+                    html: `
+                <h3 class='cs-pop-text'>이미 사전내장등록 완료된 고객입니다.</h3>`
+                });
+            };
+        </script>
+</body>
+
+</html>

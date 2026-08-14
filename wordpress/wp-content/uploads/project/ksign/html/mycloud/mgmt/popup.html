@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>eNETner Cloud</title>
+	<link rel="stylesheet" type="text/css" href="/ksign/../css/import.css" />
+	<script type="text/javascript" src="../../../js/dui_prototype.js"></script>
+	<script type="text/javascript" src="../../../js/dui_effect.js"></script>
+	<script type="text/javascript" src="../../../js/dui_dragndrop.js"></script>
+	<script type="text/javascript" src="../../../js/dui_hhmenu.js"></script>
+	<script type="text/javascript" src="../../../js/dui_tree.js"></script>
+	<script type="text/javascript" src="../../../js/dui_slidemenu.js"></script>
+	<script type="text/javascript" src="../../../js/dui_tab.js"></script>
+	<script type="text/javascript" src="../../../js/dui_calendar.js"></script>
+	<script type="text/javascript" src="../../../js/common.js"></script>
+</head>
+
+<body>
+<!-- skip메뉴 -->
+<div id="LblockSkipLink">
+	<p><a href="#LblockTopMenu">주메뉴 바로가기</a></p>
+	<p><a href="#LblockLeftMenu">서브메뉴 바로가기</a></p>
+	<p><a href="#LblockBody">콘텐츠 바로가기</a></p>
+</div>
+<!-- //skip메뉴 -->
+
+<div id="LblockWrapper">
+	<!-- header영역 -->
+	<div id="LblockHeader">
+		<div id="LblockHeaderIn">
+			<div id="LblockTopLogo">
+				<h1><a href="#"><img src="../../../images/topLogo.jpg" alt="eNETner Cloud" /></a></h1>
+			</div>
+			<div id="LblockWelcome">
+				<p>2011.11.22 <span>홍길동</span></p><a href="#"><img src="../images/infoChange.gif" alt="" /></a><a href="#">로그아웃</a><img src="../../../images/img_mycloud.gif" alt="" />
+			</div>
+			<div id="LblockTopMenu">
+				<h2  class="Lhide">대메뉴</h2>
+				<ul class="Lclear">
+					<li class="Lfirst LitemService Lcurrent"><span class="cont"><a href="../mgmt/svc_list.html"><span>서비스관리</span></a></span></li>
+					<li class="Lidx1 LitemManagement"><span class="cont"><a href="../mgmt/vm_configuration.html"><span>서비스운영관리</span></a></span></li>
+					<li class="Lidx2 LitemApplication"><span class="cont"><a href="../apply/pkg_websecu.html"><span>서비스신청</span></a></span></li>
+					<li class="Lidx3 LitemMonitoring"><span class="cont"><a href="../monitoring/guide.html"><span>모니터링</span></a></span></li>
+					<li class="Lidx4 LitemMember"><span class="cont"><a href="../mem/edit_meminfo.html"><span>회원정보관리</span></a></span></li>
+					<li class="Lidx5 LitemBilling"><span class="cont"><a href="../billing/charge_history_list.html"><span>이용료관리</span></a></span></li>
+					<li class="Llast LitemSupport"><span class="cont"><a href="../support/svcguide.html"><span>고객센터</span></a></span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- //header영역 -->
+	<div id="LblockContainer" class="Lclear">
+		<!-- leftmenu영역 -->
+		<div id="LblockLeft">
+			<div id="LblockLeftTitle">
+				<h2><img src="../../../images/lnbMenu.gif" alt="서비스관리" /></h2>
+			</div>
+			<div id="LblockLeftMenu" class="LslideMenu">
+				<h3 class="Lhide">서비스관리 하위메뉴</h3>
+				<ul>
+					<li class="Lfirst Lcurrent"><span><a href="#">서비스사용정보</a></span></li>
+					<li class="LhasChild"><span><a href="#">서비스신청현황</a></span></li>
+				</ul>
+			</div>
+		</div>
+		<!-- //leftmenu영역 -->
+		<div id="LblockBodySetter">
+			<!-- 컨텐츠영역 -->
+			<div id="LblockBody">
+				<!-- 페이지타이틀 영역 -->
+				<div id="LblockPageHeader">
+					<div id="LblockPageTitle">
+						<h1>운영대행</h1>
+					</div>
+					<div id="LblockPageLocation">
+						<ul>
+							<li class="Lfirst"><span><a href="#">HOME</a></span></li>
+							<li><span><a href="#">서비스관리</a></span></li>
+							<li><span><a href="#">서비스사용정보</a></span></li>
+							<li class="Llast"><span>운영대행</span></li>
+						</ul>
+					</div>
+				</div>
+				<!-- //페이지타이틀 영역 -->
+				<!-- 페이지내용영역 -->
+				<div id="LblockBodyMain">
+					<!-- 검색 -->
+					<div id="LblockSearch">
+						<div id="SearchFront">
+							<form method="get" action="">
+								<table summary="운영대행 검색조건">
+									<caption>운영대행 검색조건</caption>
+									<tbody>
+									<tr>
+										<th><label for="sEmpNo">상태</label></th>
+										<td>
+											<select id="sEmpLevel">
+												<option value="01">사용중</option> 
+												<option value="02">사용안함</option> 
+											</select> 
+										</td>
+										<th><label for="sEmpNm">상품분류</label></th>
+										<td>
+											<select id="sEmpLevel_01">
+												<option value="01">사용중</option> 
+												<option value="02">사용안함</option> 
+											</select>
+										</td>
+										<th><label for="sEmpNo">시작일</label></th>
+										<td>
+											<input id="sEmpLevel" size="7"></input>
+											<a href="#"><img src="../../../images/btn_icon_calendar.gif" class="Lcalen" alt="달력" /></a>
+											~
+											<input id="sEmpLevel" size="7"></input>
+											<a href="#"><img src="../../../images/btn_icon_calendar.gif" class="Lcalen" alt="달력" /></a>
+										</td>
+										<th><label for="sEmpNo">서버명</label></th>
+										<td>
+											<input id="sEmpLevel" size="11"></input>
+										</td>
+									</tr>
+									
+									</tbody>
+								</table>
+								<input type="image" class="Limage" src="../../../images/btn_search.gif" />
+							</form>
+						</div>
+					</div>
+					<!-- //검색 -->
+					<!-- 서브 타이틀 -->
+					<div id="LblockPageSubtitle01" class="LblockPageSubtitle">
+						<h2>CRS 요청 내역</h2>
+					</div>
+					<!-- 서브 타이틀 -->
+					<!-- 리스트테이블 -->
+					<div id="LblockListTable01" class="LblockListTable">
+						<div class="Lwrapper">
+							<table summary="CRS 요청 내역 리스트">
+								<caption>CRS 요청 내역 리스트</caption>
+								<thead>
+								<tr>
+									<th class="Lfirst">고객번호</th>
+									<th>Agent IP</th>
+									<th>요청유형</th>
+									<th>업체명</th>
+									<th>담당자</th>
+									<th>전화번호</th>
+									<th>요청날짜</th>
+									<th>완료날짜</th>
+									<th class="Llast">처리상태</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr class="Lfirst">
+									<td class="Lfirst">1004</td>
+									<td>나</td>
+									<td>정책설정</td>
+									<td>홍길동이닷</td>
+									<td>홍서방</td>
+									<td>02-1234-2345</td>
+									<td>2310-10-10</td>
+									<td>-</td>
+									<td class="Llast">요청</td>
+								</tr>
+								<tr class="Llast Leven">
+									<td class="Lfirst"></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td class="Llast"></td>
+								</tr>
+								</tbody>
+							</table>
+							<!-- paging -->
+							<ul>
+								<li class="Lprevious"><span><a href="#" onclick="doSomething(); return false;"><img src="../images/list_page_previous.gif" alt="이전페이지" /></a></span></li>
+								<li class="Lfirst"><span>11</span></li>
+								<li><span><a href="#" onclick="doSomething(); return false;">12</a></span></li>
+								<li><span><a href="#" onclick="doSomething(); return false;">13</a></span></li>
+								<li><span><a href="#" onclick="doSomething(); return false;">14</a></span></li>
+								<li><span><a href="#" onclick="doSomething(); return false;">15</a></span></li>
+								<li><span><a href="#" onclick="doSomething(); return false;">16</a></span></li>
+								<li><span><a href="#" onclick="doSomething(); return false;">17</a></span></li>
+								<li><span><a href="#" onclick="doSomething(); return false;">18</a></span></li>
+								<li><span><a href="#" onclick="doSomething(); return false;">19</a></span></li>
+								<li class="Llast"><span><a href="#" onclick="doSomething(); return false;">20</a></span></li>
+								<li class="Lnext"><span><a href="#" onclick="doSomething(); return false;"><img src="../images/list_page_next.gif" alt="다음페이지" /></a></span></li>
+							</ul>
+							<!-- //paging -->
+							<!-- 리스트현황 -->
+							<div class="LblockListInfo">
+								<span class="Ltotal">총 45건 1/4화면</span>
+							</div>
+							<!-- //리스트현황 -->
+						</div>
+					</div>
+					<!-- //리스트테이블 -->
+					<!-- 페이지버튼영역 -->
+					<div id="LblockSubbutton01" class="LblockSubbutton">
+						<a class="Lbtn2" href="#"><span onclick="doSomething();">등록</span></a>
+					</div>
+					<!-- //페이지버튼영역 -->
+
+				</div>
+				<!-- 페이지내용영역 -->
+			</div>
+			<!-- //컨텐츠영역 -->
+		</div>
+	</div>
+	<hr />
+	<!--footer영역-->
+	<div id="LblockFooter">
+		<div id="LblockFooterIn" class="Lclear">
+			<div id="LblockFooterLogo">
+				<a href="#"><img src="../../../images/footerLogo.gif" alt="(주)엘림넷" /></a>
+			</div>
+			<div id="LblockFooterSetter">
+				<div id="LblockFooterBody">
+					<ul id="LblockFooterMenu">
+						<li class="Lfirst"><a href="#"><img src="../../../images/footerMenu_01.gif" alt="회사소개" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_02.gif" alt="서비스약관" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_03.gif" alt="개인정보취급방침" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_04.gif" alt="FAQ" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_05.gif" alt="Q&A" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_06.gif" alt="제휴문의" /></a></li>
+					</ul>
+					<address><img src="../../../images/address.gif" alt="서울시 서대문구 충정로3가 32-11 엘림넷빌딩  사업자등록번호: 220-81-97656  개인정보 관리책임자: 송태호 부장 (thshong@elim.net)" /></address>
+					<p><img src="../../../images/copyright.gif" alt="Copyright (C) 2012 BY ELIMNET CO.,LTD. ALL RIGHTS RESERVED." /></p>
+				</div>
+			</div>
+			<div id="LblockFooterHelp"><img src="../../../images/callservice.gif" alt="고객지원센터 TEL:02-3149-4900 FAX:02-3149-4998" /></div>
+		</div>
+	</div>
+	<!--//footer영역-->
+</div>
+
+
+
+
+<!-- 팝업 start -->
+<div id="LPopup">
+</div>
+<div class="popup">
+	<h2>서비스복제</h2>
+	<a href="#" class="close ">X</a>
+	<div class="content">
+		<h3>서비스복제</h3>
+		<p id="LblockTextBox">현재 고객님은<span>1년 10%</span>약정할인율을 적용받고 계십니다. 재약정은 1년이상 가능하며, 아래 기간을 선택해 주세요.<br />* 재약정시 변경된 요금이 적용됩니다. </p>
+
+			<h4>현재 사용중인 서비스</h4>
+			<!-- 리스트테이블 -->
+			<div id="LblockDetail01" class="LblockDetail">
+				<table summary="사원 상세정보">
+					<caption>사원 상세정보</caption>
+					<colgroup>
+						<col width="20%" />
+						<col width="80%" />
+					</colgroup>
+					<tbody>
+
+						<tr>
+							<th>생년월일</th>
+							<td>1970.08.20(+)</td>
+						</tr>
+						<tr>
+							<th>사무실 전화번호</th>
+							<td>02-6363-0923</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- //리스트테이블 -->
+			<h4>예상금액</h4>
+			<!-- 리스트테이블 -->
+			<div id="LblockDetail01" class="LblockDetail">
+				<table summary="사원 상세정보">
+					<caption>사원 상세정보</caption>
+					<colgroup>
+						<col width="20%" />
+						<col width="80%" />
+					</colgroup>
+					<tbody>
+
+						<tr>
+							<th>생년월일</th>
+							<td>1970.08.20(+)</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- //리스트테이블 -->
+			<h4>예상금액</h4>
+
+			<!-- 페이지버튼영역 -->
+			<div id="LblockButton">
+				<a class="Lbtn" href="#"><span onclick="doSomething();">적용</span></a>
+				<a class="Lbtn" href="#"><span onclick="doSomething();">닫기</span></a>
+			</div>
+			<!-- //페이지버튼영역 -->
+	</div>
+</div>
+<!-- 팝업 end -->
+
+
+</body>
+</html>

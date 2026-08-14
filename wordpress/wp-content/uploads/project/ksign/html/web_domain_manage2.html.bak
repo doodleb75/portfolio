@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>eNETner DBS</title>
+	<link rel="shortcut icon" href="./favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="../css/import.css" />
+	<script type="text/javascript" src="../js/dui_prototype.js"></script>
+	<script type="text/javascript" src="../js/dui_effect.js"></script>
+	<script type="text/javascript" src="../js/dui_dragndrop.js"></script>
+	<script type="text/javascript" src="../js/dui_hhmenu.js"></script>
+	<script type="text/javascript" src="../js/dui_tree.js"></script>
+	<script type="text/javascript" src="../js/dui_slidemenu.js"></script>
+	<script type="text/javascript" src="../js/dui_tab.js"></script>
+	<script type="text/javascript" src="../js/dui_calendar.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+</head>
+
+<body>
+<!-- skip메뉴 -->
+<div id="LblockSkipLink">
+	<p><a href="#LblockTopMenu">주메뉴 바로가기</a></p>
+	<p><a href="#LblockLeftMenu">서브메뉴 바로가기</a></p>
+	<p><a href="#LblockBody">콘텐츠 바로가기</a></p>
+</div>
+<!-- //skip메뉴 -->
+
+<div id="LblockWrapper">
+	<!-- header영역 -->
+	<div id="LblockHeader">
+		<div id="LblockHeaderIn">
+			<div id="LblockTopLogo">
+				<h1><a href="#"><img src="../images/enetner_dbs_logo.gif" alt="eNETner Cloud" /></a></h1>
+			</div>
+			<div id="LblockTopMenu">
+				<h2  class="Lhide">대메뉴</h2>
+				<ul class="Lclear">
+					<li class="Lfirst LitemAdmin Lcurrent"><span class="cont"><a href="./mgmt/svc_list.html"><span>관리자</span></a></span></li>
+					<li class="Lidx1 LitemDomain"><span class="cont"><a href="./mgmt/vm_configuration.html"><span>도메인</span></a></span></li>
+					<li class="Lidx2 LitemUser"><span class="cont"><a href="./apply/pkg_websecu.html"><span>사용자</span></a></span></li>
+					<li class="Lidx3 LitemTable"><span class="cont"><a href="./monitoring/guide.html"><span>테이블</span></a></span></li>
+					<li class="Lidx4 LitemRegist"><span class="cont"><a href="./mem/edit_meminfo.html"><span>권한정책</span></a></span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- //header영역 -->
+
+	<div id="LblockContainer" class="Lclear">
+		<!-- leftmenu영역 -->
+		<div id="LblockLeft">
+			<div id="LblockLeftTitle">
+				<h2><img src="../images/lnb_domain.gif" alt="도메인" /></h2>
+			</div>
+			<div id="LblockLeftMenu" class="LslideMenu">
+				<h3 class="Lhide">도메인 하위메뉴</h3>
+				<ul>
+					<li class="Lfirst LhasChildn"><span><a href="#">도메인 관리</a></span></li>
+					<!--li class="LhasChild"><span><a href="#">VM생성관리</a></span>
+						<ul>
+							<li class="Lfirst"><span><a href="#">시험용 VM생성</a></span></li>
+							<li class="Llast"><span><a href="#">담당자용 VM생성</a></span></li>
+						</ul>
+					</li>
+					<li class="LhasChild"><span><a href="#">VM폐기관리</a></span>
+						<ul>
+							<li class="Lfirst"><span><a href="#">시험용 VM폐기</a></span></li>
+							<li class="Llast"><span><a href="#">담당자용 VM폐기</a></span></li>
+						</ul>
+					</li-->
+					<li class="Llast LhasChildn Lopen Lcurrent"><span><a href="#">감사기록 정책</a></span></li>
+				</ul>
+			</div>
+		</div>
+		<!-- //leftmenu영역 -->
+
+		<div id="LblockBodySetter">
+			<!-- 컨텐츠영역 -->
+			<div id="LblockBody">
+				<!-- 페이지타이틀 영역 -->
+				<div id="LblockPageHeader">
+					<div id="LblockPageTitle">
+						<h1>감사기록 정책</h1>
+					</div>
+					<div id="LblockPageLocation">
+						<ul>
+							<li class="Lfirst"><span><a href="#">HOME</a></span></li>
+							<li><span><a href="#">감사기록 정책</a></span></li>
+							<!--li class="Llast"><span>작업일정관리</span></li-->
+						</ul>
+					</div>
+				</div>
+				<!-- //페이지타이틀 영역 -->
+
+				<!-- 페이지내용영역 -->
+				<div id="LblockBodyMain">
+					<!-- box 영역 -->
+					<!-- 최근작업내역 -->
+					<!-- 리스트테이블 -->
+							<div id="LblockDetail01" class="LblockDetail">
+								<table summary="최근 작업내역">
+									<caption>최근 작업내역</caption>
+									<colgroup>
+										<col width="5%" />
+										<col width="" />
+										<col width="" />
+										<col width="" />
+										<col width="" />
+									</colgroup>
+									<tbody>
+										<tr>
+											<th>NO</th>
+											<th>도메인</th>
+											<th>DML</th>
+											<th>Cryption</th>
+											<th>LOG</th>
+										</tr>
+										<tr>
+											<td class="no">1</td>
+											<td>BMTTEST</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">SELECT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">INSERT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">UPDATE</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">DELETE</span></a>
+											</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">ENCRYPT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">DECRYPT</span></a>											
+											</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">성공한로그</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">실패한로그</span></a>		
+											</td>
+										</tr>
+										<tr>
+											<td class="no">1</td>
+											<td>BMTTEST</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">SELECT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">INSERT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">UPDATE</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">DELETE</span></a>
+											</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">ENCRYPT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">DECRYPT</span></a>											
+											</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">성공한로그</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">실패한로그</span></a>		
+											</td>
+										</tr>
+										<tr>
+											<td class="no">1</td>
+											<td>BMTTEST</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">SELECT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">INSERT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">UPDATE</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">DELETE</span></a>
+											</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">ENCRYPT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">DECRYPT</span></a>											
+											</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">성공한로그</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">실패한로그</span></a>		
+											</td>
+										</tr>
+										<tr>
+											<td class="no">1</td>
+											<td>BMTTEST</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">SELECT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">INSERT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">UPDATE</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">DELETE</span></a>
+											</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">ENCRYPT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">DECRYPT</span></a>											
+											</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">성공한로그</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">실패한로그</span></a>		
+											</td>
+										</tr>
+										<tr>
+											<td class="no">1</td>
+											<td>BMTTEST</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">SELECT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">INSERT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">UPDATE</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">DELETE</span></a>
+											</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">ENCRYPT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">DECRYPT</span></a>											
+											</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">성공한로그</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">실패한로그</span></a>		
+											</td>
+										</tr>
+										<tr>
+											<td class="no">1</td>
+											<td>BMTTEST</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">SELECT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">INSERT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">UPDATE</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">DELETE</span></a>
+											</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">ENCRYPT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">DECRYPT</span></a>											
+											</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">성공한로그</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">실패한로그</span></a>		
+											</td>
+										</tr>
+										<tr>
+											<td class="no">1</td>
+											<td>BMTTEST</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">SELECT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">INSERT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">UPDATE</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">DELETE</span></a>
+											</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">ENCRYPT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">DECRYPT</span></a>											
+											</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">성공한로그</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">실패한로그</span></a>		
+											</td>
+										</tr>
+										<tr>
+											<td class="no">1</td>
+											<td>BMTTEST</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">SELECT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">INSERT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">UPDATE</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">DELETE</span></a>
+											</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">ENCRYPT</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">DECRYPT</span></a>											
+											</td>
+											<td class="td_btn">
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">성공한로그</span></a>&nbsp;&nbsp;
+											<a class="Lbtn3" href="#"><span onclick="doSomething();">실패한로그</span></a>		
+											</td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+							<!-- //리스트테이블 -->
+						<!-- //최근작업내역 -->
+
+					<!-- //box 영역 -->
+				</div>
+				<!-- 페이지내용영역 -->
+
+
+					<div id="LblockSubbutton01" class="LblockSubbutton">
+						<a class="Lbtn4" href="#"><span onclick="doSomething();">설정</span></a>
+					</div>
+
+			</div>
+			<!-- //컨텐츠영역 -->
+		</div>
+	</div>
+
+
+	<hr />
+	<!-- footer영역 -->
+	<div id="LblockFooter">
+		<div id="LblockFooterIn" class="Lclear">
+			<div id="LblockFooterLogo">
+				<a href="#"><img src="../images/footerLogo.gif" alt="(주)엘림넷" /></a>
+			</div>
+			<div id="LblockFooterSetter">
+				<div id="LblockFooterBody">
+					<ul id="LblockFooterMenu">
+						<li class="Lfirst"><a href="#"><img src="../images/footerMenu_01.gif" alt="회사소개" /></a></li>
+						<li><a href="#"><img src="../images/footerMenu_02.gif" alt="서비스약관" /></a></li>
+						<li><a href="#"><img src="../images/footerMenu_03.gif" alt="개인정보취급방침" /></a></li>
+						<li><a href="#"><img src="../images/footerMenu_04.gif" alt="FAQ" /></a></li>
+						<li><a href="#"><img src="../images/footerMenu_05.gif" alt="Q&A" /></a></li>
+						<li><a href="#"><img src="../images/footerMenu_06.gif" alt="제휴문의" /></a></li>
+					</ul>
+					<address><img src="../images/address.gif" alt="서울시 서대문구 충정로3가 32-11 엘림넷빌딩  사업자등록번호: 220-81-97656  개인정보 관리책임자: 송태호 부장 (thshong@elim.net)" /></address>
+					<p><img src="../images/copyright.gif" alt="Copyright (C) 2012 BY ELIMNET CO.,LTD. ALL RIGHTS RESERVED." /></p>
+				</div>
+			</div>
+			<div id="LblockFooterHelp"><img src="../images/callservice.gif" alt="고객지원센터 TEL:02-3149-4900 FAX:02-3149-4998" /></div>
+		</div>
+	</div>
+	<!-- //footer영역 -->
+</div>
+</body>
+</html>

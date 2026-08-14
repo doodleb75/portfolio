@@ -1,0 +1,938 @@
+@charset 'utf-8';
+
+/* Core : Global ���� �Ϻ� ����
+---------------------------------------------------------*/
+body {
+	background:#FFF url('../../images/admin/bg.gif') repeat-x center top;
+}
+#LblockTopMenu li {
+	min-height:39px;
+	_height:39px;
+	margin-right:1px;
+	background-image:none;
+	text-align:center;
+}
+#LblockTopMenu li span {
+	padding:0 0 4px;
+}
+#LblockTopMenu li span span {
+	position:relative;
+	z-index:-1;
+	display:inline;
+	padding:0;
+}
+#LblockTopMenu li span {
+	background-repeat:no-repeat;
+	background-position:left top;
+}
+#LblockTopMenu li span a:link,
+#LblockTopMenu li span a:visited {
+	color:#B4B4B4;
+}
+#LblockTopMenu li span a:hover,
+#LblockTopMenu li span a:active {
+	color:#FFF;
+}
+#LblockTopMenu li a {
+	min-height:39px;
+	_height:39px;
+	padding:0;
+	line-height:39px !important;
+}
+#LblockTopMenu .Lhover .cont {
+	background-position:0 -43px;
+}
+#LblockTopMenu .LitemCustomer { width:96px }
+#LblockTopMenu .LitemService { width:129px }
+#LblockTopMenu .LitemBoards { width:100px }
+#LblockTopMenu .LitemCharges { width:95px }
+#LblockTopMenu .LitemStatistics { width:64px }
+#LblockTopMenu .LitemSite { width:102px }
+#LblockTopMenu .LitemCustomer .cont { background-image:url('../../images/admin/gnav_customer.gif') }
+#LblockTopMenu .LitemService .cont { background-image:url('../../images/admin/gnav_service.gif') }
+#LblockTopMenu .LitemBoards .cont { background-image:url('../../images/admin/gnav_boards.gif') }
+#LblockTopMenu .LitemCharges .cont { background-image:url('../../images/admin/gnav_charges.gif') }
+#LblockTopMenu .LitemStatistics .cont { background-image:url('../../images/admin/gnav_statistics.gif') }
+#LblockTopMenu .LitemSite .cont { background-image:url('../../images/admin/gnav_site.gif') }
+#LblockTopMenu .Lcurrent .cont { background-position:0 -86px }
+
+
+#LblockLeftMenu.LslideMenu li.Lcurrent span {
+	background-color:#747474;
+	background:url('../../images/admin/leftMenu_bul_top_cur.gif') no-repeat left top;
+	padding-bottom:5px;
+	border-width:0 1px 1px 0;
+	border-style:solid;
+	border-color:#717071;
+}
+#LblockLeftMenu.LslideMenu li.Lcurrent li span {
+	background-image:url('../../images/leftMenu_bul.gif');
+	background-color:#FFF;
+	background-position:-10px -44px;
+	padding-bottom:0;
+	border-width:0;
+}
+#LblockLeftMenu.LslideMenu li li span,
+#LblockLeftMenu.LslideMenu li li.Lcurrent span {
+	background-image:url('../../images/leftMenu_bul.gif');
+	background-color:#FFF;
+	background-position:-10px -44px;
+	padding-bottom:0;
+	border-width:0;
+}
+#LblockLeftMenu.LslideMenu li li.Lcurrent a,
+#LblockLeftMenu.LslideMenu li li li.Lcurrent a {
+	color:#FD5500;
+	font-weight:bold;
+}
+
+
+/* Block : pageTitle
+---------------------------------------------------------*/
+#LblockPageTitle {
+	background:url(../../images/pageTitle_bg.gif) no-repeat left bottom;
+}
+#LblockPageTitle h1 {
+	font-size:1.2em;
+	padding:1px 0px 0px 20px;
+	color:#464646;
+}
+
+/* Block : pageSubtitle
+---------------------------------------------------------*/
+.LblockPageSubtitle h2 {
+	color:#464646;
+	font-size:1em;
+	font-weight:bold;
+	padding:10px 0px 10px 16px;
+	background:url(../../images/pageSubtitle_blt.gif) no-repeat -2px 11px;
+}
+
+/* Block : pageSubtitle
+---------------------------------------------------------*/
+.LblockPageSubtitle h3 {
+	color:#464646;
+	font-size:1em;
+	font-weight:bold;
+	padding:10px 0px 10px 9px;
+	background:url(../../images/pageSubtitle_blt3.gif) no-repeat 0 50%;
+}
+
+/* Block : pageLocation
+---------------------------------------------------------*/
+#LblockPageLocation {
+	font-size:0.9em;
+	/*padding:7px 0px 0px 0px;*/
+}
+#LblockPageLocation li {
+	display:inline;
+	margin-left:4px;
+}
+#LblockPageLocation li span {
+	color:#444444;
+	padding-left:11px;
+	background:url(../../images/pageLocation_separater.gif) no-repeat left top;
+}
+#LblockPageLocation li.Lfirst span {
+	background:none;
+}
+#LblockPageLocation li span a {
+	color:#727271;
+}
+
+/* Block : bodyMain
+---------------------------------------------------------*/
+
+/* Block : search
+---------------------------------------------------------*/
+#LblockSearch {
+	position:relative;
+	min-height:1px;
+	background:#f5f6fb;
+	background:url(../../images/search_bg.gif) no-repeat left top;
+	width:785px;
+}
+* html #LblockSearch {
+	height:1px;
+}
+#SearchFront{
+	width:auto;
+	min-height:1px;
+	padding:10px;
+	background:url(../../images/search_bgF.gif) no-repeat bottom;
+}
+#LblockSearch table caption {
+	display:none;
+}
+#LblockSearch table {
+	padding-bottom:5px;
+}
+#LblockSearch table th {
+	text-align:right;
+	white-space:nowrap;
+	padding:2px 2px 2px 5px;
+}
+#LblockSearch table td {
+	padding:2px 2px 2px 2px;
+}
+#LblockSearch .Lcalen{
+	margin:3px;
+	*margin-top:-3px;
+}
+#LblockSearch input.Limage {
+	position:absolute;
+	right:12px;
+	bottom:20px;
+	*bottom:17px;
+}
+
+/* Block : textBox
+---------------------------------------------------------*/
+#LblockTextBox {
+	position:relative;
+	min-height:1px;
+	background:#ffffff;
+	border:2px solid #cdcdcd;
+	margin:10px 0;
+}
+* html #LblockTextBox {
+	height:1px;
+}
+div#LblockTextBox {
+	padding:10px;
+}
+p#LblockTextBox {
+	padding:10px;
+}
+
+/* Block : textBox02     *******1129 ����*********
+---------------------------------------------------------*/
+.txtBox {
+	background:url(../../images/txtBox_bg.gif) no-repeat left top;
+	margin-bottom:10px
+}
+.txtBoxFront {
+	background:url(../../images/txtBox_f.gif) no-repeat center bottom !important;
+	padding:10px 20px;
+}
+.txtBoxFront p{
+}
+
+/* Block : listTable
+---------------------------------------------------------*/
+.LblockListTable .Lwrapper {
+	position:relative;
+	width:100%;
+}
+.LblockListTable .Lscrollable {
+	position:relative;
+	overflow:auto;
+}
+.LblockListTable .LblockListInfo {
+	position:relative;
+	height:4px;
+}
+.LblockListTable .LblockListInfo span.Ltotal {
+	position:absolute;
+	left:2px;
+	bottom:2px;
+}
+.LblockListTable .LblockListInfo span.Lsearch {
+	position:absolute;
+	right:2px;
+	bottom:2px;
+}
+.LblockListTable table {
+	border-collapse:collapse;
+	width:100%;
+}
+.LblockListTable table caption {
+	display:none;
+}
+.LblockListTable table th,
+.LblockListTable table td {
+	height:28px;
+	padding:0 5px;
+	border:1px solid #ccc;
+	text-align:center;
+	color:#444;
+}
+.LblockListTable table th {
+	white-space:nowrap; 
+	font-weight:bold;
+	background-color:#f9f9f9;
+	color:#7E7E7E;
+}
+.LblockListTable table tbody tr.Lhover {
+	background:#eed;
+}
+.LblockListTable table td.Lsubj {
+	text-align:left;
+}
+.LblockListTable ul {
+	text-align:center;
+	font-family:Tahoma;
+	font-size:0.9em;
+	margin-top:10px;
+}
+.LblockListTable li {
+	display:inline;
+	background:url(../../images/list_page_blt.gif) no-repeat left 50%;
+}
+.LblockListTable li span {
+	font-weight:bold;
+	padding: 0 3px 0 6px;
+	color:#E17A0D;
+}
+.LblockListTable li a {
+	font-weight:normal;
+	color:#666;
+}
+.LblockListTable li a:hover,
+.LblockListTable li a:active {
+	color:#E17A0D;
+}
+.LblockListTable li.Lbegin,
+.LblockListTable li.Lend, 
+.LblockListTable li.Lprevious {
+	background:none;
+	padding:0 5px;
+}
+.LblockListTable li.Lnext {	
+	background:url(../../images/list_page_blt.gif) no-repeat left 50%;
+	padding:0 5px;
+}
+.LblockListTable a.Lbtn3 {margin-right:3px;}
+a.Lbtn3,
+a.Lbtn3 * { height:19px; line-height:20px; position:relative; margin:0; padding:0; display:inline-block; text-decoration:none !important; border:0; font-family:Gulim; font-size:12px; white-space:nowrap; background:url(../../images/btn_bg3.gif) no-repeat; vertical-align:top; overflow:visible; color:#333; }
+a.Lbtn3 * { padding:0 5px 0 1px; background-position:right top; left:4px; cursor:pointer; }
+
+/* Block : detail
+---------------------------------------------------------*/
+.LblockDetail table {
+	width:100%;
+	border-collapse:collapse;
+	border-top:2px solid #bdbbbb;
+}
+.LblockDetail table caption {
+	display:none;
+}
+.LblockDetail th,
+.LblockDetail td {
+	border:1px solid #ccc;
+	padding:7px 10px 5px;
+	color:#444;
+		text-align:left;
+}
+.LblockDetail th {
+	background-color:#f5f5f5;
+	font-weight:bold;
+
+	white-space:nowrap; 
+}
+.LblockDetail td textarea {
+	margin:2px;
+}
+
+/* Block : tab
+---------------------------------------------------------*/
+.LblockTab {
+	background:url(../../images/tab_bg.gif) repeat-x left bottom;
+	height:33px;
+}
+.LblockTab li {
+	float:left;
+	background:url(../../images/tab_l.gif) no-repeat;
+	margin-right:2px;
+}
+.LblockTab li.Lcurrent {
+	background-position:left -33px;
+}
+.LblockTab li span {
+	display:block;
+	background:url(../../images/tab_r.gif) no-repeat right top;
+}
+.LblockTab li.Lcurrent span {
+	background-position:right -33px;
+}
+.LblockTab li span a {
+	display:block;
+	line-height:23px;
+	color:#464646;
+	text-decoration:none;
+	padding:9px 18px 0 18px;
+}
+.LblockTab li.Lcurrent span a {
+	font-weight:bold;
+	color:#f000;
+	line-height:33px;
+	padding:3px 25px;
+}
+.LblockTab li span a:hover,
+.LblockTab li span a:active {
+	color:#d81716;
+}
+.LblockTab li.Lcurrent span a:hover,
+.LblockTab li.Lcurrent span a:active {
+	color:#d81716;
+}
+
+/* Block : subtab
+---------------------------------------------------------*/
+.LblocksubTab {
+	background:url(../../images/subtab_bg.gif) repeat-x left bottom;
+	height:26px;
+	font-size:95%;
+}
+.LblocksubTab li {
+	float:left;
+	background:url(../../images/subtab_l.gif) no-repeat;
+	margin-right:2px;
+}
+.LblocksubTab li.Lcurrent {
+	background-position:left -26px;
+}
+.LblocksubTab li span {
+	display:block;
+	background:url(../../images/subtab_r.gif) no-repeat right top;
+}
+.LblocksubTab li.Lcurrent span {
+	background-position:right -26px;
+}
+.LblocksubTab li span a {
+	display:block;
+	line-height:20px;
+	color:#464646;
+	text-decoration:none;
+	padding:5px 16px 0 16px;
+}
+.LblocksubTab li.Lcurrent span a {
+	font-weight:bold;
+	color:#f000;
+	line-height:26px;
+	padding:3px 14px 0 20px;
+	background:url(../../images/tab_point.gif) no-repeat 13px 13px;
+}
+.LblocksubTab li span a:hover,
+.LblocksubTab li span a:active {
+	color:#676767;
+}
+.LblocksubTab li.Lcurrent span a:hover,
+.LblocksubTab li.Lcurrent span a:active {
+	color:#a6a5a5;
+}
+/* Block : tabArea
+---------------------------------------------------------*/
+/* Block : tree
+---------------------------------------------------------*/
+.LblockTree {
+	border:1px solid #ddd;
+}
+.LblockTree a {
+	text-decoration:none;
+}
+.LblockTree a:link, .LblockTree a:visited {
+	color:#000;
+}
+
+/* Block : content
+---------------------------------------------------------*/
+.LblockContent {
+	padding-left:5px;
+}
+.LblockContent ul {
+	margin:5px 0;
+}
+.LblockContent li {
+	padding-left:10px;
+	background:url(../../images/content_blt.gif) no-repeat left 5px;
+}
+
+/* Block : content2
+---------------------------------------------------------*/
+.LblockContent2 {
+	padding-left:10px;
+}
+.LblockContent2 ul {
+	margin:5px 0;
+}
+.LblockContent2 li {
+	padding-left:7px;
+	background:url(../../images/content2_blt.gif) no-repeat left 7px;
+}
+
+/* Block : comment
+---------------------------------------------------------*/
+.LblockComment {
+	color:#e00;
+}
+
+/* Block : button
+---------------------------------------------------------*/
+#LblockButton {
+	position:relative;	
+	background:url(../../images/button_bg.gif) repeat-x left top;
+	padding-top:10px;
+	text-align:right;
+}
+* html #LblockButton {
+	height:1%;
+}
+#LblockButton span.Lleft {
+	position:absolute;
+	left:0;
+}
+#LblockButton a.Lbtn {
+	margin-right:8px;
+}
+a.Lbtn,
+a.Lbtn * { height:22px; line-height:24px; position:relative; margin:0; padding:0; display:inline-block; text-decoration:none !important; border:0; font-family:Gulim; font-size:12px; white-space:nowrap; background:url(../../images/btn_bg1.gif) no-repeat; vertical-align:top; overflow:visible; color:#535353; }
+a.Lbtn * { padding:0 10px 0 9px; background-position:right top; left:4px; cursor:pointer; }
+
+
+/* Block : subbutton
+---------------------------------------------------------*/
+.LblockSubbutton {
+	text-align:right;
+}
+.LblockSubbutton a.Lbtn2 {
+	margin-right:8px;
+}
+a.Lbtn2,
+a.Lbtn2 * { height:22px; line-height:24px; position:relative; margin:0; padding:0; display:inline-block; text-decoration:none !important; border:0; font-family:Gulim; font-size:12px; white-space:nowrap; background:url(../../images/btn_bg2.gif) no-repeat; vertical-align:top; overflow:visible; color:#333; }
+a.Lbtn2 * { padding:0 14px 0 11px; background-position:right top; left:4px; cursor:pointer; }
+
+/* Block : subbutton
+---------------------------------------------------------*/
+.LblockSubbutton {
+	text-align:right;
+}
+.LblockSubbutton a.Lbtn4 {
+	margin-right:8px;
+}
+a.Lbtn4,
+a.Lbtn4 * { height:22px; line-height:24px; position:relative; margin:0; padding:0; display:inline-block; text-decoration:none !important; border:0; font-family:Gulim; font-size:12px; white-space:nowrap; background:url(../../images/btn_bg4.gif) no-repeat; vertical-align:top; overflow:visible; color:#fff; }
+a.Lbtn4 * { padding:0 8px 0 5px; background-position:right top; left:4px; cursor:pointer; }
+
+/* Block : subbutton
+---------------------------------------------------------*/
+.LblockSubbutton {
+	text-align:right;
+}
+.LblockSubbutton a.Lbtn5 {
+	margin-right:8px;
+}
+a.Lbtn5,
+a.Lbtn5 * { height:26px; line-height:26px; position:relative; margin:0; padding:0; display:inline-block; text-decoration:none !important; border:0; font-family:Gulim; font-size:12px; white-space:nowrap; background:url(../../images/btn_bg5.gif) no-repeat; vertical-align:top; overflow:visible; color:#333; }
+a.Lbtn5 * { padding:0 14px 0 11px; background-position:right top; left:4px; cursor:pointer; }
+
+/* Block : shuttleButton
+---------------------------------------------------------*/
+.LblockShuttleButton p {
+	margin-bottom:6px;
+}
+.LblockShuttleButton img {
+	cursor:pointer;
+}
+
+/* Block : error
+---------------------------------------------------------*/
+#LblockError {
+	padding:28px 20px 28px 115px;
+	border:5px solid #E0E0E0;
+	background:url(../../images/error.gif) no-repeat 25px 32px;
+}
+#LblockError div {
+	padding:4px 20px;
+	border-left:1px solid #E0E0E0;
+}
+#LblockError h1 {
+	width:100%;
+	overflow:hidden;
+	height:0;padding-top:21px;
+	margin-bottom:15px;
+	background:url(../../images/error_text.gif) no-repeat;
+}
+#LblockError p {
+	line-height:20px;
+}
+
+/* Block : inform
+---------------------------------------------------------*/
+#LblockInform {
+	padding:28px 20px 28px 115px;
+	border:5px solid #E0E0E0;
+	background:url(../../images/inform.gif) no-repeat 25px 32px;
+}
+#LblockInform div {
+	padding:4px 20px;
+	border-left:1px solid #E0E0E0;
+}
+#LblockInform h1 {
+	width:100%;
+	overflow:hidden;
+	height:0;padding-top:21px;
+	margin-bottom:15px;
+	background:url(../../images/inform_text.gif) no-repeat;
+}
+#LblockInform p {
+	line-height:20px;
+}
+
+/* Block : bullet  ***********1129 ����****************
+---------------------------------------------------------*/
+.txt_bul {
+	background:url(../../images/bul_import.gif) no-repeat 2px 7px;
+	padding:5px 0 2px 16px;
+	margin:0;
+	color:#777777;
+	line-height:120%;
+	font-size:95%;
+}
+
+/* Block : popup ***********1130 ����****************
+---------------------------------------------------------*/
+#LPopup {
+	position:absolute;
+	top:0; left:0;
+	width:100%;
+	height:100%;
+	background:#000;
+	opacity:.35;
+	filter:Alpha(Opacity=35);
+	z-index:2;
+}
+.popup {
+	position:absolute;
+	top:50%;
+	left:50%;
+	height:auto;
+	margin:-150px 0 0 -240px;
+	background:url("../../images/popup/popup_bg.gif") repeat-x top left #fff;
+	border:1px solid #000;
+	z-index:10;
+}
+.popup h2 {
+	height:38px; 
+	line-height:38px;
+	text-indent:12px;
+	color:#fff;
+	font-size:1.3em;
+	font-weight:bold;
+	z-index:11;
+}
+.popup .close {
+	width:auto;
+	position:absolute;
+	top:6px;
+	right:6px;
+	border:1px solid #000;
+	background:#fff;
+	padding:5px;
+}
+.popup .content {
+	padding:20px 20px;
+}
+.content h3 {
+	background:url("../../images/pageTitle_bg.gif") no-repeat top left; 
+	height:35px;
+	padding:0 0 0 20px; 
+	margin-bottom:10px; 
+	font-size:1.2em;
+}
+.content h4 {
+	background:url("../../images/pageSubtitle_blt.gif") no-repeat center left; 
+	padding:0 0 1px 10px;
+	margin:20px 0 10px;
+	font-size:1em;
+}
+.contentP {
+	padding:5px;
+	margin-bottom:20px;
+}
+
+
+
+/* Block : LblockPopupTabld
+---------------------------------------------------------*/
+.LblockPopupTable {
+	position:relative;
+	min-height:1px;
+}
+.Lwrapper {
+	min-height:1px;
+}
+* html .LblockPopupTable {
+	height:2px;
+}
+.LblockPopupTable table caption {
+	display:none;
+}
+.LblockPopupTable table {
+	width:100%;
+	padding:5px;
+	border:2px solid #ccc;
+}
+.LblockPopupTable table th {
+	text-align:left;
+	white-space:nowrap;
+}
+.LblockPopupTable table td {
+	padding:2px;
+}
+
+/* Block : noticeTable
+---------------------------------------------------------*/
+.LblockQnaTable .Lwrapper {
+	position:relative;
+	width:100%;
+}
+.LblockQnaTable .LblockListInfo {
+	position:relative;
+	height:4px;
+}
+.LblockQnaTable .LblockListInfo span.Ltotal {
+	position:absolute;
+	left:2px;
+	bottom:2px;
+}
+.LblockQnaTable .LblockListInfo span.Lsearch {
+	position:absolute;
+	right:2px;
+	bottom:2px;
+}
+.LblockQnaTable table {
+	background:url("../images/tableHeard_bg.gif") no-repeat left top;
+	border-collapse:collapse;
+	width:100%;
+}
+.LblockQnaTable table th.Llast {
+	background:url("../images/tableHeard_Last.gif") no-repeat right top;
+}
+.LblockQnaTable table caption {
+	display:none;
+}
+.LblockQnaTable table th,
+.LblockQnaTable table td {
+	height:28px;
+	padding:0 5px;
+	border-bottom:1px solid #ccc;
+	text-align:center;
+	color:#000;
+}
+.LblockQnaTable table th {
+	white-space:nowrap; 
+	font-weight:bold;
+	height:31px;
+	background: url("../images/table_bar.gif") no-repeat scroll right center 
+}
+.LblockQnaTable table tbody tr.Lhover {
+	background:#f8f8f8;
+}
+.LblockQnaTable table td span.flt_l {
+	float:left; padding:5px;
+}
+.LblockQnaTable ul {
+	text-align:center;
+	font-family:Tahoma;
+	font-size:0.9em;
+	margin-top:10px;
+}
+.LblockQnaTable li {
+	display:inline;
+	background:url(../../images/list_page_blt.gif) no-repeat left 50%;
+}
+.LblockQnaTable li span {
+	font-weight:bold;
+	padding: 0 3px 0 6px;
+	color:#d51515;
+}
+.LblockQnaTable li a {
+	font-weight:normal;
+	color:#666;
+}
+.LblockListTable li a:hover,
+.LblockListTable li a:active {
+	color:#E17A0D;
+}
+.LblockListTable li.Lbegin,
+.LblockListTable li.Lend, 
+.LblockListTable li.Lprevious {
+	background:none;
+	padding:0 5px;
+}
+.LblockQnaTable li.Lnext {	
+	background:url(../../images/list_page_blt.gif) no-repeat left 50%;
+	padding:0 5px;
+}
+.LblockQnaTable a.Lbtn3 {margin-right:3px;}
+a.Lbtn3,
+a.Lbtn3 * { height:19px; line-height:20px; position:relative; margin:0; padding:0; display:inline-block; text-decoration:none !important; border:0; font-family:Gulim; font-size:12px; white-space:nowrap; background:url(../../images/btn_bg3.gif) no-repeat; vertical-align:top; overflow:visible; color:#fff; }
+a.Lbtn3 * { padding:0 5px 0 1px; background-position:right top; left:4px; cursor:pointer; }
+
+/* Block : noticeTable
+---------------------------------------------------------*/
+.bbs_table th, .bbs_table td {
+	text-align: left;
+}
+.bbs_table td.Lcenter{
+	text-align: center;
+}
+.bbs_table td input {
+	font-size: 12px;
+}
+.bbs_table table {
+	width: 100%;
+}
+.bbs_table table caption{
+	display:none;
+}
+.bbs_view table thead th {
+	background: url("../../images/view_headbg_top.gif") no-repeat scroll left top transparent;
+}
+.bbs_view table thead th p {
+	background: url("../../images/view_headbg_btm.gif") no-repeat scroll right top transparent;
+	color: #464646;
+	line-height: 17px;
+	padding: 8px 10px;
+}
+.bbs_view table tbody tr th, .bbs_view table tbody tr td {
+	background: url("../../images/view_trbg.gif") repeat-x scroll left bottom;
+}
+.bbs_view table tbody tr.text th, .bbs_view table tbody tr.text td {
+	background: none repeat scroll 0 0 transparent;
+	border-bottom:1px solid #eee;
+}
+.bbs_view table tbody th {
+	background: url("../../images/txt_bar.gif") no-repeat scroll right top;
+	color: #A7A7A7;
+	font-family: Dotum;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+}
+.bbs_view table tbody th, .bbs_view table tbody td {
+	padding: 7px 0;
+}
+.bbs_view table tbody tr.addFile a {
+	display: inline-block;
+	padding:5px;
+}
+.bbs_view table tbody .viewText {
+	line-height: 18px;
+	margin: 10px 0;
+	padding: 0;
+}
+.bbs_view table tbody .viewText viewTextPd {
+	padding: 10px;
+}
+.bbs_view table tbody .viewText img.addFileImg {
+	display: block;
+	padding-bottom: 10px;
+}
+.bbs_view table thead th.subjectr p {
+	padding-right: 90px;
+	position: relative;
+}
+.bbs_view table thead th.subjectr p span {
+	color: #7F7F7F;
+	font-size: 12px;
+	font-weight: normal;
+	position: absolute;
+	right: 10px;
+	top: 7px;
+}
+.bbs_view table tbody tr.replyfile th, .bbs_view table tbody tr.replyfile td {
+	background: none repeat scroll 0 0 #F5F5F5;
+	border-top: 1px solid #E3E3E3;
+}
+.bbs_view table tbody tr.reply th, .bbs_view table tbody tr.reply td {
+	border-bottom: 1px solid #E3E3E3;
+	border-top: 1px solid #E3E3E3;
+}
+.bbs_view table tbody tr.reply td{
+	border-top:1px solid #red;
+	padding:10px 20px;
+	background: none repeat scroll 0 0 transparent;
+}
+.bbs_view table tbody tr.reply td textarea{
+	margin:10px 0;
+}
+.bbs_view table.pagelink tbody tr td {
+	background: none repeat scroll 0 0 transparent;
+}
+.bbs_view .pagelink {
+	border-top: 1px solid #E4E4E4;
+}
+.bbs_view .pagelink th {
+	border-bottom: 1px solid #E4E4E4;
+	color: #A7A7A7;
+	font-family: Dotum;
+	font-size: 11px;
+	padding-left: 20px;
+	text-align: left;
+}
+.bbs_view .pagelink td {
+	border-bottom: 1px solid #E4E4E4;
+	color: #464646;
+	font-size: 12px;
+}
+.pagelink tr.prev th {
+	background: url("../../images/pagelink_prev.gif") no-repeat scroll 10px 45% transparent;
+	vertical-align: middle;
+}
+.pagelink tr.next th {
+	background: url("../../images/pagelink_next.gif") no-repeat scroll 10px 45% transparent;
+	vertical-align: middle;
+}
+
+/* Block : statusBar
+---------------------------------------------------------*/
+.stausBar {
+	width:210px; margin-left:5px;
+}
+td span.graph {
+	display:inline; width:400px; float:left; text-align:left;
+}
+td span span.parcent {
+}
+
+/* Block : Tab Plain
+--------------------------------------------------------- */
+.LblockTabPlain { margin-bottom:10px; background:url('../../images/tab_bg.gif') repeat-x left bottom; height:33px }
+.LblockTabPlain li { float:left; background:url('../../images/tab_l.gif') no-repeat !important; margin-right:2px !important }
+.LblockTabPlain li.ui-tabs-selected { background-position:left -33px !important }
+.LblockTabPlain li span { display:block; background:url('../../images/tab_r.gif') no-repeat right top }
+.LblockTabPlain li.ui-tabs-selected span { background-position:right -33px !important }
+.LblockTabPlain li span a { display:block; line-height:23px; color:#464646; text-decoration:none; padding:9px 18px 0 18px !important }
+.LblockTabPlain li.ui-tabs-selected span a { font-weight:bold; color:#f000; line-height:33px; padding:3px 25px !important }
+.LblockTabPlain li span a:hover,
+.LblockTabPlain li span a:active { color:#d81716 }
+.LblockTabPlain li.ui-tabs-selected span a:hover,
+.LblockTabPlain li.ui-tabs-selected span a:active { color:#d81716 }
+
+
+/* jQuery UI Theme Reset */
+.LcontentTabbed .ui-widget { font-size:12px; font-family:����,Gulim,����,Dotum,Verdana,Tahoma,Arial,AppleGothic,sans-serif; }
+.LcontentTabbed .ui-widget .ui-widget { font-size:12px }
+.LcontentTabbed .ui-widget-content,
+.LcontentTabbed .ui-widget-header,
+.LcontentTabbed .ui-state-default,
+.LcontentTabbed .ui-widget-header .ui-state-default,
+.LcontentTabbed .ui-widget-header .ui-state-active { border-width:0; background-color:transparent; background-image:none }
+.LcontentTabbed .ui-corner-all, .LcontentTabbed .ui-corner-top, .LcontentTabbed .ui-corner-left, .LcontentTabbed .ui-corner-tl { -moz-border-radius-topleft: 0/*{cornerRadius}*/; -webkit-border-top-left-radius: 0/*{cornerRadius}*/; -khtml-border-top-left-radius: 0/*{cornerRadius}*/; border-top-left-radius: 0/*{cornerRadius}*/; }
+.LcontentTabbed .ui-corner-all, .LcontentTabbed .ui-corner-top, .LcontentTabbed .ui-corner-right, .LcontentTabbed .ui-corner-tr { -moz-border-radius-topright: 0/*{cornerRadius}*/; -webkit-border-top-right-radius: 0/*{cornerRadius}*/; -khtml-border-top-right-radius: 0/*{cornerRadius}*/; border-top-right-radius: 0/*{cornerRadius}*/; }
+.LcontentTabbed .ui-corner-all, .LcontentTabbed .ui-corner-bottom, .LcontentTabbed .ui-corner-left, .LcontentTabbed .ui-corner-bl { -moz-border-radius-bottomleft: 0/*{cornerRadius}*/; -webkit-border-bottom-left-radius: 0/*{cornerRadius}*/; -khtml-border-bottom-left-radius: 0/*{cornerRadius}*/; border-bottom-left-radius: 0/*{cornerRadius}*/; }
+.LcontentTabbed .ui-corner-all, .LcontentTabbed .ui-corner-bottom, .LcontentTabbed .ui-corner-right, .LcontentTabbed .ui-corner-br { -moz-border-radius-bottomright: 0/*{cornerRadius}*/; -webkit-border-bottom-right-radius: 0/*{cornerRadius}*/; -khtml-border-bottom-right-radius: 0/*{cornerRadius}*/; border-bottom-right-radius: 0/*{cornerRadius}*/; }
+.LcontentTabbed .ui-tabs { padding:0 } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+.LcontentTabbed .ui-tabs .ui-tabs-nav { margin: 0; padding:0; }
+.LcontentTabbed .ui-tabs .ui-tabs-nav li { list-style: none; float: left; position:static; top: 0; margin:0; border-bottom: 0; padding: 0; white-space: nowrap; }
+.LcontentTabbed .ui-tabs .ui-tabs-nav li a { float: none; padding:0; text-decoration: none; }
+.LcontentTabbed .ui-tabs .ui-tabs-nav li.ui-tabs-selected { margin-bottom: 0; padding-bottom:0; }
+.LcontentTabbed .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .LcontentTabbed .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .LcontentTabbed .ui-tabs .ui-tabs-nav li.ui-state-processing a { cursor: text; }
+.LcontentTabbed .ui-tabs .ui-tabs-nav li a, .LcontentTabbed .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+.LcontentTabbed .ui-tabs .ui-tabs-panel { display: block; border-width: 0; padding:0; background: none; }
+.LcontentTabbed .ui-tabs .ui-tabs-hide { display: none !important; }
+/* // jQuery UI Theme Reset */
+
+.LpageGoodsList .Lscrollable { height:185px }

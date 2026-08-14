@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE> New Document </TITLE>
+<META NAME="Generator" CONTENT="EditPlus">
+<META NAME="Author" CONTENT="">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<style type="text/css">
+body {
+		font: 80% verdana, arial, helvetica, sans-serif;
+		text-align: center; /* for IE */
+	}
+
+#container {
+		margin: 0 auto;   /* align for good browsers */
+		text-align: left; /* counter the body center */
+ 
+		border: 2px solid #000;
+		width: 80%;
+	}
+
+</style>
+</HEAD>
+
+<BODY>
+<div id="container">
+	대한사람대한으로 길이보전하세....
+</div>
+</BODY>
+</HTML>

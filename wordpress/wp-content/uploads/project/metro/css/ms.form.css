@@ -1,0 +1,35 @@
+
+/** pop레이어 **/
+#bloc_p {position:relative;background:url("images/5.jpg") repeat-x left top transparent;z-index:100;width:700px;height:579px;}
+#bloc_p .bottom_border {background:url("images/7.jpg") repeat-x left bottom transparent;}
+#bloc_p .top_right {display: block;float: right; width: 9px; height: 36px;background:url("images/2.jpg") no-repeat right top transparent;}
+
+#bloc_p .top_left {display: block; width: 9px; height: 36px; background:url("images/1.jpg") no-repeat left top transparent;}
+#bloc_p .left_border {background:url("images/8.jpg") repeat-y left top #fff; }
+#bloc_p .right_border {background:url("images/6.jpg") repeat-y right top transparent;}
+
+#bloc_p .bottom_left {display: block; width: 9px; height: 9px; background:url("images/3.jpg") no-repeat left top transparent;}
+#bloc_p .bottom_right {display: block; float: right; width: 9px; height: 9px; background:url("images/4.jpg") no-repeat right top transparent;}
+#bloc_p .search_title{cursor:pointer;position:absolute;width:98%;top:13px;left:22px;}
+.search_title .title_left{font-weight:bold;color:white;}
+.search_title .btn_right{position:absolute;	right:20px;	top:0px;}
+
+#bloc_p .p_info_title{position:absolute;top:9px;left:22px;font:bold 14px dotum,gullime;background:url(images/info_title_bool.gif) no-repeat right 55%;letter-spacing:-1px;padding-right:20px;color:white;}
+#bloc_p .p_close{position:absolute;top:10px;right:14px;}
+
+.form_table{width:665px;margin:0 auto;}
+
+/** 생활정보 table **/
+.life_style1 th,.life_style1 td,.life_style1{border:0;}
+.life_style1{width:100%;border-collapse:collapse;border:0;border-top:6px solid #808080;border-bottom:6px solid #808080;}
+.life_style1 th{border-bottom:1px solid #e2e1df;text-align:left;background:url(images/life_th_bool.gif) #f5f4f2 no-repeat 15px 50%;padding-left:24px;letter-spacing:-1px;}
+.life_style1 th.last{border-bottom:0px;}
+.life_style1 th,.life_style1 td{border-left:0;border-right:0;}
+.life_style1 td{border-bottom:1px solid #ebebeb;padding:4px 8px;}
+.life_style1 td span.tip{font:11px dotum,verdana;letter-spacing:-1px;color:#fe8801;line-height:32px;padding:0 12px;background:url(images/ballon_tip.png) no-repeat left top;padding-left:16px;margin-left:6px;}
+.life_style1 td p{clear:both;display:block;}
+/** //생활정보 table **/
+
+.life_sel1{display:inline-block;margin-right:6px;}
+.info_stitle{padding:7px 0;margin:0 auto;width:128px;}
+.bot_btnA{margin:0 auto;width:110px;}

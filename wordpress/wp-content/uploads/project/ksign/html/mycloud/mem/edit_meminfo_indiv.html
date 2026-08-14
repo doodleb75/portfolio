@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>eNETner Cloud</title>
+	<link rel="stylesheet" type="text/css" href="/ksign/../css/import.css" />
+	<link rel="stylesheet" type="text/css" href="/ksign/../css/mycloud/membership.css" />
+	<script type="text/javascript" src="../../../js/dui_prototype.js"></script>
+	<script type="text/javascript" src="../../../js/dui_effect.js"></script>
+	<script type="text/javascript" src="../../../js/dui_dragndrop.js"></script>
+	<script type="text/javascript" src="../../../js/dui_hhmenu.js"></script>
+	<script type="text/javascript" src="../../../js/dui_tree.js"></script>
+	<script type="text/javascript" src="../../../js/dui_slidemenu.js"></script>
+	<script type="text/javascript" src="../../../js/dui_tab.js"></script>
+	<script type="text/javascript" src="../../../js/dui_calendar.js"></script>
+	<script type="text/javascript" src="../../../js/common.js"></script>
+</head>
+
+<body>
+<!-- skip메뉴 -->
+<div id="LblockSkipLink">
+	<p><a href="#LblockTopMenu">주메뉴 바로가기</a></p>
+	<p><a href="#LblockLeftMenu">서브메뉴 바로가기</a></p>
+	<p><a href="#LblockBody">콘텐츠 바로가기</a></p>
+</div>
+<!-- //skip메뉴 -->
+
+<div id="LblockWrapper">
+	<!-- header영역 -->
+	<div id="LblockHeader">
+		<div id="LblockHeaderIn">
+			<div id="LblockTopLogo">
+				<h1><a href="#"><img src="../../../images/topLogo.jpg" alt="eNETner Cloud" /></a></h1>
+			</div>
+			<div id="LblockWelcome">
+				<p>2011.11.22 <span>홍길동</span></p><a href="#"><img src="../images/infoChange.gif" alt="" /></a><a href="#">로그아웃</a><img src="../../../images/img_mycloud.gif" alt="" />
+			</div>
+			<div id="LblockTopMenu">
+				<h2  class="Lhide">대메뉴</h2>
+				<ul class="Lclear">
+					<li class="Lfirst LitemService"><span class="cont"><a href="../mgmt/svc_list.html"><span>서비스관리</span></a></span></li>
+					<li class="Lidx1 LitemManagement"><span class="cont"><a href="../mgmt/vm_configuration.html"><span>서비스운영관리</span></a></span></li>
+					<li class="Lidx2 LitemApplication"><span class="cont"><a href="../apply/pkg_websecu.html"><span>서비스신청</span></a></span></li>
+					<li class="Lidx3 LitemMonitoring"><span class="cont"><a href="../monitoring/guide.html"><span>모니터링</span></a></span></li>
+					<li class="Lidx4 LitemMember Lcurrent"><span class="cont"><a href="../mem/edit_meminfo.html"><span>회원정보관리</span></a></span></li>
+					<li class="Lidx5 LitemBilling"><span class="cont"><a href="../billing/charges.html"><span>이용료관리</span></a></span></li>
+					<li class="Llast LitemSupport"><span class="cont"><a href="../support/svcguide.html"><span>고객센터</span></a></span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- //header영역 -->
+	<div id="LblockContainer" class="Lclear">
+		<!-- leftmenu영역 -->
+		<div id="LblockLeft">
+			<div id="LblockLeftTitle">
+				<h2><img src="../../../images/lnbMenu.gif" alt="회원정보관리" /></h2>
+			</div>
+			<div id="LblockLeftMenu" class="LslideMenu">
+				<h3 class="Lhide">회원정보관리 하위메뉴</h3>
+				<ul>
+					<li class="Lfirst Lcurrent"><span><a href="./edit_meminfo.html">회원정보수정</a></span></li>
+					<li class="Lidx1"><span><a href="./edit_companyinfo.html">사업자등록정보수정</a></span></li>
+					<li class="Lidx1 LhasChild"><span><a href="#">청약정보수정</a></span>
+						<ul>
+							<li class="Lfirst"><span><a href="./edit_subsinfo_billing.html">납부방법 수정</a></span></li>
+							<li class="Lidx1"><span><a href="./edit_subsinfo_payment.html">결제정보 수정</a></span></li>
+						</ul>
+					</li>
+					<li class="Lidx2"><span><a href="./transfer.html">명의변경</a></span></li>
+					<li class="Llast"><span><a href="./quit.html">회원탈퇴</a></span></li>
+				</ul>
+			</div>
+		</div>
+		<!-- //leftmenu영역 -->
+		<div id="LblockBodySetter">
+			<!-- 컨텐츠영역 -->
+			<div id="LblockBody">
+				<!-- 페이지타이틀 영역 -->
+				<div id="LblockPageHeader">
+					<div id="LblockPageTitle">
+						<h1>회원정보수정</h1>
+					</div>
+					<div id="LblockPageLocation">
+						<ul>
+							<li class="Lfirst"><span><a href="#">HOME</a></span></li>
+							<li><span><a href="#">회원정보관리</a></span></li>
+							<li class="Llast"><span>회원정보수정</span></li>
+						</ul>
+					</div>
+				</div>
+				<!-- //페이지타이틀 영역 -->
+				<!-- 페이지내용영역 -->
+				<div id="LblockBodyMain">
+					<!-- 서브 타이틀 -->
+					<div id="LblockPageSubtitle01" class="LblockPageSubtitle">
+						<h2>개인회원기본정보 <span class="h2sub">(<span class="txtRed">*</span>는 필수사항입니다.)</span></h2>
+					</div>
+					<!-- 서브 타이틀 -->
+					<div id="LblockDetail01" class="LblockDetail">
+						<table summary="주요연락망 내용입력">
+							<caption>주요연락망 내용입력</caption>
+							<colgroup>
+								<col width="20%" />
+								<col width="25%" />
+								<col width="20%" />
+								<col width="35%" />
+							</colgroup>
+							<tbody>
+								<tr>
+									<th><label for="sEmpDepart">이름</label></th>
+									<td>홍길동</td>
+									<th><label for="sEmpDepart">주민등록번호</label></th>
+									<td>20110101-*******</td>
+								</tr>
+								<tr>
+									<th><label for="sEmpDepart">아이디</label></th>
+									<td>hong</td>
+									<th><label for="sEmpDepart">현재비밀번호</label></th>
+									<td><input type="text" class="Ltext" id="sEmpDepart" size="20" /></td>
+								</tr>
+								<tr>
+									<th>새비밀번호<span class="txtRed">*</span></th>
+									<td colspan="3">
+										<input type="text" class="Ltext" id="sEmpDepart" size="20" />
+										<p class="">*비밀번호는 8자 이상 영문 숫자 혼용 특수문자를 사용하실 수 있습니다.<br />
+										*아이디와 유사하거나 유추하기 쉬운 비밀번호는 등록하실 수 없습니다.</p>
+									</td>
+								</tr>
+								<tr>
+									<th>새비밀번호확인<span class="txtRed">*</span></th>
+									<td colspan="3">
+										<input type="text" class="Ltext" id="sEmpDepart" size="20" />
+										<p>비밀번호를 한번 더 입력해주세요.</p>
+									</td>
+								</tr>
+								<tr>
+									<th><label for="sEmpNo">전화번호<span class="txtRed">*</span></label></th>
+									<td colspan="3">
+										<select id="sEmpLevel">
+											<option value="01">02</option> 
+											<option value="02">031</option> 
+										</select> -
+										<input type="text" class="Ltext" id="sEmpDepart" size="4" /> -
+										<input type="text" class="Ltext" id="sEmpDepart" size="4" />
+									</td>
+								</tr>
+								<tr>
+									<th><label for="sEmpDepart">휴대폰번호<span class="txtRed">*</span></label></th>
+									<td colspan="3">
+										<select id="sEmpLevel">
+											<option value="01">LG</option> 
+											<option value="02">SKT</option>
+											<option value="02">KT</option> 
+										</select>
+										<select id="sEmpLevel">
+											<option value="01">010</option> 
+											<option value="02">011</option>
+											<option value="02">016</option> 
+											<option value="02">018</option> 
+										</select> -
+										<input type="text" class="Ltext" id="sEmpDepart" size="4" /> -
+										<input type="text" class="Ltext" id="sEmpDepart" size="4" />
+										<a class="Lbtn3" href="#"><span onclick="doSomething();">인증</span></a>
+									</td>
+								</tr>
+								<tr>
+									<th><label for="sEmpDepart">이메일<span class="txtRed">*</span></label></th>
+									<td colspan="3">
+										<input type="text" class="Ltext" id="sEmpDepart" size="10" />
+										@
+										<input type="text" class="Ltext" id="sEmpDepart" size="10" />
+										<select id="sEmpLevel">
+											<option value="01">직접입력</option> 
+											<option value="02">naver.com</option> 
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<th rowspan="3">주소<span class="txtRed">*</span></th>
+									<td colspan="3">
+										<input type="text" class="Ltext" id="sEmpDepart" size="4" /> -
+										<input type="text" class="Ltext" id="sEmpDepart" size="4" />
+										<a class="Lbtn3" href="./zipcode.html" target="_blank"><span>우편번호검색</span></a>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="3"><input type="text" class="Ltext" id="sEmpDepart" size="40" /></td>
+								</tr>
+								<tr>
+									<td colspan="3">
+										<input type="text" class="Ltext" id="sEmpDepart" size="40" />
+										<p>상세주소를 입력해주세요.</p>
+									</td>
+								</tr>
+								<tr>
+									<th><label for="sEmpDepart">추천인 아이디</label></th>
+									<td colspan="3">hong</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- 서브 타이틀 -->
+					<div id="LblockPageSubtitle01" class="LblockPageSubtitle">
+						<h2>서비스안내설정 <span class="h2sub">(서비스 안내에 동의하시는 회원에게 다양한 정보를 안내해 드립니다.)</span></h2>
+					</div>
+					<!-- 서브 타이틀 -->
+					<div id="LblockDetail01" class="LblockDetail">
+						<table summary="서비스안내설정 상세정보">
+							<caption>서비스안내설정 상세정보</caption>
+							<colgroup>
+								<col width="20%" />
+								<col width="*" />
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>이메일<span class="txtRed">*</span></th>
+									<td>
+										<input type="radio" class="Ltext" id="dEmpSkillLevel1" name="dEmpSkillLevel" /><label for="dEmpSkillLevel1"> 예,받겠습니다.</label>
+										<input type="radio" class="Ltext" id="dEmpSkillLevel2" name="dEmpSkillLevel" /><label for="dEmpSkillLevel2"> 아니오.받지 않겠습니다.</label>
+
+										<p class="txt_bul">이네트너 클라우드서비스 에서 발송하는 서비스및 이벤트에 대한 안내메일에 수신 동의하신 회원님께서는 다양한 서비스정보 및 유용한 이벤트 참여 정보를 받아보실 수 있습니다.</p>
+									</td>
+								</tr>
+								<tr>
+									<th>SMS<span class="txtRed">*</span></th>
+									<td>
+										<input type="radio" class="Ltext" id="dEmpSkillLevel3" name="dEmpSkillLevel" /><label for="dEmpSkillLevel3"> 예,받겠습니다.</label>
+										<input type="radio" class="Ltext" id="dEmpSkillLevel4" name="dEmpSkillLevel" checked="checked" /><label for="dEmpSkillLevel4"> 아니오.받지 않겠습니다.</label>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p class="txt_bul">설정하신 사항과  관계없이 문의 및 상품가입, 공지사항에 대한 안내메일은 발송됩니다.</p>
+					</div>
+					<!-- 페이지버튼영역 -->
+					<div id="LblockButton">
+						<a class="Lbtn" href="#"><span onclick="doSomething();">확인</span></a>
+						<a class="Lbtn" href="#"><span onclick="doSomething();">취소</span></a>
+					</div>
+					<!-- //페이지버튼영역 -->
+
+
+
+
+
+
+
+				</div>
+				<!-- 페이지내용영역 -->
+			</div>
+			<!-- //컨텐츠영역 -->
+		</div>
+	</div>
+	<hr />
+	<!--footer영역-->
+	<div id="LblockFooter">
+		<div id="LblockFooterIn" class="Lclear">
+			<div id="LblockFooterLogo">
+				<a href="#"><img src="../../../images/footerLogo.gif" alt="(주)엘림넷" /></a>
+			</div>
+			<div id="LblockFooterSetter">
+				<div id="LblockFooterBody">
+					<ul id="LblockFooterMenu">
+						<li class="Lfirst"><a href="#"><img src="../../../images/footerMenu_01.gif" alt="회사소개" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_02.gif" alt="서비스약관" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_03.gif" alt="개인정보취급방침" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_04.gif" alt="FAQ" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_05.gif" alt="Q&A" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_06.gif" alt="제휴문의" /></a></li>
+					</ul>
+					<address><img src="../../../images/address.gif" alt="서울시 서대문구 충정로3가 32-11 엘림넷빌딩  사업자등록번호: 220-81-97656  개인정보 관리책임자: 송태호 부장 (thshong@elim.net)" /></address>
+					<p><img src="../../../images/copyright.gif" alt="Copyright (C) 2012 BY ELIMNET CO.,LTD. ALL RIGHTS RESERVED." /></p>
+				</div>
+			</div>
+			<div id="LblockFooterHelp"><img src="../../../images/callservice.gif" alt="고객지원센터 TEL:02-3149-4900 FAX:02-3149-4998" /></div>
+		</div>
+	</div>
+	<!--//footer영역-->
+</div>
+</body>
+</html>

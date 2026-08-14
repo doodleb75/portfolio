@@ -1,0 +1,518 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>::Metro AD::</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/jquery.rollover.js"></script>
+<script type="text/javascript">
+/*	jQuery(function() {aaaa
+		$('#t-menu img').rollover({
+			out:false,
+			container: $('#t-menu')
+		});
+	});*/
+</script>
+<script type="text/javascript" src="../js/ddaccordion.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"type="text/javascript">
+// toggle_script
+</script> 
+
+<script type="text/javascript">
+
+//Initialize first demo:
+ddaccordion.init({
+	headerclass: "mypets", //Shared CSS class name of headers group
+	contentclass: "thepet", //Shared CSS class name of contents group
+	revealtype: "mouseover", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
+	defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc]. [] denotes no content.
+	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+	animatedefault: false, //Should contents open by default be animated into view?
+	scrolltoheader: false, //scroll to header each time after it's been expanded by the user?
+	persiststate: true, //persist state of opened contents within browser session?
+	toggleclass: ["", "openpet"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+	togglehtml: ["none", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+	oninit:function(expandedindices){ //custom code to run when headers have initalized
+		//do nothing
+	},
+	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+		//do nothing
+	}
+})
+
+//Initialize 2nd demo:
+ddaccordion.init({
+	headerclass: "technology", //Shared CSS class name of headers group
+	contentclass: "thelanguage", //Shared CSS class name of contents group
+	revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+	collapseprev: false, //Collapse previous content (so only one open at any time)? true/false 
+	defaultexpanded: [], //index of content(s) open by default [index1, index2, etc]. [] denotes no content.
+	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+	animatedefault: false, //Should contents open by default be animated into view?
+	scrolltoheader: false, //scroll to header each time after it's been expanded by the user?
+	persiststate: false, //persist state of opened contents within browser session?
+	toggleclass: ["closedlanguage", "openlanguage"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+	//togglehtml: ["prefix", "<img src='images/down.png' style='width:13px; height:13px;position:absolute;right:0;top:0;' /> ", "<img src='images/down.png' style='width:13px; height:13pxposition:absolute;right:0;top:0;' /> "], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+	oninit:function(expandedindices){ //custom code to run when headers have initalized
+		//do nothing
+	},
+	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+		//do nothing
+	}
+})
+</script>
+<style type="text/css">
+	@import url('../css/common.css');
+</style>
+</head>
+<body>
+
+<!-- wrapper -->
+<div id="b_wrap">
+	<!-- header -->
+	<div id="header">
+		<div class="top_navi">
+			<h1 class="logo"><a href="../html/metro_sub5.html"><img src="../images/common/metro_logo.png" alt="" title="서울메트로 광고통합 관리시스템" /></a></h1>
+			<span id="t-menu" class="top_menu">
+				<ul>
+				<li><a href="../html/metro_sub5.html"><img src="../images/common/t_menu1.png" alt="" title="영업관리"/></a></li>
+				<li class="sep"><img src="../images/common/t_menu_sepLine.png"/></li>
+				<li><a href="../html/metro_sub5.html"><img src="../images/common/t_menu2.png" alt="" title="모니터링"/></a></li>
+				<li class="sep"><img src="../images/common/t_menu_sepLine.png"/></li>
+				<li><a href="../html/metro_sub5.html"><img src="../images/common/t_menu3.png" alt="" title="매출통계"/></a></li>
+				<li class="sep"><img src="../images/common/t_menu_sepLine.png"/></li>
+				<li><a href="../html/metro_sub5.html"><img src="../images/common/t_menu4.png" alt="" title="기본정보 및 이력관리" class="default" /></a></li>
+				<li class="sep"><img src="../images/common/t_menu_sepLine.png"/></li>
+				<li class="lastMenu"><a href="../html/metro_sub5.html"><img src="../images/common/t_menu5.png" alt="" title="시설물 관리"/></a></li>
+				</ul>
+			</span>
+		</div>
+	</div>
+	<!-- //header -->
+
+	<!-- container -->
+	<div id="container">
+		<!-- 레프트 영역 -->
+<div class="lnb">
+		<div class="log_info">
+			<p class="invite"><em>홍길동</em> 님 반갑습니다.</p>
+			<div class="p_info">
+				<table border=1 width='167' align=center>
+					<tr>
+						<th>판매승인</th>
+						<th>도안심의</th>
+					</tr>
+					<tr>
+						<td><span class="p_data">요청 :</span><em class="red">500</em>건</td>
+						<td><span class="p_data">요청 :</span><em class="red">500</em>건</td>
+					</tr>
+					<tr>
+						<td><span class="p_data">완료 :</span><em class="red">50</em>건</td>
+						<td><span class="p_data">완료 :</span><em class="red">50</em>건</td>
+					</tr>
+					<tr>
+						<td colspan=2 style="padding:7px 0;border:0;">
+							<span><a href="../html/metro_sub5.html"><img src="../images/common/btn_logEdit.png" alt="개인정보수정" title="개인정보수정"/></a></span>
+							<span><a href="../html/metro_sub5.html"><img src="../images/common/btn_logOut.png" alt="로그아웃" title="로그아웃"/></a></span>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+			<h2><img src="../images/common/lnb_title1.gif" alt="기본정보 및 이력관리" title="기본정보 및 이력관리"/></h2>
+				<ul>
+				   <li><a href="../html/metro_sub5.html">광고매체정보 관리</a></li> 
+				   <li><a href="../html/metro_sub5.html">광고특별활인 관리</a><em></em></li>
+				   <li><a href="../html/metro_sub5.html">판매대행사 관리</a></li>
+				   <li><a href="../html/metro_sub5.html">판매대행사 판매금액 관리</a></li>
+				   <li><a href="../html/metro_sub5.html">광고주 관리</a></li>
+				   <li><a href="../html/metro_sub5.html">광고대행사 관리</a></li>
+				   <li><a href="../html/metro_sub5.html">호선코드 관리</a></li>
+				   <li><a href="../html/metro_sub5.html">역사코드 관리</a><em></em></li>
+				   <li><a href="../html/metro_sub5.html">매체위치정보 관리</a></li>
+				   <li><a href="../html/metro_sub5.html">규격코드 관리</a></li>
+				   <li><a href="../html/metro_sub5.html">업종코드 관리</a></li>
+				</ul>
+		</div>
+		<!-- //레프트 영역 -->
+		<!-- 컨텐츠 영역 -->
+		<div class="contents">
+			<div class="page_location">
+				<h3>광고매체 요금관리</h3>
+				<span class="navi"><a href="../html/metro_sub5.html">Home</a> > 기본정보 및 이력관리</span>
+			</div>
+			<p class="title_bar"></p>
+			<!-- 컨텐츠 박스 시작 -->
+			<p class="able_cost"><strong>판매가능잔액 :</strong> 100,000,000 원</p>
+
+			<div class="content_box" style="clear:both;">
+				<div class="accor-wrap">
+				<div class="contract_option">
+					<h2 class="m_contract">모 계약서</h2>
+					<div class="m_contractField">
+						<p>
+							<span class="col1"><label>판매 대행사</label><input type="text" id="" name="" class="receiveData" readonly value="미디어판매"/></span>
+							<span class="col2"><label>판매자</label><input type="text" id="" name="" class="receiveData" readonly value="홍길동"/></span>
+						</p>
+						<p>
+							<span class="col1"><label>광고주</label>
+								<select>
+									<option>삼성전자</option>
+									<option>삼성전자</option>
+									<option>삼성전자</option>
+								</select>
+							</span>
+							<span class="col2"><label>브랜드</label><input type="text" id="" name=""/></span>
+						</p>
+						<p>
+							<span class="col1"><label>계약기간</label><input type="text" id="" name="" class="receiveData" readonly value="201.04.04~2012.07.04(3개월)" style="width:155px;"/></span>
+							<span class="col3"><label>총금액</label><input type="text" id="" name="" class="receiveData" readonly value="2,100,100" style="width:50px;"/>원</span>
+							<span class="col3"><label>할인률</label><input type="text" id="" name="" class="receiveData" readonly value="0" style="width:10px;"/>%</span>
+							<span class="col4" style="position:relative;top:10px;padding-bottom:10px;"><label>계약금액</label><input type="text" id="" name="" class="receiveData" readonly value="2,100,100" style="width:50px;"/>원</span>
+						</p>
+					</div>
+
+					<h2 class="p_contract">자 계약서</h2>
+						<div class="p_contractField">
+							<table width="100%" border="1" cellpadding="0" cellspacing="0" class="pContract_table">
+							  <tr>
+								<th scope="col">호선</th>
+								<th scope="col">역 명칭</th>
+								<th scope="col">위치</th>
+								<th scope="col">매체종류</th>
+								<th scope="col">등급</th>
+								<th scope="col">수량</th>
+								<th scope="col">계약기간</th>
+								<th scope="col">월판매단가</th>
+								<th scope="col">총금액</th>
+								<th scope="col">활인율(%)</th>
+								<th scope="col">계약금액</th>
+								<th scope="col">&nbsp;</th>
+							  </tr>
+							  <tr>
+								<td>3호선</td>
+								<td>대화(킨텍스)</td>
+								<td>승강장(BF)-A002</td>
+								<td>조명(400cm*25cm)</td>
+								<td>SA</td>
+								<td><input type="text" id="" name="" style="width:20px;" /></td>
+								<td>
+								<input type="text" id="input" name="input" style="width:30px;" />-<input type="text" id="input" name="input" style="width:15px;" />-<input type="text" id="input" name="input" style="width:15px;" />
+								<br />
+								~<input type="text" id="input" name="input" style="width:30px;" />-<input type="text" id="input" name="input" style="width:15px;" />-<input type="text" id="input" name="input" style="width:15px;" /></td>
+								<td>2,100,100</td>
+								<td>2,100,100</td>
+								<td><input type="text" id="input2" name="input2" style="width:20px;" /></td>
+								<td>2,100,100</td>
+								<td><a href="../html/metro_sub5.html"><img src="../images/oasis_sales/btn_listDelete.gif" alt="삭제" title="삭제"/></a></td>
+							  </tr>
+							  <tr>
+								<td>3호선</td>
+								<td>대화(킨텍스)</td>
+								<td>승강장(BF)-A002</td>
+								<td>조명(400cm*25cm)</td>
+								<td>SA</td>
+								<td><input type="text" id="" name="" style="width:20px;" /></td>
+								<td>
+								<input type="text" id="input" name="input" style="width:30px;" />-<input type="text" id="input" name="input" style="width:15px;" />-<input type="text" id="input" name="input" style="width:15px;" />
+								<br />
+								~<input type="text" id="input" name="input" style="width:30px;" />-<input type="text" id="input" name="input" style="width:15px;" />-<input type="text" id="input" name="input" style="width:15px;" /></td>
+								<td>2,100,100</td>
+								<td>2,100,100</td>
+								<td><input type="text" id="input2" name="input2" style="width:20px;" /></td>
+								<td>2,100,100</td>
+								<td><a href="../html/metro_sub5.html"><img src="../images/oasis_sales/btn_listDelete.gif" alt="삭제" title="삭제"/></a></td>
+							  </tr>
+							</table>
+						</div>
+						<div style="padding:0 0 10px 0;text-align:right;margin-top:20px;">
+							<span class="button medium-w icon"><span class="confirm"></span><a href="../html/metro_sub5.html#">저장</a></span>
+							<span class="button medium-w icon"><span class="cancel"></span><a href="../html/metro_sub5.html#">취소</a></span>
+						</div>
+				</div>
+				<!-- 모두열기/닫기 -->
+				<div style="padding:0 0 20px 0;float:right;">
+					<span class="button small-g icon"><span class="confirm"></span><a href="../html/metro_sub5.html#"  onClick="ddaccordion.expandall('technology'); return false">모두열기</a></span>
+					<span class="button small-g icon"><span class="cancel"></span><a href="../html/metro_sub5.html#" onClick="ddaccordion.collapseall('technology'); return false">모두닫기</a></span>				
+				</div>
+				<!-- //모두열기/닫기 -->
+
+				<!-- 검색 셀렉트박스 옵션 -->
+				<div class="contract_selOption">
+					<select style="width:8%;">
+						<option>3호선</option>
+						<option>3호선</option>
+					</select>
+					<select style="width:19%;">
+						<option>역사전체</option>
+						<option>역사전체</option>
+					</select>
+					<select style="width:19%;">
+						<option>승강장</option>
+						<option>승강장</option>
+					</select>
+					<select style="width:28%;">
+						<option>조명--400cm*225cm</option>
+						<option>조명--400cm*225cm</option>
+					</select>
+					<span class="button medium-w strong icon" ><span class="search"></span><a href="../html/metro_sub5.html#">검색</a></span>
+				</div>
+				<!-- //검색 셀렉트박스 옵션 -->
+
+				<!-- 검색결과 유형2 -->
+
+					<div class="technology">
+						<p>
+							<span class="listTitle">대화(킨텍스)</span>
+							<span class="sLabel">조명(400cm*225cm)</span>
+							<span class="sLabel">총매체:5</span>
+							<span class="sLabel">게첨중:1</span>
+							<span class="sLabel">미게첨:1</span>
+							<span class="sLabel">승인증:1</span>
+							<span class="sLabel">공사중:1</span>
+							<span class="sLabel">사용불가:1</span>
+							<span class="drop_arr"></span>
+						</p>
+					</div>
+					<div class="thelanguage">
+					<!-- 검색결과 테이블 -->
+						<table width="100%" border="1" cellpadding="0" cellspacing="0" class="saleInfo_table">
+						  <tr>
+							<th scope="col">위치</th>
+							<th scope="col">등급</th>
+							<th scope="col">판매단가</th>
+							<th scope="col">광고주</th>
+							<th scope="col">게첨기간</th>
+							<th scope="col">현상태</th>
+							<th scope="col">도면보기</th>
+						  </tr>
+						  <tr>
+							<td class="locate">A001</td>
+							<td>SA</td>
+							<td>2,100,100 원</td>
+							<td>CJ엔터테인먼트[영화포스터]</td>
+							<td>2012.01.01~2012.07.30</td>
+							<td>게첨중</td>
+							<td>&nbsp;</td>
+						  </tr>
+						  <tr>
+							<td class="locate">A001</td>
+							<td>SA</td>
+							<td>2,100,100 원</td>
+							<td>CJ엔터테인먼트[영화포스터]</td>
+							<td>2012.01.01~2012.07.30</td>
+							<td>게첨중</td>
+							<td>&nbsp;</td>
+						  </tr>
+						  <tr>
+							<td class="locate">A001</td>
+							<td>SA</td>
+							<td>2,100,100 원</td>
+							<td>CJ엔터테인먼트[영화포스터]</td>
+							<td>2012.01.01~2012.07.30</td>
+							<td>게첨중</td>
+							<td>&nbsp;</td>
+						  </tr>
+						  <tr>
+							<td class="locate">A001</td>
+							<td>SA</td>
+							<td>2,100,100 원</td>
+							<td>CJ엔터테인먼트[영화포스터]</td>
+							<td>2012.01.01~2012.07.30</td>
+							<td>사용불가</td>
+							<td>&nbsp;</td>
+						  </tr>
+						  <tr>
+							<td class="locate">A001</td>
+							<td>SA</td>
+							<td>2,100,100 원</td>
+							<td>CJ엔터테인먼트[영화포스터]</td>
+							<td>2012.01.01~2012.07.30</td>
+							<td>게첨중</td>
+							<td>&nbsp;</td>
+						  </tr>
+						</table>
+					<!-- 검색결과 테이블 -->
+					</div>
+					<!-- //항목1 -->
+					<!-- 항목2 -->
+					<div class="technology">
+						<p>
+							<span class="listTitle">대화(킨텍스)</span>
+							<span class="sLabel">조명(400cm*225cm)</span>
+							<span class="sLabel">총매체:5</span>
+							<span class="sLabel">게첨중:1</span>
+							<span class="sLabel">미게첨:1</span>
+							<span class="sLabel">승인증:1</span>
+							<span class="sLabel">공사중:1</span>
+							<span class="sLabel">사용불가:1</span>
+							<span class="drop_arr"></span>
+						</p>
+					</div>
+					<div class="thelanguage">
+					<!-- 검색결과 테이블 -->
+						<table width="100%" border="1" cellpadding="0" cellspacing="0" class="saleInfo_table">
+						  <tr>
+							<th scope="col">위치</th>
+							<th scope="col">등급</th>
+							<th scope="col">판매단가</th>
+							<th scope="col">광고주</th>
+							<th scope="col">게첨기간</th>
+							<th scope="col">현상태</th>
+							<th scope="col">도면보기</th>
+						  </tr>
+						  <tr>
+							<td class="locate">A001</td>
+							<td>SA</td>
+							<td>2,100,100 원</td>
+							<td>CJ엔터테인먼트[영화포스터]</td>
+							<td>2012.01.01~2012.07.30</td>
+							<td>게첨중</td>
+							<td>&nbsp;</td>
+						  </tr>
+						  <tr>
+							<td class="locate">A001</td>
+							<td>SA</td>
+							<td>2,100,100 원</td>
+							<td>CJ엔터테인먼트[영화포스터]</td>
+							<td>2012.01.01~2012.07.30</td>
+							<td>게첨중</td>
+							<td>&nbsp;</td>
+						  </tr>
+						  <tr>
+							<td class="locate">A001</td>
+							<td>SA</td>
+							<td>2,100,100 원</td>
+							<td>CJ엔터테인먼트[영화포스터]</td>
+							<td>2012.01.01~2012.07.30</td>
+							<td>게첨중</td>
+							<td>&nbsp;</td>
+						  </tr>
+						  <tr>
+							<td class="locate">A001</td>
+							<td>SA</td>
+							<td>2,100,100 원</td>
+							<td>CJ엔터테인먼트[영화포스터]</td>
+							<td>2012.01.01~2012.07.30</td>
+							<td>사용불가</td>
+							<td>&nbsp;</td>
+						  </tr>
+						  <tr>
+							<td class="locate">A001</td>
+							<td>SA</td>
+							<td>2,100,100 원</td>
+							<td>CJ엔터테인먼트[영화포스터]</td>
+							<td>2012.01.01~2012.07.30</td>
+							<td>게첨중</td>
+							<td>&nbsp;</td>
+						  </tr>
+						</table>
+					<!-- 검색결과 테이블 -->
+					</div>
+					<!-- //항목2 -->
+					<!-- 항목3 -->
+					<div class="technology">
+						<p>
+							<span class="listTitle">대화(킨텍스)</span>
+							<span class="sLabel">조명(400cm*225cm)</span>
+							<span class="sLabel">총매체:5</span>
+							<span class="sLabel">게첨중:1</span>
+							<span class="sLabel">미게첨:1</span>
+							<span class="sLabel">승인증:1</span>
+							<span class="sLabel">공사중:1</span>
+							<span class="sLabel">사용불가:1</span>
+							<span class="drop_arr"></span>
+						</p>
+					</div>
+					<div class="thelanguage">
+					<!-- 검색결과 테이블 -->
+						<table width="100%" border="1" cellpadding="0" cellspacing="0" class="saleInfo_table">
+						  <tr>
+							<th scope="col">위치</th>
+							<th scope="col">등급</th>
+							<th scope="col">판매단가</th>
+							<th scope="col">광고주</th>
+							<th scope="col">게첨기간</th>
+							<th scope="col">현상태</th>
+							<th scope="col">도면보기</th>
+						  </tr>
+						  <tr>
+							<td class="locate">A001</td>
+							<td>SA</td>
+							<td>2,100,100 원</td>
+							<td>CJ엔터테인먼트[영화포스터]</td>
+							<td>2012.01.01~2012.07.30</td>
+							<td>게첨중</td>
+							<td>&nbsp;</td>
+						  </tr>
+						  <tr>
+							<td class="locate">A001</td>
+							<td>SA</td>
+							<td>2,100,100 원</td>
+							<td>CJ엔터테인먼트[영화포스터]</td>
+							<td>2012.01.01~2012.07.30</td>
+							<td>게첨중</td>
+							<td>&nbsp;</td>
+						  </tr>
+						  <tr>
+							<td class="locate">A001</td>
+							<td>SA</td>
+							<td>2,100,100 원</td>
+							<td>CJ엔터테인먼트[영화포스터]</td>
+							<td>2012.01.01~2012.07.30</td>
+							<td>게첨중</td>
+							<td>&nbsp;</td>
+						  </tr>
+						  <tr>
+							<td class="locate">A001</td>
+							<td>SA</td>
+							<td>2,100,100 원</td>
+							<td>CJ엔터테인먼트[영화포스터]</td>
+							<td>2012.01.01~2012.07.30</td>
+							<td>사용불가</td>
+							<td>&nbsp;</td>
+						  </tr>
+						  <tr>
+							<td class="locate">A001</td>
+							<td>SA</td>
+							<td>2,100,100 원</td>
+							<td>CJ엔터테인먼트[영화포스터]</td>
+							<td>2012.01.01~2012.07.30</td>
+							<td>게첨중</td>
+							<td>&nbsp;</td>
+						  </tr>
+						</table>
+					<!-- 검색결과 테이블 -->
+					</div>
+					<!-- //항목3 -->
+				</div>
+			</div>
+			<!-- 컨텐츠 박스 끝-->
+		</div>
+		<!-- //컨텐츠 영역 -->
+	</div>
+	<!-- container -->
+</div>
+<!-- //wrapper -->
+
+<!-- footer -->
+
+<div id="footer">
+    <div class="foot_box">
+		<span class="foot_logo" style="margin-left:20px;"><img src="../images/common/foot_logo_gray.png" alt="" title="" /></span>
+		<span class="foot_add">
+			<address>(137-712) 서울특별시 서초구 효령로 5(서초구 방배동 447-7) 고객센터 : 1577-1234</address>
+			<em>Copyright (C) 2009 SEOULMETRO. All rights Reserved.</em>
+		</span>
+	</div>
+</div>
+<!-- //footer -->
+
+</body>
+</html>

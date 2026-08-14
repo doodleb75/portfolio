@@ -1,0 +1,431 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>Autodesk :: Design Market Place</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+</head>
+
+<!-- top -->
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/content.css">
+	<link rel="stylesheet" type="text/css" href="css/layer.css">
+	<link rel="stylesheet" type="text/css" href="css/tab.css">
+	
+	<!-- Common -->
+<!-- 	<script type="text/javascript" src="js/default.js"></script> -->
+	<script type="text/javascript" src="js/flash.js"></script>
+	<script type="text/javascript" src="js/link.js"></script>
+	<script type="text/javascript" src="js/isValid.js"></script>
+	<script type="text/javascript" src="js/ajax.js"></script>
+	<!-- script type="text/javascript" src="js/jquery-1.3.2.min.js"></script-->
+	<script type="text/javascript" src="js/jquery-1.4.2.js"></script> 
+	<script type="text/javascript">
+		var $j = jQuery.noConflict();
+	</script>
+
+	<!-- �� �α� ���� -->
+	<script src="http://weblog.designmp.co.kr/hanbiro.js"></script> 
+	
+	<!-- POP UP�� ���� ���� -->
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="css/lightbox/lightwindow.css" />
+	
+	<!-- JavaScript -->
+<!-- 	<script type="text/javascript" src="js/lightbox/prototype.js"></script>
+	<script type="text/javascript" src="js/lightbox/effects.js"></script>
+	<script type="text/javascript" src="js/lightbox/scriptaculous.js?load=effects"></script>
+	<script type="text/javascript" src="js/lightwindow.js"></script>
+	<script type="text/javascript" src="js/lightbox/lightwindow.js"></script>
+	<script type="text/javascript" src="js/screenControl.js"></script> -->
+	
+
+<!-- //top-->
+
+
+<body id="index">
+<script type="text/javascript" src="js/wz_tooltip.js"></script> 
+<div id="wrap">
+	<!-- top -->
+		<div id="header">
+		<div class="top">
+			<h1><a href="#"><img src="images/common/logo.gif" title="Design Market Place ���䵥��ũ�������»����θ�ǻ���Ʈ" alt="Design Market Place Logo" /></a></h1>
+			<ul>
+				<li class="first" onClick="javascript:popupWindow();" id='login_popup'>
+					<a href="#" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=520,lightwindow_height=276">�α���</a>
+				</li>
+				<li>
+					<a href="#">ȸ������</a>
+				</li>
+				<li class="first">
+					<a href="#">�α׾ƿ�</a>
+				</li>
+				<li>
+					<a href="#">����������</a>
+				</li>
+				<li>
+					<a href="#">��ٱ���</a>
+				</li>
+				<li>
+					<a href="#" onClick="bookmark();">���ã��</a>
+				</li>
+				<li class="first">
+						<input type="text" name="search_work" id="search_work" class="keyword" value="" title="�˻�� �Է��ϼ���" /><input type="image" onclick="search();return false;" src="images/common/btnSearch.gif" alt="�˻�" class="btnSearch" />
+				</li>
+			</ul>
+			<div class="clear"></div>
+		</div>
+		<div class="gnb"><script>flash_load('fl/gnb.swf','960','110');</script></div>
+	</div>
+			<!-- Layer Popup -->
+			<div class="fullMenu" id='total_menu_open' style='display:none'>
+				<div class="layer_content">
+					<!-- Layer Content -->
+					<div class="layer_body">
+						<table>
+						<tr valign="top">
+						<td class="first-child">
+							<ul>
+							<li class="titCate"><a href="#newUpgradeZone" onclick="javascript:newUpgrade();">�űԾ��׷��̵� ZONE</a></li>
+							</ul>
+						</td>
+						<td>
+							<ul>
+							<li class="titCate"><a href="#promotionZone" onclick="javascript:promotion();">������� ���θ�� ZONE</a></li>
+							</ul>
+							<ul>
+							<li class="titCateM"><a href="#subscription" onclick="javascript:subscription();">���꽺ũ���� ZONE</a></li>
+							</ul>
+							<ul>
+							<li class="titCateM"><a href="#designADK" onclick="javascript:designADK();">������ ���䵥��ũ</a></li>
+							<li><a href="#designADK" onclick="javascript:designADK();">������ ���䵥��ũ</a></li>
+							<li><a href="#designADK" onclick="javascript:adkNews();">���䵥��ũ ����</a></li>
+							<li><a href="#designADK" onclick="javascript:betterBy();">Better by Design</a></li>
+							</ul>
+							<ul>
+							<li class="titCateM"><a href="#powerReseller" onclick="javascript:powerReseller();">�Ŀ�������</a></li>
+							<li><a href="#powerReseller" onclick="javascript:powerReseller();">�ѱ�������</a></li>
+							<li><a href="#powerReseller">�ѱ������̿�</a></li>
+							</ul>
+							<ul>
+						</td>
+						<td>
+							<ul>
+							<li class="titCate"><a href="#pointMall" onclick="javascript:pointMall();">����Ʈ ��</a></li>
+							</ul>
+							<ul>
+							<li class="titCateM"><a href="#noticeList" onclick="javascript:noticeList();">�������</a></li>
+							<li><a href="#noticeList" onclick="javascript:noticeList();">��������</a></li>
+							<li><a href="#noticeList" onclick="javascript:call();">������� ����</a></li>
+							<li><a href="#noticeList" onclick="javascript:faq();">FAQ</a></li>
+							</ul>
+							<ul>
+							<li class="titCateM"><a href="#myMain" onclick="javascript:myMain();">����������</a></li>
+							<!-- <li><a href="#" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=520,lightwindow_height=276">������ ���� ���θ��</a></li>
+							<li><a href="#" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=520,lightwindow_height=276">�������</a></li>
+							<li><a href="#" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=520,lightwindow_height=276">������ǰ</a></li>
+							<li><a href="#" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=520,lightwindow_height=276">������ǰ ���</a></li>
+							<li><a href="#" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=520,lightwindow_height=276">��ǰ���ų���</a></li>
+							<li><a href="#" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=520,lightwindow_height=276">����Ʈ ��ȸ</a></li>
+							<li><a href="#" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=520,lightwindow_height=276">���� Q&A</a></li>
+							<li><a href="#" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=520,lightwindow_height=276">ȸ������</a></li>
+							<li><a href="#" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=520,lightwindow_height=276">ȸ��Ż��</a></li> -->
+							<li><a href="#myMain" onclick="javascript:myPromo();">������ ���� ���θ��</a></li>
+							<li><a href="#myMain" onclick="javascript:coupon();">�������</a></li>
+							<li><a href="#myMain" onclick="javascript:interest();">������ǰ</a></li>
+							<li><a href="#myMain" onclick="javascript:myProduct();">������ǰ ���</a></li>
+							<li><a href="#myMain" onclick="javascript:buy();">��ǰ���ų���</a></li>
+							<li><a href="#myMain" onclick="javascript:point();">����Ʈ ��ȸ</a></li>
+							<li><a href="#myMain" onclick="javascript:myQna();">���� Q&A</a></li>
+							<li><a href="#myMain" onclick="javascript:modify();">ȸ������</a></li>
+							<li><a href="#myMain" onclick="javascript:out();">ȸ��Ż��</a></li>
+							</ul>
+						</td>
+						</tr>
+						</table>
+					</div>
+					<p><a href="#close" class="close_layer" onclick="document.getElementById('total_menu_open').style.display='none'; return false;"><img src="images/layer/btnMenuClose.gif" title="��ü���� �ݱ�" alt="���̾�ݱ�" /></a></p>
+					<!-- //Layer Content -->
+				</div>
+			</div>
+	<!-- //top -->
+
+
+	<div id="container">
+		<div class="mainVisual"><script>flash_load('fl/mainVisual.swf','924','255');</script></div>
+		<div class="mar13"></div>
+		<div class="snb">
+			<div id="mainLeft">
+				<!-- �������������θ��(�α�����) -->
+				<ul>
+				<li class="mar9"></li>
+				<li class="leftTitle"><img src="images/main/titleMypromotion.gif" title="�������������θ��" alt="�������������θ�� Ÿ��Ʋ" /></li>
+				<li class="btnMore"><a href="#" class="btn"><img src="images/main/btnMore.gif" title="������" alt="���������� ���θ�� ������" /></a></li>
+				<li class="mar13"></li>
+				<li><img src="images/main/myPromotionImage.gif" title="" alt="" /></li>
+				<li class="mar3"></li>
+				<li><input name="mem_id" id="mem_id"  maxlength='10' type="text" size="13" class="inputTypeA verM" /> <input type="password" name='mem_pw' id='mem_pw' type="text" size="13" class="inputTypeA verM" /> <input type="image" src="images/main/btnLogin.gif" onClick="memRegiCheck();return false;" class="verM" title="�α���" /></li>
+				<li class="mar2"></li>
+				<li><a href="#" class="txtJoin">ȸ������</a>&nbsp;<span class="txtDV">|</span>&nbsp;<a href="#" class="txtFind">���̵�/��й�ȣ ã��</a></li>
+				<li class="mar10"></li>
+				<li class="lineGreen"></li>
+				<li class="mar15"></li>
+				</ul>
+				<!--<div class="mainMyPro">
+					<div class="name"><span class="name">������ ���� ���θ��</span></div>
+					<div class="btn"><a href="mypage/myPromotion.jsp"><img src="images/promotionZone/btnMore.gif" title="������" alt="������ ��ư" /></a></div>
+					<div class="lineGray3"></div>
+					<p style="width:240px;height:103px;background:url('/upload/promotion/my_left_top_img') no-repeat;"></p>
+					<div class="lineGray3"></div>
+					<div class="tit"><a href="promotionZone/promotion/<%=rs_pro.getString("linkURL") %>"></a></div>
+					<div class="period"></div>
+				</div>
+				 <div class="mainMyPro">
+					<div class="name"><span class="name">������ ���� ���θ��</span></div>
+					<div class="btn"><a href="mypage/myPromotion.jsp"><img src="images/promotionZone/btnMore.gif" title="������" alt="������ ��ư" /></a></div>
+					<div class="lineGray3"></div>
+					<p style="width:240px;height:103px;background:url('/upload/promotion/my_left_top_img') no-repeat;"></p>
+					<div class="lineGray3"></div>
+					<div class="tit"><a href="promotionZone/promotion/<%=rs_interest.getString("linkURL") %>"></a></div>
+					<div class="period"></div>
+				</div>
+
+				<div class="mainMyPro">
+					<div class="name"><span class="name">������ ���� ���θ��</span></div>
+					<div class="btn"><a href="mypage/myPromotion.jsp"><img src="images/promotionZone/btnMore.gif" title="������" alt="������ ��ư" /></a></div>
+					<div class="lineGray3"></div>
+					<p style="width:240px;height:103px;background:url('images/main/myPromotionCut1.gif') no-repeat;"></p>
+					<div class="lineGray3"></div>
+					<div class="tit"><span class="name">�����Ͻ� ������ ����Ͻø�<br>Ư���� ��ȸ�� �����˴ϴ�.</span></div>
+				</div>
+ -->
+				<!-- �������������θ��(�α�����)
+				<div class="mainMyPro">
+					<div class="name"><span class="name">ȫ�浿</span>&nbsp;�Ը��� ���� ���θ��</div>
+					<div class="btn"><a href="mypage/myPromotion.jsp"><img src="images/promotionZone/btnMore.gif" title="������" alt="������ ��ư" /></a></div>
+					<div class="lineGray3"></div>
+					<p><img src="images/main/myPromotionCut1.gif" width="240" height="103" title="" alt="" /></p>
+					<div class="lineGray3"></div>
+					<div class="tit"><a href="#mypromotion">AutoCAD �ְ��� Ȱ���� ���� �������� ���θ��</a></div>
+					<div class="period">2010.05.20 ~ 2010.06.20</div>
+				</div>
+				 -->
+				<!-- //�������������θ�� �� -->
+				<!-- ����Ʈ�� -->
+				<ul>
+				<li><img src="images/main/pointImage.gif" title="���Ž� �����Ͻ� ����Ʈ�� Ǫ���� ������ ���� �帳�ϴ�" alt="����Ʈ�� Ÿ��Ʋ" /></li>
+				<li class="mar17"></li>
+				</ul>
+				<div class="pointBox">
+				<div class="goodIMG">
+					<p><img src="images/main/pointGood1.gif" width="82" height="82" /></p>
+				</div>
+				<ul class="goodList">
+					<li class="on"><a href="#">iriver ���̳� Inflate</a></li>
+					<li><a href="#">����ũ�μ���Ʈ ������..</a></li>
+					<li><a href="#">��������� ���� RD-910</a></li>
+				</ul>
+				</div>
+				<div class="mar13"></div>
+				<!-- //����Ʈ�� �� -->
+				<div><img src="images/main/callBanner.gif" title="���������Ÿ 1566-3423" alt="���������Ÿ ���" /></div>
+				<!-- �������� -->
+				<ul>
+				<li class="mar17"></li>
+				<li class="leftTitle"><img src="images/main/titleNotice.gif" title="��������" alt="�������� Ÿ��Ʋ" /></li>
+				<li class="btnMore"><a href="#" class="btn"><img src="images/main/btnMore.gif" title="������" alt="�������� ������" /></a></li>
+				<li class="mar7"></li>
+				</ul>
+				<ul class="mainNotice">
+					<li><a href="">designmarket place�� ���Ӱ� ������..</a></li>
+					<li><a href="">designmarket place�� ���Ӱ� ������..</a></li>
+					<li><a href="">designmarket place�� ���Ӱ� ������..</a></li>
+					<li><a href="">designmarket place�� ���Ӱ� ������..</a></li>
+				</ul>
+				<div class="mar17"></div>
+				<!-- //�������� �� -->
+				<!-- solutionDay 2010 Banner -->
+				<p><a href="http://autodesk.co.kr/solutionday2010" target="_blank"><img src="images/main/mainSolutionBanner.gif" title="Autodesk SolutionDay Virtual 2010 �¶��μ��̳� Ƽ�� ����!!" alt="solutionDay 2010 ���" /></a></p>
+				<div class="mar22"></div>
+				<!-- //solutionDay 2010 Banner �� -->
+				<!-- ���»�Zone -->
+				<ul>
+				<li class="leftTitle"><img src="images/main/titleSponsorZone.gif" title="���»���" alt="���»��� Ÿ��Ʋ" /></li>
+				<li class="btnMore"><a href="#" class="btn"><img src="images/main/btnMore.gif" title="������" alt="���»��� ������" /></a></li>
+				<li class="mar13"></li>
+				<li class="sponLogo"><a href="http://www8.hp.com/kr/ko/home.html" target="_blank"><img src="images/main/sponsorHP.gif" title="�ѱ��޷���Ŀ��" alt="�ѱ��޷���Ŀ�� �ΰ�" /></a></li>
+				<li class="sponLogoLast"><a href="http://www.nvidia.co.kr/object/cuda_home_new_kr" target="_blank"><img src="images/main/sponsorNvidia.gif" title="Nvidia" alt="Nvidia �ΰ�" /></a></li>
+				<li class="sponLogo"><a href="http://www.intel.com/index.htm#/ko_KR_01" target="_blank"><img src="images/main/sponsorIntel.gif" title="����" alt="���� �ΰ�" /></a></li>
+				<li class="sponLogoLast"><a href="http://www.microsoft.co.kr" target="_blank"><img src="images/main/sponsorMS.gif" title="����ũ�μ���Ʈ�ϵ����" alt="����ũ�μ���Ʈ�ϵ���� �ΰ�" /></a></li>
+				<li class="clear"></li>
+				</ul>
+				<!--<p class="sopnsorBanner"> <script>flash_load('fl/100303_hp_176180_01.swf','176','166');</script> -->
+					<!-- Start of Brightcove Player -->
+					<div style="display:none">
+					</div>
+					<!--
+					By use of this code snippet, I agree to the Brightcove Publisher T and C found at https://accounts.brightcove.com/en/terms-and-conditions/. 
+					-->
+					<p class="videoCon" style="position:relative;top:8px;">
+					<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+					<object id="88560859001" class="BrightcoveExperience">
+					<param name="bgcolor" value="#FFFFFF" />
+					<param name="width" value="242" />
+					<param name="height" value="166" />
+					<param name="playerID" value="83096635001" />
+					<param name="publisherID" value="82075186001"/>
+					<param name="isVid" value="true" />
+					<param name="isUI" value="true" />
+					<param name="dynamicStreaming" value="true" />
+					<param name="@videoPlayer" value="88560859001" />
+					</object>
+					<!-- 
+					This script tag will cause the Brightcove Players defined above it to be created as soon as the line is read by the browser. If you wish to have the player instantiated only after
+					the rest of the HTML is processed and the page load is complete, remove the line.
+					-->
+					<script type="text/javascript">brightcove.createExperiences();</script>
+					<!-- End of Brightcove Player -->				
+				<!-- </p> -->
+				<!-- //���»�Zone �� -->
+			</div>
+			<div class="mar30"></div>
+		</div>
+		<div id="content">
+			<div id="contentMain">
+				<!-- �űԾ��׷��̵��� -->
+				<ul>
+				<li class="leftTitle titleNewUp"><img src="images/main/titleNewUpgrade.gif" title="�űԾ��׷��̵�Zone" alt="�űԾ��׷��̵�Zone Ÿ��Ʋ" /></li>
+				<li class="btnMore titleNewUp"><a href="#"><img src="images/main/btnMore.gif" title="������" alt="�űԾ��׷��̵�Zone ������" /></a></li>
+				<li class="mar15"></li>
+				</ul>
+				<!-- ����ǰ����Ʈ -->
+				<ul class="newUpLeft">
+				<li class="pdImg"><a href="#"><img src="images/box/acad_173.gif" width="173" height="173" title="AutoCAD 2011" alt="AutoCAD 2011 ��ǰ�̹���" /></a></li>
+				<li class="newUpTitle">
+				<p class="description1">AutoCAD 2011</p>
+				<p class="description2">�̷��������� â���ϴ� ���䵥��ũ 2011 �� ���̸� Ȯ���Ͻʽÿ�.</p>
+				</li>
+				</ul>
+				<div class="newUpRight">
+				<ul class="newUpList newUpListFirst">
+				<li class="thumb"><a href="#"><img src="images/box/inventorPro_105.gif" width="105" height="85" title="AutoCAD Inventor Professional 2011" alt="AutoCAD Inventor Professional 2011 ��ǰ�̹���" /></a></li>
+				<li class="newUpTitle">
+				<p class="description1">AutoCAD Inventor Professional 2011</p>
+				</li>
+				</ul>
+				<ul class="newUpList">
+				<li class="thumb"><a href="#"><img src="images/box/sketch_105.gif" width="105" height="85" title="Autodesk SketchBookPro 2010" alt="Autodesk SketchBookPro 2010 ��ǰ�̹���" /></a></li>
+				<li class="newUpTitle">
+				<p class="description1">Autodesk SketchBookPro 2010</p>
+				</li>
+				</ul>
+				<ul class="newUpList">
+				<li class="thumb"><a href="#"><img src="images/box/maya_105.gif" width="105" height="85" title="Autodesk Maya 2011" alt="Autodesk Maya 2011 ��ǰ�̹���" /></a></li>
+				<li class="newUpTitle">
+				<p class="description1">Autodesk Maya 2011</p>
+				</li>
+				</ul>
+				<ul class="newUpList newUpListFirst">
+				<li class="thumb"><a href="#"><img src="images/box/3dsMax_105.gif" width="105" height="85" title="Autodesk 3ds Max 2011" alt="Autodesk 3ds Max 2011 ��ǰ�̹���" /></a></li>
+				<li class="newUpTitle">
+				<p class="description1">Autodesk 3ds Max 2011</p>
+				</li>
+				</ul>
+				<ul class="newUpList">
+				<li class="thumb"><a href="#"><img src="images/box/acadLT_105.gif" width="105" height="85" title="AutoCAD LT 2011" alt="AutoCAD LT 2011 ��ǰ�̹���" /></a></li>
+				<li class="newUpTitle">
+				<p class="description1">AutoCAD LT 2011</p>
+				</li>
+				</ul>
+				<ul class="newUpList">
+				<li class="thumb"><a href="#"><img src="images/box/revitArch_105.gif" width="105" height="85" title="AutoCAD Revit Architecture 2011" alt="AutoCAD Revit Architecture 2011 ��ǰ�̹���" /></a></li>
+				<li class="newUpTitle">
+				<p class="description1">AutoCAD Revit Architecture 2011</p>
+				</li>
+				</ul>
+				</div>
+				<!-- //����ǰ����Ʈ �� -->
+				<!-- //�űԾ��׷��̵��� �� -->
+			</div>
+			<div class="mar9"></div>
+			<div class="lineGray"></div>
+			<div id="contentMain">
+				<!-- ������� ���θ���� -->
+				<ul>
+				<li class="mar10"></li>
+				<li class="leftTitle titleNewUp"><img src="images/main/titlePromotionZone.gif" title="������� ���θ��Zone" alt="������� ���θ��Zone Ÿ��Ʋ" /></li>
+				<li class="btnMore titleNewUp"><a href="#"><img src="images/main/btnMore.gif" title="������" alt="���θ�� ������" /></a></li>
+				<li class="mar10"></li>
+				<li><script>flash_load('fl/promotionZone.swf','654','280');</script></li>
+				</ul>
+				<!-- //������� ���θ���� �� -->
+			</div>
+			<div id="contentMain">
+				<!-- ���꽺ũ������ -->
+				<ul>
+				<li class="mar19"></li>
+				<li><img src="images/main/subscriptionZone.gif" usemap="#subscripton" title="���䵥��ũ ���꽺ũ������ �Ϻ��� ����Ʈ����/����/���� ��Ű���� ���� ��� ���׷��̵带 ����ȭ�ϰ� ���� ���꼺�� ����Ű�ʽÿ�." alt="���꽺ũ���� �̹���" /></li>
+				</ul>
+<map name="subscripton" id="subscripton">
+	<area shape="rect" coords="12,72,99,98" href="subscriptionZone/subscriptionList.jsp" />
+</map>
+				<!-- //���꽺ũ������ �� -->
+				<!-- ���»���ǰ -->
+				<ul>
+				<li class="mar3"></li>
+				<li class="leftTitle titleNewUp"><img src="images/main/titleSponsorSales.gif" title="���»���ǰ" alt="���»���ǰ Ÿ��Ʋ" /></li>
+				<li class="btnMore titleNewUp"><a href="#"><img src="images/main/btnMore.gif" title="������" alt="���»���ǰ ������" /></a></li>
+				<li class="mar12"></li>
+				</ul>
+				<ul class="mainSponPd">
+				<li class="mainSponPd1"><a href="#"><img src="images/main/sponsorProduct1.gif" width="315" height="77" title="Arc mouse" alt="���»� ��ǰ�̹���" /></a></li>
+				<li class="mainSponPd2"><a href="#"><img src="images/main/sponsorProduct2.gif" width="315" height="77" title="HP ��ũ�����̼�" alt="���»� ��ǰ�̹���" /></a></li>
+				</ul>
+				<!-- //���»���ǰ �� -->
+			</div>
+			<div class="mar22"></div>
+			<div class="lineGray"></div>
+			<div id="contentMain">
+				<!-- ������� �ϴܹ�� -->
+				<ul class="mainFootBn">
+				<li class="first"><img src="images/main/csImageCall.gif" title="�����ȭ 1566-3423" alt="������� ���" /></li>
+				<li class="cursor" onMouseOver="Tip('<img src= &quot;images/main/csImageBuyInfo.gif&quot; />')" onMouseOut="UnTip()"><img src="images/main/csImageBuy.gif" title="��ǰ���� ����� �ñ��Ͻʴϱ�?" alt="��ǰ���� ���" /></li>
+				<li><a  href="layer/productView.jsp?new_seq=298" onClick="javascript:popupWindow();" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=910,lightwindow_height=630"><img src="images/main/csImageProduct.gif" title="�ֽ� ��ǰ�� �Ұ��� �帳�ϴ�." alt="��ǰ���� ���" /></a></li>
+				<li><a href="http://www.autodesk.co.kr/adsk/servlet/mform?validate=no&siteID=1169528&id=11750105" target="_blank"><img src="images/main/csImageNewsLetter.gif" title="�ֽ� ���θ�ǰ� ��ǰ�� ���� ���� �޾ƺ� �� �ֽ��ϴ�." alt="�������� ��û ���" /></a></li>
+				</ul>
+				<!-- //������� �ϴܹ�� �� -->
+			</div>
+		</div>
+		<div class="clear">
+		</div>
+	</div>
+	<!-- footer -->
+	<div id="footer">
+		<h1><a href="http://www.autodesk.co.kr/" target="_blank"><img src="images/common/adkLogo.gif" title="Autodesk" alt="Autodesk Logo" /></a></h1>
+		<ul>
+			<li class="first">
+				<a href="http://www.autodesk.co.kr/adsk/servlet/index?siteID=1169528&id=14825898" target="_blank">���䵥��ũ ���»�</a>
+			</li>
+			<li>
+				<a href="#">�̿���</a>
+			</li>
+			<li>
+				<a href="#">���κ�ȣ��޹�ħ</a>
+			</li>
+			<li>
+				<a href="#">FAQ</a>
+			</li>
+		</ul>
+		<div class="clear"></div>
+			<address class="addressPaos">
+			&copy;&nbsp;Copyright
+			<a href="http://www.ipaos.com/" target="_blank">PAOS Partners</a>
+			Co., Ltd. All Rights Reserved.
+			</address>
+	</div>
+	<!-- //footer-->
+</div>
+</body>
+</html>
+

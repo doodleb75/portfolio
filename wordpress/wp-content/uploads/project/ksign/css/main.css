@@ -1,0 +1,557 @@
+@charset 'utf-8';
+
+body {
+	background-image:none;
+}
+#LblockHeaderIn:after, #LblockTopMenu ul:after,
+#LblockFeatured .cont:after, #LblockArticles .LblockContentSetter:after, #LblockArticles .articles:after,
+#LblockMembership .take:after, #LblockMembership .help:after, #LblockMembership .greetings:after, #LblockMembership .status:after,
+#LblockServices .LblockContentSetter:after, #LblockSupport .cont:after,
+#LblockFooterCopyright:after, #LblockFooterMenu:after {
+	content:"."; display:block; clear:both; visibility:hidden; height:0; font-size:0;
+}
+.LblockColumnSetter {
+	float:left;
+	width:100%;
+}
+#LblockWrapper {
+	min-width:980px;
+	width:auto;
+	margin:0;
+}
+#LblockHeader {
+	height:auto;
+	border-bottom:1px solid #DFDFDF;
+	background:#FFF url('../images/main/bg_header.gif') no-repeat center top;
+}
+#LblockHeaderIn {
+	min-height:40px;
+	_height:40px;
+	height:auto;
+	margin:0 auto;
+	padding:38px 0 11px;
+}
+#LblockTopLogo {
+	position:relative;
+	left:auto;
+	top:auto;
+	float:left;
+	width:273px;
+}
+#LblockHeader .LblockContentSetter {
+	margin-left:-273px;
+}
+#LblockTopChannel {
+	position:absolute;
+	top:0;
+	right:-13px;
+	width:180px;
+	height:35px;
+	z-index:1;
+}
+#LblockTopChannel h2 {
+	min-height:29px;
+	_height:29px;
+	background:url('../images/main/channel_mycloud.gif') no-repeat left top;
+	padding-top:6px;
+	color:#FFF;
+	font-size:14px;
+	text-align:center;
+}
+#LblockTopChannel span {
+	position:relative;
+	z-index:-1;
+}
+#LblockTopMenu {
+	position:static;
+	left:auto;
+	top:auto;
+	height:auto;
+	margin-left:273px;
+}
+#LblockTopMenu ul {
+	width:auto;
+	padding-top:10px;
+}
+#LblockTopMenu li {
+	float:left;
+	position:relative;
+	z-index:1;
+	background:url('../images/main/gnav_sepr.gif') no-repeat -2px 4px;
+	padding-left:1px;
+	font-weight:bold;
+	text-align:center;
+}
+#LblockTopMenu li.Lfirst {
+	padding-left:0;
+	background-image:none;
+}
+#LblockTopMenu li a {
+	float:left;
+	padding:5px 17px;
+	line-height:1;
+}
+#LblockTopMenu li a:link,
+#LblockTopMenu li a:visited {
+	color:#343434;
+}
+#LblockTopMenu li a:hover,
+#LblockTopMenu li a:active {
+	background-position:0 -25px;
+	color:#FF5500;
+	text-decoration:none;
+}
+#LblockTopMenu li span {
+	position:relative;
+	z-index:-1;
+	padding:0;
+}
+#LblockTopMenu .services a {
+	width:63px;
+	background:url('../images/main/gnav_services.gif') no-repeat left top;
+}
+#LblockTopMenu .management a{
+	width:89px;
+	background:url('../images/main/gnav_management.gif') no-repeat left top;
+}
+#LblockTopMenu .application a {
+	width:64px;
+	background:url('../images/main/gnav_application.gif') no-repeat left top;
+}
+#LblockTopMenu .monitoring a {
+	width:51px;
+	background:url('../images/main/gnav_monitoring.gif') no-repeat left top;
+}
+#LblockTopMenu .membership a {
+	width:76px;
+	background:url('../images/main/gnav_membership.gif') no-repeat left top;
+}
+#LblockTopMenu .charges a {
+	width:63px;
+	background:url('../images/main/gnav_charges.gif') no-repeat left top;
+}
+#LblockTopMenu .support a {
+	width:51px;
+	background:url('../images/main/gnav_support.gif') no-repeat left top;
+}
+#LblockBody {
+	position:static;
+	margin-left:0 !important;
+	padding:0 !important;
+}
+#LblockBody .LblockContentSetter {
+	width:980px;
+	margin:0 auto;
+}
+#LblockBodyTitle {
+	position:relative;
+	width:980px;
+	margin:0 auto;
+}
+#LblockBodyTitle h1 {
+	position:absolute;
+	top:10px;
+	left:0;
+}
+#LblockFeatured {
+	position:relative;
+	border-bottom:1px solid #FF5500;
+	background:#DEDEDE url('../images/main/bg_featured.gif') repeat-x left top;
+}
+#LblockFeatured li {
+	float:left;
+	height:104px;
+	padding:133px 0 0 17px;
+}
+#LblockFeatured li strong {
+	display:block;
+	margin-bottom:13px;
+}
+#LblockFeatured li .name {
+	position:relative;
+	z-index:-1;
+	display:block;
+	min-height:70px;
+	_height:70px;
+}
+#LblockFeatured li .details {
+	display:block;
+	width:76px;
+	height:26px;
+	background:url('../images/main/featured_details.gif') no-repeat left top;
+}
+#LblockFeatured li .details span {
+	position:relative;
+	z-index:-1;
+}
+#LblockFeatured .services {
+	width:130px;
+	background:url('../images/main/featured_card_services.png') no-repeat left top;
+}
+#LblockFeatured .management {
+	width:124px;
+	background:url('../images/main/featured_card_management.png') no-repeat left top;
+}
+#LblockFeatured .websecurity {
+	width:109px;
+	background:url('../images/main/featured_card_websecurity.png') no-repeat left top;
+}
+#LblockFeatured .dbsecurity {
+	width:126px;
+	background:url('../images/main/featured_card_dbsecurity.png') no-repeat left top;
+}
+#LblockFeatured .charges {
+	width:134px;
+	background:url('../images/main/featured_card_charges.png') no-repeat left top;
+}
+#LblockFeatured .payment {
+	width:118px;
+	background:url('../images/main/featured_card_payment.png') no-repeat left top;
+}
+#LblockFeatured .monitoring {
+	width:100px;
+	background:url('../images/main/featured_card_monitoring.png') no-repeat left top;
+}
+#LblockFeatured .cont {
+	position:relative;
+	z-index:1;
+	min-height:240px;
+	_height:240px;
+	padding:75px 10px 90px;
+}
+#LblockArticles {
+	border-top:2px solid #D51515;
+	border-bottom:1px solid #2D2D2D;
+}
+#LblockArticles h2 {
+	color:#343434;
+	font-size:13px;
+}
+#LblockArticles .LblockArticlesSetter {
+	float:left;
+	width:100%;
+	margin-right:-320px;
+}
+#LblockArticles .articles {
+	min-height:16px;
+	_height:16px;
+	margin:0 310px 0 10px;
+	padding:12px 0;
+}
+#LblockArticles .articles h2 {
+	float:left;
+	width:86px;
+	padding:0 4px 0 3px;
+	background:url('../images/main/articles_sepr.gif') no-repeat 100% -2px;
+}
+#LblockArticles .articles .LblockColumnSetter {
+	margin:0 -263px 0 -93px;
+}
+#news-ticker {
+	position:relative;
+	height:20px;
+	overflow:hidden;
+	margin:0 270px 0 103px;
+}
+#LblockArticles .articles .cont a {
+	font-size:11px;
+}
+#LblockArticles .articles .cont a:link,
+#LblockArticles .articles .cont a:visited {
+	color:#A2A2A2;
+}
+#LblockArticles .articles .cont a:hover,
+#LblockArticles .articles .cont a:active,
+#LblockArticles .articles .cont a:hover .subj,
+#LblockArticles .articles .cont a:active .subj {
+	color:#0770FF;
+	text-decoration:none;
+}
+#LblockArticles .articles .cont .subj {
+	color:#555;
+}
+#LblockArticles .articles .more {
+	float:left;
+	width:263px;
+}
+#LblockArticles .banner {
+	float:left;
+	width:310px;
+}
+#LblockServices {
+	border-top:1px solid #505051;
+	background:#232323 url('../images/main/bg_services.gif') repeat-x left top;
+	color:#A3A3A3;
+}
+#LblockServices h2 {
+	color:#FFF;
+	font-size:12px;
+}
+#LblockServices a:link,
+#LblockServices a:visited {
+	color:#A8A7A8;
+}
+#LblockServices a:hover,
+#LblockServices a:active {
+	color:#FFF;
+	text-decoration:none;
+}
+#LblockServices .LblockContentSetter {
+	min-height:122px;
+	_height:122px;
+}
+#LblockMembership {
+	min-height:106px;
+	_height:106px;
+	margin:0 730px 0 10px;
+	padding:8px 0 8px 2px;
+}
+#LblockMembership h2 {
+	margin:0 0 7px -1px;
+}
+#LblockMembership .take {
+	float:left;
+	width:155px;
+	min-height:51px;
+	_height:51px;
+	margin-bottom:7px;
+}
+#LblockMembership .take .each {
+	position:relative;
+	min-height:17px;
+	_height:17px;
+	background-color:#000;
+	background-repeat:no-repeat;
+	background-position:left top;
+	padding:2px 9px 3px;
+	line-height:100%;
+}
+#LblockMembership .take .each label {
+	position:absolute;
+	display:block;
+	top:0;
+	left:0;
+	width:137px;
+	height:15px;
+	padding:4px 9px 3px;
+	font-size:11px;
+	line-height:15px;
+}
+#LblockMembership .take .each input {
+	width:100%;
+	height:17px;
+	*margin:-1px 0;
+	padding:0;
+	border:0;
+	background-color:transparent;
+	color:#AAA;
+	line-height:17px;
+}
+#LblockMembership .take .id {
+	margin-bottom:7px;
+	background-image:url('../images/main/signin_field_bg_id.gif');
+}
+#LblockMembership .take .password {
+	background-image:url('../images/main/signin_field_bg_password.gif');
+}
+#LblockMembership .submit {
+	margin-left:161px;
+}
+#LblockMembership .help {
+	clear:left;
+	min-height:15px;
+	_height:15px;
+	font-size:11px;
+}
+#LblockMembership .save-id {
+	float:left;
+	width:110px;
+}
+#LblockMembership .save-id * {
+	float:left;
+	margin-right:4px;
+}
+#LblockMembership .find {
+	margin-left:110px;
+	text-align:right;
+}
+#LblockMembership .greetings {
+	min-height:28px;
+	_height:28px;
+	margin-bottom:3px;
+	padding:19px 10px 5px 17px;
+	background:url('../images/main/signedin_greetings_bg.gif') no-repeat left top;
+	line-height:1.2;
+}
+#LblockMembership .greetings .cont {
+	float:left;
+	width:150px;
+}
+#LblockMembership .greetings .signout {
+	display:block;
+	margin:-3px 0 0 152px;
+}
+#LblockMembership .status {
+	min-height:17px;
+	_height:17px;
+	padding:6px 10px 3px 6px;
+	background:url('../images/main/signedin_status_bg.gif') no-repeat left top;
+	font-weight:bold;
+}
+#LblockMembership .status li {
+	position:relative;
+	float:left;
+	padding-right:34px;
+	line-height:13px;
+}
+#LblockMembership .status li img {
+	vertical-align:top;
+}
+#LblockMembership .status li .val {
+	position:absolute;
+	top:0;
+	right:0;
+	display:block;
+	width:30px;
+	color:#FFF;
+	font-weight:bold;
+	text-align:right;
+}
+#LblockMembership .status .services {
+	width:80px;
+	margin-right:25px;
+}
+#LblockMembership .status .answers {
+	width:45px;
+}
+#LblockSupport, #LblockRemote {
+	float:left;
+	background:url('../images/main/service_sepr.gif') no-repeat -2px 4px;
+}
+#LblockSupport {
+	width:309px;
+	min-height:100px;
+	_height:100px;
+	margin-left:-705px;
+	padding:8px 25px 14px 31px;
+}
+#LblockSupport h2 {
+	margin:0 0 10px -2px;
+}
+#LblockSupport a {
+	float:left;
+	width:98px;
+	height:26px;
+	margin-right:5px;
+	padding-top:42px;
+	background-repeat:no-repeat;
+	background-position:left top;
+	text-align:center;
+}
+#LblockSupport a span {
+	position:relative;
+	z-index:-1;
+}
+#LblockSupport .cont {
+	position:relative;
+	z-index:1;
+	min-height:68px;
+	_height:68px;
+}
+#LblockSupport .onetoone {
+	background-image:url('../images/main/support_onetoone.gif');
+}
+#LblockSupport .faq {
+	background-image:url('../images/main/support_faq.gif');
+}
+#LblockSupport .pds {
+	background-image:url('../images/main/support_pds.gif');
+}
+#LblockRemote {
+	width:338px;
+	min-height:122px;
+	_height:122px;
+	padding-left:2px;
+	margin-left:-340px;
+}
+#LblockRemote .cont {
+	padding:27px 20px 23px 176px;
+	background:url('../images/main/remote_bg.png') no-repeat left top;
+}
+#LblockRemote .go {
+	display:block;
+	margin:0 9px 7px -2px;
+	padding-right:40px;
+	background:url('../images/main/remote_go.gif') no-repeat 100% 1px;
+}
+#LblockFooter {
+	border-top-width:0;
+}
+#LblockFooterHelp {
+	float:none;
+	width:auto;
+	margin-top:0;
+	padding:10px 0 8px;
+	border-bottom:1px solid #DADADA;
+	background-color:#EAEAEA;
+}
+#LblockFooterHelp .Lholder {
+	width:980px;
+	margin:0 auto;
+}
+#LblockFooterLogo {
+	width:90px;
+	min-height:14px;
+	_height:14px;
+	margin-top:5px;
+	padding:0;
+	border-top-width:0;
+	line-height:100%;
+}
+#LblockFooterSetter {
+	margin:0 0 0 -93px;
+}
+#LblockFooterBody {
+	min-height:24px;
+	_height:24px;
+	margin:0 0 0 93px;
+	padding:0;
+}
+#LblockFooterMenu {
+	margin:0;
+}
+#LblockFooterMenu li {
+	float:left;
+	display:block;
+	padding:0 3px 0 4px;
+	background:url('../images/main/help_sepr.gif') no-repeat -2px 5px;
+	font-family:돋움,Dotum,굴림,Gulim,Verdana,Tahoma,Arial,Apple-Gothic,sans-serif;
+}
+#LblockFooterMenu a {
+	float:left;
+	padding:5px 6px 5px 7px;
+}
+#LblockFooterCopyright {
+	width:960px;
+	min-height:11px;
+	_height:11px;
+	margin:0 auto;
+	padding:19px 10px 10px;
+}
+#LblockFooterCopyright .contact {
+	float:left;
+	width:100%;
+	margin-right:-340px;
+}
+#LblockFooterCopyright .contact .val {
+	display:block;
+	margin-right:350px;
+}
+#LblockFooterCopyright .copyright {
+	float:left;
+	width:340px;
+	margin-top:2px;
+	text-align:right;
+}
+
+

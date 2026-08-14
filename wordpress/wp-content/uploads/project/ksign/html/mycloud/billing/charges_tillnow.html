@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>eNETner Cloud</title>
+	<link rel="stylesheet" type="text/css" href="/ksign/../css/import.css" />
+	<script type="text/javascript" src="../../../js/dui_prototype.js"></script>
+	<script type="text/javascript" src="../../../js/dui_effect.js"></script>
+	<script type="text/javascript" src="../../../js/dui_dragndrop.js"></script>
+	<script type="text/javascript" src="../../../js/dui_hhmenu.js"></script>
+	<script type="text/javascript" src="../../../js/dui_tree.js"></script>
+	<script type="text/javascript" src="../../../js/dui_slidemenu.js"></script>
+	<script type="text/javascript" src="../../../js/dui_tab.js"></script>
+	<script type="text/javascript" src="../../../js/dui_calendar.js"></script>
+	<script type="text/javascript" src="../../../js/common.js"></script>
+</head>
+
+<body>
+<!-- skip메뉴 -->
+<div id="LblockSkipLink">
+	<p><a href="#LblockTopMenu">주메뉴 바로가기</a></p>
+	<p><a href="#LblockLeftMenu">서브메뉴 바로가기</a></p>
+	<p><a href="#LblockBody">콘텐츠 바로가기</a></p>
+</div>
+<!-- //skip메뉴 -->
+
+<div id="LblockWrapper">
+	<!-- header영역 -->
+	<div id="LblockHeader">
+		<div id="LblockHeaderIn">
+			<div id="LblockTopLogo">
+				<h1><a href="#"><img src="../../../images/topLogo.jpg" alt="eNETner Cloud" /></a></h1>
+			</div>
+			<div id="LblockWelcome">
+				<p>2011.11.22 <span>홍길동</span></p><a href="#"><img src="../images/infoChange.gif" alt="" /></a><a href="#">로그아웃</a><img src="../../../images/img_mycloud.gif" alt="" />
+			</div>
+			<div id="LblockTopMenu">
+				<h2  class="Lhide">대메뉴</h2>
+				<ul class="Lclear">
+					<li class="Lfirst LitemService"><span class="cont"><a href="../mgmt/svc_list.html"><span>서비스관리</span></a></span></li>
+					<li class="Lidx1 LitemManagement"><span class="cont"><a href="../mgmt/vm_configuration.html"><span>서비스운영관리</span></a></span></li>
+					<li class="Lidx2 LitemApplication"><span class="cont"><a href="../apply/pkg_websecu.html"><span>서비스신청</span></a></span></li>
+					<li class="Lidx3 LitemMonitoring"><span class="cont"><a href="../monitoring/guide.html"><span>모니터링</span></a></span></li>
+					<li class="Lidx4 LitemMember"><span class="cont"><a href="../mem/edit_meminfo.html"><span>회원정보관리</span></a></span></li>
+					<li class="Lidx5 LitemBilling Lcurrent"><span class="cont"><a href="../billing/charges.html"><span>이용료관리</span></a></span></li>
+					<li class="Llast LitemSupport"><span class="cont"><a href="../support/svcguide.html"><span>고객센터</span></a></span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- //header영역 -->
+	<div id="LblockContainer" class="Lclear">
+		<!-- leftmenu영역 -->
+		<div id="LblockLeft">
+			<div id="LblockLeftTitle">
+				<h2><img src="../../../images/lnbMenu.gif" alt="이용료관리" /></h2>
+			</div>
+			<div id="LblockLeftMenu" class="LslideMenu">
+				<h3 class="Lhide">이용료관리 하위메뉴</h3>
+				<ul>
+					<li class="Lfirst LhasChild"><span><a href="#">요금관리</a></span>
+						<ul>
+							<li class="Lfirst"><span><a href="./charges.html">청구요금조회</a></span></li>
+							<li class="Lidx1"><span><a href="./history.html">청구내역조회</a></span></li>
+							<li class="Lidx2"><span><a href="./bills_sent.html">청구서발송내역조회</a></span></li>
+							<li class="Lidx3"><span><a href="./charges_tillnow.html">실시간요금조회</a></span></li>
+							<li class="Llast"><span><a href="./payment_help.html">요금납부안내 및 납부</a></span></li>
+						</ul>
+					</li>
+					<li class="LhasChild"><span><a href="#">납부관리</a></span>
+						<ul>
+							<li class="Lfirst"><span><a href="./payment.html">요금납부</a></span></li>
+							<li class="Lidx1"><span><a href="./paid_list.html">납부내역조회</a></span></li>
+							<li class="Lidx2"><span><a href="./default_history.html">미납내역조회</a></span></li>
+							<li class="Llast"><span><a href="./refund_history.html">환불내역조회</a></span></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- //leftmenu영역 -->
+		<div id="LblockBodySetter">
+			<!-- 컨텐츠영역 -->
+			<div id="LblockBody">
+
+				<!-- 페이지타이틀 영역 -->
+				<div id="LblockPageHeader">
+					<div id="LblockPageTitle">
+						<h1>실시간요금조회</h1>
+					</div>
+					<div id="LblockPageLocation">
+						<ul>
+							<li class="Lfirst"><span><a href="#">HOME</a></span></li>
+							<li><span><a href="#">이용료관리</a></span></li>
+							<li><span><a href="#">요금관리</a></span></li>
+							<li class="Llast"><span>실시간요금조회</span></li>
+						</ul>
+					</div>
+				</div>
+				<!-- //페이지타이틀 영역 -->
+				<!-- 페이지내용영역 -->
+				<div id="LblockBodyMain">
+					<!-- 리스트 테이블 -->
+					<div id="LblockDetail01" class="LblockDetail">
+						<table summary="월별 전체 사용요금 내역">
+							<caption>월별 전체 사용요금 내역</caption>
+							<colgroup>
+								<col width="20%" />
+								<col width="*" />
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>조회시간</th>
+									<td>2011년 12월 1일 ~ 현재 (시스템 상황에 따라 다소 지연 반영될 수 있습니다.)</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- //리스트 테이블 -->
+					<div>
+						<strong>2011년 12월 1일 ~ 현재</strong> 까지의 실시간 청구예상금액은 <strong>100,000</strong> 원 입니다.
+					</div>
+
+					<!-- 리스트 테이블 -->
+					<div id="LblockListTable01" class="LblockListTable">
+						<div class="Lwrapper">
+							<table summary="청구항목 및 서비스별 청구 예상 금액">
+								<caption>청구항목 및 서비스별 청구 예상 금액</caption>
+								<colgroup>
+									<col width="20%" />
+									<col width="20%" />
+									<col width="20%" />
+									<col width="*" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th>청구항목</th>
+										<th>서비스</th>
+										<th>금액</th>
+										<th>비고</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td rowspan="3">기본</td>
+										<td>VM</td>
+										<td>50,000</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>웹 방화벽</td>
+										<td>5,000</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>VPN</td>
+										<td>5,000</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td rowspan="2">부가서비스</td>
+										<td>VL4</td>
+										<td>20,000</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>백업</td>
+										<td>20,000</td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- //리스트 테이블 -->
+
+					<!-- text영역 -->
+					<div class="txtBox">
+						<div class="txtBoxFront">
+							<p>- 당월 1일부터 현재까지의 사용요금을 확인하실 수 있으며, 실제 청구서와는 다를 수 있으므로 단순 참고용으로 활용하여 주시기 바랍니다.</p>
+							<p>- 매월 5일에는 당월 사용요금 점검작업으로 인하여 서비스 이용이 불가하며, 전월 요금은 매월 7일까지 ‘전월사용요금조회’에서 확인하실 수 있습니다.</p>
+						</div>
+					</div>
+					<!-- //text영역 -->
+				</div>
+				<!-- 페이지내용영역 -->
+			</div>
+			<!-- //컨텐츠영역 -->
+		</div>
+	</div>
+	<hr />
+	<!--footer영역-->
+	<div id="LblockFooter">
+		<div id="LblockFooterIn" class="Lclear">
+			<div id="LblockFooterLogo">
+				<a href="#"><img src="../../../images/footerLogo.gif" alt="(주)엘림넷" /></a>
+			</div>
+			<div id="LblockFooterSetter">
+				<div id="LblockFooterBody">
+					<ul id="LblockFooterMenu">
+						<li class="Lfirst"><a href="#"><img src="../../../images/footerMenu_01.gif" alt="회사소개" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_02.gif" alt="서비스약관" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_03.gif" alt="개인정보취급방침" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_04.gif" alt="FAQ" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_05.gif" alt="Q&A" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_06.gif" alt="제휴문의" /></a></li>
+					</ul>
+					<address><img src="../../../images/address.gif" alt="서울시 서대문구 충정로3가 32-11 엘림넷빌딩  사업자등록번호: 220-81-97656  개인정보 관리책임자: 송태호 부장 (thshong@elim.net)" /></address>
+					<p><img src="../../../images/copyright.gif" alt="Copyright (C) 2012 BY ELIMNET CO.,LTD. ALL RIGHTS RESERVED." /></p>
+				</div>
+			</div>
+			<div id="LblockFooterHelp"><img src="../../../images/callservice.gif" alt="고객지원센터 TEL:02-3149-4900 FAX:02-3149-4998" /></div>
+		</div>
+	</div>
+	<!--//footer영역-->
+</div>
+</body>
+</html>

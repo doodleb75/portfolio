@@ -1,0 +1,7 @@
+html .mc4wp-form .form-wrapper input[type='email'] {
+	width: 80% !important;
+}
+
+html .mc4wp-form .form-wrapper input[type='submit'] {
+	width: 20% !important;
+}

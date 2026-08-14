@@ -1,0 +1,150 @@
+<html>
+<head>
+  <title>Evernote Export</title>
+  <basefont face="Tahoma" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/235205 (ko-KR); Windows/6.1.7600;"/>
+  <style>
+    body, td {
+      font-family: Tahoma;
+      font-size: 10pt;
+    }
+  </style>
+
+<link rel="stylesheet" href="./jquery-ui-1.8.16.custom.css" type="text/css" media="all" />
+<link rel="stylesheet" href="./ui.jqgrid.css" type="text/css" media="all" />
+
+<script type="text/javascript" src="./jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="./jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="./jquery.jqGrid.4.0.min.js"></script>
+<script type="text/javascript">
+var oGridRows = "";   //전역변수 설정 행선택시 행에 속한데이터를 변수에담기위해
+$(function () {
+	jQuery("#listTableSample").jqGrid({         
+          url:".example.json",  //데이터 요청 페이지 URL
+          datatype: 'json',  //리턴타입 ( JSON ,XML 
+          jsonReader : {root:'rows'},   //JSON 리턴값 루트
+          colNames:['셋탑코드', '셋탑명', '타입', '플렛폼', '설치위치' ,'셋탑타입 코드','플랫폼 코드','게시기 코드','STBIP','오디오볼륨'],  //상단 컬럼명
+          /**
+           * Conventions
+           * colModel :
+           * sortable : 정렬유무
+           * index : 정렬 코드
+           * name  : 행선택시 행의 Object의 고유값
+           * width : 가로크기
+           * align : 글자 정렬
+           * hidden : hidden 유무
+           */
+          colModel:[
+                             {name:'stb_code',        sortable:true,       index:'stb_code',              width:'300',                    align:'left'  },
+                             {name:'stb_name',       sortable:true,    index:'stb_name',                 width:'300',                    align:'left'  },
+                             {name:'pos_desc',        sortable:true,       index:'pos_desc',             width:'100',        align:'center'  },
+                             {name:'platform_desc',         sortable:true,    index:'platform_desc',      width:'100',                   align:'center'}, 
+                             {name:'stb_type_desc',         sortable:true,    index:'stb_type_desc',      width:'100',                   align:'center'}, {name:'platform',        sortable:false,   width:'20', hidden: true  },
+                             {name:'stb_type',        sortable:false,   width:'20', hidden: true },
+                             {name:'pos_code',        sortable:false,   width:'20', hidden: true },
+                             {name:'ipaddr',              sortable:false,   width:'20', hidden: true },
+                             {name:'audio_volume',         sortable:false,   width:'20', width:'100',               align:'center' }                                             
+          ], 
+          emptyrecords:'등록된 게시기 정보가 없습니다.',     //데이터가 없을시  널메시지
+          loadtext:'게시기 정보 로딩 중 입니다. 잠시만 기다려 주십시오',   //데이터로드시 로딩메시지
+          mtype:'GET',   //데이터 요청페이지에 요청한 파라메터 타입
+          rowNum:150,     //기본 출력 선택
+          rowList:[100,150,200],  //출력행 선택
+          pager: '#pagesDivSample',    //하단 페이징처리 레이어
+          viewrecords: true,      //하단 페이징 출력유무
+          width: '1000',          //가로크기
+          height: '80',         //세로크기
+          rownumbers: true,       //순번출력 유무
+          rownumWidth: 40,        //순번 가로사이즈
+          /* multiselect:true,    //체크박스 출력유무
+          multiselectWidth:50, */  //체크박스 가로사이즈
+          gridview:false,          // true 일경우 afterInsertRow 이벤트는 실행되지않습니다.
+          /**
+           * 행선택시 발생하는 이벤트  
+           * multiselect:false 일경우 이벤트가 실행되지않습니다.
+           * @param {String} id  ( 선택된 행 ID )
+           */
+          onSelectRow: function(id)
+          { 
+                   $(".ui-state-highlight",this).removeClass('ui-state-highlight');  //jquery ui css remove
+                   oGridRows = $("#listTable").getRowData(id);  //선택된 행 ID로 해당 행의 Object를 찾아 반환한다.                         
+                   //행선택시 발생할 액션 처리
+          },
+          /**
+           * 행의 데이터가 삽입후 이벤트 발생 ( rowid , rowdata, rowelem )
+           * option 이 gridview : true 일경우 이벤트를 실행하지 않습니다.
+           * 행을 변경시 사용한다.
+           * @param {String} rid
+           * @param {Object} aData
+           */
+          afterInsertRow:function(rid,aData)  {
+var  ymdhms = "";
+try{
+     rowdata.ymdhms = rowdata.ymdhms.substring(0,4)+"/"+rowdata.ymdhms.substring(4,6)+"/"+rowdata.ymdhms.substring(6,8)+"<br>"+rowdata.ymdhms.substring(8,10)+":"+rowdata.ymdhms.substring(10,12)+":"+rowdata.ymdhms.substring(12,14);    
+}
+catch(e)
+{
+     debug("일시 변환중 에러 !! ["+e+"]");
+}
+if(rowdata.confirm_date != null)
+{
+     try{
+          rowdata.confirm_date = rowdata.confirm_date.substring(0,4)+"/"+rowdata.confirm_date.substring(4,6)+"/"+rowdata.confirm_date.substring(6,8)+"<br>"+rowdata.confirm_date.substring(8,10)+":"+rowdata.confirm_date.substring(10,12)+":"+rowdata.confirm_date.substring(12,14);    
+     }
+     catch(e)
+     {
+          debug("확인시간 변환중 에러 !! ["+e+"]");
+     }
+}
+$(this).setRowData(rowid, rowdata);
+},
+          /**
+           * 모든행이 처리후 발생 출력된 데이터 반환
+           * @param {Object} aData
+           */
+          loadComplete:function(aData){},
+          /**
+           * 행 더블 클릭시 이벤트 발생
+           * @param {String} rowid  행 ID
+           * @param {Number} iRow   행 순번
+           * @param {Number} iCol   행의 몇번째
+           * @param {Object} e      이벤트 핸들러
+           */
+          ondblClickRow:function(rowid,iRow,iCol,e){},
+          /**
+           * 행 오른쪽 마우스 클릭시 발생 하는 이벤트
+           * @param {Object} rowid
+           * @param {Object} iRow
+           * @param {Object} iCol
+           * @param {Object} e   
+           */
+          onRightClickRow:function(rowid,iRow,iCol,e){},
+          /**
+           * colModel 사이즈 변경시 발생이벤트
+           * @param {Object} evt    이벤트 핸들러
+           * @param {Number} index  컬럼 순서
+           */
+          resizeStart:function(evt,index){},
+          /**
+           * colModel 사이즈 변경완료시 발생이벤트
+           * @param {Number} newWd    변경된 사이즈
+           * @param {Number} index    변경한 컬럼순서
+           */
+          resizeStop:function(newWd,index){}
+});
+jQuery("listTableSample").jqGrid('navGrid','#pagesDivSample',{edit:false,add:false,del:false, search:false});
+});
+
+</script>
+</head>
+<body>
+<table id="listTableSample"></table>
+<div id="pagesDivSample"></div>
+<a name="232"/>
+<div>
+<div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕"><b>jqGrid Plugin Option,Event 설명</b></font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕"><b>HTML :</b></font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕"><b>&lt;table id=&quot;listTable&quot;&gt;&lt;/table&gt;</b></font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕"><b>&lt;div id=&quot;</b>pagesDiv<b>&quot;&gt;&lt;/div&gt;</b></font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕"><br></font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕"><b>javascript :</b></font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">var oGridRows = &quot;&quot;;  </font> <font color="#0000FF" face="바탕">//전역변수 설정 행선택시 행에 속한데이터를 변수에담기위해</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">$(function () {</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">jQuery(&quot;#listTable&quot;).jqGrid({         </font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">url:&quot;./example1.json&quot;, </font> <font color="#0000FF" face="바탕">//데이터 요청 페이지 URL</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">datatype: 'json', </font> <font color="#0000FF" face="바탕">//리턴타입 ( JSON ,XML </font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">jsonReader : {root:'rows'},  </font> <font color="#0000FF" face="바탕">//JSON 리턴값 루트</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">colNames:['셋탑코드', '셋탑명', '타입', '플렛폼', '설치위치' ,'셋탑타입 코드','플랫폼 코드','게시기 코드','STBIP','오디오볼륨'],  //상단 컬럼명</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#0000FF" face="바탕">/**</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* Conventions</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* colModel :</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* sortable : 정렬유무</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* index : 정렬 코드</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* name  : 행선택시 행의 Object의 고유값</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* width : 가로크기</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* align : 글자 정렬</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* hidden : hidden 유무</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">*/</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">colModel:[</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">                             </font><font color="#010101" face="바탕">{name:'stb_code',</font><font color="#010101" face="바탕">    </font><font color="#010101" face="바탕">    sortable:true,</font><font color="#010101" face="바탕">     </font><font color="#010101" face="바탕">  index:'stb_code',</font> <font color="#010101" face="바탕">             </font><font color="#010101" face="바탕">width:'300',</font> <font color="#010101" face="바탕">                   </font><font color="#010101" face="바탕">align:'left'  },</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">                             </font><font color="#010101" face="바탕">{name:'stb_name',</font><font color="#010101" face="바탕">   </font><font color="#010101" face="바탕">    sortable:true,    index:'stb_name',</font> <font color="#010101" face="바탕">                </font><font color="#010101" face="바탕">width:'300',</font> <font color="#010101" face="바탕">                   </font><font color="#010101" face="바탕">align:'left'  },</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">                             </font><font color="#010101" face="바탕">{name:'pos_desc',</font><font color="#010101" face="바탕">    </font><font color="#010101" face="바탕">    sortable:true,</font><font color="#010101" face="바탕">     </font><font color="#010101" face="바탕">  index:'pos_desc',</font> <font color="#010101" face="바탕">            </font><font color="#010101" face="바탕">width:'100',        align:'center'  },</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">                             </font><font color="#010101" face="바탕">{name:'platform_desc',</font><font color="#010101" face="바탕">         </font><font color="#010101" face="바탕">sortable:true,    index:'platform_desc',</font> <font color="#010101" face="바탕">     </font><font color="#010101" face="바탕">width:'100',</font><font color="#010101" face="바탕">                   </font><font color="#010101" face="바탕">align:'center'  }, </font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">                             </font><font color="#010101" face="바탕">{name:'stb_type_desc',</font><font color="#010101" face="바탕">         </font><font color="#010101" face="바탕">sortable:true,    index:'stb_type_desc',</font> <font color="#010101" face="바탕">     </font><font color="#010101" face="바탕">width:'100',</font><font color="#010101" face="바탕">                   </font><font color="#010101" face="바탕">align:'center'},  </font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">                             </font><font color="#010101" face="바탕">{name:'platform',</font><font color="#010101" face="바탕">    </font><font color="#010101" face="바탕">    sortable:false,   width:'20', hidden: true  },</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">                             </font><font color="#010101" face="바탕">{name:'stb_type',</font><font color="#010101" face="바탕">    </font><font color="#010101" face="바탕">    sortable:false,   width:'20', hidden: true },</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">                             </font><font color="#010101" face="바탕">{name:'pos_code',</font><font color="#010101" face="바탕">    </font><font color="#010101" face="바탕">    sortable:false,   width:'20', hidden: true },</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">                             </font><font color="#010101" face="바탕">{name:'ipaddr',</font><font color="#010101" face="바탕">      </font><font color="#010101" face="바탕">        sortable:false,   width:'20', hidden: true },</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">                             </font><font color="#010101" face="바탕">{name:'audio_volume',</font><font color="#010101" face="바탕">         </font><font color="#010101" face="바탕">sortable:false,   width:'20', width:'100',</font><font color="#010101" face="바탕">               </font><font color="#010101" face="바탕">align:'center' }</font><font color="#010101" face="바탕">                                             </font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">], </font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">emptyrecords:'등록된 게시기 정보가 없습니다.',    </font> <font color="#0000FF" face="바탕">//데이터가 없을시  널메시지</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">loadtext:'게시기 정보 로딩 중 입니다. 잠시만 기다려 주십시오',  </font> <font color="#0000FF" face="바탕">//데이터로드시 로딩메시지</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">mtype:'POST',  </font> <font color="#0000FF" face="바탕">//데이터 요청페이지에 요청한 파라메터 타입</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">rowNum:150,    </font> <font color="#0000FF" face="바탕">//기본 출력 선택</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">rowList:[100,150,200], </font> <font color="#0000FF" face="바탕">//출력행 선택</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">pager: '#pagesDiv',  </font> <font color="#010101" face="바탕"> </font><font color="#0000FF" face="바탕">//하단 페이징처리 레이어</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">viewrecords: true,    </font><font color="#0000FF" face="바탕">  //하단 페이징 출력유무</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">width: '1000',         </font> <font color="#0000FF" face="바탕">//가로크기</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">height: '100%',        </font> <font color="#0000FF" face="바탕">//세로크기</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">rownumbers: true,     </font><font color="#0000FF" face="바탕">  //순번출력 유무</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">rownumWidth: 40,       </font> <font color="#0000FF" face="바탕">//순번 가로사이즈</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">/* multiselect:true,   </font> <font color="#0000FF" face="바탕">//체크박스 출력유무</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">multiselectWidth:50, */ </font> <font color="#0000FF" face="바탕">//체크박스 가로사이즈</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">gridview:false,         </font> <font color="#0000FF" face="바탕">// true 일경우 afterInsertRow 이벤트는 실행되지않습니다.</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#0000FF" face="바탕">/**</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* 행선택시 발생하는 이벤트  </font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* multiselect:false 일경우 이벤트가 실행되지않습니다.</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* @param {String} id  ( 선택된 행 ID )</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">*/</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">onSelectRow: function(id)</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">{ </font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">                   </font><font color="#010101" face="바탕">$(&quot;.ui-state-highlight&quot;,this).removeClass('ui-state-highlight');  //jquery ui css remove</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">                   </font><font color="#010101" face="바탕">oGridRows = $(&quot;#listTable&quot;).getRowData(id);  //선택된 행 ID로 해당 행의 Object를 찾아 반환한다.                         </font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">                   </font><font color="#0000FF" face="바탕">//행선택시 발생할 액션 처리</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">},</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#0000FF" face="바탕">/**</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* 행의 데이터가 삽입후 이벤트 발생 ( rowid , rowdata, rowelem )</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* option 이 gridview : true 일경우 이벤트를 실행하지 않습니다.</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* 행을 변경시 사용한다.</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* @param {String} rid</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* @param {Object} aData</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">*/</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">afterInsertRow:function(rid,aData)  {</font></div><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;"><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;"><div align="justify" style="font-size: 16px;"><span style="font-size: medium;">var  ymdhms = &quot;&quot;;</span></div></blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">try{</blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">     rowdata.ymdhms = rowdata.ymdhms.substring(0,4)+&quot;/&quot;+rowdata.ymdhms.substring(4,6)+&quot;/&quot;+rowdata.ymdhms.substring(6,8)+&quot;&lt;br&gt;&quot;+rowdata.ymdhms.substring(8,10)+&quot;:&quot;+rowdata.ymdhms.substring(10,12)+&quot;:&quot;+rowdata.ymdhms.substring(12,14);    </blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">}</blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">catch(e)</blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">{</blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">     debug(&quot;일시 변환중 에러 !! [&quot;+e+&quot;]&quot;);</blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">}</blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">if(rowdata.confirm_date != null)</blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">{</blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">     try{</blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">          rowdata.confirm_date = rowdata.confirm_date.substring(0,4)+&quot;/&quot;+rowdata.confirm_date.substring(4,6)+&quot;/&quot;+rowdata.confirm_date.substring(6,8)+&quot;&lt;br&gt;&quot;+rowdata.confirm_date.substring(8,10)+&quot;:&quot;+rowdata.confirm_date.substring(10,12)+&quot;:&quot;+rowdata.confirm_date.substring(12,14);    </blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">     }</blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">     catch(e)</blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">     {</blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">          debug(&quot;확인시간 변환중 에러 !! [&quot;+e+&quot;]&quot;);</blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">     }</blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">}</blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">$(this).setRowData(rowid, rowdata);</blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;"><span style="color: rgb(1, 1, 1); font-family: 바탕; font-size: 16px;">},</span></blockquote></blockquote><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#0000FF" face="바탕">/**</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* 모든행이 처리후 발생 출력된 데이터 반환</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* @param {Object} aData</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">*/</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">loadComplete:function(aData){},</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#0000FF" face="바탕">/**</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* 행 더블 클릭시 이벤트 발생</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* @param {String} rowid  행 ID</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* @param {Number} iRow   행 순번</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* @param {Number} iCol   행의 몇번째</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* @param {Object} e      이벤트 핸들러</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">*/</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">ondblClickRow:function(rowid,iRow,iCol,e){},</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#0000FF" face="바탕">/**</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* 행 오른쪽 마우스 클릭시 발생 하는 이벤트</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* @param {Object} rowid</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* @param {Object} iRow</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* @param {Object} iCol</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* @param {Object} e   </font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">*/</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">onRightClickRow:function(rowid,iRow,iCol,e){},</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#0000FF" face="바탕">/**</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* colModel 사이즈 변경시 발생이벤트</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* @param {Object} evt    이벤트 핸들러</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* @param {Number} index  컬럼 순서</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">*/</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">resizeStart:function(evt,index){},</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#0000FF" face="바탕">/**</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* colModel 사이즈 변경완료시 발생이벤트</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* @param {Number} newWd    변경된 사이즈</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">* @param {Number} index    변경한 컬럼순서</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font> <font color="#0000FF" face="바탕">*/</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">          </font><font color="#010101" face="바탕">resizeStop:function(newWd,index){}</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">});</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">jQuery(&quot;#listTable&quot;).jqGrid('navGrid','#pagesDiv',{edit:false,add:false,del:false, search:false});</font></div><div align="justify" style="font-size: 16px;"><font color="#010101" face="바탕">});</font></div></div>
+</div></body></html> 
+
+
+

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ko"> 
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>
+  
+  <!-- jQuery 라이브러리 참조 -->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><!--제이쿼리 최신버전 사용-->
+  
+  <!-- plugin 참조 -->
+  <script type="text/javascript" src="plugins/cookie/jquery.cookie.js"></script>
+
+    <style>
+
+        body{
+            padding:20px;
+        }
+
+        a{
+            color:blue;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        a:hover{
+            color:red;
+        }
+
+        .pop_lay{
+            width:250px;
+            height:150px;
+            position:fixed;
+            top:200px; left:100px;
+            padding:20px;
+            border:2px solid black;
+            background-color: #ffffdd;
+        }
+
+        .pop_lay h1{
+            text-align: center;
+        }
+
+        .pop_lay p{
+            font-size:12px;
+        }
+
+        .pop_lay .footer{
+            position:absolute;
+            right: 0; bottom: 0;
+            width:100%;
+            text-align: right;
+            background-color: #d4d4d4;
+        }
+    </style>
+    
+    
+  <script>
+	$(document).ready(function(){
+		
+		// 저장된 쿠키값이 Y가 아니라면 팝업창을 생성
+		if ($.cookie("nopopup") != "Y") {
+			$(".pop_lay").css('display','block');
+		}else{
+            $(".pop_lay").css('display','none');
+        }
+		
+		// 저장된 쿠키 "nopopup" 값을 "Y"로 변경하고 페이지를 리로드
+		$("#clear_option").click(function(){
+			
+			// 링크의 페이지 이동 속성 강제 차단
+			event.preventDefault(); 
+			// 쿠키값을 "N"으로 변경
+			$.cookie("nopopup", "N");
+			// 페이지 리로드
+			window.location.reload();
+		});
+	});
+  </script>
+    
+ </head>
+ <body>
+     <div class="wrap">
+        <h1>팝업창 예제</h1>
+        <div>
+            <a href="#" id="clear_option">하루 동안 팝업창 열지 않기 해제&nbsp;(쿠키삭제)</a>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id mattis nisl. Ut fermentum diam sit amet mi vulputate vestibulum. Pellentesque pulvinar enim quis ante pellentesque fringilla. Pellentesque quam metus, sodales nec mauris eu, vestibulum lobortis neque. Praesent et nunc euismod, porttitor odio a, mattis magna. Proin molestie turpis in felis lobortis, ac efficitur augue hendrerit. Proin sit amet augue aliquet, faucibus turpis ac, molestie lorem.
+
+                Donec in auctor elit. Fusce id nulla vel ipsum luctus lacinia. Cras sed lectus at velit molestie finibus. Maecenas vel sem ut nisl ullamcorper pretium at a eros. Proin leo lacus, tincidunt fringilla dictum id, volutpat eget nisl. Duis tempus semper sem, vitae bibendum nisi tristique eget. Aenean accumsan finibus orci, sed iaculis nisl efficitur venenatis. Curabitur dictum erat mollis vestibulum mattis.
+
+                Donec viverra erat ac condimentum molestie. Sed dapibus enim quis lectus rhoncus, id pulvinar odio tempor. Nam augue augue, aliquet quis finibus non, varius a leo. Cras ac leo ut elit imperdiet viverra eu ac ex. Etiam urna nisl, pharetra a orci ac, condimentum tincidunt quam. Etiam nec enim pulvinar, molestie metus nec, porta enim. Nullam a nibh ipsum. Donec euismod bibendum diam, et bibendum enim vestibulum bibendum. Phasellus finibus sapien convallis augue pulvinar, eget tincidunt ipsum vulputate.
+            </p>
+        </div>
+
+        <div class="pop_lay">
+            <h1>팝업창</h1>
+            <p>이 페이지는 팝업창입니다. ^^</p>
+            <div class="footer">
+                <label for="nopopup"> 오늘 하루 이 창 열지 않음 </label>
+                <input type="checkbox" id="nopopup">
+                <a href="#" id="close">닫기</a>
+            </div>  
+        </div>
+    </div>
+     <script>
+        $(document).ready(function(){
+
+            // 닫기 버튼 클릭시
+            $("#close").click(function(){
+                // 링크의 페이지 이동 속성 강제 차단
+                event.preventDefault();
+
+                if ($('#nopopup').is(":checked")){
+                    // 쿠키값을 "Y"로 하여 하루동안 저장시킴
+                    $.cookie("nopopup", "Y", {
+                        expires : 1
+                    });
+                }
+
+                // 팝업창 닫기
+                $(".pop_lay").css('display','none');
+            });
+            
+        });
+     </script>
+</body>
+</html>

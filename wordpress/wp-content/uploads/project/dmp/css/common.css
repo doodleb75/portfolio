@@ -1,0 +1,149 @@
+@charset "euc-kr";
+/* Design Team (i72mouse@naver.com) dalgona 100408 */ 
+
+/* Type Selector */
+*{margin:0; padding:0; font-family:"돋움", Dotum, "굴림", Gulim, AppleGothic, Sans-serif; font-size:12px; color:#999; line-height:1.5em;}
+html{_overflow:scroll;_overflow-x:auto;}
+body{background:#e1e1e1;}
+img, fieldset, button{border:none;}
+hr, button img{display:none;}
+li{list-style:none;}
+a{text-decoration:none;}
+a:hover, a:active, a:focus{text-decoration:underline;}
+textarea{overflow:auto;} 
+legend {position:absolute; top:0; left:0; width:0; height:0; overflow:hidden; visibility:hidden; font-size:0; line-height:0;} /* For Screen Reader */ 
+
+/* Main Layout Selector */
+#wrap{width:960px; _text-align:left; margin:0 auto;background:#fff;}
+#header{width:100%; height:151px;}
+#container{width:100%;}
+.mainVisual{width:924px;margin-left:18px;}
+/*.mainVisual{width:924px; height:255px; float:left;margin-left:18px;}*/
+.quick{width:67px; height:255px; float:right;}
+.snb{width:271px; float:left; background:url('/design/images/main/mainLeftBg.gif'); background-repeat:repeat-y;} /* 메인 왼쪽영역 */
+#content{width:689px; float:right;text-align:right;} /* 메인 오른쪽영역 */
+#footer{width:100%;}
+.clear{display:block; float:none; clear:both; height:0; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.cursor{cursor:pointer;}
+.noneBg{background-image:none;}
+.none_css {display:none;}
+.verT{vertical-align:top;}
+.verM{vertical-align:middle;}
+.verB{vertical-align:bottom;}
+.floatL {float:left !important;} /* 구성요소의 좌측정렬 */
+.floatR {float:right !important;} /* 구성요소의 우측정렬 */
+.floatC {margin:0 auto !important;} /* 구성요소의 가운데정렬 */
+.alignC{text-align:center;}
+.alignR{text-align:right;}
+.bold{font-weight:bold;}
+.inputTypeA{margin:0; padding:0; font-size:11px; border:1px solid #bebebe; height:20px; line-height:18px;}
+.png24 { tmp:expression(setPng24(this)); } 
+
+/* Sub Layout Selector */
+.snbSub{width:220px; float:left;} /* 서브 왼쪽영역 */
+#contentSubMain{margin-right:18px;_margin-right:9px;width:700px; float:right;} /* 서브 오른쪽영역 */
+#contentSub{width:960px; float:left; background:url('/design/images/common/subLeftBg.gif'); background-repeat:repeat-y;} /* 서브 전체영역 */
+
+/* Header */
+#header h1{padding:13px 0 0 16px; float:left;}
+#header ul{margin:14px 0 0 0; float:right;}
+#header ul li{display:inline; position:relative; padding:0 8px 0 10px; font-size:11px; white-space:nowrap; background:url(/design/images/common/dvHeader.gif) no-repeat 0 2px;}
+#header ul li *{font-size:11px;}
+#header ul li img{vertical-align:top; padding:3px 0;}
+#header ul li.first{background:none; padding:0 8px 0 0;}
+.keyword{margin:0; padding-left:7px; border:0px solid #464646; width:160px; height:15px; line-height:16px;background:#464646; vertical-align:middle;} 
+.btnSearch{vertical-align:middle;}
+.top{width:960px; height:90px; background:#000;}
+.gnb{position:absolute; z-index:10; width:960px; height:70px;}
+
+/* Footer */
+#footer{background:#000; width:auto; height:68px;}
+#footer a{text-decoration:none; color:#909090;}
+#footer a:visited{text-decoration:none; color:#909090;}
+#footer a:hover{text-decoration:underline;}
+#footer h1{padding:20px 0 0 18px; float:left;}
+#footer ul{padding:10px 0 14px 35px; float:left;}
+#footer ul li{display:inline; position:relative; padding:0 8px 0 10px; font-size:11px; white-space:nowrap; background:url(/design/images/common/dvFooter.gif) no-repeat 0 0;}
+#footer ul li *{font-size:11px;}
+#footer ul li.first{background:none; padding:0 8px 0 0;}
+#footer ul a{letter-spacing:-1px;}
+#footer .addressPaos{font:9px Verdana; float:left; padding-left:167px;}
+#footer .addressPaos a{font:normal 9px Tahoma; color:#fceb00;}
+
+/* margin */
+.mar2{display:block; float:none; clear:both; height:2px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar3{display:block; float:none; clear:both; height:3px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar5{display:block; float:none; clear:both; height:5px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar7{display:block; float:none; clear:both; height:7px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar9{display:block; float:none; clear:both; height:9px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar10{display:block; float:none; clear:both; height:10px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar12{display:block; float:none; clear:both; height:12px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar13{display:block; float:none; clear:both; height:13px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar15{display:block; float:none; clear:both; height:15px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar16{display:block; float:none; clear:both; height:16px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar17{display:block; float:none; clear:both; height:17px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar19{display:block; float:none; clear:both; height:19px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar22{display:block; float:none; clear:both; height:22px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar25{display:block; float:none; clear:both; height:25px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar26{display:block; float:none; clear:both; height:26px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar30{display:block; float:none; clear:both; height:30px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar32{display:block; float:none; clear:both; height:32px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar33{display:block; float:none; clear:both; height:33px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar35{display:block; float:none; clear:both; height:35px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar36{display:block; float:none; clear:both; height:36px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar40{display:block; float:none; clear:both; height:40px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar60{display:block; float:none; clear:both; height:60px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+.mar72{display:block; float:none; clear:both; height:72px; width:100%; font-size:0 !important; line-height:0 !important; overflow:hidden; margin:0 !important; padding:0 !important;}
+
+.mar1{margin:0 1px;}
+.marT1{margin-top:1px;}
+.marT2{margin-top:2px;}
+.marT4{margin-top:4px;}
+.marT5{margin-top:5px;}
+.marT7{margin-top:7px;}
+	:root .marT7{padding-top:7px; margin-top:0;}
+.marT9{margin-top:9px;}
+	:root .marT9{padding-top:9px; margin-top:0;}
+.marT10{margin-top:10px;}
+.marT11{margin-top:11px;}
+.marT12{margin-top:12px;}
+.marT13{margin-top:13px;}
+	:root .marT13{padding-top:13px; margin-top:0;}
+.marT15{margin-top:15px;}
+.marT16{margin-top:16px;}
+.marT17{margin-top:17px;}
+.marT18{margin-top:18px;}
+.marT20{margin-top:20px;}
+.marT22{margin-top:22px;}
+.marT23{margin-top:23px;}
+.marT25{margin-top:25px;}
+.marT26{margin-top:26px;}
+.marT27{margin-top:27px;}
+.marT28{margin-top:28px;}
+.marT30{margin-top:30px;}
+.marT35{margin-top:35px;}
+.marT155{margin-top:155px;}
+.marT207{margin-top:207px;}
+
+.marL2{margin-left:2px;}
+.marL11{margin-left:11px;}
+.marL12{margin-left:12px;}
+.marL13{margin-left:13px;}
+.marL15{margin-left:15px;}
+.marL24{margin-left:24px;}
+.marL26{margin-left:26px;}
+.marL27{margin-left:27px;}
+.marL28{margin-left:28px;}
+.marL39{margin-left:39px;}
+.marL61{margin-left:61px;}
+
+.marR3{margin-right:3px;}
+.marR5{margin-right:5px;}
+.marR12{margin-right:12px;}
+.marR27{margin-right:27px;}
+
+.marB2{margin-bottom:2px;}
+.marB12{margin-bottom:12px;}
+.marB25{margin-bottom:25px;}
+.marB30{margin-bottom:30px;}
+.marB60{margin-bottom:60px;}

@@ -1,0 +1,24 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<title>Untitled Document</title>
+<script language='javascript' src='css/Embed.js'></script>
+</head>
+
+<body topmargin="0" leftmargin="0">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+	<comment id=__NSID__>
+	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="1000" height="760">
+      <param name="movie" value="img/swim.swf">
+      <param name="quality" value="high">
+      <embed src="img/swim.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="1000" height="760"></embed>
+    </object>
+	</comment>
+          <script> __ws__(__NSID__); </script>
+	</td>
+  </tr>
+</table>
+</body>
+</html>

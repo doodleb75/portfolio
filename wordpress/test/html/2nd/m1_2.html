@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--
+/*************************************************************************
+* @ 서비스명   : 모바일 컨시어지
+* @ 파일명     : html/1th/p5.html
+* @ 페이지설명  : 모바일 컨시어지
+* @ 작성자     : 정동훈 (hanjh@to-be.co.kr)
+* @ 작성일     : 2020-01-16
+************************** 수정이력 ****************************************
+* 날짜                    작업자                 변경내용
+*_________________________________________________________________________
+* 2020-01-16             정동훈                 최초작성
+* 2020-02-12             한주현                 header 태그 마크업 추가
+
+*************************************************************************/
+-->
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>모바일 컨시어지</title>
+<link rel="stylesheet" href="../../common/css/commonui.css">
+<script type="text/javascript" src="../../common/js/commonui.js"></script>
+<script>
+    $( document ).ready(function() {
+      $('.trigger1').on('click', function() {
+         $('.modal-wrapper1').toggleClass('open');
+        // $('.page-wrapper').toggleClass('blur-it');
+         return false;
+      });
+      $('.trigger2').on('click', function() {
+         $('.modal-wrapper2').toggleClass('open');
+         return false;
+      });
+    });
+
+ 
+    function check(it) {
+      tr = it.parentNode.parentNode.parentNode.parentNode.parentNode;
+      tr.style.backgroundColor = (it.checked) ? "#ddd" : "";
+    }
+</script>
+</head>
+<body>
+
+<div id="wrap" data-title="모바일 컨시어지">
+<!-- header 마크업 추가 / 이미지 명 경로는 프로그램 처리 해주시고. 주석 제거해주세요 -->
+<header id="header">
+    <a href="#" class="header-logo"><img src="../../common/img/logo.png" alt=""></a>
+    <h1>모바일 컨시어지</h1>
+</header>
+
+<div id="content">
+    <div class="cmm-tab-icon">
+
+        <div class="m_make_group icon1">
+            <span>모바일 조편성</span>
+            <button type="button" class="guide_info"><img src="../../common/img/m_guide_bool.png">이용안내</button>
+        </div>
+    </div>
+
+    <div class="cmm-radius-box none team_info">
+       <dl class="cmm-info-box none info-comment">
+            <dt class="icon1">예약정보</dt>
+            <dd class="t-justify">
+                <span>단&nbsp;&nbsp;체&nbsp;&nbsp;명 :</span>
+                <span>패스원골프</span>
+            </dd>
+            <dd>
+                <span>회&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;장 :</span>
+                <span>황프로</span>
+            </dd>
+            <dd>
+                <span>총&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;무 :</span>
+                <span>김프로 </span>
+            </dd>
+            <dd>
+                <span>경기일시 :</span>
+                <span>2020년 4월 1일(화) 7시 7분 부터 </span>
+            </dd>
+            <dd>
+                <span>예약팀수 :</span>
+                <span>2팀 </span>
+            </dd>
+        </dl>
+    </div>
+    <!-- 1조 시작 -->
+    <div class="cmm-radius-box none team">
+        <dl class="cmm-info-box none team">
+            <!-- <dt class="icon1"> -->
+            <dt class="team mem_list">
+                <span class="mem_title_bg">
+                    1조
+                </span>
+                <!-- <button type="button" class="mem_list_btn btn trigger1"><img src="../../common/img/m_list_bool.png">회원명부</button> -->
+                <p class="emphasis confirm">＊ 2020년 4월 1일 (화) 7시 7분 김해코스</p>
+            </dt>
+            <dd class="mem_num">
+                <label>1</label>
+                <span><strong>김*영</strong> <br>010-24**-**54
+                </span>
+                <span class="btn_block">
+                    <button type="button" class="mem_treat_btn">회원대우</button>
+                </span>
+            </dd><dd class="mem_num">
+                <label>2</label>
+                <span><strong>김*영</strong> <br>010-24**-**54
+                </span>
+                <span class="btn_block">
+                    <button type="button" class="mem_treat_btn disabled">회원대우</button>
+                </span>
+            </dd>
+            <dd class="mem_num">
+                <label>1</label>
+                <span><strong>김*영</strong> <br>010-24**-**54
+                </span>
+                <span class="btn_block">
+                    <button type="button" class="mem_treat_btn">회원대우</button>
+                </span>
+            </dd><dd class="mem_num">
+                <label>2</label>
+                <span><strong>김*영</strong> <br>010-24**-**54
+                </span>
+                <span class="btn_block">
+                    <button type="button" class="mem_treat_btn disabled">회원대우</button>
+                </span>
+            </dd>
+         
+        </dl>
+    </div>
+    <!-- 1조 끝 --> 
+    <!-- 2조 시작 -->
+    <div class="cmm-radius-box none team">
+        <dl class="cmm-info-box none team">
+            <!-- <dt class="icon1"> -->
+            <dt class="team mem_list">
+                <span class="mem_title_bg">
+                    2조
+                </span>
+                <!-- <button type="button" class="mem_list_btn btn trigger1"><img src="../../common/img/m_list_bool.png">회원명부</button> -->
+                <p class="emphasis confirm">＊ 2020년 4월 1일 (화) 7시 7분 김해코스</p>
+            </dt>
+            <dd class="mem_num">
+                <label>1</label>
+                <span><strong>김*영</strong> <br>010-24**-**54
+                </span>
+                <span class="btn_block">
+                    <button type="button" class="mem_treat_btn">회원대우</button>
+                </span>
+            </dd><dd class="mem_num">
+                <label>2</label>
+                <span><strong>김*영</strong> <br>010-24**-**54
+                </span>
+                <span class="btn_block">
+                    <button type="button" class="mem_treat_btn disabled">회원대우</button>
+                </span>
+            </dd>
+            <dd class="mem_num">
+                <label>1</label>
+                <span><strong>김*영</strong> <br>010-24**-**54
+                </span>
+                <span class="btn_block">
+                    <button type="button" class="mem_treat_btn">회원대우</button>
+                </span>
+            </dd><dd class="mem_num">
+                <label>2</label>
+                <span><strong>김*영</strong> <br>010-24**-**54
+                </span>
+                <span class="btn_block">
+                    <button type="button" class="mem_treat_btn disabled">회원대우</button>
+                </span>
+            </dd>
+         
+        </dl>
+    </div>
+    <!-- 2조 끝 -->     
+<p class="m_attention">※ 등록하신 조편성 내역은 경기 1일전 15시에 자동으로 확정 됩니다. </p>
+</div>
+<!-- // Content Area E -->
+
+
+</div>
+</body>
+</html>

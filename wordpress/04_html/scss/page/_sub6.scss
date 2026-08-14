@@ -1,0 +1,232 @@
+.modal {
+    .calculate-method {
+        top: 90px;
+        // overflow-y: auto;
+        position: relative;
+        // padding-bottom: 80px;
+    }
+    .modal-padding-box {
+        padding: rem(20);
+
+        .collapsible-body {
+            margin-left: rem(0);
+            margin-right: rem(0);
+            margin-bottom: rem(5);
+        }
+    }
+}
+
+.calculate-method {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: rem(-25);
+    margin-left: rem(-25);
+    margin-bottom: rem(-25);
+    border-radius: rem(17);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 100%;
+    background: #fff;
+
+    h3 {
+        font-size: rem(17);
+        padding-left: rem(7);
+        margin-bottom: rem(17);
+    }
+
+    .calc-group {
+        margin-bottom: rem(20);
+        li {
+            margin: rem(0) rem(5);
+            &:nth-child(n + 3) {
+                margin-bottom: -10px;
+                margin-top: 0;
+            }
+        }
+        input[type="radio"] {
+            display: none;
+        }
+        input[type="radio"] + label {
+            color: #282c34;
+            font-size: rem(17);
+            padding-right: rem(18);
+        }
+        input[type="radio"] + label::before {
+            content: "";
+            display: inline-table;
+            vertical-align: middle;
+            font-size: rem(15);
+            width: rem(36);
+            height: rem(36);
+            background: url(../img/crew-check.png) no-repeat;
+            background-size: cover;
+            background-position: left rem(-36);
+            border-radius: rem(100);
+            margin-right: rem(8);
+            transition: background-position 0.2s;
+        }
+        input[type="radio"]:checked + label::before {
+            background-position: left top;
+        }
+        &.in-modal {
+            input[type="radio"] + label::before {
+                background: url(../img/crew-check2.png) no-repeat;
+                background-size: cover;
+                background-position: left rem(-36);
+            }
+            input[type="radio"]:checked + label::before {
+                background-position: left top;
+            }
+        }
+        .chk-price-sel {
+            .pee-category {
+                font-size: rem(13);
+                color: #282c34;
+                background: #b7b7b7;
+                padding: rem(5) rem(12);
+                border-radius: rem(50%);
+                width: fit-content;
+                margin-left: rem(50px);
+                margin-top: rem(-2.5);
+            }
+        }
+    }
+
+    .bot-btn-group {
+        margin-top: auto;
+    }
+}
+
+.modal-padding-box {
+    .calc-group {
+        margin-bottom: rem(20);
+        li {
+            margin: rem(0) rem(5) rem(20);
+        }
+    }
+    .price-summary {
+        margin-bottom: rem(40);
+    }
+}
+
+.price-summary {
+    margin-top: rem(20);
+    padding: rem(20);
+    font-size: rem(13);
+    background: #f8f8f8;
+    color: #282c34;
+    border-radius: rem(8);
+    padding-bottom: 0;
+    z-index: 100000;
+    &::after {
+        clear: both;
+    }
+    > div {
+        display: flex;
+        align-items: center;
+    }
+    span {
+        &:first-child {
+            position: relative;
+            font-size: rem(13);
+            top: rem(-18);
+            left: rem(-3);
+        }
+    }
+    .total {
+        font-size: rem(31);
+        color: #282c34;
+        // color: #092b4b;
+        margin-left: auto;
+        i {
+            font-size: rem(12);
+        }
+    }
+}
+
+/* 선결제 추가 */
+.pre-pay-box {
+    padding: rem(10);
+    margin-bottom: rem(16);
+
+    .price-sort-text {
+        font-size: rem(13);
+        color: #888;
+        padding-left: rem(6);
+    }
+    .price-summary {
+        margin: 0 rem(10px);
+        margin-bottom: rem(40);
+    }
+}
+
+.cost-deposit-option {
+    &.no-deposit {
+        display: none;
+    }
+    display: flex;
+    flex-direction: column;
+    padding: rem(10);
+    background: #f8f8f8;
+    border-radius: rem(6);
+    margin-top: rem(20);
+    > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: rem(6);
+        > span {
+            font-size: rem(17);
+            color: #092b4b;
+            width: 25%;
+            p {
+                color: #7e7e7e;
+                padding: rem(4) 0 0;
+            }
+        }
+        .input-deposit {
+            color: #092b4b;
+            font-size: rem(15);
+            margin-left: auto;
+            padding: rem(7) rem(14);
+            background: #f1f1f1;
+            border-radius: rem(16);
+            margin-right: rem(4);
+            width: 55%;
+            border: 0;
+        }
+    }
+    .deposit-btn-group {
+        margin: rem(10) 0 0;
+        button {
+            flex: 1;
+            text-align: center;
+            padding: rem(7) rem(10);
+            background: #fff;
+            border-radius: rem(50);
+            font-size: rem(15);
+            color: #fff;
+            background: #282c34;
+            // background: #092b4b;
+            &:active {
+                color: rgba(255, 255, 255, 0.8);
+                background: #0a4379;
+            }
+            &:not(:last-child) {
+                margin-right: rem(8);
+            }
+        }
+    }
+    & + p {
+        padding: rem(14) rem(6);
+    }
+}
+
+.pre-pay-folding {
+    z-index: 10;
+    & + div {
+        position: relative;
+        top: rem(-20);
+    }
+}

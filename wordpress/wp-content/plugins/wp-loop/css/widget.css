@@ -1,0 +1,139 @@
+.wploop-infinite-widget {
+    padding: 0 0 60px;
+}
+
+.wploop-page-nav {
+    background: #ffffff;
+    margin: 10px;
+    padding: 15px;
+    display: inline-block;
+    clear: both;
+}
+
+a.wploop-post-sharer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000000;
+    opacity: 0;
+    z-index: 10;
+    -webkit-transition: all 0.3s ease-in;
+    /* Changed here */
+    -moz-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
+.wploop-in-entry-thumbnail {
+    position: relative;
+}
+
+.wploop-in-entry-thumbnail:hover a.wploop-post-sharer {
+    opacity: 0.6;
+}
+
+a.wploop-post-sharer i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -12px 0 0 -5px;
+}
+
+.widget_wploop ul li a:before {
+    content: '';
+    display: none;
+}
+
+.widget_wploop .widget-title {
+    margin: 4px 2px -2px 2px;
+}
+
+.widget.widget_wploop {
+    padding: 0 0 30px;
+    margin: 0;
+    background: transparent;
+}
+
+.widget.widget_wploop .wploop-sticky {
+    display: none;
+}
+
+.wploop-hidden {
+    display: none;
+}
+
+.widget_wploop article {
+    float: left;
+    display: inline-block;
+}
+
+.widget_wploop article .wploop-inside-post-container {
+    background: #ffffff;
+}
+
+
+
+.widget_wploop .wploop-filter ul li {
+    float: left;
+    display: inline-block;
+    padding: 10px;
+}
+
+.wploop-blogloop-content {
+    width: 100%;
+    text-align: left;
+}
+
+.wploop-blogloop-format-icon {
+    display: inline-block;
+}
+
+.wploop-post-container {
+    padding: 10px;
+}
+
+.wploop-no-more-posts{
+    display: none;
+
+}
+
+.wploop-page-nav.wploop-endofpage .wploop-no-more-posts{
+    display:block;
+}
+
+/* Loading Messages*/
+
+.wploop-loading {
+    display: block;
+    margin: 0;
+    clear: both;
+    min-height: 20px;
+    max-height: 200px;
+    z-index: 99998;
+    text-align: center;
+    background: url(../img/loader.gif) center center no-repeat ;
+}
+
+
+
+
+.widget_wploop .wploop-page-nav, .widget_wploop .wploop-filter, .widget_wploop .wploop-filter-ul {
+    margin: 0;
+    background: transparent;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.widget_wploop .wploop-filter-ul:before, .widget_wploop .wploop-filter-ul:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
+}
+
+.widget_wploop .wploop-filter-ul:after {
+    clear: both;
+}

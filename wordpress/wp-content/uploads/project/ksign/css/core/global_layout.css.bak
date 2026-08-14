@@ -1,0 +1,154 @@
+@charset 'utf-8';
+body,html{height:100%;}
+#LblockWrapper {
+	position:relative;
+	width:980px;
+	margin:0 auto;
+}
+#LblockHeader {
+	position:relative;
+	height:108px;
+}
+#LblockHeaderIn {
+	position:relative;
+	width:980px;
+	height:88px;
+}
+#LblockTopLogo {
+	position:absolute;
+	left:10px;
+	top:38px;
+}
+#LblockWelcome {
+	position:absolute;
+	right:130px;
+	top:11px;
+}
+#LblockSupportMenu {
+	position:absolute;
+	right:210px;
+	top:8px;
+	height:27px;
+}
+#LblockTotalSearch {
+	position:absolute;
+	left:208px;
+	top:12px;
+}
+#LblockTopMenu {
+	position:absolute;
+	/*left:287px;*/
+	left:254px;
+	top:41px;
+	height:40px;
+}
+#LblockLeft {
+	position:relative;
+	float:left;
+	top:12px;
+	width:175px;
+}
+#LblockLeftTitle {
+	position:relative;
+	height:36px;
+	margin-left:11px
+}
+#LblockLeftMenuStyle {
+	position:absolute;
+	right:10px;
+	bottom:7px;
+	height:15px;
+}
+#LblockLeftMenu {
+	margin:0 0 10px 0;
+}
+#LblockBodySetter {
+	float:left;
+	width:100%;
+	margin-left:-175px;
+}
+#LblockBody {
+	position:relative;
+	/* Set automatic, 900px - 194px(margin-left).
+	width:786px */
+	min-height:500px;
+	_height:500px;
+}
+#LblockFooter {
+	clear:left;
+	position:relative;
+}
+#LblockFooterIn {
+	position:relative;
+	min-height:93px;
+	_height:93px;
+}
+#LblockFooterLogo {
+	position:relative;
+	float:left;
+	width:174px;
+	margin-top:-1px;
+}
+#LblockFooterSetter {
+	float:left;
+	width:100%;
+	margin:0 -123px 0 -174px;
+}
+#LblockFooterBody {
+	min-height:50px;
+	_height:50px;
+	margin:0 133px 0 194px;
+}
+#LblockFooterMenu {
+	margin:0 0 11px -8px;
+}
+#LblockFooterHelp {
+	float:left;
+	width:114px;
+	margin-top:10px;
+}
+
+
+
+
+/************************* web admin 추가스타일 *******************************************/
+#LblockTextBox p.row_region{display:block; /*border:1px solid #ff6600;*/}
+#LblockTextBox br{margin:0;padding:0;}
+#LblockTextBox span.admin_chk{display:inline-block;width:130px;background:url(../../images/list_chk_bg.gif) repeat-x;padding:14px 10px;margin:6px 5px;border:1px solid #ddd;}
+.admin_chk label{margin-left:7px;line-height:14px;vertical-align:;}
+
+.box_inTable{position:absolute;right:10px;top:10px;display:inline-block;width:400px;margin-top:3px;/*border:1px solid #ddd;*/}
+.box_inTable span{text-align:left;padding-left:12px;padding-bottom:2px;display:inline-block;font-weight:bold;background:url("../../images/span_bool_arr.gif") no-repeat left 5px;}
+.box_inTable caption{}
+.new_Type_table01{border:1px solid #cccccc;padding:0;margin:0;width:100%;border-collapse:collapse;}
+.new_Type_table01 th{background:#f5f5f5;text-align:left;padding:3px 7px;border-bottom:1px solid #ddd}
+
+.box_inTable2{}
+.box_inTable2 span{text-align:left;padding-left:12px;padding-bottom:2px;display:inline-block;font-weight:bold;background:url("../../images/span_bool_arr.gif") no-repeat left 5px;}
+.new_Type_table02{border:1px solid #cccccc;padding:0;margin:0;width:100%;border-collapse:collapse;}
+.new_Type_table02 th{background:#f5f5f5;text-align:left;padding:6px 7px;border-bottom:1px solid #ddd}
+
+.sc_table{overflow-y:scroll;height:60px;}
+.sc_in_table {width:100%;border-collapse:collapse;}
+.sc_in_table td{padding:1px 7px;border-bottom:1px solid #ddd;font-size:0.95em;}
+.sc_in_table td.sc_end{border-bottom:0;}
+
+.LblockDetail td.no{text-align:center;}
+.LblockDetail td.td_btn{text-align:center;}
+.LblockDetail td.ad_chk{text-align:center;}
+.LblockDetail td.ad_chk img{}
+
+#block_mask{position:absolute;z-index:100;top:0;left:0;width:100%;height:100%;background-color:#000; -ms-filter:alpha(opacity=50); filter:alpha(opacity=50); opacity:0.3;-moz-opacity:0.3;}
+
+#pop_content_box{position:absolute;z-index:110;background:#fff;border:1px solid #000;width:800px;top:50%;left:50%;margin-left:-400px;margin-top:-267px;}
+#pop_header{height:40px;background:url(../../images/pop_header_bg.gif) repeat-x;}
+#pop_header h3{font-size:1.2em;color:#fff;font-weight:bold;line-height:40px;background:url(../../images/pop_title_bool.gif) no-repeat left 50%;padding-left:18px;margin-left:12px;}
+#pop_header span.p_close{position:absolute;right:10px;top:12px;}
+#pop_header span.p_close a{display:inline-block;width:20px;height:10px;text-align:center;}
+#pop_contents{padding:15px;}
+
+.pop_table_sc{/*width:99.9%;*/height:140px;overflow-y:auto;overflow-x:hidden;border-bottom:1px solid #ccc;}
+.inbox_sc{border-right:14px solid #ff0000;}
+th.th_empty{border-left:0 !important;}
+
+.tdList01 {overflow-y:auto;overflow-x:hidden;}

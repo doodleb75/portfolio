@@ -1,0 +1,50 @@
+/** 광고통합 --Layout-- **/
+
+#b_wrap{width:998px;margin:0 auto;}
+
+/** header **/
+#header{width:998px;display:block;}
+#header:after{width:998px;display:block;clear:both;content:'';}
+#header span{display:inline-block;}
+#header .top_navi{margin-top:27px;}
+.top_navi h1.logo{display:inline-block;margin:0;padding:0;float:left;}
+
+/** container **/
+#container{width:998px;display:block;padding-bottom:80px;}
+#container:after{display:block;clear:both;content:''}
+
+
+/** footer **/
+#footer{font:12px dotum;color:#666;}
+#footer{width:100%;padding:20px 0 40px;display:block;border-top:1px solid #ccc;clear:both;}
+#footer .foot_box{width:998px;margin:0 auto;display:block;}
+#footer .foot_box span.foot_logo{float:left;}
+#footer .foot_box span.foot_add{display:inline-block;margin-left:80px;}
+#footer .foot_box span.foot_add address{font-style:normal;padding:6px 0;}
+#footer .foot_box span.foot_add em{font-family:verdana;font-size:0.9em;font-style:normal;}
+
+/** contents **/
+.contents{position:relative;float:right;width:760px;margin-top:40px;}
+.contents .page_location{position:relative;}
+.contents .page_location h3{background:url(../images/common/bool_pageTitle.png) left 50% no-repeat;padding-left:16px;font:bold 16px dotum;color:#000;margin-bottom:12px;}
+.contents .title_bar{height:6px;background:#f3f3f3;border-top:1px solid #d6d6d6;}
+.contents .content_box{margin-top:22px;/*border:1px solid #000;*/}
+.page_location span.navi{position:absolute;top:7px;right:0;font:11px dotum;color:#333;background:url(../images/common/bool_home.gif) left 50% no-repeat;padding-left:17px;}
+.contents span.navi a{font-weight:bold;color:#222}
+.contents span.navi a:hover{color:#007dc5}
+
+.contents:after{display:block;clear:both;content:'';}
+
+.contents .searchF{height:43px;padding-top:10px;background:url(../images/common/field_searchBg.png) repeat-x;margin-top:2px;}
+.contents .searchF select{width:210px;}
+.searchF span{display:inline-block;}
+.searchF .opt1{margin-left:15px;float:left;}
+.searchF .opt2{margin-left:8px;float:left;}
+.searchF .btn1{margin-left:8px; float:left; top:-2px; position:relative;}
+.searchF .btn2{margin-right:12px; float:right; top:-2px; position:relative;}
+
+.contents .conList1{}
+.contents .conList1 h4{background:url(../images/common/h4_bool.gif) left 50% no-repeat;height:14px;margin-top:21px;margin-bottom:4px;padding-top:2px;padding-left:21px;font:bold 12px dotum;color:#000;display:block;}
+
+.li-data1 .btn_type{float:right; margin-right:6px; position:relative; top:4px;}
+.li-data1 .dt_title{float:left;}

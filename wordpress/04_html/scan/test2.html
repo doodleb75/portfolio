@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Quagga HTTP Test</title>
+    <style>
+        #scanner-container {
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="scanner-container">
+        <video id="scanner" width="300" height="200"></video>
+        <button id="scan-button">Scan</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/quagga/dist/quagga.min.js"></script>
+    <script>
+        // Quagga 초기화
+        Quagga.init({
+            inputStream: {
+                name: "Live",
+                type: "LiveStream",
+                target: document.querySelector("#scanner"),
+                constraints: {
+                    width: 300,
+                    height: 200,
+                    facingMode: "environment" // 후면 카메라 사용
+                },
+            },
+            decoder: {
+                readers: ["ean_reader"] // 바코드 유형 설정
+            }
+        }, function (err) {
+            if (err) {
+                console.error(err);
+                return;
+            }
+        });
+
+        // 'Scan' 버튼 클릭 이벤트 처리
+        document.querySelector("#scan-button").addEventListener("click", function () {
+            Quagga.start();
+        });
+
+        // 바코드 스캔 이벤트 처리
+        Quagga.onDetected(function (result) {
+            var code = result.codeResult.code;
+            // 서버에 바코드 값을 전송하는 HTTP POST 요청
+            fetch("http://서버주소/scan", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ code: code })
+            })
+                .then(function (response) {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error("HTTP Error: " + response.status);
+                    }
+                })
+                .then(function (data) {
+                    console.log(data); // 서버 응답 처리
+                })
+                .catch(function (error) {
+                    console.error(error);
+                });
+        });
+    </script>
+</body>
+
+</html>

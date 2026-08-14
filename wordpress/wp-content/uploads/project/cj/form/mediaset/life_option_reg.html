@@ -1,0 +1,71 @@
+<div class="grid_5 hv_frm" style="margin-bottom:-18px;width:700px;">  
+	<div class="box">
+		<h2>
+			<b>생활정보 옵션</b>
+		</h2> 
+		<div id="hv_forms" class="block">
+			<form id="lifeOptFrm">
+				<input type="hidden" name="actType" id="actType" value="">
+				<input type="hidden" name="codeChk" id="codeChk" value="">
+				<fieldset class="login">
+					<legend>생활정보 옵션 등록</legend>
+					<p>  
+						<label>생활정보 카테고리 선택</label>
+						<select id="cate1" name="cate1" style="width:30%;">
+							<option value="NULL">---------대분류선택---------</option>
+						</select>
+						<select id="cate2" name="cate2" style="width:30%;">  
+							<option value="NULL">---------중분류선택---------</option> 
+						</select> 
+					</p>   
+					<p>   
+						<label id="cateType">대분류 생활정보 코드</label>
+						<input type="text" name="life_code" id="life_code" maxlength="3"  style="ime-mode:disabled;text-transform: uppercase;width:50px;" class="empty" emptyMsg="코드 3자리를 입력하세요."/> <span id="chkMsg">코드 3자리를 입력하세요.</span>
+					</p>  
+					<p>
+						<label>생활정보명</label> 
+						<input type="text" name="life_name" id="life_name" class="empty" emptyMsg="생활정보명을 입력하세요" />
+					</p>
+					<p>
+						<label>순서</label>
+						<input type="text" name="display_index" id="display_index" style="width:50px;" maxlength="3" class="empty" emptyMsg="순서를 입력하세요."/>
+					</p>
+					<p>
+						<label>수집타입</label>
+						<select name="life_coll_gubun" id="life_coll_gubun" style="width:100px;">
+							<option value="S">수동</option>
+							<option value="A">자동</option>	
+						</select>
+					</p>
+					<p>
+						<label>수집시간</label>
+						<input type="text" name="life_auto_time" id="life_auto_time" style="width:50px;" maxlength="3" disabled="disabled"/>
+					</p>
+					<p>
+						<label>파일사용유무</label>
+						<input type="checkbox" name="life_file_yn" id="life_file_yn"  style="width:10px;" value="Y"/>  
+					</p> 
+					<p>
+						<label>파일확장자명 체크</label>   
+						<input type="text" name="life_file_chk"  id="life_file_chk" disabled="disabled"/>  
+					</p>
+					<p>
+						<label>&nbsp;</label>      
+						파일확장자 , 구분하여 등록하여주세요. ex) jpg,png,gif
+					</p>
+					<p> 
+						<label>금칙어 체크유무</label> 
+						<input type="checkbox" name="filtering_yn"  id="filtering_yn" style="width:10px;" checked="checked" value="Y"/> 
+					</p>
+				</fieldset>
+				<fieldset>
+					<div  style="float:right;"> 
+						<span class="button black"><a href="#" id="md_life_opt_reg_init"> 확인 </a></span>
+						<span class="button white"><a href="#" id="md_life_opt_reg_cancle"> 취소 </a></span>
+					</div>
+					<div class="clear"></div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div> 

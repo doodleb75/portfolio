@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>eNETner Cloud</title>
+	<link rel="stylesheet" type="text/css" href="/ksign/../css/import.css" />
+	<script type="text/javascript" src="../../../js/dui_prototype.js"></script>
+	<script type="text/javascript" src="../../../js/dui_effect.js"></script>
+	<script type="text/javascript" src="../../../js/dui_dragndrop.js"></script>
+	<script type="text/javascript" src="../../../js/dui_hhmenu.js"></script>
+	<script type="text/javascript" src="../../../js/dui_tree.js"></script>
+	<script type="text/javascript" src="../../../js/dui_slidemenu.js"></script>
+	<script type="text/javascript" src="../../../js/dui_tab.js"></script>
+	<script type="text/javascript" src="../../../js/dui_calendar.js"></script>
+	<script type="text/javascript" src="../../../js/common.js"></script>
+</head>
+
+<body>
+<!-- skip메뉴 -->
+<div id="LblockSkipLink">
+	<p><a href="#LblockTopMenu">주메뉴 바로가기</a></p>
+	<p><a href="#LblockLeftMenu">서브메뉴 바로가기</a></p>
+	<p><a href="#LblockBody">콘텐츠 바로가기</a></p>
+</div>
+<!-- //skip메뉴 -->
+
+<div id="LblockWrapper">
+	<!-- header영역 -->
+	<div id="LblockHeader">
+		<div id="LblockHeaderIn">
+			<div id="LblockTopLogo">
+				<h1><a href="#"><img src="../../../images/topLogo.jpg" alt="eNETner Cloud" /></a></h1>
+			</div>
+			<div id="LblockWelcome">
+				<p>2011.11.22 <span>홍길동</span></p><a href="#"><img src="../images/infoChange.gif" alt="" /></a><a href="#">로그아웃</a><img src="../../../images/img_mycloud.gif" alt="" />
+			</div>
+			<div id="LblockTopMenu">
+				<h2  class="Lhide">대메뉴</h2>
+				<ul class="Lclear">
+					<li class="Lfirst LitemService"><span class="cont"><a href="../mgmt/svc_list.html"><span>서비스관리</span></a></span></li>
+					<li class="Lidx1 LitemManagement"><span class="cont"><a href="../mgmt/vm_configuration.html"><span>서비스운영관리</span></a></span></li>
+					<li class="Lidx2 LitemApplication"><span class="cont"><a href="../apply/pkg_websecu.html"><span>서비스신청</span></a></span></li>
+					<li class="Lidx3 LitemMonitoring"><span class="cont"><a href="../monitoring/guide.html"><span>모니터링</span></a></span></li>
+					<li class="Lidx4 LitemMember"><span class="cont"><a href="../mem/edit_meminfo.html"><span>회원정보관리</span></a></span></li>
+					<li class="Lidx5 LitemBilling Lcurrent"><span class="cont"><a href="../billing/charges.html"><span>이용료관리</span></a></span></li>
+					<li class="Llast LitemSupport"><span class="cont"><a href="../support/svcguide.html"><span>고객센터</span></a></span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- //header영역 -->
+	<div id="LblockContainer" class="Lclear">
+		<!-- leftmenu영역 -->
+		<div id="LblockLeft">
+			<div id="LblockLeftTitle">
+				<h2><img src="../../../images/lnbMenu.gif" alt="이용료관리" /></h2>
+			</div>
+			<div id="LblockLeftMenu" class="LslideMenu">
+				<h3 class="Lhide">이용료관리 하위메뉴</h3>
+				<ul>
+					<li class="Lfirst LhasChild"><span><a href="#">요금관리</a></span>
+						<ul>
+							<li class="Lfirst"><span><a href="./charges.html">청구요금조회</a></span></li>
+							<li class="Lidx1"><span><a href="./history.html">청구내역조회</a></span></li>
+							<li class="Lidx2"><span><a href="./bills_sent.html">청구서발송내역조회</a></span></li>
+							<li class="Lidx3"><span><a href="./charges_tillnow.html">실시간요금조회</a></span></li>
+							<li class="Llast"><span><a href="./payment_help.html">요금납부안내 및 납부</a></span></li>
+						</ul>
+					</li>
+					<li class="LhasChild"><span><a href="#">납부관리</a></span>
+						<ul>
+							<li class="Lfirst"><span><a href="./payment.html">요금납부</a></span></li>
+							<li class="Lidx1"><span><a href="./paid_list.html">납부내역조회</a></span></li>
+							<li class="Lidx2"><span><a href="./default_history.html">미납내역조회</a></span></li>
+							<li class="Llast"><span><a href="./refund_history.html">환불내역조회</a></span></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- //leftmenu영역 -->
+		<div id="LblockBodySetter">
+			<!-- 컨텐츠영역 -->
+			<div id="LblockBody">
+
+				<!-- 페이지타이틀 영역 -->
+				<div id="LblockPageHeader">
+					<div id="LblockPageTitle">
+						<h1>납부내역조회</h1>
+					</div>
+					<div id="LblockPageLocation">
+						<ul>
+							<li class="Lfirst"><span><a href="#">HOME</a></span></li>
+							<li><span><a href="#">이용료관리</a></span></li>
+							<li><span><a href="#">요금관리</a></span></li>
+							<li class="Llast"><span>납부내역조회</span></li>
+						</ul>
+					</div>
+				</div>
+				<!-- //페이지타이틀 영역 -->
+				<!-- 페이지내용영역 -->
+				<div id="LblockBodyMain">
+					<!-- 검색 -->
+					<div id="LblockSearch">
+						<div id="SearchFront">
+							<form method="get" action="">
+								<table summary="청구내역 검색조건">
+									<caption>청구내역 검색조건</caption>
+									<tbody>
+									<tr>
+										<th><label for="sEmpNo">해당월별검색</label></th>
+										<td>
+											<select id="sEmpLevel">
+												<option value="01">2011</option> 
+												<option value="02">사용안함</option> 
+											</select> 
+											<select id="sEmpLevel_01">
+												<option value="01">11월</option> 
+												<option value="02">사용안함</option> 
+											</select>
+											~
+											<select id="sEmpLevel">
+												<option value="01">2011</option> 
+												<option value="02">사용안함</option> 
+											</select> 
+											<select id="sEmpLevel_01">
+												<option value="01">11월</option> 
+												<option value="02">사용안함</option> 
+											</select>
+										</td>
+									</tr>
+									</tbody>
+								</table>
+								<input type="image" class="Limage" src="../../../images/btn_search.gif" />
+							</form>
+						</div>
+					</div>
+					<!-- //검색 -->
+					<p>*최근 6개월 청구내역입니다.</p>
+					<!-- 리스트테이블 -->
+					<div id="LblockListTable01" class="LblockListTable">
+						<div class="Lwrapper">
+							<table summary="사용요금 정보 내역">
+								<caption>사용요금 정보 내역</caption>
+								<thead>
+								<tr>
+									<th class="Lfirst"><input type="checkbox" class="Lcheckbox" /></th>
+									<th>사용월</th>
+									<th>청구금액</th>
+									<th>납부금액</th>
+									<th>납부일자</th>
+									<th>납부방법</th>
+									<th class="Llast">상세정보</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr class="Lfirst">
+									<td class="Lfirst"><input type="checkbox" class="Lcheckbox" /></td>
+									<td>2011-11-11</td>
+									<td>33</td>
+									<td>1,000,000원</td>
+									<td>1,000,000원</td>
+									<td>은행자동납부</td>
+									<td class="Llast"><a class="Lbtn3" href="#"><span onclick="doSomething();">자세히보기</span></a></td>
+								</tr>
+								<tr>
+									<td class="Lfirst"><input type="checkbox" class="Lcheckbox" /></td>
+									<td>2011-11-11</td>
+									<td>33</td>
+									<td>1,000,000원</td>
+									<td>1,000,000원</td>
+									<td>은행자동납부</td>
+									<td class="Llast"><a class="Lbtn3" href="#"><span onclick="doSomething();">자세히보기</span></a></td>
+								</tr>
+								<tr>
+									<td class="Lfirst"><input type="checkbox" class="Lcheckbox" /></td>
+									<td>2011-11-11</td>
+									<td>33</td>
+									<td>1,000,000원</td>
+									<td>1,000,000원</td>
+									<td>은행자동납부</td>
+									<td class="Llast"><a class="Lbtn3" href="#"><span onclick="doSomething();">자세히보기</span></a></td>
+								</tr>
+								<tr>
+									<td class="Lfirst"><input type="checkbox" class="Lcheckbox" /></td>
+									<td>2011-11-11</td>
+									<td>33</td>
+									<td>1,000,000원</td>
+									<td>1,000,000원</td>
+									<td>은행자동납부</td>
+									<td class="Llast"><a class="Lbtn3" href="#"><span onclick="doSomething();">자세히보기</span></a></td>
+								</tr>
+								<tr class="Llast">
+									<td class="Lfirst"><input type="checkbox" class="Lcheckbox" /></td>
+									<td>2011-11-11</td>
+									<td>33</td>
+									<td>1,000,000원</td>
+									<td>1,000,000원</td>
+									<td>은행자동납부</td>
+									<td class="Llast"><a class="Lbtn3" href="#"><span onclick="doSomething();">자세히보기</span></a></td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- //리스트테이블 -->
+					<!-- 페이지버튼영역 -->
+					<div id="LblockSubbutton01" class="LblockSubbutton">
+						<a class="Lbtn2" href="#"><span onclick="doSomething();">납부내역출력</span></a>
+					</div>
+					<!-- //페이지버튼영역 -->
+					<!-- text영역 -->
+					<div class="txtBox">
+						<div class="txtBoxFront">
+							<p>작년 납부내역 출력하기</p>
+							<p> 작년 한 해 동안 고객님이 납부하신 요금에 대한 12개월의 영수증을 출력하실 수 있습니다.</p>
+							<a class="Lbtn3" href="#"><span onclick="doSomething();">출력하기</span></a>
+						</div>
+					</div>
+					<!-- //text영역 -->
+
+				</div>
+				<!-- 페이지내용영역 -->
+			</div>
+			<!-- //컨텐츠영역 -->
+		</div>
+	</div>
+	<hr />
+	<!--footer영역-->
+	<div id="LblockFooter">
+		<div id="LblockFooterIn" class="Lclear">
+			<div id="LblockFooterLogo">
+				<a href="#"><img src="../../../images/footerLogo.gif" alt="(주)엘림넷" /></a>
+			</div>
+			<div id="LblockFooterSetter">
+				<div id="LblockFooterBody">
+					<ul id="LblockFooterMenu">
+						<li class="Lfirst"><a href="#"><img src="../../../images/footerMenu_01.gif" alt="회사소개" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_02.gif" alt="서비스약관" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_03.gif" alt="개인정보취급방침" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_04.gif" alt="FAQ" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_05.gif" alt="Q&A" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_06.gif" alt="제휴문의" /></a></li>
+					</ul>
+					<address><img src="../../../images/address.gif" alt="서울시 서대문구 충정로3가 32-11 엘림넷빌딩  사업자등록번호: 220-81-97656  개인정보 관리책임자: 송태호 부장 (thshong@elim.net)" /></address>
+					<p><img src="../../../images/copyright.gif" alt="Copyright (C) 2012 BY ELIMNET CO.,LTD. ALL RIGHTS RESERVED." /></p>
+				</div>
+			</div>
+			<div id="LblockFooterHelp"><img src="../../../images/callservice.gif" alt="고객지원센터 TEL:02-3149-4900 FAX:02-3149-4998" /></div>
+		</div>
+	</div>
+	<!--//footer영역-->
+</div>
+
+
+
+
+
+
+<!-- 팝업 start -->
+<div id="LPopup">
+</div>
+<div class="popup">
+	<h2>납부내역</h2>
+	<a href="#" class="close"><img src="../../../images/btn_close.gif" width="14" height="13" alt="닫기버튼" /></a>
+	<div class="content">
+			<h4>현재 사용중인 서비스</h4>
+			<!-- 리스트테이블 -->
+			<div id="LblockDetail01" class="LblockDetail">
+				<table summary="현재 사용중인 서비스 상세정보">
+					<caption>현재 사용중인 서비스상세정보</caption>
+					<colgroup>
+						<col width="20%" />
+						<col width="80%" />
+					</colgroup>
+					<tbody>
+
+						<tr>
+							<th>서비스</th>
+							<td>이네트너 클라우드 server</td>
+						</tr>
+						<tr>
+							<th>회사명/회원명</th>
+							<td>(주)디지털/홍길동</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- //리스트테이블 -->
+			<!-- 리스트 테이블 -->
+			<div id="LblockListTable01" class="LblockListTable">
+				<div class="Lwrapper">
+					<table summary="이용방법 및 이용시간 정보 내역">
+						<caption>이용방법 및 이용시간 정보 내역</caption>
+						<thead>
+							<tr>
+								<th class="Lfirst">납부일자</th>
+								<th>사용월</th>
+								<th>납부금액</th>
+								<th>납부방법</th>
+								<th class="Llast">서비스수</th>
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<td>합계</td>
+								<td colspan="4">555,555원</td>
+							</tr>
+						</tfoot>
+						<tbody>
+							<tr>
+								<td>2011.09.21</td>
+								<td>09</td>
+								<td>832,333원</td>
+								<td>자동납부</td>
+								<td>12</td>
+							</tr>
+							<tr>
+								<td>2011.09.21</td>
+								<td>09</td>
+								<td>832,333원</td>
+								<td>자동납부</td>
+								<td>12</td>
+							</tr>
+							<tr class="Llast">
+								<td>2011.09.21</td>
+								<td>09</td>
+								<td>832,333원</td>
+								<td>자동납부</td>
+								<td>12</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- //리스트 테이블 -->
+			<div class="contentP">
+				<p><strong>위 금액을 납부하였음을 확인합니다.</strong></p>
+				<p>2011년 09월 11일</p>
+			</div>
+			<!-- 페이지버튼영역 -->
+			<div id="LblockButton">
+				<a class="Lbtn4" href="#"><span onclick="doSomething();">인쇄</span></a>
+			</div>
+			<!-- //페이지버튼영역 -->
+	</div>
+</div>
+<!-- 팝업 end -->
+
+
+
+
+
+
+</body>
+</html>

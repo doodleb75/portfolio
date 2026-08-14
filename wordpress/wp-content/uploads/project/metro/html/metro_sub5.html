@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>::Metro AD::</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/jquery.rollover.js"></script>
+<script type="text/javascript">
+/*	jQuery(function() {aaaa
+		$('#t-menu img').rollover({
+			out:false,
+			container: $('#t-menu')
+		});
+	});*/
+</script>
+<script type="text/javascript" src="../js/ddaccordion.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"type="text/javascript">
+// toggle_script
+</script> 
+
+<script type="text/javascript">
+
+//Initialize first demo:
+ddaccordion.init({
+	headerclass: "mypets", //Shared CSS class name of headers group
+	contentclass: "thepet", //Shared CSS class name of contents group
+	revealtype: "mouseover", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
+	defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc]. [] denotes no content.
+	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+	animatedefault: false, //Should contents open by default be animated into view?
+	scrolltoheader: false, //scroll to header each time after it's been expanded by the user?
+	persiststate: true, //persist state of opened contents within browser session?
+	toggleclass: ["", "openpet"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+	togglehtml: ["none", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+	oninit:function(expandedindices){ //custom code to run when headers have initalized
+		//do nothing
+	},
+	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+		//do nothing
+	}
+})
+
+//Initialize 2nd demo:
+ddaccordion.init({
+	headerclass: "technology", //Shared CSS class name of headers group
+	contentclass: "thelanguage", //Shared CSS class name of contents group
+	revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+	collapseprev: false, //Collapse previous content (so only one open at any time)? true/false 
+	defaultexpanded: [], //index of content(s) open by default [index1, index2, etc]. [] denotes no content.
+	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+	animatedefault: false, //Should contents open by default be animated into view?
+	scrolltoheader: false, //scroll to header each time after it's been expanded by the user?
+	persiststate: false, //persist state of opened contents within browser session?
+	toggleclass: ["closedlanguage", "openlanguage"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+	//togglehtml: ["prefix", "<img src='images/down.png' style='width:13px; height:13px;position:absolute;right:0;top:0;' /> ", "<img src='images/down.png' style='width:13px; height:13pxposition:absolute;right:0;top:0;' /> "], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+	oninit:function(expandedindices){ //custom code to run when headers have initalized
+		//do nothing
+	},
+	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+		//do nothing
+	}
+})
+</script>
+<style type="text/css">
+	@import url('../css/common.css');
+	html,body{height:100%;}
+</style>
+</head>
+<!-- layer -->
+<!-- 이미지 확대 -->
+<div style="position:absolute;left:0;top:0;width:100%;height:100%;background:url('../images/common/layerBg.png') repeat;height:100%;z-index:10;">adfadfasdf</div>
+<div style="position:absolute;top:30%;left:36%;z-index:100;">
+
+<!-- //이미지 확대 -->
+
+<div id="popBox" style="width:700px;">
+	<!-- popupBox 헤더 -->
+	<div class="pop_header">
+		<h1>도안심의 요청</h1>
+		<span class="p_close"><a href="../html/metro_main.html"><img src="../images/common/b_pop_close.png" alt="닫기버튼" title="닫기"/></a></span>
+	</div>
+	<!-- //popupBox 헤더 -->
+	<!-- popupBox 컨텐츠 -->
+	<div class="pop_body">
+		<div class="deliberate_insert">
+			<p><label for="서울메트로">서울메트로 - 자체광고</label> 
+			<div class="">
+				<table width="100%" border="1" cellpadding="0" cellspacing="0" class="pContract_table">
+				  <tr>
+					<th scope="col"></th>
+					<th scope="col">호선</th>
+					<th scope="col">역 명칭</th>
+					<th scope="col">위치</th>
+					<th scope="col">매체종류</th>
+					<th scope="col">등급</th>
+					<th scope="col">수량</th>
+					<th scope="col">심의파일</th>
+				  </tr>
+				  <tr>
+					<td><input type="checkbox" id="" name="" /></td>
+					<td>3호선</td>
+					<td>대화(킨텍스)</td>
+					<td>승강장(BF)-A002</td>
+					<td>조명(400cm*25cm)</td>
+					<td>SA</td>
+					<td>1</td>
+					<td>yes</td>
+				  </tr>
+				  <tr>
+					<td><input type="checkbox" id="" name="" /></td>
+					<td>3호선</td>
+					<td>대화(킨텍스)</td>
+					<td>승강장(BF)-A002</td>
+					<td>조명(400cm*25cm)</td>
+					<td>SA</td>
+					<td>1</td>
+					<td>yes</td>
+				  </tr>
+				</table>			
+			</div>
+			<div class="deliberate_botImg">
+				<table cellspacing=0 cellpadding=0 border=0 width=100% class="deliberateTable01">
+				<colgroup>
+					<col width="65%" />
+					<col width="35%" />
+				</colgroup>
+				  <tr>
+					<td rowspan="2" valign=top >
+					<label style="display:block;margin-top:14px;">이미지 사용내역</label>
+					<div class="imgHistory_Scroll">
+						<a href=""><span class="sc_leftBtn"></span></a>
+						<a href=""><span class="sc_rightBtn"></span></a>
+						<ul>
+							<li><span class="imgThumb"></span><span class="imgTxt">2012.04.06</span></li>
+							<li><span class="imgThumb"></span><span class="imgTxt">2012.04.06</span></li>
+							<li><span class="imgThumb"></span><span class="imgTxt">2012.04.06</span></li>
+							<li><span class="imgThumb"></span><span class="imgTxt">2012.04.06</span></li>
+						</ul>
+					</div>
+					</td>
+					<td>
+						<label style="display:block;">심의요청일자</label>
+						<span class="date">
+						 <input type="text" id="" name="" style="width:50px;" />년<input type="text" id="" name=""  style="width:20px;" />월<input type="text" id="" name=""  style="width:20px;" />일
+						</span>
+					</td>
+				  </tr>
+				  <tr>
+					<td>
+						<label style="display:block;">심의요청파일</label>
+						<p>
+						<span style="display:inline-block;width:90px;height:80px;background:#ccc;float:left;margin-right:10px;"></span>
+						<span style="">
+							<textarea style="width:100px;height:48px;margin-bottom:10px;overflow:hidden;background:none;border:none;">F:\07.메트로광고\1.자료</textarea>
+							<span class="button small-g2 strong icon"><span class="find_photo"></span><a href="#" title="찾기">찾기</a></span>
+						</span>
+						</p>
+					</td>
+				  </tr>
+				</table>
+			</div>
+		</div>
+			<div class="Block_alignC" style="clear:both;">
+				<span class="button small-g strong icon"><span class="search"></span><a href="#" title="파일검색">파일검색</a></span>
+				<span class="button small-g strong icon"><span class="confirm"></span><a href="#" title="심의요청">심의요청</a></span>
+				<span class="button small-g strong icon"><span class="cancel"></span><a href="#" title="취소">취소</a></span>
+			</div>
+	</div>
+	<!-- //popupBox 컨텐츠 -->
+</div>
+</div>
+<!-- //layer -->
+<body>
+<!-- wrapper -->
+<div id="b_wrap">
+	<!-- header -->
+	<div id="header">
+		<div class="top_navi">
+			<h1 class="logo"><a href=""><img src="../images/common/metro_logo.png" alt="" title="서울메트로 광고통합 관리시스템" /></a></h1>
+			<span id="t-menu" class="top_menu">
+				<ul>
+				<li><a href=""><img src="../images/common/t_menu1.png" alt="" title="영업관리"/></a></li>
+				<li class="sep"><img src="../images/common/t_menu_sepLine.png"/></li>
+				<li><a href=""><img src="../images/common/t_menu2.png" alt="" title="모니터링"/></a></li>
+				<li class="sep"><img src="../images/common/t_menu_sepLine.png"/></li>
+				<li><a href=""><img src="../images/common/t_menu3.png" alt="" title="매출통계"/></a></li>
+				<li class="sep"><img src="../images/common/t_menu_sepLine.png"/></li>
+				<li><a href=""><img src="../images/common/t_menu4.png" alt="" title="기본정보 및 이력관리" class="default" /></a></li>
+				<li class="sep"><img src="../images/common/t_menu_sepLine.png"/></li>
+				<li class="lastMenu"><a href=""><img src="../images/common/t_menu5.png" alt="" title="시설물 관리"/></a></li>
+				</ul>
+			</span>
+		</div>
+	</div>
+	<!-- //header -->
+
+	<!-- container -->
+	<div id="container">
+		<!-- 레프트 영역 -->
+<div class="lnb">
+		<div class="log_info">
+			<p class="invite"><em>홍길동</em> 님 반갑습니다.</p>
+			<div class="p_info">
+				<table border=1 width='167' align=center>
+					<tr>
+						<th>판매승인</th>
+						<th>도안심의</th>
+					</tr>
+					<tr>
+						<td><span class="p_data">요청 :</span><em class="red">500</em>건</td>
+						<td><span class="p_data">요청 :</span><em class="red">500</em>건</td>
+					</tr>
+					<tr>
+						<td><span class="p_data">완료 :</span><em class="red">50</em>건</td>
+						<td><span class="p_data">완료 :</span><em class="red">50</em>건</td>
+					</tr>
+					<tr>
+						<td colspan=2 style="padding:7px 0;border:0;">
+							<span><a href=""><img src="../images/common/btn_logEdit.png" alt="개인정보수정" title="개인정보수정"/></a></span>
+							<span><a href=""><img src="../images/common/btn_logOut.png" alt="로그아웃" title="로그아웃"/></a></span>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+			<h2><img src="../images/common/lnb_title1.gif" alt="기본정보 및 이력관리" title="기본정보 및 이력관리"/></h2>
+				<ul>
+				   <li><a href="">광고매체정보 관리</a></li> 
+				   <li><a href="">광고특별활인 관리</a><em></em></li>
+				   <li><a href="">판매대행사 관리</a></li>
+				   <li><a href="">판매대행사 판매금액 관리</a></li>
+				   <li><a href="">광고주 관리</a></li>
+				   <li><a href="">광고대행사 관리</a></li>
+				   <li><a href="">호선코드 관리</a></li>
+				   <li><a href="">역사코드 관리</a><em></em></li>
+				   <li><a href="">매체위치정보 관리</a></li>
+				   <li><a href="">규격코드 관리</a></li>
+				   <li><a href="">업종코드 관리</a></li>
+				</ul>
+		</div>
+		<!-- //레프트 영역 -->
+		<!-- 컨텐츠 영역 -->
+		<div class="contents">
+			<div class="page_location">
+				<h3>광고매체 요금관리</h3>
+				<span class="navi"><a href="">Home</a> > 기본정보 및 이력관리</span>
+			</div>
+			<p class="title_bar"></p>
+			<!-- 컨텐츠 박스 시작 -->
+			<div class="content_box">
+				<div class="accor-wrap">
+				<!-- 검색 셀렉트박스 옵션 -->
+				<div class="contract_selOption">
+					<select style="width:24%;">
+						<option>판매대행사 전체</option>
+						<option>역사전체</option>
+					</select>
+					<select style="width:24%;">
+						<option>삼성전자</option>
+						<option>삼성전자</option>
+					</select>
+					<select style="width:34%;">
+						<option>계약기간:2012.04.04~2012.07.04</option>
+						<option>삼성전자</option>
+					</select>
+					<span class="button medium-w strong icon" ><span class="search"></span><a href="#">검색</a></span>
+				</div>
+				<!-- //검색 셀렉트박스 옵션 -->
+
+				<!-- 모두열기/닫기 -->
+				<div style="padding:0 0 20px 0;float:right;">
+					<span class="button small-g icon"><span class="confirm"></span><a href="#"  onClick="ddaccordion.expandall('technology'); return false">모두열기</a></span>
+					<span class="button small-g icon"><span class="cancel"></span><a href="#" onClick="ddaccordion.collapseall('technology'); return false">모두닫기</a></span>				
+				</div>
+				<!-- //모두열기/닫기 -->
+
+				<!-- 검색결과 유형1 -->
+					<!-- 항목1 -->
+					<div class="technology">
+						<p>
+							<span class="listTitle">판매대행사:미디어랩</span>
+							<span class="sLabel">광고주명:삼성전자-갤럭시</span>
+							<span class="sLabel">계약기간:2012.05.21~2012.02.22(3개월)</span>
+							<span class="sLabel lastsLabel">게첨건수:2건</span>
+							<span class="drop_arr"></span>
+						</p>
+					</div>
+					<div class="thelanguage">
+					<!-- 검색결과 테이블 -->
+							<table width="100%" border="1" cellpadding="0" cellspacing="0" class="pContract_table">
+							  <tr>
+								<th scope="col">호선</th>
+								<th scope="col">역사명</th>
+								<th scope="col">게첨위치</th>
+								<th scope="col">매체종류</th>
+								<th scope="col">등급</th>
+								<th scope="col">수량</th>
+								<th scope="col">계약기간</th>
+								<th scope="col">게첨파일</th>
+								<th scope="col"></th>
+							  </tr>
+							  <tr>
+								<td>3호선</td>
+								<td>대하(킨텍스)</td>
+								<td>승강장-A002</td>
+								<td>조명(400cm*25cm)</td>
+								<td>SA</td>
+								<td>1</td>
+								<td>2011.03.22~2011.05.22</td>
+								<td></td>
+								<td><span class="button small-g"><a href="#"">변경</a></span></td>
+							  </tr>
+							  <tr>
+								<td>3호선</td>
+								<td>대하(킨텍스)</td>
+								<td>승강장-A002</td>
+								<td>조명(400cm*25cm)</td>
+								<td>SA</td>
+								<td>1</td>
+								<td>2011.03.22~2011.05.22</td>
+								<td></td>
+								<td><span class="button small-g"><a href="#"">변경</a></span></td>
+							  </tr>
+							</table>
+					<!-- 검색결과 테이블 -->
+					</div>
+					<!-- //항목1 -->
+					<!-- 항목2 -->
+					<div class="technology">
+						<p>
+							<span class="listTitle">판매대행사:미디어랩</span>
+							<span class="sLabel">광고주명:삼성전자-갤럭시</span>
+							<span class="sLabel">계약기간:2012.05.21~2012.02.22(3개월)</span>
+							<span class="sLabel lastsLabel">게첨건수:2건</span>
+							<span class="drop_arr"></span>
+						</p>
+					</div>
+					<div class="thelanguage">
+					<!-- 검색결과 테이블 -->
+							<table width="100%" border="1" cellpadding="0" cellspacing="0" class="pContract_table">
+							  <tr>
+								<th scope="col">호선</th>
+								<th scope="col">역사명</th>
+								<th scope="col">게첨위치</th>
+								<th scope="col">매체종류</th>
+								<th scope="col">등급</th>
+								<th scope="col">수량</th>
+								<th scope="col">계약기간</th>
+								<th scope="col">게첨파일</th>
+								<th scope="col"></th>
+							  </tr>
+							  <tr>
+								<td>3호선</td>
+								<td>대하(킨텍스)</td>
+								<td>승강장-A002</td>
+								<td>조명(400cm*25cm)</td>
+								<td>SA</td>
+								<td>1</td>
+								<td>2011.03.22~2011.05.22</td>
+								<td></td>
+								<td><span class="button small-g"><a href="#"">변경</a></span></td>
+							  </tr>
+							  <tr>
+								<td>3호선</td>
+								<td>대하(킨텍스)</td>
+								<td>승강장-A002</td>
+								<td>조명(400cm*25cm)</td>
+								<td>SA</td>
+								<td>1</td>
+								<td>2011.03.22~2011.05.22</td>
+								<td></td>
+								<td><span class="button small-g"><a href="#"">변경</a></span></td>
+							  </tr>
+							</table>
+					<!-- 검색결과 테이블 -->
+					</div>
+					<!-- //항목2 -->
+					<!-- 항목3 -->
+					<div class="technology">
+						<p>
+							<span class="listTitle">판매대행사:미디어랩</span>
+							<span class="sLabel">광고주명:삼성전자-갤럭시</span>
+							<span class="sLabel">계약기간:2012.05.21~2012.02.22(3개월)</span>
+							<span class="sLabel lastsLabel">게첨건수:2건</span>
+							<span class="drop_arr"></span>
+						</p>
+					</div>
+					<div class="thelanguage">
+					<!-- 검색결과 테이블 -->
+							<table width="100%" border="1" cellpadding="0" cellspacing="0" class="pContract_table">
+							  <tr>
+								<th scope="col">호선</th>
+								<th scope="col">역사명</th>
+								<th scope="col">게첨위치</th>
+								<th scope="col">매체종류</th>
+								<th scope="col">등급</th>
+								<th scope="col">수량</th>
+								<th scope="col">계약기간</th>
+								<th scope="col">게첨파일</th>
+								<th scope="col"></th>
+							  </tr>
+							  <tr>
+								<td>3호선</td>
+								<td>대하(킨텍스)</td>
+								<td>승강장-A002</td>
+								<td>조명(400cm*25cm)</td>
+								<td>SA</td>
+								<td>1</td>
+								<td>2011.03.22~2011.05.22</td>
+								<td></td>
+								<td><span class="button small-g"><a href="#"">변경</a></span></td>
+							  </tr>
+							  <tr>
+								<td>3호선</td>
+								<td>대하(킨텍스)</td>
+								<td>승강장-A002</td>
+								<td>조명(400cm*25cm)</td>
+								<td>SA</td>
+								<td>1</td>
+								<td>2011.03.22~2011.05.22</td>
+								<td></td>
+								<td><span class="button small-g"><a href="#"">변경</a></span></td>
+							  </tr>
+							</table>
+					<!-- 검색결과 테이블 -->
+					</div>
+					<!-- //항목3 -->
+					<!-- 항목4 -->
+					<div class="technology">
+						<p>
+							<span class="listTitle">판매대행사:미디어랩</span>
+							<span class="sLabel">광고주명:삼성전자-갤럭시</span>
+							<span class="sLabel">계약기간:2012.05.21~2012.02.22(3개월)</span>
+							<span class="sLabel lastsLabel">게첨건수:2건</span>
+							<span class="drop_arr"></span>
+						</p>
+					</div>
+					<div class="thelanguage">
+					<!-- 검색결과 테이블 -->
+							<table width="100%" border="1" cellpadding="0" cellspacing="0" class="pContract_table">
+							  <tr>
+								<th scope="col">호선</th>
+								<th scope="col">역사명</th>
+								<th scope="col">게첨위치</th>
+								<th scope="col">매체종류</th>
+								<th scope="col">등급</th>
+								<th scope="col">수량</th>
+								<th scope="col">계약기간</th>
+								<th scope="col">게첨파일</th>
+								<th scope="col"></th>
+							  </tr>
+							  <tr>
+								<td>3호선</td>
+								<td>대하(킨텍스)</td>
+								<td>승강장-A002</td>
+								<td>조명(400cm*25cm)</td>
+								<td>SA</td>
+								<td>1</td>
+								<td>2011.03.22~2011.05.22</td>
+								<td></td>
+								<td><span class="button small-g"><a href="#"">변경</a></span></td>
+							  </tr>
+							  <tr>
+								<td>3호선</td>
+								<td>대하(킨텍스)</td>
+								<td>승강장-A002</td>
+								<td>조명(400cm*25cm)</td>
+								<td>SA</td>
+								<td>1</td>
+								<td>2011.03.22~2011.05.22</td>
+								<td></td>
+								<td><span class="button small-g"><a href="#"">변경</a></span></td>
+							  </tr>
+							</table>
+					<!-- 검색결과 테이블 -->
+					</div>
+					<!-- //항목4 -->
+
+				</div>
+				<!-- //검색결과 유형1 -->
+
+			</div>
+			<!-- 컨텐츠 박스 끝-->
+		</div>
+		<!-- //컨텐츠 영역 -->
+	</div>
+	<!-- container -->
+</div>
+<!-- //wrapper -->
+
+<!-- footer -->
+
+<div id="footer">
+    <div class="foot_box">
+		<span class="foot_logo" style="margin-left:20px;"><img src="../images/common/foot_logo_gray.png" alt="" title="" /></span>
+		<span class="foot_add">
+			<address>(137-712) 서울특별시 서초구 효령로 5(서초구 방배동 447-7) 고객센터 : 1577-1234</address>
+			<em>Copyright (C) 2009 SEOULMETRO. All rights Reserved.</em>
+		</span>
+	</div>
+</div>
+<!-- //footer -->
+
+</body>
+</html>

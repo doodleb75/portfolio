@@ -1,0 +1,407 @@
+﻿<!-- header -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>Autodesk :: A2 Community</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<link rel="stylesheet" type="text/css" href="/project/a2/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="/project/a2/css/content.css" />
+	<link rel="stylesheet" type="text/css" href="/project/a2/css/button.css" />
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+	var _ses_id = '<%=_ses_id%>';
+//-->
+</SCRIPT>
+	<script type="text/javascript" src="/project/a2/js/default.js"></script>
+	<script type="text/javascript" src="/project/a2/js/flash.js"></script>
+	<script type="text/javascript" src="/project/a2/js/AC_RunActiveContent.js"></script>
+	<script type="text/javascript" src="/project/a2/js/link.js"></script>
+	<script src="/project/a2/http://weblog.designmp.co.kr/hanbiro.js"></script>
+<!-- //header -->
+<script type="text/javascript" src="/project/a2/http://cfs.tistory.com/blog/script/common.js"></script>
+<script>
+function ID_(){
+	if(document.all.mem_id.value=="���̵�"){
+		document.all.mem_id.value="";
+	}
+}
+function PW_(){
+	if(document.all.mem_pw.value=="��й�ȣ"){
+		document.all.mem_pw.value="";
+	}
+}
+function login(){
+	if(!document.all.mem_id.value){alert("���̵� �Է��� �ּ���"); document.all.mem_id.focus(); return;}
+	if(!document.all.mem_pw.value){alert("��й�ȣ�� �Է��� �ּ���"); document.all.mem_pw.focus(); return;}
+
+	document.loginFrm.login_id.value = document.all.mem_id.value;
+	document.loginFrm.login_pw.value = document.all.mem_pw.value;
+
+	document.loginFrm.submit();
+}
+function No_01_tab(no){
+	if(no==1){
+		document.getElementById("1_01").className="selected";
+		document.getElementById("1_02").className="";
+		document.getElementById("1_04").className="";
+		document.getElementById("1_01_title").style.display="block";
+		document.getElementById("1_02_title").style.display="none";
+		document.getElementById("1_04_title").style.display="none";
+	}
+	if(no==2){
+		document.getElementById("1_01").className="";
+		document.getElementById("1_02").className="selected";
+		document.getElementById("1_04").className="";
+		document.getElementById("1_01_title").style.display="none";
+		document.getElementById("1_02_title").style.display="block";
+		document.getElementById("1_04_title").style.display="none";
+	}
+	if(no==4){
+		document.getElementById("1_01").className="";
+		document.getElementById("1_02").className="";
+		document.getElementById("1_04").className="selected";
+		document.getElementById("1_01_title").style.display="none";
+		document.getElementById("1_02_title").style.display="none";
+		document.getElementById("1_04_title").style.display="block";
+	}
+}
+function No_02_tab(no){
+	if(no==1){
+		document.getElementById("2_01").className="selected";
+		document.getElementById("2_02").className="";
+		document.getElementById("2_03").className="";
+		document.getElementById("2_01_title").style.display="block";
+		document.getElementById("2_02_title").style.display="none";
+		document.getElementById("2_03_title").style.display="none";
+	}
+	if(no==2){
+		document.getElementById("2_01").className="";
+		document.getElementById("2_02").className="selected";
+		document.getElementById("2_03").className="";
+		document.getElementById("2_01_title").style.display="none";
+		document.getElementById("2_02_title").style.display="block";
+		document.getElementById("2_03_title").style.display="none";
+	}
+	if(no==3){
+		document.getElementById("2_01").className="";
+		document.getElementById("2_02").className="";
+		document.getElementById("2_03").className="selected";
+		document.getElementById("2_01_title").style.display="none";
+		document.getElementById("2_02_title").style.display="none";
+		document.getElementById("2_03_title").style.display="block";
+
+	}
+}
+
+// �̺κк���  ������ �ʿ� �����ϴ�. 
+function getCookie(name) { 
+var Found = false 
+var start, end 
+var i = 0 
+ 
+while(i <= document.cookie.length) { 
+start = i 
+end = start + name.length 
+ 
+if(document.cookie.substring(start, end) == name) { 
+Found = true 
+break 
+} 
+i++ 
+} 
+ 
+if(Found == true) { 
+start = end + 1 
+end = document.cookie.indexOf(";", start) 
+if(end < start) 
+end = document.cookie.length 
+return document.cookie.substring(start, end) 
+} 
+return "" 
+} 
+// �̺κ� ������ ������ �ʿ� �����ϴ�. 
+ 
+function openPopup() 
+{ 
+var noticeCookie=getCookie("parking");  // ��Ű���� ����
+if (noticeCookie != "no") 
+window.open('pop/noticeID.html','pop','width=600,height=490,top=0,left=0'); 
+// window.open('�˾�â ��������','�������','width=350,height=400,top=50,left=150'); 
+} 
+//openPopup();  // �ڵ����� �˾� ����
+</script>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+</head>
+
+<body id="index" class="mainBody">
+<form name="loginFrm" method="post" action="member/login_ok.jsp">
+<input type="hidden" name="login_id" value="">
+<input type="hidden" name="login_pw" value="">
+</form>
+<div id="wrap">
+	 <!-- top -->
+	<div id="header">
+		<div class="top">
+			<h1><a href="http://www.autodesksquare.co.kr"><img src="/project/a2/images/common/logoA2.gif" title="A�� Better By Design" alt="A�� Better By Design Logo" /></a></h1>
+			<ul>
+			<%if(!ses_nick.equals("")){%>
+			<li class="first">
+				<b><%=ses_nick%></b> �� �ݰ����ϴ�&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="javascript:if(confirm('�α׾ƿ� �Ͻðڽ��ϱ�?')){location.href='include/logout_ok.jsp';}">�α׾ƿ�</a>
+			</li>
+			<li>
+				<a href="/project/a2/sub.html">����������</a>
+			</li>
+			<%}else{%>
+			<li class="first">
+				<a href="/project/a2/sub.html">�α���</a>
+			</li>
+			<li>
+				<a href="/project/a2/sub.html">ȸ������</a>
+			</li>
+			<%}%>
+			<li class="first">
+				<a href="http://www.autodesk.co.kr/" target="_blank"><img src="/project/a2/images/common/logoAutodesk.gif" title="Autodesk" alt="Autodesk Logo" /></a>
+			</li>
+			</ul>
+			<div class="clear"></div>
+		</div>
+		<div id="gnb">	
+			<form name="top_search" method="post" action="search/searchList.jsp">
+				<ul>
+				
+<!-- 				<li class="navi">
+					<script type="text/javascript">
+					AC_FL_RunContent( 
+					'codebase','http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0','width','700','height','205','src','fla/gnbPower','quality','high','wmode','transparent','pluginspage','http://www.macromedia.com/go/getflashplayer','movie','fla/gnbPower','menu','false'); //end AC code
+					</script>
+					<noscript> 			
+						<param name="movie" value="fla/gnbPower.swf">
+						<param name="quality" value="high">
+						<param name="LOOP" value="false">
+						<param name="wmode" value="transparent">'
+						<embed src="/project/a2/book.swf" width="700" height="205" loop="false" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash">
+						</embed>
+					</noscript>
+				</li> -->
+				<li class="navi">
+					<script type="text/javascript">
+					AC_FL_RunContent( 
+					'codebase','http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0','width','700','height','155','src','fla/gnb','quality','high','wmode','transparent','pluginspage','http://www.macromedia.com/go/getflashplayer','movie','fla/gnb','menu','false'); //end AC code
+					</script>
+					<noscript> 			
+						<param name="movie" value="/project/a2/fla/gnb.swf">
+						<param name="quality" value="high">
+						<param name="LOOP" value="false">
+						<param name="wmode" value="transparent">'
+						<embed src="/project/a2/book.swf" width="700" height="155" loop="false" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash">
+						</embed>
+					</noscript>
+				</li>
+				<li class="tSearch"><input type="text" name="keyword" class="keyword" title="�˻�� �Է��ϼ���" />&nbsp;<input type="button" value="�˻�" class="btnSearch" onclick="javascript:if(document.top_search.keyword.value==''){alert('�˻�� �Է��� �ּ���');document.top_search.keyword.focus();return;}else{document.top_search.submit();}"/></li>
+				</ul>
+			</form>
+		</div>
+	</div>
+
+	 <!-- //top -->
+	<div id="container">
+		<div id="content">
+			<h1 class="mainVisual">
+				<script type="text/javascript">
+				AC_FL_RunContent( 
+				'codebase','http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0','width','958','height','255','src','/project/a2/fla/mainVisual2','quality','high','wmode','transparent','pluginspage','http://www.macromedia.com/go/getflashplayer','movie','/project/a2/fla/mainVisual2','menu','false'); //end AC code
+				</script>
+				<noscript> 			
+					<param name="movie" value="/project/a2/fla/mainVisual2.swf">
+					<param name="quality" value="high">
+					<param name="LOOP" value="false">
+					<embed src="/project/a2/mainVisual2.swf" width="958" height="255" loop="false" quality="high" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash">
+					</embed>
+				</noscript>
+			</h1>
+			<!-- ���ʿ��� -->
+			<div id="snb">
+				<div id="mainLeft">
+				<ul class="powerUser2">
+				<li class="title"><script>flash_load('/project/a2/fla/powerUser.swf','191','188');</script></li>
+				<li class="lineGray"></li>
+				</ul>
+				<ul class="contest">
+				<li class="title"><img src="/project/a2/images/mainNew/titleContest.gif" title="A�� ������" alt="A�� ������ Ÿ��Ʋ" /></li>
+				<li class="img1"><img src="/project/a2/images/mainNew/contestImage1.gif" title="�����̽��� ��ǰ ����ϰ� A�� �������� ���� �� ������!" alt="������ ����" /></li>
+				<li class="img2"><a href="/project/a2/sub.html"><img src="/project/a2/images/mainNew/contestImage2.gif" title="�����̽��� ��ϵ� ��ǰ�� ȸ������ ������ ���Ͽ� �ڵ����� �������� ����ǰ�, �ſ� 12���� ��ǰ�� �����մϴ�." alt="������ ����" /></a></li>
+				<li class="lineGray"></li>
+				</ul>
+				<div class="powerBlog">
+				<div class="img"><img src="/project/a2/images/mainNew/titleBlog.gif" title="���䵥��ũ �Ŀ���α�" alt="�Ŀ���α�" /></div>
+				<ul class="powerThumb">
+					<li class="blogTitle">
+					<dl class="img_blog">
+						<dd class="blogBox" id="blogImg01" style="display:block">
+							<img src="/project/a2/images/mainNew/blogCad.gif" width="56" height="56" title="" alt="" />
+						</dt>
+						<dd class="blogBox" id="blogImg02" style="display:none">
+							<img src="/project/a2/images/mainNew/blogBim.gif" width="56" height="56" title="" alt="" />
+						</dt>
+						<dd class="blogBox" id="blogImg03" style="display:none">
+							<img src="/project/a2/images/mainNew/blogMaxMaya.gif" width="56" height="56" title="" alt="" />
+						</dt>
+						<dd><a href="http://blog.naver.com/autocadstory" target="_blank" onMouseOver="blogImg('1')">�������� AutoCAD �̾߱�</a></dd>
+						<dd><a href="http://blog.naver.com/bimalive" target="_blank" onMouseOver="blogImg('2')">������ BIM alive</a></dd>
+						<dd><a href="http://blog.naver.com/mne_kimi" target="_blank" onMouseOver="blogImg('3')">Kimi�� �ƽ����� ��α�</a></dd>
+					</dl>
+					</li>
+				</ul>
+				<div class="mar15"></div>
+				<div class="lineGray"></div>
+				</div>
+				<ul class="leftBanner">
+				<li class="bannerFree"><a href="/project/a2/sub.html"><img src="/project/a2/images/mainNew/bannerFree.gif" title="����ü���Ǵٿ�ε�" alt="����ü���Ǵٿ�ε� ���" /></a></li>
+				<li class="banner"><script>flash_load('/project/a2/fla/leftBanner.swf','191','111');</script></li>
+				</ul>
+				<!-- ���䵥��ũ Ʈ���͹�� -->
+				<ul class="twitterBanner">
+				<li><a href="http://twitter.com/autodesk_kr" target="_blank"><img src="/project/a2/images/mainNew/iconTwitter.gif" title="���䵥��ũ Ʈ����" alt="���䵥��ũ Ʈ���� ���" /></a>&nbsp;&nbsp;
+				<!-- ���䵥��ũ RSS��� -->
+				<a href="http://www.autodesksquare.co.krmain_rss.jsp" target="_blank">		
+				<img src="/project/a2/images/mainNew/iconRss.gif" title="���䵥��ũ RSS" alt="���䵥��ũ RSS" /></a></li>
+				</ul>
+				<!-- //���䵥��ũ Ʈ���͹�� �� -->
+				</div>
+			</div>
+			<!-- //���ʿ��� �� -->
+			<!-- ������� -->
+			<div id="contentMiddle">
+				<div id="contentMain">
+					<a href="/project/a2/sub.html" target="_self"><img src="/project/a2/images/main/mainPr.jpg" ></a>
+				</div>
+			</div>
+			<!-- //������� �� -->
+			<!-- ���������� -->
+			<div id="contentRight">
+				<div id="mainRight">
+					<!-- �α��� -->
+						<ul class="mainLogin">
+						<li class="id"><input onFocus="ID_();" name="mem_id" id="mem_id" maxlength='10' type="text" size="20" class="inputTypeA" /></li>
+						<li class="pw"><input onFocus="PW_();" type="password" name='mem_pw' id='mem_pw' size="20" class="inputTypeA" /></li>
+						<li class="btnLogin"><input type="image" src="/project/a2/images/mainNew/btnLogin.gif" onClick="login();" title="�α���" /></li>
+						<li class="join"><a href="/project/a2/sub.html" class="txtJoin">ȸ������</a>&nbsp;<span class="txtDV">|</span>&nbsp;<a href="/project/a2/sub.html" class="txtFind">���̵�/��й�ȣ ã��</a></li>
+						</ul>
+					<!-- //�α��� �� -->
+					<!-- �α��� 
+						<ul class="mainLogin2">
+						<li class="logined"><span><%=ses_nick%></span> ��</li>
+						<li class="logout"><a href="javascript:if(confirm('�α׾ƿ� �Ͻðڽ��ϱ�?')){location.href='include/logout_ok.jsp';}"><img src="/project/a2/images/mainNew/btnLogout.gif" align="absmiddle" title="�α׾ƿ�" alt="�α׾ƿ�" /></a></span></li>
+							<li class="myIndus"><span>�����Ͻ� ����о߰� �����ϴ�</span></li>
+							<li class="myIndus">����о� : <span><%=indu_nm%></span></li>
+						<li class="paperInfo">����</li>
+						<li class="count">
+						<a href="mypage/receivePaperList.jsp"><%=rsList_04.getString("paper_cnt")%></a>
+						</li>
+						<li class="paperInfo">�����̽�</li>
+						<li class="count"><a href="mypage/myA2Show.jsp"><%=show_cnt%></a></li>
+						<li class="clean"></li>
+						<li class="paperInfo">A�� ���丮</li>
+						<li class="count"><a href="mypage/myA2Story.jsp"><%=a2_cnt%></a></li>
+						<li class="paperInfo">������</li>
+						<li class="count"><a href="mypage/myA2Well.jsp"><%=well_cnt%></a></li>
+						<li class="btnMyShowcase"><a href="mypage/myWorkBoard.jsp"><img src="/project/a2/images/mainNew/btnMyShowcase.gif" title="���� �����̽� ����" alt="�����̽�" /></a>&nbsp;
+						<a href="mypage/memberModify.jsp"><img src="/project/a2/images/mainNew/btnModify.gif" title="ȸ����������" alt="ȸ����������" /></a></li>
+						</ul>-->
+					<!-- //�α��� �� -->
+				<ul class="mainVideo2">
+				<li class="title"><a href="/project/a2/sub.html"><img src="/project/a2/images/mainNew/titleVideo.gif" title="������" alt="������ ������" /></a></li>
+				<li readonly>
+				<!--<script type="text/javascript">
+				/writeCode2("<embed src=\"http://www.youtube.com/v/GLvWLn3hkBk&amp;hl=ko_KR&amp;fs=1&amp;\" type=\"application/x-shockwave-flash\" allowscriptaccess=\"always\" allowfullscreen=\"true\" width=\"215\" height=\"151\"></embed>")//]]></script>
+				</script>-->
+
+<!-- Start of Brightcove Player -->
+<div style="display:none">
+</div>
+<!--
+By use of this code snippet, I agree to the Brightcove Publisher T and C found at https://accounts.brightcove.com/en/terms-and-conditions/. 
+-->
+<p class="videoCon">
+<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+<object id="88560859001" class="BrightcoveExperience">
+<param name="bgcolor" value="#FFFFFF" />
+<param name="width" value="215" />
+<param name="height" value="151" />
+<param name="playerID" value="83096635001" />
+<param name="publisherID" value="82075186001"/>
+<param name="isVid" value="true" />
+<param name="isUI" value="true" />
+<param name="dynamicStreaming" value="true" />
+<param name="@videoPlayer" value="88560859001" />
+</object>
+<!-- 
+This script tag will cause the Brightcove Players defined above it to be created as soon as the line is read by the browser. If you wish to have the player instantiated only after
+the rest of the HTML is processed and the page load is complete, remove the line.
+-->
+<script type="text/javascript">brightcove.createExperiences();</script>
+<!-- End of Brightcove Player -->
+				</li>
+				</ul>
+				<!-- �̺�Ʈ&���̳� -->
+				<ul class="eventNseminar">
+				<li class="title"><a href="/project/a2/sub.html"><img src="/project/a2/images/mainNew/titleEvent.gif" title="�̺�Ʈ&���̳�" alt="�̺�Ʈ&���̳� ������" /></a></li>
+				<li class="borderBox">
+				<p class="data"><a href="http://www.autodesksquare.co.krevent/seminar_inventor.jsp?flowPath=dmp" title="ã�ư��� �κ��� ���̳�">ã�ư��� �κ��� ���̳�</a></p>
+				<p class="line"><img src="/project/a2/images/common/dotLine.gif" /></p>
+				<p class="data"><a href="event/seminarEvent.jsp?seq=37" title="�߼� ����繫�Ҹ� ���� BIM ���̳� - ���̳� �ı⸦ ����ּ���!">�߼� ����繫�Ҹ� ���� BIM ���̳�..</a></p>
+				<p class="line"><img src="/project/a2/images/common/dotLine.gif" /></p>
+				<p class="data"><a href="http://www.myautodesk.net/mail/100915_autocad_electrical/mail.html" target="_blank" title="AutoCAD Electrical�� �Բ��ϴ� ��������� ǥ��ȭ ���̳�">AutoCAD Electrical�� �Բ��ϴ�..</a></p>
+				</li>
+				</ul>
+				<!-- //�̺�Ʈ&���̳� �� -->
+				<!-- ������ ���θ�� -->
+				<ul class="eventNseminar">
+				<li class="title"><a href="/project/a2/sub.html"><img src="/project/a2/images/mainNew/titleSalesPromotion.gif" title="������ ���θ��" alt="������ ���θ�� ������" /></a></li>
+				<li class="borderBox">
+				<p class="data"><a href="http://www.designmp.co.kr/dmp/promotionZone/promotion/acaddaebak.jsp?p_seq=99" target="_blank" title="AutoCAD & AutoCAD LT ��� ���θ��">AutoCAD & AutoCAD LT ���..</a></p>
+				<p class="line"><img src="/project/a2/images/common/dotLine.gif" /></p>
+				<p class="data"><a href="/project/a2/sub.html" target="_blank" title="AutoCAD / AutoCAD LT ����ڸ� ���� ��ǰ ���� & ������ ���θ��">AutoCAD / AutoCAD LT �����..</a></p>
+				<p class="line"><img src="/project/a2/images/common/dotLine.gif" /></p>
+				<p class="data"><a href="/project/a2/sub.html" target="_blank" title="�߼� ����繫�Ҹ� ���� BIM ���̳� �����ڸ� ���� ���θ��">�߼� ����繫�Ҹ� ���� BIM ���̳�..</a></p>
+				</li>
+				</ul>
+				<!-- //������ ���θ�� �� -->
+				<ul class="rightBanner">
+				<li><script>flash_load('/project/a2/fla/a2_215x90.swf','215','90');</script></li>
+				<li style="margin-top:-14px;"><script>flash_load('/project/a2/fla/siggraphBn.swf','215','150');</script></li>
+				<li><a href="javascript:openPopup();"><img src="/project/a2/images/mainNew/unionInfo.gif" title="���䵥��ũ ����ũ�λ���Ʈ �� ȸ�� ���̵� ���վȳ�" alt="���䵥��ũ ����ũ�λ���Ʈ �� ȸ�� ���̵� ���վȳ� ���" /></a></li>
+				</ul>
+				</div>
+			</div>
+			<!-- //���������� �� -->
+		<div class="mar22"></div>
+		</div>
+	</div>
+<div id="footer">
+		<h1><a href="http://www.autodesk.co.kr/" target="_blank"><img src="/project/a2/images/common/logoFooter.gif" title="Autodesk" alt="Autodesk Logo" /></a></h1>
+		<ul>
+			<li class="first">
+				<a href="http://www.autodesk.co.kr/" target="_blank">���䵥��ũ</a>
+			</li>
+			<li>
+				<a href="/project/a2/sub.html">�̿���</a>
+			</li>
+			<li>
+				<a href="http://www.autodesk.com/privacy" target="_blank">���κ�ȣ��޹�ħ</a>
+			</li>
+			<!-- <li>
+				<a href="#">�̸��ϼ����ź�</a>
+			</li> -->
+			<li>
+				<a href="/project/a2/sub.html">����Ʈ��</a>
+			</li>
+		</ul>
+		<div class="clear"></div>
+			<address class="address"><img src="/project/a2/images/common/copyright.gif" title="���� ������ �Ｚ�� 159-1�Ƽ�Ÿ�� 17�� 1701ȣ, ��ǥ�̻� : ��Ʈ�� �����Ͻ�, ����ڵ�Ϲ�ȣ : 220-81-03385 TEL : 02-3484-3400" alt="address" /></address>
+	</div>
+</div>
+</body>
+</html>

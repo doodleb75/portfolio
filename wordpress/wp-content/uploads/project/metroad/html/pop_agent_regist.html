@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>:Metro AD::</title>
+<style type="text/css">
+	@import url('../css/common.css');
+
+#popBox{position:absolute;top:10%;left:30%;border:1px solid #000;}
+.pop_header{position:relative;height:43px;line-height:43px;background:url(../images/common/pop_headerBg.gif) repeat-x;}
+.pop_header h1{display:inline-block;vertical-align:middle;background:url(../images/common/bool_pop_header.png) left 30% no-repeat;margin-top:8px;margin-left:12px;padding:5px 26px;font:bold 14px dotum,verdana;color:#fff;letter-spacing:-1px;}
+.pop_header span.p_close{position:absolute; top:14px; right:10px;}
+
+.pop_body{padding:19px 18px;background:#fff;}
+
+
+/** 판매목표금액 등록 **/
+.pop_body .dateInfo{font:bold 12px verdana,dotum;color:#0795cc;}
+.purposeMoney_regist {-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;border:1px solid #ddd;background:#fff;}
+.purposeMoney_regist {margin-top:12px;padding:10px;}
+.purposeMoney_regist p{padding:4px 0;}
+.purposeMoney_regist label {display:inline-block;background:url(../images/common/bool_ddData.gif) 4px 50% no-repeat;width:90px;padding-left:14px;}
+.purposeMoney_regist input[type=text]{background:#f5f5f5;border:1px solid #e3e3e3;padding:2px 6px;color:#666;font-size:0.95em;margin:0 4px 0 2px;}
+.purposeMoney_regist input[type=text]:focus{border:1px solid #aad8ea;background:#d8f3fe;}
+.purposeMoney_regist span em{font:normal 11px dotum;color:#ff0000;margin-left:12px;}
+
+</style>
+</head>
+
+<body>
+
+<div id="popBox" style="width:500px;">
+	<!-- popupBox 헤더 -->
+	<div class="pop_header">
+		<h1>판매목표금액 등록</h1>
+		<span class="p_close"><a href=""><img src="../images/common/b_pop_close.png" alt="닫기버튼" title="닫기"/></a></span>
+	</div>
+	<!-- //popupBox 헤더 -->
+	<!-- popupBox 컨텐츠 -->
+	<div class="pop_body">
+		<p class="dateInfo">[<img src="../images/common/calendar-medium.png" alt="" title=""/>2012년 2월]</p>
+		<div class="purposeMoney_regist">
+			<p class=""><label>판매목표금액</label><input type="text" size=13> <span>원(VAT별도)</span></p>
+			<p class=""><label>최소보장금액</label><input type="text" size=13> <span>원 <em>* 판매목표금액 x<input type=text id="" name="" size=1/>%</em></span></p>
+			<p class=""><label>최소보장금액</label><input type="text" size=13> <span>원 <em>* 판매목표금액 x VAT x<input type=text id="" name="" size=1/>개월</em></span></p>
+			<p class=""><label>최소보장금액</label><input type="text" size=13> <span>원 <em>* 지금이행보증금 x <input type=text id="" name="" size=1/>%</em></span></p>
+		</div>
+			<div class="Block_alignC">
+				<span class="button small-g strong icon"><span class="confirm"></span><a href="#" title="저장">저장</a></span>
+				<span class="button small-g strong icon"><span class="cancel"></span><a href="#" title="취소">취소</a></span>
+			</div>
+	</div>
+	<!-- //popupBox 컨텐츠 -->
+</div>
+</body>
+</html>

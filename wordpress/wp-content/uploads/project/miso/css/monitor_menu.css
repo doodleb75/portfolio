@@ -1,0 +1,24 @@
+  /**상단메뉴**/
+  .top_menu{position:absolute;z-index:800;min-width:1000px;top:3px;left:45%;margin-left:-420px;/*border:2px solid #000;*/}
+ 
+  .m_menu {position:relative;height:45px;margin:0 auto;background: ;}
+  .m_menu img{margin-right:7px;}
+  .m_menu ul{vertical-align:bottom;}
+  .m_menu li{float:left;display:inline-block;}
+  .m_menu li a{font:bold 12px dotum;color:#434343;padding:0px 22px;height:45px;line-height:45px;_height:45px;_line-height:45px;display:inline-block;border-right:1px solid #ccc;}
+  .m_menu li a:hover{background:url(../images/menu_over_bg.gif) repeat-x;color:#fff;}
+  .m_menu li a.last{border-right:0;}
+  /*.m_line{width:1px;display:inline-block;background:url(../images/m_sep_line.gif) no-repeat left 50%;}*/
+
+  .s_menu{position:relative;margin:0 auto;clear:both;}
+  .s_menu ul{margin-top:7px;}
+  .s_menu li{display:inline-block;}
+  .s_menu li a{font:bold 11px dotum;color:#d2d2d2;padding:6px 10px 6px 30px;background:url(../images/s_bool_out.png) no-repeat 5px 50%;}
+  .s_menu li a:hover{font:bold 11px dotum;color:#fff;}
+  .s_menu li a.system:hover{background:url(../images/s_bool_system.png) no-repeat 5px 50%;}
+  .s_menu li a.five:hover{background:url(../images/s_bool_5.png) no-repeat 5px 50%;}
+  .s_menu li a.six:hover{background:url(../images/s_bool_6.png) no-repeat 5px 50%;}
+  .s_menu li a.seven:hover{background:url(../images/s_bool_7.png) no-repeat 5px 50%;}
+  .s_menu li a.eight:hover{background:url(../images/s_bool_8.png) no-repeat 5px 50%;}
+  .s_line{width:2px;height:6px;display:inline-block;background:url(../images/sub_sep_line.gif) no-repeat left 70%;margin:0 7px;}
+  /** //상단메뉴**/

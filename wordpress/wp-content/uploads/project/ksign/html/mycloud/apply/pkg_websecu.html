@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>eNETner Cloud</title>
+	<link rel="stylesheet" type="text/css" href="/ksign/../css/import.css" />
+	<link rel="stylesheet" type="text/css" href="/ksign/../css/jqueryui/jquery.ui.core.css" />
+	<link rel="stylesheet" type="text/css" href="/ksign/../css/jqueryui/jquery.ui.tabs.css" />
+	<link rel="stylesheet" type="text/css" href="/ksign/../css/jqueryui/jquery.ui.theme.css" />
+	<link rel="stylesheet" type="text/css" href="/ksign/../css/apply.css" />
+	<script type="text/javascript" src="../../../js/jquery-1.6.1.min.js"></script>
+	<script type="text/javascript" src="../../../js/jquery-ui-1.8.16.custom.min.js"></script>
+	<script type="text/javascript" src="../../../js/dui_prototype.js"></script>
+	<script type="text/javascript" src="../../../js/dui_effect.js"></script>
+	<script type="text/javascript" src="../../../js/dui_dragndrop.js"></script>
+	<script type="text/javascript" src="../../../js/dui_hhmenu.js"></script>
+	<script type="text/javascript" src="../../../js/dui_tree.js"></script>
+	<script type="text/javascript" src="../../../js/dui_slidemenu.js"></script>
+	<script type="text/javascript" src="../../../js/dui_tab.js"></script>
+	<script type="text/javascript" src="../../../js/dui_calendar.js"></script>
+	<script type="text/javascript" src="../../../js/common.js"></script>
+	<script type="text/javascript" src="../../../js/shell_mycloud.js"></script>
+</head>
+
+<body>
+<!-- skip메뉴 -->
+<div id="LblockSkipLink">
+	<p><a href="#LblockTopMenu">주메뉴 바로가기</a></p>
+	<p><a href="#LblockLeftMenu">서브메뉴 바로가기</a></p>
+	<p><a href="#LblockBody">콘텐츠 바로가기</a></p>
+</div>
+<!-- //skip메뉴 -->
+
+<div id="LblockWrapper">
+	<!-- header영역 -->
+	<div id="LblockHeader">
+		<div id="LblockHeaderIn">
+			<div id="LblockTopLogo">
+				<h1><a href="#"><img src="../../../images/topLogo.jpg" alt="eNETner Cloud" /></a></h1>
+			</div>
+			<div id="LblockWelcome">
+				<p>2011.11.22 <span>홍길동</span></p><a href="#">로그아웃</a>
+			</div>
+			<div id="LblockTopMenu">
+				<h2  class="Lhide">대메뉴</h2>
+				<ul class="Lclear">
+					<li class="Lfirst LitemService"><span class="cont"><a href="../mgmt/svc_list.html"><span>서비스관리</span></a></span></li>
+					<li class="Lidx1 LitemManagement"><span class="cont"><a href="../mgmt/vm_configuration.html"><span>서비스운영관리</span></a></span></li>
+					<li class="Lidx2 LitemApplication Lcurrent"><span class="cont"><a href="../apply/pkg_websecu.html"><span>서비스신청</span></a></span></li>
+					<li class="Lidx3 LitemMonitoring"><span class="cont"><a href="../monitoring/guide.html"><span>모니터링</span></a></span></li>
+					<li class="Lidx4 LitemMember"><span class="cont"><a href="../mem/edit_meminfo.html"><span>회원정보관리</span></a></span></li>
+					<li class="Lidx5 LitemBilling"><span class="cont"><a href="../billing/charges.html"><span>이용료관리</span></a></span></li>
+					<li class="Llast LitemSupport"><span class="cont"><a href="../support/svcguide.html"><span>고객센터</span></a></span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- //header영역 -->
+	<div id="LblockContainer" class="Lclear">
+		<!-- leftmenu영역 -->
+		<div id="LblockLeft">
+			<div id="LblockLeftTitle">
+				<h2><img src="../../../images/lnbMenu.gif" alt="서비스신청" /></h2>
+			</div>
+			<div id="LblockLeftMenu" class="LslideMenu">
+				<ul>
+					<li class="Lfirst Lcurrent"><span><a href="./pkg_websecu.html">웹보안서비스신청</a></span></li>
+					<li class="Llast"><span><a href="./pkg_dbsecu.html">DB보안서비스신청</a></span></li>
+				</ul>
+			</div>
+		</div>
+		<!-- //leftmenu영역 -->
+		<div id="LblockBodySetter">
+			<!-- 컨텐츠영역 -->
+			<div id="LblockBody">
+				<!-- 페이지타이틀 영역 -->
+				<div id="LblockPageHeader">
+					<div id="LblockPageTitle">
+						<h1>서비스신청</h1>
+					</div>
+					<div id="LblockPageLocation">
+						<ul>
+							<li class="Lfirst"><span><a href="#">HOME</a></span></li>
+							<li><span><a href="#">서비스신청</a></span></li>
+							<li class="Llast"><span>웹보안서비스신청</span></li>
+						</ul>
+					</div>
+				</div>
+				<!-- //페이지타이틀 영역 -->
+				<!-- 페이지내용영역 -->
+				<div id="LblockBodyMain" class="LpageApply">
+					<div class="lead-page">
+						<div class="setter">
+							<p class="cont">DB보안서비스는 제공되는 콘솔 및 모니터링, 설정화면을 통해  서비스운영을위한 상세설정을 하실 수 있습니다.<br />
+							또한 서비스별 해당 자원의 시작과 중지가 가능합니다.</p>
+						</div>
+						<div class="addl">
+							<span class="Lbtn LbtnAtt"><a class="guide" href="./guide.html"><img src="../../../images/apply/guide_val.gif" alt="서비스 신청가이드" /></a></span></p>
+						</div>
+					</div>
+					<div class="setter">
+						<div class="creation">
+							<h3>서비스 생성</h3>
+							<div class="pod pod-name">
+								<h4><img src="../../../images/apply/pod_tit_name.gif" alt="서버명 입력" /></h4>
+								<div class="cont">
+									<p class="holder">
+										<label for="svc-name">서비스명</label>
+										<span class="setter"><span class="val"><span><input type="text" name="svc_name" id="svc-name" size="10" /></span></span></span>
+										<span class="chk-overlap"><button type="button"><img src="../../../images/apply/checkoverlap_btn.gif" alt="중복확인" /></button></span>
+									</p>
+								</div>
+							</div>
+							<div id="pod-agreed" class="pod pod-agreed">
+								<h4><img src="../../../images/apply/pod_tit_agreed.gif" alt="약정" /></h4>
+								<div class="cont">
+									<p class="holder">
+										<span class="each none"><input type="radio" name="svc_agreement" value="0" id="agreement-none" checked="checked" /><label for="agreement-none"><span class="val">무약정</span></label></span>
+										<span class="setter">
+											<span class="each one-year"><input type="radio" name="svc_agreement" value="1" id="agreement-1year" /><label for="agreement-1year"><span class="val">1년약정</span></label></span>
+										</span>
+									</p>
+								</div>
+							</div>
+							<div id="pod-os" class="pod pod-tabbed pod-os">
+								<h4><img src="../../../images/apply/pod_tit_os.gif" alt="OS 이미지" /></h4>
+								<div class="cont">
+									<ul class="tabs">
+										<li class="lead"><div class="each windows"><a href="#os-windows"><span class="val">Windows</span></a></div></li>
+										<li class="setter"><div class="fol"><div class="each linux"><a href="#os-linux"><span class="val">Linux</span></a></div></div></li>
+									</ul>
+									<div id="os-windows" class="list">
+										<h5>Windows</h5>
+										<ul>
+											<li><input type="radio" name="svc_os" value="Win2003_64" id="opt-os-win1" /><label for="opt-os-win1"><span class="val">Win 2003 STD 64Bit</span></label></li>
+											<li><input type="radio" name="svc_os" value="Win2003_32" id="opt-os-win2" /><label for="opt-os-win2"><span class="val">Win 2003 STD 32Bit</span></label></li>
+										</ul>
+									</div>
+									<div id="os-linux" class="list">
+										<h5>Linux</h5>
+										<ul>
+											<li><input type="radio" name="svc_os" value="Linux_1" id="opt-os-linux1" /><label for="opt-os-linux1"><span class="val">Linux 1</span></label></li>
+											<li><input type="radio" name="svc_os" value="Linux_2" id="opt-os-linux2" /><label for="opt-os-linux2"><span class="val">Linux 2</span></label></li>
+											<li><input type="radio" name="svc_os" value="Linux_3" id="opt-os-linux3" /><label for="opt-os-linux3"><span class="val">Linux 3</span></label></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="pod pod-spec">
+								<h4><img src="../../../images/apply/pod_tit_spec.gif" alt="제공사양" /></h4>
+								<p class="cont">
+									<span class="each cpu"><span class="lab"><span>CPU:</span></span> <span class="val"><strong>2Core</strong></span></span><span class="sepr">,</span>
+									<span class="each mem"><span class="lab"><span>MEM:</span></span> <span class="val"><strong>4Mem</strong></span></span><span class="sepr">,</span>
+									<span class="each hdd"><span class="lab"><span>HDD:</span></span> <span class="val"><strong>180GB</strong></span></span>
+								</p>
+							</div>
+							<div class="branch">
+								<div id="pod-webapp" class="pod pod-tabbed pod-webapp">
+									<h4><img src="../../../images/apply/pod_tit_webapply.gif" alt="웹 어플리케이션" /></h4>
+									<div class="cont">
+										<ul class="tabs">
+											<li class="lead"><div class="each windows"><a href="#webapp-apache"><span class="val">Apache</span></a></div></li>
+											<li class="setter"><div class="fol"><div class="each linux"><a href="#webapp-iis"><span class="val">IIS</span></a></div></div></li>
+										</ul>
+										<div id="webapp-apache" class="list">
+											<h5>Apache</h5>
+											<ul>
+												<li><input type="radio" name="svc_dbms" value="Win2003_64" id="opt-webapp-apache1" /><label for="opt-webapp-apache1"><span class="val">Apache ver.5</span></label></li>
+												<li><input type="radio" name="svc_dbms" value="Win2003_32" id="opt-webapp-apache2" /><label for="opt-webapp-apache2"><span class="val">Apache ver.6</span></label></li>
+											</ul>
+										</div>
+										<div id="webapp-iis" class="list">
+											<h5>IIS</h5>
+											<ul>
+												<li><input type="radio" name="svc_dbms" value="Linux_1" id="opt-webapp-iis1" /><label for="opt-webapp-iis1"><span class="val">IIS ver.1</span></label></li>
+												<li><input type="radio" name="svc_dbms" value="Linux_2" id="opt-webapp-iis2" /><label for="opt-webapp-iis2"><span class="val">IIS ver.2</span></label></li>
+												<li><input type="radio" name="svc_dbms" value="Linux_3" id="opt-webapp-iis3" /><label for="opt-webapp-iis3"><span class="val">IIS ver.3</span></label></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="pod pod-options">
+									<h4>선택 상품</h4>
+									<ul>
+										<li><input type="checkbox" name="svc_options" value="1" id="opt-subst" /><label for="opt-subst"><span>운영대행</span></label></li>
+										<li></li>
+									</ul>
+								</div>
+							</div>
+							<div class="branch">
+								<div class="pod pod-options">
+									<h4>기본 제공 상품</h4>
+									<ul>
+										<li class="disabled"><input type="checkbox" name="svc_options" value="3" id="opt-monitoring" checked="checked" disabled="disabled" /><label for="opt-monitoring"><span>모니터링</span></label></li>
+										<li class="disabled"><input type="checkbox" name="svc_options" value="4" id="opt-ip" checked="checked" disabled="disabled" /><label for="opt-ip"><span>아이피</span></label></li>
+										<li class="disabled"><input type="checkbox" name="svc_options" value="5" id="opt-backup" checked="checked" disabled="disabled" /><label for="opt-backup"><span>백업</span></label></li>
+										<li class="disabled"><input type="checkbox" name="svc_options" value="6" id="opt-firewall" checked="checked" disabled="disabled" /><label for="opt-firewall"><span>방화벽</span></label></li>
+										<li class="disabled"><input type="checkbox" name="svc_options" value="2" id="opt-webfirewall" checked="checked" disabled="disabled" /><label for="opt-webfirewall"><span>웹방화벽</span></label></li>
+										<li class="disabled"><input type="checkbox" name="svc_options" value="7" id="opt-traffic" checked="checked" disabled="disabled" /><label for="opt-traffic"><span>트래픽</span></label></li>
+									</ul>
+								</div>
+							</div>
+							<div class="help">
+								<p class="cont">이네트너 클라우드에서는 다양한 업종, 각양각색의 요구사항을 해소해드리고자, 맞춤 서비스’를 제시해 드립니다. 별도의 상품 구성을 원하시거나, 제시된 용량 이상의 사양을 원하신다면, 저희 컨설턴트에게 연락 주시면 상세히 상담해 드립니다. <strong><a href="#" class="details">[상담신청 상세보기]</a></strong></p>
+							</div>
+						</div>
+					</div>
+					<div class="estimated">
+						<div class="chart">
+							<h3><img src="../../../images/apply/estimated_tit.gif" alt="선택항목" /></h3>
+							<div class="each">
+								<table width="250">
+									<col width="76" /><col width="*" />
+									<tr>
+										<th><div class="val"><img src="../../../images/apply/chart_lab_comp.gif" alt="Compliance Solution" /></div></th>
+										<td class="comp">
+											<strong>방화벽</strong> - 공용 10Mbps<br />
+											<strong>웹방화벽</strong> - 공용 적용<br />
+											<strong>SSL VPN</strong> - 공용 1개<br />
+											<strong>백업</strong> - 공용 10MB<br />
+											<strong>트래픽</strong> - 공용 10Mbps<br />
+											<strong>모니터링</strong> - 공용 제공
+										</td>
+									</tr>
+									<tr>
+										<th><div class="val"><img src="../../../images/apply/chart_lab_name.gif" alt="서비스명" /></div></th>
+										<td class="name">엘림넷 웹사이트</td>
+									</tr>
+									<tr>
+										<th><div class="val"><img src="../../../images/apply/chart_lab_spec.gif" alt="사양" /></div></th>
+										<td class="spec">2Core / 4Mem / 180GB</td>
+									</tr>
+									<tr>
+										<th><div class="val"><img src="../../../images/apply/chart_lab_os.gif" alt="OS" /></div></th>
+										<td class="os">Windows XP SP3 Kor</td>
+									</tr>
+									<tr>
+										<th><div class="val"><img src="../../../images/apply/chart_lab_ip.gif" alt="IP" /></div></th>
+										<td class="ip">1개 제공</td>
+									</tr>
+									<tr>
+										<th><div class="val"><img src="../../../images/apply/chart_lab_subst.gif" alt="운영대행" /></div></th>
+										<td class="agreed">협의사항</td>
+									</tr>
+									<tr>
+										<th><div class="val"><img src="../../../images/apply/chart_lab_agreed.gif" alt="약정" /></div></th>
+										<td class="agreed">1년 10개월</td>
+									</tr>
+								</table>
+							</div>
+							<p class="cost"><strong class="tit"><img src="../../../images/apply/estimated_cost_tit.gif" alt="예상비용:" /></strong> <span class="val"><strong>220,000</strong>원/ 1개월</span></p>
+						</div>
+						<p id="submit-form" class="submit"><button type="button" class="trigger"><span>신청</span></button></p>
+					</div>
+				</div>
+				<!-- 페이지내용영역 -->
+			</div>
+			<!-- //컨텐츠영역 -->
+		</div>
+	</div>
+	<hr />
+	<!--footer영역-->
+	<div id="LblockFooter">
+		<div id="LblockFooterIn" class="Lclear">
+			<div id="LblockFooterLogo">
+				<a href="#"><img src="../../../images/footerLogo.gif" alt="(주)엘림넷" /></a>
+			</div>
+			<div id="LblockFooterSetter">
+				<div id="LblockFooterBody">
+					<ul id="LblockFooterMenu">
+						<li class="Lfirst"><a href="#"><img src="../../../images/footerMenu_01.gif" alt="회사소개" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_02.gif" alt="서비스약관" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_03.gif" alt="개인정보취급방침" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_04.gif" alt="FAQ" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_05.gif" alt="Q&A" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_06.gif" alt="제휴문의" /></a></li>
+					</ul>
+					<address><img src="../../../images/address.gif" alt="서울시 서대문구 충정로3가 32-11 엘림넷빌딩  사업자등록번호: 220-81-97656  개인정보 관리책임자: 송태호 부장 (thshong@elim.net)" /></address>
+					<p><img src="../../../images/copyright.gif" alt="Copyright (C) 2012 BY ELIMNET CO.,LTD. ALL RIGHTS RESERVED." /></p>
+				</div>
+			</div>
+			<div id="LblockFooterHelp"><img src="../../../images/callservice.gif" alt="고객지원센터 TEL:02-3149-4900 FAX:02-3149-4998" /></div>
+		</div>
+	</div>
+	<!--//footer영역-->
+</div>
+</body>
+</html>

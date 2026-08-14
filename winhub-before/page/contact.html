@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WINHUB Homepage</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div id="loader">
+      <div class="loader-bar"></div>
+    </div>
+    <div class="bar"></div>
+<div id="threejs-background-container"></div>
+    <!-- Spline 3D 캔버스 -->
+    <div class="canvas-cont">
+      <canvas id="canvas3d"></canvas>
+    </div>
+
+    <section class="part-container">
+      <!-- gnb -->
+      <div class="gnb-container">
+        <!-- <h1 class="gnb-title">
+          <a href="">
+          WINHUB</a>
+        </h1> -->
+
+        <!-- 내비게이션 및 로고 아래에 햄버거 버튼 추가 -->
+        <div class="menu-icon ">
+          </svg>
+          <!-- 기본 햄버거 버튼만 보임 -->
+          <button id="menu-toggle" class="">☰</button>
+        </div>
+
+        
+      </div>
+<!-- 메뉴 오버레이 (기본 숨김) -->
+        <div id="menu-overlay" class="hidden">
+          <button id="menu-close" class="close-btn">✕</button>
+          <div class="menu-content">
+            <!-- 오른쪽 상단 닫기 버튼 -->
+            <!-- 화면 중앙에 상단 링크 항목 -->
+            <div class="menu-links">
+              <div class="top-link">ABOUT</div>
+              <div class="top-link">WORK</div>
+              <div class="top-link">CONTACT</div>
+            </div>
+          </div>
+        </div>
+      <!-- 히어로 섹션 -->
+      <div id="hero" class="flex row">
+        <div class="container">
+          <div class="com-name-ani">
+            WINHUB
+          </div>
+          <div class="headline">
+            <div>IS</div>
+            <div>CONNECTED</div>
+            <div>TO YOUR</div>
+            <div>SUCCESS.</div>
+          </div>
+        </div>
+        <p class="scroll-icon"><span class="scroll"></span></p>
+      </div>
+
+      <!-- 파트1 -->
+      <div id="part1" class="flex row">
+        <div></div>
+        <div class="part1-info flex column text">
+          <div class="sub-title">INTRO</div>
+          <h1>
+            POP (Point Of Purchase Advertising) 시스템
+판매사원을 대신하여 고객에게 올바른 쇼핑정보 (가격, 소재, 규격, 특징)를 제공하여 고객으로 하여금 구매동기를 유발시켜 매출증대에 기여하는 중요한 광고수단의 역할을 합니다.
+
+POS (Point of Sale) 시스템
+상품 공급, 물류, 현장서비스, 솔루션 구축에 이르는 서비스 전 과정의 프로세스를 지원하며 주유소, 편의점, 리조트, 호텔, 식품 사업군 등 현장 고객에서 기업고객에 이르는 전 분야의 서비스를 포괄합니다.
+
+SCM (Supply Chain Management) 시스템
+계획, 조달, 생산. 수주에 이르는 물류 전 과정의 프로세스를 지원하며 공급망 관리, 공급망 실행, 공급자 관계관리에 이르는 포괄적인 공급망 관리시스템을 구축, 제공하여 고객의 물류시스템 혁신을 주도합니다.
+          </h1>
+          <!-- <button>Make a keyboard - It's easy!</button> -->
+        </div>
+      </div>
+
+      <!-- 파트2 -->
+      <div id="part2" class="flex row">
+        <div class="part2-info flex column">
+          <div class="sub-title">RECENTLY WORKS</div>
+          <ul class="works-list">
+            <li>
+              <span class="thumbnail"></span>
+              <span href="">WINHUB</span>              
+            </li>
+            <li>
+              <span class="thumbnail"></span>
+              <span href="">WINHUB</span>              
+            </li>
+            <li>
+              <span class="thumbnail"></span>
+              <span href="">WINHUB</span>              
+            </li>
+            <li>
+              <span class="thumbnail"></span>
+              <span href="">WINHUB</span>              
+            </li>
+          </ul>
+          <button>Go To WorkList</button>
+        </div>
+        <div></div>
+      </div>
+
+      <!-- 파트3 -->
+      <div id="part3" class="flex column text">
+        <div class="sub-title">OUTRO</div>
+          <h1>
+            POP (Point Of Purchase Advertising) 시스템
+판매사원을 대신하여 고객에게 올바른 쇼핑정보 (가격, 소재, 규격, 특징)를 제공하여 고객으로 하여금 구매동기를 유발시켜 매출증대에 기여하는 중요한 광고수단의 역할을 합니다.
+
+POS (Point of Sale) 시스템
+상품 공급, 물류, 현장서비스, 솔루션 구축에 이르는 서비스 전 과정의 프로세스를 지원하며 주유소, 편의점, 리조트, 호텔, 식품 사업군 등 현장 고객에서 기업고객에 이르는 전 분야의 서비스를 포괄합니다.
+
+SCM (Supply Chain Management) 시스템
+계획, 조달, 생산. 수주에 이르는 물류 전 과정의 프로세스를 지원하며 공급망 관리, 공급망 실행, 공급자 관계관리에 이르는 포괄적인 공급망 관리시스템을 구축, 제공하여 고객의 물류시스템 혁신을 주도합니다.
+          </h1>
+        <h2>WINHUB</h2>
+      </div>
+    </section>
+
+    <!-- 스크립트: GSAP 및 플러그인 로드 순서 중요 -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/ScrollTrigger.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/Draggable.min.js"></script>
+    <!-- 사용자 스크립트 -->
+    <script type="module" src="assets/js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,265 @@
+.sub-header {
+    padding: rem(16px) rem(26px);
+
+    h2 {
+        position: relative;
+        color: #282c34;
+        font-size: rem(22);
+        text-align: center;
+        margin-bottom: rem(26);
+
+        > button {
+            position: absolute;
+            display: inline-block;
+            width: rem(22);
+            height: rem(22);
+            left: 0;
+            top: rem(3);
+            margin: auto 0;
+            background: url(../img/back-arr.png) no-repeat center;
+            background-size: contain;
+        }
+    }
+
+    p {
+        font-size: rem(13.8);
+        color: #282c34;
+    }
+}
+
+/* .sub-content-box {
+} */
+
+.ph-number {
+    padding: rem(10) rem(26) rem(1);
+    border-top-left-radius: rem(17.25);
+    border-top-right-radius: rem(17.25);
+    background: #fff;
+
+    h3 {
+        color: #282c34;
+        font-size: rem(17.25);
+        margin-bottom: rem(10);
+    }
+}
+
+.ph-list {
+    margin-bottom: rem(20);
+
+    li {
+        display: flex;
+        align-items: center;
+        margin-bottom: rem(10);
+
+        .num-group {
+            flex: 1;
+            justify-content: space-between;
+            display: flex;
+            width: 70%;
+            padding: rem(13) rem(20);
+            background: #f8f8f8;
+            align-items: center;
+            border-radius: rem(12);
+
+            input[type="text"] {
+                background: none;
+                min-width: 34%;
+                border: 0;
+                font-size: rem(24.15);
+                text-align: center;
+                color: #282c34;
+
+                &:first-child {
+                    min-width: 10%;
+                }
+            }
+
+            input[type="text"]:active::placeholder {
+                color: transparent;
+            }
+
+            i {
+                font-size: rem(24);
+                color: #7e7e7e;
+
+                &:first-of-type {
+                    position: relative;
+                    // left: -10px;
+                }
+            }
+        }
+
+        .remove-num {
+            width: rem(30);
+            height: rem(30);
+            background: url(../img/remove-crew.png) no-repeat;
+            background-size: contain;
+            background-position: center;
+            margin-right: auto;
+            margin-left: rem(20);
+
+            &:active {
+                filter: opacity(0.8);
+            }
+        }
+    }
+}
+
+/* 20211122 ycyu add */
+.ph-list li .num-group input[type="tel"] {
+    background: none;
+    min-width: 34%;
+    border: 0;
+    font-size: 0.483rem;
+    text-align: center;
+    color: #627180;
+}
+
+/* 20211122 ycyu add */
+.ph-list li .num-group input[type="tel"]:first-child {
+    min-width: 10%;
+}
+
+.ph-list li .num-group input[type="tel"]:active::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.ph-list li .num-group input[type="tel"]:active:-ms-input-placeholder {
+    color: transparent;
+}
+
+.ph-list li .num-group input[type="tel"]:active::-ms-input-placeholder {
+    color: transparent;
+}
+
+.ph-list li .num-group input[type="tel"]:active::placeholder {
+    color: transparent;
+}
+
+.prev-crew-list {
+    margin-top: 17px;
+    background: #fff;
+    padding: 10px 26px;
+
+    h3 {
+        font-size: rem(17.25);
+        margin-bottom: rem(10);
+    }
+
+    .list {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-row: auto auto;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        justify-content: center;
+
+        li {
+            display: flex;
+            // width: 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            font-family: sans-serif;
+            background: #f8f8f8;
+            padding: 12px 12px;
+            border-radius: rem(10);
+
+            // margin-bottom: rem(16);
+            p {
+                color: #627180;
+                font-size: rem(13);
+                margin-top: rem(2);
+            }
+
+            span {
+                font-size: rem(15);
+                color: #282c34;
+
+                > p {
+                    font-size: rem(13);
+                    color: #7e7e7e;
+                    letter-spacing: -1;
+                }
+            }
+
+            input[type="checkbox"] {
+                display: none;
+            }
+
+            input[type="checkbox"] + label {
+                font-size: rem(15);
+                width: rem(36);
+                height: rem(36);
+                background: url(../img/crew-check.png) no-repeat center;
+                background-size: cover;
+                background-position: left rem(-36);
+                border-radius: rem(100);
+                margin-right: rem(8);
+                transition: background-position 0.2s;
+            }
+
+            input[type="checkbox"]:checked + label {
+                background-position: left top;
+            }
+        }
+    }
+
+    .no-crew-box {
+        display: none;
+    }
+
+    &.no-crew {
+        .list {
+            display: none;
+        }
+
+        .no-crew-box {
+            display: block;
+            min-height: 220px;
+            background: url(../img/bg_no_companion.svg) no-repeat center -20%;
+            background-size: cover;
+        }
+    }
+}
+
+.bot-btn-group {
+    display: flex;
+    flex-direction: row;
+    margin-top: rem(50);
+    margin-bottom: rem(20);
+
+    button {
+        color: #fff;
+        font-size: rem(20);
+        text-align: center;
+        padding: rem(14) rem(20);
+        border-radius: rem(13);
+        box-shadow: 0 rem(3) rem(5) rgba(0, 0, 0, 0.2);
+
+        &.btn-cancel {
+            flex: 0.35;
+            width: 35%;
+            background: #cdcdcd;
+            margin-right: rem(20);
+
+            &:active {
+                color: rgba(255, 255, 255, 0.8);
+                background: #b3b3b3;
+            }
+        }
+
+        &.btn-regist {
+            flex: 0.65;
+            width: 65%;
+            background: #282c34;
+
+            // background: #092b4b;
+            &:active {
+                color: rgba(255, 255, 255, 0.8);
+                background: #0a4379;
+            }
+        }
+    }
+}

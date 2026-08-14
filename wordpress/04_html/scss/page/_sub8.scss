@@ -1,0 +1,58 @@
+.service-guide-info {
+  background: #fff;
+  background-size: contain;
+  background-position: center rem(170);
+  border-radius: rem(17);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-top: rem(-16);
+  text-align: center;
+
+  /* height: calc(100vh - 72px); 
+    min-height: rem(500); */
+  .guide-img {
+    overflow: hidden;
+    padding-bottom: 40px;
+    border-radius: rem(17);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    img {
+      overflow: hidden;
+    }
+  }
+
+  .use-chk-btn {
+    padding: rem(12);
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    button {
+      width: 45%;
+      text-align: center;
+      font-size: rem(20);
+      border-radius: rem(100);
+      padding: rem(8) rem(18);
+      color: #627180;
+      background: #fff;
+      border: 1px solid #627180;
+
+      &.active {
+        color: #fff;
+        background: #627180;
+      }
+    }
+  }
+
+  .footer-sub {
+    position: fixed;
+    background: #fff;
+    line-height: 30px;
+    height: 30px;
+    margin: 0;
+    bottom: 0;
+  }
+}

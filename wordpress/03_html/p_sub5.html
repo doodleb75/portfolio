@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--
+/*************************************************************************
+* @ 서비스명   : 화면 > 체크아웃완료
+* @ 파일명     : 01.html/p_sub1.html
+* @ 페이지설명  : 레이아웃
+* @ 작성자     : 배대현
+* @ 작성일     : 2021-10-02
+************************** 수정이력 ****************************************
+* 날짜                    작업자                 변경내용
+*_________________________________________________________________________
+* 2021-10-02             배대현                 최초작성
+*************************************************************************/
+-->
+
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>화면 > index</title>
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="./css/default.css">
+    <script src="js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+    </script>
+</head>
+
+<body>
+    <div id="modal5" class="modal bottom-sheet">
+        <div class="modal-content">
+            <div class="modal-add-header">
+                <div class="modal-padding-box">
+                    <span class="thumb">
+                        <object type="image/svg+xml" data="img/img_rating.svg" class="add-thumb"></object>
+                    </span>
+                    <span class="add-title">
+                        <p>이용하신 골프장의 만족도를 평가해주세요.</p>
+                        <p>매달 추첨을 통해 <em>스타벅스 쿠폰</em>을 드립니다.</p>
+                    </span>
+                    <button type="button" class="modal-close pop-close" href="#modal2"></button>
+                </div>
+            </div>
+            <div class="modal-add-body s-rating">
+                <div class="satisfaction-rating">
+                    <!-- rating 01- course -->
+                    <div class="rating-group">
+                        <div class="title">코스</div>
+                        <label class="rating-label">
+                            <input class="rating" max="5"
+                                oninput="this.style.setProperty('--value', `${this.valueAsNumber}`)" step="0.5"
+                                style="--value:0" type="range" value="0">
+                        </label>
+                    </div>
+                    <!-- rating 02- staff -->
+                    <div class="rating-group">
+                        <div class="title">직원</div>
+                        <label class="rating-label">
+                            <input class="rating" max="5"
+                                oninput="this.style.setProperty('--value', `${this.valueAsNumber}`)" step="0.5"
+                                style="--value:0" type="range" value="0">
+                        </label>
+                    </div>
+                    <!-- rating 03- 식음료 -->
+                    <div class="rating-group">
+                        <div class="title">식음료</div>
+                        <label class="rating-label">
+                            <input class="rating" max="5"
+                                oninput="this.style.setProperty('--value', `${this.valueAsNumber}`)" step="0.5"
+                                style="--value:0" type="range" value="0">
+                        </label>
+                    </div>
+                    <div class="bot-btn-group b-width-100">
+                        <button type="button" class="btn-regist modal-close pop-close" href="#modal2">평가하기</button>
+                        <a class="goto-home-txt">평가하지 않고 홈으로 이동</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sub Contents Start // -->
+
+    <div id="wrap" data-title="none">
+        <div class="sub-header">
+            <h2 class="sub-title"><button></button>체크아웃 완료</h2>
+        </div>
+        <div class="sub-content-box check-finish-page">
+            <div class="finish-box">
+                <h3>체크아웃이 </br> 완료되었습니다.</h3>
+                <p>
+                    프론트데스크를 거치지않고</br>
+                    바로 귀가하실 수 있습니다.
+                </p>
+            </div>
+
+            <div class="footer-sub">
+                <div class="bot-btn-group b-width-100 m-side-20">
+                    <button type="button" class="btn-regist modal-trigger" href="#modal5">홈으로 이동</button>
+                </div>
+                <!-- <span>마우니오션CC</span>
+                <span>Service by Pass One Golf</span> -->
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                /* Modal Initialized */
+                $('.modal-trigger').leanModal();
+            });
+
+        </script>
+</body>
+
+</html>

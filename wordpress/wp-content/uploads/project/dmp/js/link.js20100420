@@ -1,0 +1,110 @@
+
+function autodesk(){window.open('http://www.autodesk.co.kr','',''); }		//Autodesk Home
+function home(){	 location.href="/"; }													//main
+function soon(){	location.href="javascript:alert('준비중입니다.');"; }		//준비중
+
+//01.신규업그레이드 Zone
+//02.프로모션 Zone
+//03.산업군별 Zone
+
+//04.디자인오토데스크 - Design Autodesk
+function adkDesign(){location.href="/autodeskdesign/designAutodesk.html"; }
+function adkNews(){location.href="/autodeskdesign/autodeskNewsList.html"; }
+function news1(){location.href="/autodeskdesign/autodeskNews1.html"; }//Digital City 건설 시범사업 MOU 체결
+function news2(){location.href="/autodeskdesign/autodeskNews2.html"; }//Most Admired Companies for Computer Software
+function news3(){location.href="/autodeskdesign/autodeskNews3.html"; }//서울디자인올림픽2008
+function news4(){location.href="/autodeskdesign/autodeskNews4.html"; }//오토데스크 보스톤갤러리
+function news5(){location.href="/autodeskdesign/autodeskNews5.html"; }//국내벤더현황 및 소프트웨어
+function news6(){location.href="/autodeskdesign/autodeskNews6.html"; }//LG Announces Design Competition partnering with Autodesk
+function news7(){location.href="/autodeskdesign/autodeskNews7.html"; }//비지니스 솔루션 이용하세요
+
+//05.파워리셀러
+//06.포인트몰
+//07.고객지원
+function noticeList(){location.href="/customer/noticeList.html"; }
+function noticeView(){location.href="/customer/noticeView.html"; }
+function call(){location.href="/customer/teleCall.html"; }
+
+//08.마이페이지
+function myMain(){location.href="/design/mypage/mypage.html"; }
+function myPromo(){location.href="/design/mypage/myPromotion.html"; }
+function interest(){location.href="/design/mypage/concernList.jsp"; }
+function myProduct(){location.href="/design/mypage/productList.html"; }
+function buy(){location.href="/design/mypage/buyList.html"; }
+function point(){location.href="/design/mypage/pointList.html"; }
+function myQna(){location.href="/design/mypage/myQna.jsp"; }
+function modify(){location.href="/design/mypage/memberModify.html"; }
+function out(){location.href="/design/mypage/memberOut.html"; }
+
+//09.회원
+function login(){location.href="/design/layer/login.html"; }
+function signUp(){location.href="/design/use/signUp.html"; }
+function memJoin(){location.href="/design/use/accountInfo.html"; }
+function joinEnd(){location.href="/design/use/accountConfirm.html"; }
+function findIDPW(){location.href="/design/use/findIDPW.html"; }
+function logout(){location.href="/design/use/logout.jsp"; }
+
+//10.장바구니
+function shoppingBag(){location.href="/shoppingBag/buyList.html"; }
+
+//11.사이트맵
+//12.제품검색
+//13.기타페이지
+
+//하단메뉴 링크
+function adkServlet(){window.open('http://www.autodesk.co.kr/adsk/servlet/index?siteID=1169528&id=10825779','',''); }//오토데스크 공인협력업체
+function agree2(){location.href="/etc/agreement.html"; }//이용약관
+function privacy(){location.href="/etc/privacy.html"; }//개인보호취급방침
+function faq(){location.href="/etc/faq.html"; }//FAQ
+function company(){window.open('http://www.autodesk.co.kr/adsk/servlet/index?siteID=1169528&id=9791531','',''); }//회사소개
+function sitemap(){location.href="/etc/sitemap.html"; }//사이트맵
+
+//기획 프로모션
+function planPro1(){parent.window.location.href="/promotion/fixed3DCAD.html";}//3D CAD 보상판매
+function planPro2(){parent.window.location.href="/promotion/AcadLTCG.html";}//AutoCAD LT 보상판매 특가 프로모션
+function planPro3(){parent.window.location.href="/promotion/fixed3dsMax.html";}//3ds Max 제품 프로모션
+function planPro4(){parent.window.location.href="/promotion/fixedMFGSpecial.html";}//기계제조설계 분야 스페셜 프로모션
+function planPro5(){parent.window.location.href="/promotion/fixedIDPackage.html";}//ID Package 프로모션
+function planPro6(){parent.window.location.href="/promotion/solutionDay.html";}//솔루션데이 프로모션
+function planPro7(){parent.window.location.href="/promotion/fixedIDPackage2.html";}//교육용 ID Package 프로모션
+function planPro8(){parent.window.location.href="/promotion/fixedACMAIS.html";}//ACM,AISHPBundle 프로모션
+function planPro9(){parent.window.location.href="/promotion/ACADNetcom.html";}//AutoCAD2010+아이팟터치+Netcom 패키지 프로모션
+function planPro10(){parent.window.location.href="/promotion/welcomACAD.html";}//Welcome AutoCAD 2010 프로모션
+function planPro11(){parent.window.location.href="/promotion/civil3dUpgrade.html";}//AutoCivil3D 2010 Upgrade 프로모션
+function planPro12(){parent.window.location.href="/promotion/3dsMaxPackage.html";}//3dsMaxPackage 프로모션
+function planPro13(){parent.window.location.href="/promotion/MaxnMaya.html";}//Max & Maya 보상판매 특가 프로모션
+function planPro14(){parent.window.location.href="/promotion/adkMaxMayaSummer.html";}//Autodesk Max - Maya Summer Festival
+function planPro15(){parent.window.location.href="/promotion/Acad2010Point.html";}//AutoCAD 2010 Point 프로모션
+function planPro16(){parent.window.location.href="/promotion/CADn3dsMax.html";}//AutoCAD & Autodesk 3ds Max 공동 프로모션
+function planPro17(){parent.window.location.href="/promotion/autowacom.html";}//Wacom+autodesk 패키지 프로모션
+function planPro18(){parent.window.location.href="/promotion/wacomalias.html";}//Wacom+alias 패키지 프로모션
+function planPro19(){parent.window.location.href="/promotion/AutoCAD2010nSEP.html";}//AutoCAD2010+SEP 프리미엄 패키지 프로모션
+function planPro20(){parent.window.location.href="/promotion/CADPIA_DesignPackage.html";}//Design 패키지 프로모션
+function planPro21(){parent.window.location.href="/promotion/AutodeskMaya2010.html";}//Maya2010 신제품 출시 프로모션
+function planPro22(){parent.window.location.href="/promotion/AutodesEduGift_maxnmaya.html";}//3ds max maya2010 사은품 프로모션
+function planPro23(){parent.window.location.href="/promotion/AutodesEduGift_revit.html";}//revit2010 사은품 프로모션
+function planPro24(){parent.window.location.href="/promotion/AutodesEduGift_sketchbook.html";}//sketchbook2010 사은품 프로모션
+function planPro25(){parent.window.location.href="/promotion/3dsMaxMayaAdobePackage.html";}//3dsMaxMaya+Adobe CS4Photoshop 패키지 프로모션
+function planPro26(){parent.window.location.href="/promotion/architectureVisualization.html";}//AutoCAD Revit Architecture Visualization Suite Launch Promotion 
+function planPro27(){parent.window.location.href="/promotion/yearend_3dsmaxnmaya.html";}//Autodesk 교육용 3ds Max 2010/Maya 2010 연말고객감사행사
+function planPro28(){parent.window.location.href="/promotion/yearend_civil3d.html";}//Autodesk 교육용 AutoCAD Civil 3D 2010 연말고객감사행사
+function planPro29(){parent.window.location.href="/promotion/yearend_aliasnshow.html";}//Autodesk 교육용 Alias Automotive 2010/Showcase Professional 2010 연말고객감사행사
+function planPro30(){parent.window.location.href="/promotion/yearend_revitnmax.html";}//Autodesk 교육용 Revit Architecture Suite+3ds Max 연말고객감사행사 
+function planPro31(){parent.window.location.href="/promotion/CADnwin7.html";}//AutoCAD 2010 + Windows7 프로모션 
+function planPro32(){parent.window.location.href="/promotion/map3Dnwin7.html";}//AutoCAD Map 3D 2010과 Windows7의 특별한 만남
+function planPro33(){parent.window.location.href="/promotion/inventornHP.html";}//AutoCAD Inventor Suite + HP Workstation 프로모션
+function planPro34(){parent.window.location.href="/promotion/AutoCadNewYear1.html";}//AutoCAD 2010 신년 이벤트 (다우)
+function planPro35(){parent.window.location.href="/promotion/AutoCadNewYear2.html";}//AutoCAD LT 2010 신년 이벤트
+function planPro36(){parent.window.location.href="/promotion/AutoCadNewYear3.html";}//AutoCAD 2010 신년 이벤트 (인프라)
+function planPro37(){parent.window.location.href="/promotion/ACAD2010Sales.html";}//ACAD2010 Sales프로모션
+function planPro38(){parent.window.location.href="/promotion/ACADLT2010Sales.html";}//ACADLT2010LT Sales프로모션
+function planPro39(){parent.window.location.href="/promotion/NewSub.html";}//New & Subscription 프로모션
+function planPro40(){parent.window.location.href="/promotion/dmp_SalesPromotion.html";}//DMP Sales Promotion
+function planPro41(){parent.window.location.href="/promotion/ACAD2011Sales.html";}//AutoCAD 2011 사전구매 프로모션
+function planPro42(){parent.window.location.href="/promotion/ACADEdu.html";}//AutoCAD, 최고의 활용을 위한 교육 지원 프로모션
+
+//제품소개 플래시
+function AcadMCompare(){window.open('http://download.autodesk.com/us/acadmech/tool_local/fla/preview.html','','width=800,height=605'); }//ACAD와 비교동영상
+function AcadMDemo(){window.open('/layer/AcadMDemo.html','','width=800,height=620'); }//ACADM 데모동영상
+function AcadMDown(){location.href="/download/AutoCAD2009_ProductivityReseach.pdf"; }//ACADM 생산성보고서 다운로드
+

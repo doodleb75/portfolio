@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>Autodesk :: Design Market Place</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+</head>
+
+<!-- top -->
+	<link rel="stylesheet" type="text/css" href="/project/dmp/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/project/dmp/css/content.css">
+	<link rel="stylesheet" type="text/css" href="/project/dmp/css/layer.css">
+	<link rel="stylesheet" type="text/css" href="/project/dmp/css/tab.css">
+	
+	<!-- Common -->
+<!-- 	<script type="text/javascript" src="js/default.js"></script> -->
+	<script type="text/javascript" src="/project/dmp/js/flash.js"></script>
+	<script type="text/javascript" src="/project/dmp/js/link.js"></script>
+	<script type="text/javascript" src="/project/dmp/js/isValid.js"></script>
+	<script type="text/javascript" src="/project/dmp/js/ajax.js"></script>
+	<!-- script type="text/javascript" src="js/jquery-1.3.2.min.js"></script-->
+	<script type="text/javascript" src="/project/dmp/js/jquery-1.4.2.js"></script> 
+	<script type="text/javascript">
+		var $j = jQuery.noConflict();
+	</script>
+
+	<!-- 웹 로그 설정 -->
+	<script src="http://weblog.designmp.co.kr/hanbiro.js"></script> 
+	
+	<!-- POP UP을 위한 설정 -->
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="css/lightbox/lightwindow.css" />
+	
+	<!-- JavaScript -->
+<!-- 	<script type="text/javascript" src="/project/dmp/js/lightbox/prototype.js"></script>
+	<script type="text/javascript" src="/project/dmp/js/lightbox/effects.js"></script>
+	<script type="text/javascript" src="/project/dmp/js/lightbox/scriptaculous.js?load=effects"></script>
+	<script type="text/javascript" src="/project/dmp/js/lightwindow.js"></script>
+	<script type="text/javascript" src="/project/dmp/js/lightbox/lightwindow.js"></script>
+	<script type="text/javascript" src="/project/dmp/js/screenControl.js"></script> -->
+	
+
+<!-- //top-->
+
+
+<body id="index">
+<script type="text/javascript" src="js/wz_tooltip.js"></script> 
+<div id="wrap">
+	<!-- top -->
+		<div id="header">
+		<div class="top">
+			<h1><a href="#"><img src="/project/dmp/images/common/logo.gif" title="Design Market Place 오토데스크공인협력사프로모션사이트" alt="Design Market Place Logo" /></a></h1>
+			<ul>
+				<li class="first" onClick="javascript:popupWindow();" id='login_popup'>
+					<a href="#" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=520,lightwindow_height=276">로그인</a>
+				</li>
+				<li>
+					<a href="#">회원가입</a>
+				</li>
+				<li class="first">
+					<a href="#">로그아웃</a>
+				</li>
+				<li>
+					<a href="#">마이페이지</a>
+				</li>
+				<li>
+					<a href="#">장바구니</a>
+				</li>
+				<li>
+					<a href="#" onClick="bookmark();">즐겨찾기</a>
+				</li>
+				<li class="first">
+						<input type="text" name="search_work" id="search_work" class="keyword" value="" title="검색어를 입력하세요" /><input type="image" onclick="search();return false;" src="/project/dmp/images/common/btnSearch.gif" alt="검색" class="btnSearch" />
+				</li>
+			</ul>
+			<div class="clear"></div>
+		</div>
+		<div class="gnb"><script>flash_load('/project/dmp/fl/gnb.swf','960','110');</script></div>
+	</div>
+			<!-- Layer Popup -->
+			<div class="fullMenu" id='total_menu_open' style='display:none'>
+				<div class="layer_content">
+					<!-- Layer Content -->
+					<div class="layer_body">
+						<table>
+						<tr valign="top">
+						<td class="first-child">
+							<ul>
+							<li class="titCate"><a href="#newUpgradeZone" onclick="javascript:newUpgrade();">신규업그레이드 ZONE</a></li>
+							</ul>
+						</td>
+						<td>
+							<ul>
+							<li class="titCate"><a href="#promotionZone" onclick="javascript:promotion();">산업군별 프로모션 ZONE</a></li>
+							</ul>
+							<ul>
+							<li class="titCateM"><a href="#subscription" onclick="javascript:subscription();">서브스크립션 ZONE</a></li>
+							</ul>
+							<ul>
+							<li class="titCateM"><a href="#designADK" onclick="javascript:designADK();">디자인 오토데스크</a></li>
+							<li><a href="#designADK" onclick="javascript:designADK();">디자인 오토데스크</a></li>
+							<li><a href="#designADK" onclick="javascript:adkNews();">오토데스크 뉴스</a></li>
+							<li><a href="#designADK" onclick="javascript:betterBy();">Better by Design</a></li>
+							</ul>
+							<ul>
+							<li class="titCateM"><a href="#powerReseller" onclick="javascript:powerReseller();">파워리셀러</a></li>
+							<li><a href="#powerReseller" onclick="javascript:powerReseller();">한국인프라</a></li>
+							<li><a href="#powerReseller">한국씨아이엘</a></li>
+							</ul>
+							<ul>
+						</td>
+						<td>
+							<ul>
+							<li class="titCate"><a href="#pointMall" onclick="javascript:pointMall();">포인트 몰</a></li>
+							</ul>
+							<ul>
+							<li class="titCateM"><a href="#noticeList" onclick="javascript:noticeList();">고객지원</a></li>
+							<li><a href="#noticeList" onclick="javascript:noticeList();">공지사항</a></li>
+							<li><a href="#noticeList" onclick="javascript:call();">고객지원 센터</a></li>
+							<li><a href="#noticeList" onclick="javascript:faq();">FAQ</a></li>
+							</ul>
+							<ul>
+							<li class="titCateM"><a href="#myMain" onclick="javascript:myMain();">마이페이지</a></li>
+							<!-- <li><a href="#" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=520,lightwindow_height=276">나만을 위한 프로모션</a></li>
+							<li><a href="#" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=520,lightwindow_height=276">쿠폰등록</a></li>
+							<li><a href="#" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=520,lightwindow_height=276">관심제품</a></li>
+							<li><a href="#" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=520,lightwindow_height=276">보유제품 등록</a></li>
+							<li><a href="#" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=520,lightwindow_height=276">제품구매내역</a></li>
+							<li><a href="#" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=520,lightwindow_height=276">포인트 조회</a></li>
+							<li><a href="#" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=520,lightwindow_height=276">나의 Q&A</a></li>
+							<li><a href="#" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=520,lightwindow_height=276">회원정보</a></li>
+							<li><a href="#" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=520,lightwindow_height=276">회원탈퇴</a></li> -->
+							<li><a href="#myMain" onclick="javascript:myPromo();">나만을 위한 프로모션</a></li>
+							<li><a href="#myMain" onclick="javascript:coupon();">쿠폰등록</a></li>
+							<li><a href="#myMain" onclick="javascript:interest();">관심제품</a></li>
+							<li><a href="#myMain" onclick="javascript:myProduct();">보유제품 등록</a></li>
+							<li><a href="#myMain" onclick="javascript:buy();">제품구매내역</a></li>
+							<li><a href="#myMain" onclick="javascript:point();">포인트 조회</a></li>
+							<li><a href="#myMain" onclick="javascript:myQna();">나의 Q&A</a></li>
+							<li><a href="#myMain" onclick="javascript:modify();">회원정보</a></li>
+							<li><a href="#myMain" onclick="javascript:out();">회원탈퇴</a></li>
+							</ul>
+						</td>
+						</tr>
+						</table>
+					</div>
+					<p><a href="#close" class="close_layer" onclick="document.getElementById('total_menu_open').style.display='none'; return false;"><img src="/project/dmp/images/layer/btnMenuClose.gif" title="전체보기 닫기" alt="레이어닫기" /></a></p>
+					<!-- //Layer Content -->
+				</div>
+			</div>
+	<!-- //top -->
+
+
+	<div id="container">
+		<div class="mainVisual"><script>flash_load('/project/dmp/fl/mainVisual.swf','924','255');</script></div>
+		<div class="mar13"></div>
+		<div class="snb">
+			<div id="mainLeft">
+				<!-- 나만을위한프로모션(로그인전) -->
+				<ul>
+				<li class="mar9"></li>
+				<li class="leftTitle"><img src="/project/dmp/images/main/titleMypromotion.gif" title="나만을위한프로모션" alt="나만을위한프로모션 타이틀" /></li>
+				<li class="btnMore"><a href="#" class="btn"><img src="/project/dmp/images/main/btnMore.gif" title="더보기" alt="나만을위한 프로모션 더보기" /></a></li>
+				<li class="mar13"></li>
+				<li><img src="/project/dmp/images/main/myPromotionImage.gif" title="" alt="" /></li>
+				<li class="mar3"></li>
+				<li><input name="mem_id" id="mem_id"  maxlength='10' type="text" size="13" class="inputTypeA verM" /> <input type="password" name='mem_pw' id='mem_pw' type="text" size="13" class="inputTypeA verM" /> <input type="image" src="/project/dmp/images/main/btnLogin.gif" onClick="memRegiCheck();return false;" class="verM" title="로그인" /></li>
+				<li class="mar2"></li>
+				<li><a href="#" class="txtJoin">회원가입</a>&nbsp;<span class="txtDV">|</span>&nbsp;<a href="#" class="txtFind">아이디/비밀번호 찾기</a></li>
+				<li class="mar10"></li>
+				<li class="lineGreen"></li>
+				<li class="mar15"></li>
+				</ul>
+				<!--<div class="mainMyPro">
+					<div class="name"><span class="name">나만을 위한 프로모션</span></div>
+					<div class="btn"><a href="mypage/myPromotion.jsp"><img src="/project/dmp/images/promotionZone/btnMore.gif" title="더보기" alt="더보기 버튼" /></a></div>
+					<div class="lineGray3"></div>
+					<p style="width:240px;height:103px;background:url('/upload/promotion/my_left_top_img') no-repeat;"></p>
+					<div class="lineGray3"></div>
+					<div class="tit"><a href="promotionZone/promotion/<%=rs_pro.getString("linkURL") %>"></a></div>
+					<div class="period"></div>
+				</div>
+				 <div class="mainMyPro">
+					<div class="name"><span class="name">나만을 위한 프로모션</span></div>
+					<div class="btn"><a href="mypage/myPromotion.jsp"><img src="/project/dmp/images/promotionZone/btnMore.gif" title="더보기" alt="더보기 버튼" /></a></div>
+					<div class="lineGray3"></div>
+					<p style="width:240px;height:103px;background:url('/upload/promotion/my_left_top_img') no-repeat;"></p>
+					<div class="lineGray3"></div>
+					<div class="tit"><a href="promotionZone/promotion/<%=rs_interest.getString("linkURL") %>"></a></div>
+					<div class="period"></div>
+				</div>
+
+				<div class="mainMyPro">
+					<div class="name"><span class="name">나만을 위한 프로모션</span></div>
+					<div class="btn"><a href="mypage/myPromotion.jsp"><img src="/project/dmp/images/promotionZone/btnMore.gif" title="더보기" alt="더보기 버튼" /></a></div>
+					<div class="lineGray3"></div>
+					<p style="width:240px;height:103px;background:url('images/main/myPromotionCut1.gif') no-repeat;"></p>
+					<div class="lineGray3"></div>
+					<div class="tit"><span class="name">보유하신 쿠폰을 등록하시면<br>특별한 기회가 제공됩니다.</span></div>
+				</div>
+ -->
+				<!-- 나만을위한프로모션(로그인후)
+				<div class="mainMyPro">
+					<div class="name"><span class="name">홍길동</span>&nbsp;님만을 위한 프로모션</div>
+					<div class="btn"><a href="mypage/myPromotion.jsp"><img src="/project/dmp/images/promotionZone/btnMore.gif" title="더보기" alt="더보기 버튼" /></a></div>
+					<div class="lineGray3"></div>
+					<p><img src="/project/dmp/images/main/myPromotionCut1.gif" width="240" height="103" title="" alt="" /></p>
+					<div class="lineGray3"></div>
+					<div class="tit"><a href="#mypromotion">AutoCAD 최고의 활용을 위한 교육지원 프로모션</a></div>
+					<div class="period">2010.05.20 ~ 2010.06.20</div>
+				</div>
+				 -->
+				<!-- //나만을위한프로모션 끝 -->
+				<!-- 포인트몰 -->
+				<ul>
+				<li><img src="/project/dmp/images/main/pointImage.gif" title="구매시 적립하신 포인트를 푸짐한 선물로 돌려 드립니다" alt="포인트몰 타이틀" /></li>
+				<li class="mar17"></li>
+				</ul>
+				<div class="pointBox">
+				<div class="goodIMG">
+					<p><img src="/project/dmp/images/main/pointGood1.gif" width="82" height="82" /></p>
+				</div>
+				<ul class="goodList">
+					<li class="on"><a href="#">iriver 도미노 Inflate</a></li>
+					<li><a href="#">마이크로소프트 무선마..</a></li>
+					<li><a href="#">샤프리얼딕 세이 RD-910</a></li>
+				</ul>
+				</div>
+				<div class="mar13"></div>
+				<!-- //포인트몰 끝 -->
+				<div><img src="/project/dmp/images/main/callBanner.gif" title="고객지원센타 1566-3423" alt="고객지원센타 배너" /></div>
+				<!-- 공지사항 -->
+				<ul>
+				<li class="mar17"></li>
+				<li class="leftTitle"><img src="/project/dmp/images/main/titleNotice.gif" title="공지사항" alt="공지사항 타이틀" /></li>
+				<li class="btnMore"><a href="#" class="btn"><img src="/project/dmp/images/main/btnMore.gif" title="더보기" alt="공지사항 더보기" /></a></li>
+				<li class="mar7"></li>
+				</ul>
+				<ul class="mainNotice">
+					<li><a href="">designmarket place가 새롭게 리뉴얼..</a></li>
+					<li><a href="">designmarket place가 새롭게 리뉴얼..</a></li>
+					<li><a href="">designmarket place가 새롭게 리뉴얼..</a></li>
+					<li><a href="">designmarket place가 새롭게 리뉴얼..</a></li>
+				</ul>
+				<div class="mar17"></div>
+				<!-- //공지사항 끝 -->
+				<!-- solutionDay 2010 Banner -->
+				<p><a href="http://autodesk.co.kr/solutionday2010" target="_blank"><img src="/project/dmp/images/main/mainSolutionBanner.gif" title="Autodesk SolutionDay Virtual 2010 온라인세미나 티저 오픈!!" alt="solutionDay 2010 배너" /></a></p>
+				<div class="mar22"></div>
+				<!-- //solutionDay 2010 Banner 끝 -->
+				<!-- 협력사Zone -->
+				<ul>
+				<li class="leftTitle"><img src="/project/dmp/images/main/titleSponsorZone.gif" title="협력사존" alt="협력사존 타이틀" /></li>
+				<li class="btnMore"><a href="#" class="btn"><img src="/project/dmp/images/main/btnMore.gif" title="더보기" alt="협력사존 더보기" /></a></li>
+				<li class="mar13"></li>
+				<li class="sponLogo"><a href="http://www8.hp.com/kr/ko/home.html" target="_blank"><img src="/project/dmp/images/main/sponsorHP.gif" title="한국휴렛패커드" alt="한국휴렛패커드 로고" /></a></li>
+				<li class="sponLogoLast"><a href="http://www.nvidia.co.kr/object/cuda_home_new_kr" target="_blank"><img src="/project/dmp/images/main/sponsorNvidia.gif" title="Nvidia" alt="Nvidia 로고" /></a></li>
+				<li class="sponLogo"><a href="http://www.intel.com/index.htm#/ko_KR_01" target="_blank"><img src="/project/dmp/images/main/sponsorIntel.gif" title="인텔" alt="인텔 로고" /></a></li>
+				<li class="sponLogoLast"><a href="http://www.microsoft.co.kr" target="_blank"><img src="/project/dmp/images/main/sponsorMS.gif" title="마이크로소프트하드웨어" alt="마이크로소프트하드웨어 로고" /></a></li>
+				<li class="clear"></li>
+				</ul>
+				<!--<p class="sopnsorBanner"> <script>flash_load('/project/dmp/fl/100303_hp_176180_01.swf','176','166');</script> -->
+					<!-- Start of Brightcove Player -->
+					<div style="display:none">
+					</div>
+					<!--
+					By use of this code snippet, I agree to the Brightcove Publisher T and C found at https://accounts.brightcove.com/en/terms-and-conditions/. 
+					-->
+					<p class="videoCon" style="position:relative;top:8px;">
+					<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+					<object id="88560859001" class="BrightcoveExperience">
+					<param name="bgcolor" value="#FFFFFF" />
+					<param name="width" value="242" />
+					<param name="height" value="166" />
+					<param name="playerID" value="83096635001" />
+					<param name="publisherID" value="82075186001"/>
+					<param name="isVid" value="true" />
+					<param name="isUI" value="true" />
+					<param name="dynamicStreaming" value="true" />
+					<param name="@videoPlayer" value="88560859001" />
+					</object>
+					<!-- 
+					This script tag will cause the Brightcove Players defined above it to be created as soon as the line is read by the browser. If you wish to have the player instantiated only after
+					the rest of the HTML is processed and the page load is complete, remove the line.
+					-->
+					<script type="text/javascript">brightcove.createExperiences();</script>
+					<!-- End of Brightcove Player -->				
+				<!-- </p> -->
+				<!-- //협력사Zone 끝 -->
+			</div>
+			<div class="mar30"></div>
+		</div>
+		<div id="content">
+			<div id="contentMain">
+				<!-- 신규업그레이드존 -->
+				<ul>
+				<li class="leftTitle titleNewUp"><img src="/project/dmp/images/main/titleNewUpgrade.gif" title="신규업그레이드Zone" alt="신규업그레이드Zone 타이틀" /></li>
+				<li class="btnMore titleNewUp"><a href="#"><img src="/project/dmp/images/main/btnMore.gif" title="더보기" alt="신규업그레이드Zone 더보기" /></a></li>
+				<li class="mar15"></li>
+				</ul>
+				<!-- 신제품리스트 -->
+				<ul class="newUpLeft">
+				<li class="pdImg"><a href="#"><img src="/project/dmp/images/box/acad_173.gif" width="173" height="173" title="AutoCAD 2011" alt="AutoCAD 2011 제품이미지" /></a></li>
+				<li class="newUpTitle">
+				<p class="description1">AutoCAD 2011</p>
+				<p class="description2">미래디자인을 창조하는 오토데스크 2011 그 차이를 확인하십시오.</p>
+				</li>
+				</ul>
+				<div class="newUpRight">
+				<ul class="newUpList newUpListFirst">
+				<li class="thumb"><a href="#"><img src="/project/dmp/images/box/inventorPro_105.gif" width="105" height="85" title="AutoCAD Inventor Professional 2011" alt="AutoCAD Inventor Professional 2011 제품이미지" /></a></li>
+				<li class="newUpTitle">
+				<p class="description1">AutoCAD Inventor Professional 2011</p>
+				</li>
+				</ul>
+				<ul class="newUpList">
+				<li class="thumb"><a href="#"><img src="/project/dmp/images/box/sketch_105.gif" width="105" height="85" title="Autodesk SketchBookPro 2010" alt="Autodesk SketchBookPro 2010 제품이미지" /></a></li>
+				<li class="newUpTitle">
+				<p class="description1">Autodesk SketchBookPro 2010</p>
+				</li>
+				</ul>
+				<ul class="newUpList">
+				<li class="thumb"><a href="#"><img src="/project/dmp/images/box/maya_105.gif" width="105" height="85" title="Autodesk Maya 2011" alt="Autodesk Maya 2011 제품이미지" /></a></li>
+				<li class="newUpTitle">
+				<p class="description1">Autodesk Maya 2011</p>
+				</li>
+				</ul>
+				<ul class="newUpList newUpListFirst">
+				<li class="thumb"><a href="#"><img src="/project/dmp/images/box/3dsMax_105.gif" width="105" height="85" title="Autodesk 3ds Max 2011" alt="Autodesk 3ds Max 2011 제품이미지" /></a></li>
+				<li class="newUpTitle">
+				<p class="description1">Autodesk 3ds Max 2011</p>
+				</li>
+				</ul>
+				<ul class="newUpList">
+				<li class="thumb"><a href="#"><img src="/project/dmp/images/box/acadLT_105.gif" width="105" height="85" title="AutoCAD LT 2011" alt="AutoCAD LT 2011 제품이미지" /></a></li>
+				<li class="newUpTitle">
+				<p class="description1">AutoCAD LT 2011</p>
+				</li>
+				</ul>
+				<ul class="newUpList">
+				<li class="thumb"><a href="#"><img src="/project/dmp/images/box/revitArch_105.gif" width="105" height="85" title="AutoCAD Revit Architecture 2011" alt="AutoCAD Revit Architecture 2011 제품이미지" /></a></li>
+				<li class="newUpTitle">
+				<p class="description1">AutoCAD Revit Architecture 2011</p>
+				</li>
+				</ul>
+				</div>
+				<!-- //신제품리스트 끝 -->
+				<!-- //신규업그레이드존 끝 -->
+			</div>
+			<div class="mar9"></div>
+			<div class="lineGray"></div>
+			<div id="contentMain">
+				<!-- 산업군별 프로모션존 -->
+				<ul>
+				<li class="mar10"></li>
+				<li class="leftTitle titleNewUp"><img src="/project/dmp/images/main/titlePromotionZone.gif" title="산업군별 프로모션Zone" alt="산업군별 프로모션Zone 타이틀" /></li>
+				<li class="btnMore titleNewUp"><a href="#"><img src="/project/dmp/images/main/btnMore.gif" title="더보기" alt="프로모션 더보기" /></a></li>
+				<li class="mar10"></li>
+				<li><script>flash_load('/project/dmp/fl/promotionZone.swf','654','280');</script></li>
+				</ul>
+				<!-- //산업군별 프로모션존 끝 -->
+			</div>
+			<div id="contentMain">
+				<!-- 서브스크립션존 -->
+				<ul>
+				<li class="mar19"></li>
+				<li><img src="/project/dmp/images/main/subscriptionZone.gif" usemap="#subscripton" title="오토데스크 서브스크립션의 완벽한 소프트웨어/지원/교육 패키지를 통해 기술 업그레이드를 간소화하고 설계 생산성을 향상시키십시오." alt="서브스크립션 이미지" /></li>
+				</ul>
+<map name="subscripton" id="subscripton">
+	<area shape="rect" coords="12,72,99,98" href="subscriptionZone/subscriptionList.jsp" />
+</map>
+				<!-- //서브스크립션존 끝 -->
+				<!-- 협력사제품 -->
+				<ul>
+				<li class="mar3"></li>
+				<li class="leftTitle titleNewUp"><img src="/project/dmp/images/main/titleSponsorSales.gif" title="협력사제품" alt="협력사제품 타이틀" /></li>
+				<li class="btnMore titleNewUp"><a href="#"><img src="/project/dmp/images/main/btnMore.gif" title="더보기" alt="협력사제품 더보기" /></a></li>
+				<li class="mar12"></li>
+				</ul>
+				<ul class="mainSponPd">
+				<li class="mainSponPd1"><a href="#"><img src="/project/dmp/images/main/sponsorProduct1.gif" width="315" height="77" title="Arc mouse" alt="협력사 제품이미지" /></a></li>
+				<li class="mainSponPd2"><a href="#"><img src="/project/dmp/images/main/sponsorProduct2.gif" width="315" height="77" title="HP 워크스테이션" alt="협력사 제품이미지" /></a></li>
+				</ul>
+				<!-- //협력사제품 끝 -->
+			</div>
+			<div class="mar22"></div>
+			<div class="lineGray"></div>
+			<div id="contentMain">
+				<!-- 고객지원 하단배너 -->
+				<ul class="mainFootBn">
+				<li class="first"><img src="/project/dmp/images/main/csImageCall.gif" title="상담전화 1566-3423" alt="고객센터 배너" /></li>
+				<li class="cursor" onMouseOver="Tip('<img src= &quot;images/main/csImageBuyInfo.gif&quot; />')" onMouseOut="UnTip()"><img src="/project/dmp/images/main/csImageBuy.gif" title="제품구매 방법이 궁금하십니까?" alt="제품구매 배너" /></li>
+				<li><a  href="layer/productView.jsp?new_seq=298" onClick="javascript:popupWindow();" class="lightwindow page-options" params="lightwindow_type=external,lightwindow_width=910,lightwindow_height=630"><img src="/project/dmp/images/main/csImageProduct.gif" title="최신 제품을 소개해 드립니다." alt="제품정보 배너" /></a></li>
+				<li><a href="http://www.autodesk.co.kr/adsk/servlet/mform?validate=no&siteID=1169528&id=11750105" target="_blank"><img src="/project/dmp/images/main/csImageNewsLetter.gif" title="최신 프로모션과 제품을 가장 빨리 받아볼 수 있습니다." alt="뉴스레터 신청 배너" /></a></li>
+				</ul>
+				<!-- //고객지원 하단배너 끝 -->
+			</div>
+		</div>
+		<div class="clear">
+		</div>
+	</div>
+	<!-- footer -->
+	<div id="footer">
+		<h1><a href="http://www.autodesk.co.kr/" target="_blank"><img src="/project/dmp/images/common/adkLogo.gif" title="Autodesk" alt="Autodesk Logo" /></a></h1>
+		<ul>
+			<li class="first">
+				<a href="http://www.autodesk.co.kr/adsk/servlet/index?siteID=1169528&id=14825898" target="_blank">오토데스크 협력사</a>
+			</li>
+			<li>
+				<a href="#">이용약관</a>
+			</li>
+			<li>
+				<a href="#">개인보호취급방침</a>
+			</li>
+			<li>
+				<a href="#">FAQ</a>
+			</li>
+		</ul>
+		<div class="clear"></div>
+			<address class="addressPaos">
+			&copy;&nbsp;Copyright
+			<a href="http://www.ipaos.com/" target="_blank">PAOS Partners</a>
+			Co., Ltd. All Rights Reserved.
+			</address>
+	</div>
+	<!-- //footer-->
+</div>
+</body>
+</html>
+

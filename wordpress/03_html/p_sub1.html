@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--
+/*************************************************************************
+* @ 서비스명   : 화면 > 동반자추가
+* @ 파일명     : 01.html/p_sub1.html
+* @ 페이지설명  : 레이아웃
+* @ 작성자     : 배대현
+* @ 작성일     : 2021-10-02
+************************** 수정이력 ****************************************
+* 날짜                    작업자                 변경내용
+*_________________________________________________________________________
+* 2021-10-02             배대현                 최초작성
+*************************************************************************/
+-->
+
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>화면 > index</title>
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="./css/default.css">
+    <script src="js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+    </script>
+</head>
+
+<body>
+
+    <!-- Sub Contents Start // -->
+    <div id="wrap" data-title="none">
+
+        <div class="sub-header">
+            <h2 class="sub-title"><button></button>동반자 추가</h2>
+            <p>
+                함께 라운딩할 동반자의 휴대폰번호를 입력하거나
+                예전 목록에서 선택해주세요.
+            </p>
+        </div>
+
+        <div class="sub-content-box">
+            <div class="ph-number">
+                <h3>휴대폰 번호</h3>
+                <ul class="ph-list">
+                    <li>
+                        <div class="num-group">
+                            <input type="text" class="num1" value=""
+                                onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" name="cellPhone" id="cellPhone"
+                                maxlength="3" placeholder="010"><i>-</i>
+                            <input type="text" class="num1" value=""
+                                onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" name="cellPhone" id="cellPhone"
+                                maxlength="4" placeholder="1234"><i>-</i>
+                            <input type="text" class="num1" value=""
+                                onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" name="cellPhone" id="cellPhone"
+                                maxlength="4" placeholder="5678">
+                        </div>
+                        <button type="button" class="remove-num"></button>
+                    </li>
+                    <li>
+                        <div class="num-group">
+                            <input type="text" class="num1" value=""
+                                onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" name="cellPhone" id="cellPhone"
+                                maxlength="3" placeholder="010"><i>-</i>
+                            <input type="text" class="num1" value=""
+                                onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" name="cellPhone" id="cellPhone"
+                                maxlength="4" placeholder="1234"><i>-</i>
+                            <input type="text" class="num1" value=""
+                                onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" name="cellPhone" id="cellPhone"
+                                maxlength="4" placeholder="5678">
+                        </div>
+                        <button type="button" class="remove-num"></button>
+                    </li>
+                    <li>
+                        <div class="num-group">
+                            <input type="text" class="num1" value=""
+                                onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" name="cellPhone" id="cellPhone"
+                                maxlength="3" placeholder="010"><i>-</i>
+                            <input type="text" class="num1" value=""
+                                onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" name="cellPhone" id="cellPhone"
+                                maxlength="4" placeholder="1234"><i>-</i>
+                            <input type="text" class="num1" value=""
+                                onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" name="cellPhone" id="cellPhone"
+                                maxlength="4" placeholder="5678">
+                        </div>
+                        <button type="button" class="remove-num"></button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="prev-crew-list">
+                <h3>예전 동반자 목록</h3>
+                <ul class="list">
+                    <li>
+                        <input type="checkbox" id="chk-icon1"><label for="chk-icon1"></label>
+                        <span class="">
+                            김보영
+                            <p>010-1234-5678</p>
+                        </span>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="chk-icon2"><label for="chk-icon2"></label>
+                        <span>
+                            김보영
+                            <p>010-1234-5678</p>
+                        </span>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="chk-icon3"><label for="chk-icon3"></label>
+                        <span>
+                            김보영
+                            <p>010-1234-5678</p>
+                        </span>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="chk-icon4"><label for="chk-icon4"></label>
+                        <span>
+                            김보영
+                            <p>010-1234-5678</p>
+                        </span>
+                    </li>
+                </ul>
+                <!-- 동반자 없을 경우 -->
+                <div class="no-crew-box">
+
+                </div>
+
+                <div class="bot-btn-group">
+                    <button type="button" class="btn-cancel">취소</button>
+                    <button type="button" class="btn-regist">등록</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                /* Modal Initialized */
+                $('.modal-trigger').leanModal();
+            });
+
+            // click 후 -> 확인 버튼
+            /* var onBtnClicked = (btnId) => {
+                Swal.close();
+                if (btnId != "취소") Swal.fire("you choosed: " + btnId);
+            }; */
+
+            /* E */
+            btn1Trigger1.onclick = () => {
+                Swal.fire({
+                    customClass: {
+                        popup: 'custom-popup'
+                    },
+                    html: "<h3 class='cs-pop-text'>동반자는 최대 3명까지 추가 가능합니다.</h3>"
+                })
+            };
+
+            /* F */
+            btn1Trigger2.onclick = () => {
+                Swal.fire({
+                    confirmButtonText: '닫기',
+                    customClass: {
+                        popup: 'custom-popup'
+                    },
+                    html: "<h3 class='cs-pop-text'>올바르지 않은 형식의 휴대폰번호입니다.</h3>"
+                })
+            };
+
+            /* G */
+
+            btn1Trigger3.onclick = () => {
+                Swal.fire({
+                    showConfirmButton: true,
+                    showCancelButton: true,
+                    confirmButtonText: '확인',
+                    cancelButtonText: '취소',
+                    customClass: {
+                        popup: 'custom-popup',
+                        actions: 'btn-flex2'
+                    },
+                    html: `
+                <h3 class='cs-pop-text'>입력하신 휴대폰번호로 사전내장등록 알림톡이 발송됩니다.</h3>`
+                });
+            };
+        </script>
+</body>
+
+</html>

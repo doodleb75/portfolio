@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WINHUB Homepage</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  </head>
+  <body>
+    <div id="loader">
+      <div class="loader-bar"></div>
+    </div>
+    <div class="bar-container" style="position: fixed; /* 기타 스타일 */">
+        <svg id="animatedBarSVG" class="bar-svg" viewBox="0 0 100 10" preserveAspectRatio="none" width="100%" height="100%">
+            <path id="barElementPath" d="M0 5 L0 5 L0 5 L0 5 Z" />
+        </svg>
+    </div>
+    <div class="bar"></div> <div id="threejs-background-container"></div>
+    <div class="canvas-cont">
+      <canvas id="canvas3d"></canvas>
+    </div>
+    
+    <section class="part-container">
+      <div class="gnb-container">
+        <div class="menu-icon ">
+          <button id="menu-toggle" class="">☰</button>
+        </div>
+      </div>
+      <div id="menu-overlay" class="hidden">
+        <button id="menu-close" class="close-btn">✕</button>
+        <div class="menu-content">
+          <div class="menu-links">
+            <div class="top-link">
+              <a href="./page/about.html">
+                <span class="menu-link-text">ABOUT</span>
+                <svg class="menu-link-hover-svg ml-3" viewBox="0 0 217.41 63.21" width="100" height="60" style="opacity:0; transform: translateX(-10px);">
+                    <g>
+                        <polyline class="arrow-path" points="0 62.21 215 62.21 153.5 .71"/>
+                    </g>
+                </svg>
+              </a>
+            </div>
+            <div class="top-link">
+              <a href="./page/work.html">
+                <span class="menu-link-text">WORK</span>
+                <svg class="menu-link-hover-svg ml-3" viewBox="0 0 217.41 63.21" width="100" height="60" style="opacity:0; transform: translateX(-10px);">
+                    <g>
+                        <polyline class="arrow-path" points="0 62.21 215 62.21 153.5 .71"/>
+                    </g>
+                </svg>
+              </a>
+            </div>
+            <div class="top-link">
+              <a href="./page/contact.html">
+                <span class="menu-link-text">CONTACT</span>
+                <svg class="menu-link-hover-svg ml-3" viewBox="0 0 217.41 63.21" width="100" height="60" style="opacity:0; transform: translateX(-10px);">
+                    <g>
+                        <polyline class="arrow-path" points="0 62.21 215 62.21 153.5 .71"/>
+                    </g>
+                </svg>
+              </a>
+            </div>
+            </div>
+        </div>
+      </div>
+      <div id="hero" class="flex row">
+        <div class="container">
+          <div class="com-name-ani">
+            WINHUB
+          </div>
+          <div class="headline">
+            <!-- <div>IS</div>
+            <div><em class="connect">CONNECTED</em></div>
+            <div>TO YOUR</div>
+            <div>SUCCESS.</div> -->
+            <div>CONNECTS</div>
+            <div>TO EMPOWER</div>
+            <div>YOUR </div>
+            <div>SUCCESS</div>
+          </div>
+        </div>
+        <p class="scroll-icon"><span class="scroll"></span></p>
+      </div>
+
+      <div id="part1" class="flex row">
+        <div class="part1-info flex column text">
+          <div class="sub-title">WINHUB ADVANTAGE</div> <div class="advantage-cards-grid"> 
+            <div class="advantage-card">
+              <div class="advantage-icon"><i class="fas fa-microchip"></i></div>
+              <h2>혁신을 선도하는 기술력</h2>
+              <p>WINHUB는는 AI, Cloud, Big Data 등 최신 기술 트렌드를 깊이 있게 이해하고, 이를 고객의 비즈니스에 실제 적용하여 복잡한 기술적 과제를 해결합니다. 변화하는 시장에서 고객이 항상 한발 앞서 나갈 수 있도록 혁신적인 기술 솔루션을 제공합니다.</p>
+            </div>
+            <div class="advantage-card">
+              <div class="advantage-icon"><i class="fas fa-users-cog"></i></div>
+              <h2>고객 중심의 맞춤형 전략</h2>
+              <p>단순한 솔루션 공급을 넘어, 고객의 비즈니스 목표와 고유한 환경을 정확히 분석하고 이해합니다. 맞춤형 컨설팅부터 시스템 구축, 안정적인 운영 및 지속적인 가치 창출까지, 고객 성공을 위한 최적의 전략을 제시하고 실행합니다.</p>
+            </div>
+            <div class="advantage-card">
+              <div class="advantage-icon"><i class="fas fa-medal"></i></div>
+              <h2>신뢰할 수 있는 수행능력</h2>
+              <p>다양한 산업 분야에서 축적한 풍부한 SI 프로젝트 경험과 성공 사례는 WINHUB의 강력한 자산입니다. 검증된 방법론과 안정적인 프로젝트 관리 능력을 바탕으로, 약속된 기간 내에 최고 품질의 결과물을 제공하여 고객의 신뢰에 보답합니다.</p>
+            </div>
+          </div>
+
+          <div class="integrated-value-card">
+            <div class="integrated-value-icon"><i class="fas fa-sitemap"></i></div>
+            <h2>통합 시너지로 완성하는 고객의 성공</h2>
+            <p>WINHUB는 기술 리더십, 고객 맞춤 전략, 그리고 검증된 수행능력을 유기적으로 결합하여 개별 솔루션을 넘어선 강력한 통합 시너지를 창출합니다. 우리는 고객의 비즈니스가 디지털 시대에 지속적으로 성장하고 성공할 수 있도록 가장 신뢰받는 파트너가 될 것을 약속드립니다.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="part2" class="flex row">
+        <div class="part2-info flex column">
+          <div class="sub-title">WORKS</div>
+          
+          <div class="works-list-container">
+            <ul class="works-list">
+              <li class="work-item">
+                <a href="#" aria-label="View Project Title 1">
+                  <div class="work-item-thumbnail">
+                    <img src="https://placehold.co/600x450/2c3e50/ffffff?text=Project+A" alt="[프로젝트 알파 썸네일]">
+                    <div class="work-item-overlay">
+                      <span class="work-item-view-text">View Details</span>
+                    </div>
+                  </div>
+                  <div class="work-item-caption">
+                    <h3>Project A</h3>
+                    <p>Web Design & Development</p>
+                  </div>
+                </a>
+              </li>
+              <li class="work-item">
+                <a href="#" aria-label="View Project Title 2">
+                  <div class="work-item-thumbnail">
+                    <img src="https://placehold.co/600x450/34495e/ffffff?text=Project+B" alt="[프로젝트 베타 썸네일]">
+                    <div class="work-item-overlay">
+                      <span class="work-item-view-text">View Details</span>
+                    </div>
+                  </div>
+                  <div class="work-item-caption">
+                    <h3>Project B</h3>
+                    <p>Mobile App Development</p>
+                  </div>
+                </a>
+              </li>
+              <li class="work-item">
+                <a href="#" aria-label="View Project Title 3">
+                  <div class="work-item-thumbnail">
+                    <img src="https://placehold.co/600x450/7f8c8d/ffffff?text=Project+C" alt="[프로젝트 감마 썸네일]">
+                    <div class="work-item-overlay">
+                      <span class="work-item-view-text">View Details</span>
+                    </div>
+                  </div>
+                  <div class="work-item-caption">
+                    <h3>Project C</h3>
+                    <p>Branding & Identity</p>
+                  </div>
+                </a>
+              </li>
+              <li class="work-item">
+                <a href="#" aria-label="View Project Title 2">
+                  <div class="work-item-thumbnail">
+                    <img src="https://placehold.co/600x450/34495e/ffffff?text=Project+B" alt="[프로젝트 베타 썸네일]">
+                    <div class="work-item-overlay">
+                      <span class="work-item-view-text">View Details</span>
+                    </div>
+                  </div>
+                  <div class="work-item-caption">
+                    <h3>Project B</h3>
+                    <p>Mobile App Development</p>
+                  </div>
+                </a>
+              </li>
+              <li class="work-item">
+                <a href="#" aria-label="View Project Title 3">
+                  <div class="work-item-thumbnail">
+                    <img src="https://placehold.co/600x450/7f8c8d/ffffff?text=Project+C" alt="[프로젝트 감마 썸네일]">
+                    <div class="work-item-overlay">
+                      <span class="work-item-view-text">View Details</span>
+                    </div>
+                  </div>
+                  <div class="work-item-caption">
+                    <h3>Project C</h3>
+                    <p>Branding & Identity</p>
+                  </div>
+                </a>
+              </li>
+              <li class="work-item">
+                <a href="#" aria-label="View Project Title 2">
+                  <div class="work-item-thumbnail">
+                    <img src="https://placehold.co/600x450/34495e/ffffff?text=Project+B" alt="[프로젝트 베타 썸네일]">
+                    <div class="work-item-overlay">
+                      <span class="work-item-view-text">View Details</span>
+                    </div>
+                  </div>
+                  <div class="work-item-caption">
+                    <h3>Project B</h3>
+                    <p>Mobile App Development</p>
+                  </div>
+                </a>
+              </li>
+              <li class="work-item">
+                <a href="#" aria-label="View Project Title 3">
+                  <div class="work-item-thumbnail">
+                    <img src="https://placehold.co/600x450/7f8c8d/ffffff?text=Project+C" alt="[프로젝트 감마 썸네일]">
+                    <div class="work-item-overlay">
+                      <span class="work-item-view-text">View Details</span>
+                    </div>
+                  </div>
+                  <div class="work-item-caption">
+                    <h3>Project C</h3>
+                    <p>Branding & Identity</p>
+                  </div>
+                </a>
+              </li>
+              <li class="work-item">
+                <a href="#" aria-label="View Project Title 2">
+                  <div class="work-item-thumbnail">
+                    <img src="https://placehold.co/600x450/34495e/ffffff?text=Project+B" alt="[프로젝트 베타 썸네일]">
+                    <div class="work-item-overlay">
+                      <span class="work-item-view-text">View Details</span>
+                    </div>
+                  </div>
+                  <div class="work-item-caption">
+                    <h3>Project B</h3>
+                    <p>Mobile App Development</p>
+                  </div>
+                </a>
+              </li>
+              <li class="work-item">
+                <a href="#" aria-label="View Project Title 3">
+                  <div class="work-item-thumbnail">
+                    <img src="https://placehold.co/600x450/7f8c8d/ffffff?text=Project+C" alt="[프로젝트 감마 썸네일]">
+                    <div class="work-item-overlay">
+                      <span class="work-item-view-text">View Details</span>
+                    </div>
+                  </div>
+                  <div class="work-item-caption">
+                    <h3>Project C</h3>
+                    <p>Branding & Identity</p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <button onclick="location.href='./page/work.html'">Go To WorkList</button>
+        </div>
+        <div></div> </div>
+      <div id="part3" class="flex row ">
+        <div class="part3-info flex column text">
+        <div class="sub-title">YOUR SUCCESS PARTNER</div>
+          <div class="outro-content">
+            <h2>함께 만들어갈 디지털 혁신, <br/>지금 WINHUB와 시작하세요.</h2>
+            <p>WINHUB는는 단순한 시스템 구축을 넘어, 고객 비즈니스의 성공적인 디지털 전환을 위한 진정한 파트너십을 추구합니다. 다년간 축적된 SI 분야의 전문성과 끊임없는 기술 혁신을 통해 고객에게 최고의 가치를 제공할 것을 약속드립니다.</p>
+            <p>귀사의 비즈니스에 최적화된 맞춤형 솔루션이 궁금하십니까? 지금 바로 WINHUB의 전문가와 상담하세요. 숙련된 컨설턴트가 친절하게 안내해 드리며, 귀사의 성공적인 미래 설계를 위한 최적의 로드맵을 제시해 드립니다.</p>
+            <button onclick="location.href='./page/contact.html'" class="cta-button">프로젝트 문의하기</button>
+          </div>
+        </div>
+      </div>
+      <footer class="index subpage-footer">
+        <div class="footer-content-wrapper">
+            <div class="footer-links">
+                <a href="#" class="content-class">이용약관</a>
+                <a href="#" class="content-class">개인정보취급방침</a>
+                <a href="#" class="content-class">이메일주소 무단수집거부</a>
+            </div>
+            <div class="footer-info">
+                <div class="footer-info-group">
+                    <span class="content-class">회사명: 주식회사 윈허브</span>
+                    <span class="content-class">대표이사: 송석규</span>
+                    <span class="content-class">사업자등록번호: 763-88-00939</span>
+                </div>
+                <div class="footer-info-group">
+                    <span class="content-class">주소: (우)10594 경기도 고양시 덕양구 동산동 379번지 309호 (에이스하이엔드타워 지축역) (주)윈허브</span>
+                </div>
+                <div class="footer-info-group">
+                    <span class="content-class">Tel : 031-998-1815</span>
+                    <span class="content-class">Fax : 031-998-1820</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </section>
+
+    <button id="scrollToTopBtn" title="위로 가기">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script type="module" src="./assets/js/main-app.js"></script>
+  </body>
+</html>

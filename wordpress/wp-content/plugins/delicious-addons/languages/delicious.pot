@@ -1,0 +1,1688 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Delicious Addons - Stag Edititon\n"
+"POT-Creation-Date: 2016-03-07 16:55+0200\n"
+"PO-Revision-Date: 2016-03-07 16:56+0200\n"
+"Last-Translator: deliciousthemes <deliciousthemes@gmail.com>\n"
+"Language-Team: DeliciousThemes <deliciousthemes@gmail.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: esc_html__;esc_html_e;esc_html_x;__;_x;_e;esc_attr__;"
+"esc_attr_x;esc_attr_e\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../delicious-cpt/class-delicious-cpt.php:26
+#: ../delicious-cpt/class-delicious-cpt.php:28
+msgid "Projects"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:27
+#: ../delicious-cpt/class-delicious-cpt.php:38
+msgid "Portfolio"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:29
+msgid "Add New"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:30
+msgid "Add New Portfolio Item"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:31
+msgid "Edit Project"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:32
+msgid "New Project"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:33
+msgid "View Project"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:34
+msgid "Search Projects"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:35
+msgid "No projects found"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:36
+msgid "No projects found in Trash"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:37
+msgid "Parent Portfolio:"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:41
+msgid "Add your Projects"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:63
+#: ../extend-vc/core/delicious-vc-map.php:591
+msgid "Portfolio Categories"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:64
+msgid "Portfolio Category"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:65
+msgid "Search Portfolio Categories"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:66
+msgid "All Portfolio Categories"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:67
+msgid "Parent Portfolio Category"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:68
+msgid "Parent Portfolio Category:"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:69
+msgid "Edit Portfolio Category"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:70
+msgid "Update Portfolio Category"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:71
+msgid "Add New Portfolio Category"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:72
+msgid "New Portfolio Category Name"
+msgstr ""
+
+#: ../delicious-cpt/class-delicious-cpt.php:73
+msgid "Choose from the most used portfolio categories"
+msgstr ""
+
+#: ../delicious-cpt/single-portfolio.php:29
+msgid "Previous Project"
+msgstr ""
+
+#: ../delicious-cpt/single-portfolio.php:35
+msgid "Next Project"
+msgstr ""
+
+#: ../extend-vc/class-delicious-extend-vc.php:86
+msgid ""
+"<strong>Delicious Addons</strong> requires <strong><a href=\"http://goo.gl/"
+"wteqRM\" target=\"_blank\">Visual Composer</a></strong> plugin to be "
+"installed and activated on your site."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:14
+msgid "CSS Animation"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:18
+msgid ""
+"Select animation type if you want this element to be animated when it enters "
+"into the browsers viewport. They`re based on the <a href='https://github.com/"
+"matthieua/WOW' target='_blank'>Wow Project</a>. Note: Works only in modern "
+"browsers."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:23
+msgid "CSS Animation Delay"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:26
+msgid ""
+"Set a value for delaying the animation(seconds). You could use, for example, "
+"0.1 to delay it with 0.1 seconds or 3 to delay it with 3 seconds. "
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:40
+#: ../extend-vc/core/delicious-vc-map.php:150
+msgid "Background Color"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:43
+msgid ""
+"You can set a color over the background image. You can make it more or less "
+"opaque, by using the next setting. Default: white "
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:47
+msgid "Background Color Opacity"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:50
+msgid ""
+"Set an opacity value for the color(values between 0-100). 0 means no color "
+"while 100 means solid color. Default: 70 "
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:54
+#: ../extend-vc/core/delicious-vc-map.php:157
+msgid "Text Color Scheme"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:57
+msgid ""
+"Pick a color scheme for the content text. 'Light Text' looks good on dark bg "
+"images while 'Dark Text' looks good on light images."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:59
+msgid "Dark Text"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:60
+msgid "Light Text"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:75
+msgid "Quote"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:81
+#: ../extend-vc/core/delicious-vc-map.php:125
+#: ../extend-vc/core/delicious-vc-map.php:183
+#: ../extend-vc/core/delicious-vc-map.php:226
+#: ../extend-vc/core/delicious-vc-map.php:278
+#: ../extend-vc/core/delicious-vc-map.php:314
+#: ../extend-vc/core/delicious-vc-map.php:422
+#: ../extend-vc/core/delicious-vc-map.php:456
+#: ../extend-vc/core/delicious-vc-map.php:685
+#: ../extend-vc/core/delicious-vc-map.php:733
+#: ../extend-vc/core/delicious-vc-map.php:766
+#: ../extend-vc/core/delicious-vc-map.php:876
+#: ../extend-vc/core/delicious-vc-map.php:917
+#: ../extend-vc/core/delicious-vc-map.php:996
+#: ../extend-vc/core/delicious-vc-map.php:1073
+#: ../extend-vc/core/delicious-vc-map.php:1158
+#: ../extend-vc/core/delicious-vc-map.php:1239
+#: ../extend-vc/core/delicious-vc-map.php:1297
+#: ../extend-vc/core/delicious-vc-map.php:1363
+#: ../extend-vc/core/delicious-vc-map.php:1440
+#: ../extend-vc/core/delicious-vc-map.php:1514
+msgid "Delicious"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:87
+msgid "Quote Text"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:93
+msgid "Quote Author"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:98
+#: ../extend-vc/core/delicious-vc-map.php:1025
+msgid "Size"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:101
+msgid "Small"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:102
+msgid "Medium"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:103
+#: ../extend-vc/core/delicious-vc-map.php:1027
+msgid "Large"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:108
+#: ../extend-vc/core/delicious-vc-map.php:298
+#: ../extend-vc/core/delicious-vc-map.php:467
+#: ../extend-vc/core/delicious-vc-map.php:1456
+msgid "Alignment"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:111
+#: ../extend-vc/core/delicious-vc-map.php:300
+#: ../extend-vc/core/delicious-vc-map.php:469
+#: ../extend-vc/core/delicious-vc-map.php:1101
+#: ../extend-vc/core/delicious-vc-map.php:1458
+msgid "Left"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:112
+#: ../extend-vc/core/delicious-vc-map.php:300
+#: ../extend-vc/core/delicious-vc-map.php:469
+#: ../extend-vc/core/delicious-vc-map.php:1101
+#: ../extend-vc/core/delicious-vc-map.php:1458
+msgid "Center"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:119
+msgid "Interest Tab"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:131
+#: ../extend-vc/core/delicious-vc-map.php:189
+#: ../extend-vc/core/delicious-vc-map.php:461
+#: ../extend-vc/core/delicious-vc-map.php:1078
+#: ../extend-vc/core/delicious-vc-map.php:1552
+msgid "Title"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:137
+msgid "Subtitle"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:143
+msgid "URL"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:145
+msgid "Set the link of the tab."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:153
+msgid "Set the background color of the tab."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:160
+msgid "Light"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:161
+msgid "Dark"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:167
+#: ../extend-vc/core/delicious-vc-map.php:899
+msgid "Extra Class Name"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:169
+msgid ""
+"If you wish to style a tab differently, then use this field to add a class "
+"name and then refer to it in your css file."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:177
+msgid "Process Item"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:191
+msgid "Title of the Process Item"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:196
+msgid "Number"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:198
+msgid "Ex: 01 or 02"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:202
+#: ../extend-vc/core/delicious-vc-map.php:324
+#: ../extend-vc/core/delicious-vc-map.php:1032
+msgid "Style"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:204
+#: ../extend-vc/core/delicious-vc-map.php:326
+#: ../extend-vc/core/delicious-vc-map.php:525
+msgid "Style 1"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:204
+#: ../extend-vc/core/delicious-vc-map.php:326
+#: ../extend-vc/core/delicious-vc-map.php:525
+msgid "Style 2"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:205
+msgid "Set the style of the process item."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:210
+msgid "Content"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:212
+msgid "Description of the process."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:220
+msgid "Fun Fact"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:232
+msgid "Value"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:234
+msgid "Enter the value of the funfact. Ex: 34"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:238
+msgid "Decimals of the Value Number"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:241
+msgid ""
+"If you want to display the number with decimals, just insert how many "
+"decimals the number should have. Also, make sure that your number was "
+"introduced with decimals. For example, setting decimals to 2 and a number to "
+"45.27 will properly display the number."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:247
+msgid "FunFact Text"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:249
+msgid "Enter a text for the fact. Ex: 'Projects Completed'."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:254
+msgid "Speed"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:257
+msgid "Speed for the animation(milliseconds)."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:261
+msgid "Add Left Border(optional)?"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:263
+msgid "No, thanks!"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:263
+msgid "Yes, please"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:264
+msgid "You can add a left border to the fun fact."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:272
+#: ../extend-vc/core/delicious-vc-map.php:284
+msgid "Section Title"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:292
+msgid "Section Subtitle"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:301
+msgid "Display the title aligned to left or centered."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:308
+msgid "Team Member"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:318
+msgid "Thumbnail"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:320
+msgid "Upload an image for the team member. "
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:329
+msgid "The style of the team member"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:333
+msgid "Thumbnail size(Optional)"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:335
+msgid ""
+"Enter image size. Example: thumbnail, medium, large, full. Alternatively "
+"enter image size in pixels: 200x100 (Width x Height). Leave empty to use "
+"'thumbnail' size. Recommended: 600x800"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:341
+#: ../extend-vc/core/delicious-vc-map.php:602
+msgid "Name"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:343
+msgid "Usually, First Name + Second Name"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:349
+msgid "Company Position"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:351
+msgid "Position in the company. Ex: CEO"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:356
+msgid "Email Address"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:358
+msgid "Optional. Ex: member@company.com"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:363
+msgid "Twitter URL"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:365
+msgid "Optional. Ex: http://www.twitter.com/deliciousthemes"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:370
+msgid "Facebook URL"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:372
+msgid "Optional. Ex: http://www.facebook.com/deliciousthemes"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:377
+msgid "LInkedin URL"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:379
+msgid "Optional. Ex: http://www.linkedin.com/deliciousthemes"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:384
+msgid "Google+ URL"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:386
+msgid "Optional. Ex: http://plus.google.com/deliciousthemes"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:391
+msgid "Pinterest URL"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:393
+msgid "Optional. Ex: http://www.pinterest.com/deliciousthemes"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:398
+msgid "Instagram URL"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:400
+msgid "Optional. Ex: http://www.instagram.com/deliciousthemes"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:405
+msgid "Custom URL"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:407
+msgid "Optional. Ex: http://www.google.com"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:416
+msgid "Social Block"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:427
+msgid "Title before the social block (optional)"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:429
+msgid ""
+"If you want to set a title for the social block, add it above. Something "
+"like 'Share this post' will work very well. Icons included in the social "
+"block: twitter, facebook, pinterest, google+, delicious and linkedin."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:449
+msgid "Portfolio Grid"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:463
+msgid "Set a title for the projects grid. Ex: Latest Projects. Optional"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:473
+msgid "Set the alignment of the widget title and filters."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:477
+msgid "Layout"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:479
+#: ../extend-vc/core/delicious-vc-map.php:1027
+msgid "Regular"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:479
+msgid "Masonry"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:479
+msgid "Grid Masonry"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:479
+msgid "Mosaic"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:479
+msgid "Fancy Parallax"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:484
+msgid "Style of the layout: Regular or Masonry."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:488
+#: ../extend-vc/core/delicious-vc-map.php:697
+msgid "Columns"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:496
+msgid "No. of columns for the portfolio grid."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:500
+msgid "Gap"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:508
+msgid "Select gap between grid elements."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:512
+msgid "Text Style"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:514
+msgid "Under Thumbnail"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:514
+msgid "On Thumbnail"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:519
+msgid ""
+"Style of the project text: Title and meta information under the thumbnail or "
+"over it."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:523
+msgid "On Thumbnail Caption Style"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:529
+msgid "Style of the caption text over the thumbnail."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:535
+msgid "Number of Items to Display"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:539
+msgid ""
+"Set how many portfolio items would you like to include in the grid. Use '-1' "
+"to include all your items."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:543
+msgid "Display Style"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:545
+msgid "All"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:545
+msgid "Load More Button"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:545
+msgid "Infinite Loading"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:550
+msgid "Select display style for grid"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:554
+msgid "Load More + keyword"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:559
+msgid "Replace the Load More button string."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:563
+msgid "Load More Button 'Loading...' keyword"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:568
+msgid "Replace the 'Loading...' string of the load more button state."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:572
+msgid "Infinite Scroll Loading... keyword"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:576
+msgid "Replace the 'Loading...' string for infinite scrolling state."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:580
+msgid "'No More Projects' keyword string"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:584
+msgid "Set another string for when there are no more projects to be loaded."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:594
+msgid "Select from which categories to display projects(mandatory)."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:599
+msgid "Order By:"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:602
+msgid "Date"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:602
+msgid "ID"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:602
+msgid "Last Modified Date"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:602
+msgid "Random"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:603
+msgid "Order the projects in the grid."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:608
+msgid "Order:"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:611
+msgid "Descending"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:611
+msgid "Ascending"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:612
+msgid "Set the direction order."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:617
+msgid "Show Trigger Button?"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:619
+msgid "No Thanks!"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:619
+msgid "Yes Please!"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:621
+msgid "Show a trigger button for the filters."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:626
+msgid "Trigger Button State"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:628
+msgid "Idle"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:628
+msgid "Active"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:633
+msgid ""
+"Set the trigger state. Active - shows the filters. Idle - Doesn`t show the "
+"filters."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:637
+msgid "Trigger keyword"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:641
+msgid "Replace the 'Filter' string for the trigger button."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:646
+msgid "Keyword for All Projects Filter"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:649
+msgid ""
+"You can replace the default 'All' keyword for the initial filter with "
+"another one. If you want to hide it, you can do it with this CSS code: .all-"
+"projects {  display: none !important; }"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:653
+msgid "'All' filter position."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:655
+msgid "At the beginning"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:655
+msgid "At the end"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:656
+msgid ""
+"Set where the 'All' filter should be displayed: at the beginning or at the "
+"end of the filter list."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:660
+msgid "Set Another Initial Filter"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:663
+msgid ""
+"You can set the portfolio grid to display projects from a certain category, "
+"on the initial state. If you want to reorder the categories, use <a "
+"href='http://goo.gl/kCYZ0L'>this plugin</a>"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:679
+msgid "Blog Carousel"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:690
+msgid "Number of Blog Posts to Display. Use '-1' to include all your items."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:693
+msgid "Set how many blog items would you like to include in the carousel."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:703
+msgid "Select blog carousel columns."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:707
+msgid "Select Categories"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:710
+msgid "Select from which categories to display blog posts(mandatory)."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:714
+#: ../extend-vc/core/delicious-vc-map.php:856
+#: ../extend-vc/core/delicious-vc-map.php:977
+#: ../extend-vc/core/delicious-vc-map.php:1463
+msgid "Sliding Direction"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:716
+#: ../extend-vc/core/delicious-vc-map.php:858
+#: ../extend-vc/core/delicious-vc-map.php:979
+#: ../extend-vc/core/delicious-vc-map.php:1465
+msgid "LTR"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:716
+#: ../extend-vc/core/delicious-vc-map.php:858
+#: ../extend-vc/core/delicious-vc-map.php:979
+#: ../extend-vc/core/delicious-vc-map.php:1465
+msgid "RTL"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:717
+#: ../extend-vc/core/delicious-vc-map.php:859
+#: ../extend-vc/core/delicious-vc-map.php:980
+#: ../extend-vc/core/delicious-vc-map.php:1466
+msgid ""
+"Set the direction of the slider: LTR(Left to Right) or RTL(Right to Left)."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:727
+msgid "List"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:739
+#: ../extend-vc/core/delicious-vc-map.php:1113
+#: ../extend-vc/core/delicious-vc-map.php:1572
+msgid "Icon Name"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:742
+msgid ""
+"Please set an icon for the custom list. The entire list of icons can be "
+"found at <a href='http://fortawesome.github.io/Font-Awesome/icons/' "
+"target='_blank'>FontAwesome project page</a>. For example, if an icon is "
+"named 'fa-angle-right', the value you have to add inside the field is 'angle-"
+"right'."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:748
+msgid "List Rows"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:751
+msgid "Create your list using the WordPress default functionality."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:760
+msgid "Clients Slider"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:772
+#: ../extend-vc/core/delicious-vc-map.php:923
+msgid "Upload Images"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:775
+msgid "Upload the images for your clients."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:780
+msgid "Clients Links"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:783
+msgid "Enter links for each client here. Divide links with linebreaks (Enter)."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:787
+#: ../extend-vc/core/delicious-vc-map.php:930
+msgid "Image size(Optional)"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:789
+#: ../extend-vc/core/delicious-vc-map.php:932
+msgid ""
+"Enter image size. Example: thumbnail, medium, large, full. Alternatively "
+"enter image size in pixels: 200x100 (Width x Height). Leave empty to use "
+"'thumbnail' size. Recommended: full"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:793
+msgid "No. of Rows"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:797
+msgid "Select how many rows the carousel should have."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:801
+msgid "Items in a Row - Big Desktop Screens"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:804
+msgid "Set how many clients to display side by side on big desktops."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:808
+msgid "Items in a Row - Regular Desktop Screens"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:811
+#: ../extend-vc/core/delicious-vc-map.php:818
+msgid "Set how many clients to display side by side on regular desktops."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:815
+msgid "Items in a Row - Small Desktop Screens"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:822
+msgid "Items in a Row - Tablet Screens"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:825
+msgid "Set how many clients to display side by side on tablets."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:829
+msgid "Items in a Row - Big Mobile Screens"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:832
+msgid "Set how many clients to display side by side on big mobile screens."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:836
+msgid "Items in a Row - Mobile Screens"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:839
+msgid ""
+"Set how many clients the element should display side by side on regular "
+"mobile devices."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:843
+#: ../extend-vc/core/delicious-vc-map.php:950
+#: ../extend-vc/core/delicious-vc-map.php:1450
+msgid "Slider Speed"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:845
+msgid ""
+"Define the speed of the slider in milliseconds. Default is set to 5000 (5 "
+"seconds). To stop the slider, use 'false' inside the textfield."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:849
+msgid "Dots Navigation"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:851
+msgid "True"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:851
+msgid "False"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:852
+msgid "Enable/Disable dots navigation."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:869
+msgid "Progress Bar"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:883
+msgid "Graphic values"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:886
+msgid ""
+"Input graph values here. Divide values with linebreaks (Enter). Example: 90|"
+"Development."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:891
+msgid "Units"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:894
+msgid ""
+"Enter measurement units (if needed) Eg. %, px, points, etc. Graph value and "
+"unit will be appended to the graph title."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:901
+msgid ""
+"If you wish to style a skill bar differently, then use this field to add a "
+"class name and then refer to it in your css file."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:911
+msgid "Delicious Image Slider"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:926
+msgid "Upload your images for the slider."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:936
+msgid "Lightbox"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:938
+msgid "Enabled"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:938
+msgid "Disabled"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:939
+msgid ""
+"Choose whether if you want to open the slider images in a ligtbox or not."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:943
+msgid "LazyLoad Images"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:945
+#: ../extend-vc/core/delicious-vc-map.php:1222
+#: ../extend-vc/core/delicious-vc-map.php:1406
+msgid "No"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:945
+#: ../extend-vc/core/delicious-vc-map.php:1222
+#: ../extend-vc/core/delicious-vc-map.php:1406
+msgid "Yes"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:946
+msgid ""
+"Choose whether if you want to lazy load images or not. For a faster page "
+"loading time, set the value to Yes."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:952
+msgid ""
+"Define the speed of the slider in milliseconds. Default is set to 8000 (8 "
+"seconds). To stop the slider, use 'false' inside the textfield."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:956
+msgid "Mobile Screens - No of slides to show"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:959
+msgid ""
+"Set how many slides the slider should display side by side on mobile devices."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:963
+msgid "Tablet Screens - No of slides to show"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:966
+msgid "Set how many slides the slider should display side by side on tablets."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:970
+msgid "Desktop Screens - No of slides to show"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:973
+msgid "Set how many slides the slider should display side by side on desktops."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:990
+msgid "Delicious Button"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1001
+msgid "Text on the button"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1005
+msgid "Text on the button."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1009
+msgid "URL(Link)"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1011
+msgid "Button Link."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1015
+msgid "Color"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1018
+msgid "Orange"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1018
+msgid "Yellow"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1018
+msgid "Green"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1018
+msgid "Blue"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1018
+msgid "Rose"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1018
+msgid "Black"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1018
+msgid "Red"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1018
+msgid "Gray"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1020
+msgid "Button color."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1028
+msgid "Button Size."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1034
+msgid "Bold - Solid button"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1034
+msgid "Thin - Border only"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1035
+msgid "Button Style."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1039
+msgid "Target"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1041
+msgid "Opens the link in the same window"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1041
+msgid "Opens the link in a new window"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1042
+msgid "Set the target of the button."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1046
+#: ../extend-vc/core/delicious-vc-map.php:1317
+msgid "Icon"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1048
+msgid ""
+"You can use icons from FontAwesome for the button. Visit the <a "
+"target='blank' href='http://fontawesome.io/icons/'>Icons List</a> and grab "
+"the name of the icon you want to display. Ex: fa-bolt"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1052
+msgid "Icon Position"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1054
+msgid "Icon on left"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1054
+msgid "Icon on right"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1055
+msgid "Display the icon on left or right side of button text."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1067
+msgid "Text with Icon"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1081
+msgid "Title of the widget."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1085
+msgid "Title Style"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1087
+#: ../extend-vc/core/delicious-vc-map.php:1124
+msgid "Thin"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1087
+#: ../extend-vc/core/delicious-vc-map.php:1124
+msgid "Bold"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1088
+msgid "Pick a style for the widget title."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1092
+msgid "Text"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1095
+msgid "Widget text."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1099
+msgid "Widget Alignment"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1101
+msgid "Right"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1102
+msgid "Set the alignment of the widget content."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1106
+#: ../extend-vc/core/delicious-vc-map.php:1564
+msgid "Media Type"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1108
+#: ../extend-vc/core/delicious-vc-map.php:1567
+msgid "Font Icon"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1108
+#: ../extend-vc/core/delicious-vc-map.php:1567
+msgid "Standard Image"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1109
+msgid ""
+"Pick the media type you want to use for the widget. Font Icon - use an icon "
+"from FontAwesome. Standard Image - upload an image(jpg, png, etc.)"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1117
+#: ../extend-vc/core/delicious-vc-map.php:1319
+#: ../extend-vc/core/delicious-vc-map.php:1577
+msgid ""
+"You can use icons from FontAwesome or LineIcons. Visit the <a target='blank' "
+"href='http://fontawesome.io/icons/'>FontAwesome Icons List</a> and <a "
+"href='https://goo.gl/gpGOSG' target='_blank'>ET Line Icons List</a> to grab "
+"the name of the icon you want to display. Ex: fa-bolt, icon-phone"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1122
+msgid "Icon Style"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1124
+msgid "Free"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1126
+msgid "Pick a style for the icon."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1130
+msgid "Icon Background Shape"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1132
+msgid "Square"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1132
+msgid "Circle"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1134
+msgid "Pick a style for the icon background."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1139
+#: ../extend-vc/core/delicious-vc-map.php:1582
+msgid "Image"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1142
+msgid "Upload an image for the widget."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1152
+msgid "Pricing Table Column"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1162
+msgid "Plan Title"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1166
+msgid ""
+"Set the title of the pricing column plan. Ex: Basic, Professional, Ultimate, "
+"etc."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1170
+msgid "Plan Price"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1173
+msgid "Set the price of the pricing column plan."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1177
+msgid "Plan Price Currency"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1180
+msgid "Set the price currency of the pricing column plan."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1184
+msgid "Plan Price Interval"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1187
+msgid ""
+"Set the interval of the pricing column plan. Ex: Month, Year, Week, etc."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1191
+msgid "Plan Description"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1194
+msgid "Set a tagline for the pricing column."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1199
+msgid "List of Features"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1202
+msgid ""
+"Enter the pricing package features. Divide them with linebreaks (Enter)."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1206
+msgid "Call to Action Button Text"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1209
+msgid "Set the call to action button text."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1213
+msgid "Call to Action Button Link"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1216
+msgid "Set the call to action button link."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1220
+msgid "Featured Column?"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1223
+msgid ""
+"Set the column as featured. It will stand out from the rest of the columns."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1232
+msgid "Google Map Widget"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1245
+msgid "Location Latitude"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1253
+msgid "Location Longitude"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1261
+msgid "Pin Title"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1269
+msgid "Pin Description"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1272
+msgid "You can use html tags to split the content in lines."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1278
+msgid "Pin Color"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1281
+msgid "Set the background color of the pin/marker."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1286
+msgid "Map Min Height"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1288
+msgid "Leave empty for 100% height. Otherwise, use CSS values like 400px."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1295
+msgid "Hexagon Services"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1308
+msgid "Hexagon"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1323
+msgid "Tooltip Text"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1326
+msgid "Set a tooltip. Ex: Quick Development"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1330
+msgid "Link(Optional)"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1332
+msgid "Set a link for the hexagon. Ex: http://google.com"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1336
+msgid "Vertical Position(Optional)"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1338
+msgid ""
+"px units. You can move the Hexagon up or down using negative and positive "
+"values(digits only). For example, to lower the hexagon with 30px, use 30."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1361
+msgid "Process Tabs"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1374
+#: ../extend-vc/core/delicious-vc-map.php:1535
+msgid "Extra class name"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1376
+#: ../extend-vc/core/delicious-vc-map.php:1537
+msgid ""
+"Style particular content element differently - add a class name and refer to "
+"it in custom CSS."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1382
+msgid "Process Tab"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1390
+msgid "Tab Title"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1393
+msgid "Set a title for the tab button."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1397
+msgid "Tab Order Number"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1400
+msgid "Set a number for the tab.(ex: 01)."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1404
+msgid "Initial Tab?"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1407
+msgid "Set this tab as initial(opened tab)."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1411
+msgid "Content Title"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1413
+msgid "Set the title of the process. It will appear inside the content."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1417
+msgid "Content Body"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1419
+msgid "The content body text of the process tab."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1438
+msgid "Testimonials Slider"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1452
+msgid ""
+"Define the speed of the slider in milliseconds. Default is set to false (no "
+"automatic sliding). To have a slider which automatically changes slides, use "
+"an integer value inside the textfield(ex: 5000)."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1459
+msgid "Set the alignment of the testimonials."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1472
+msgid "Testimonial"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1481
+msgid "Testimonial Content"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1483
+msgid "Here comes the testimonial text."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1487
+msgid "Client Name"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1490
+msgid "The name of the client who left the testimonial."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1494
+msgid "Client Company"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1497
+msgid "The name of the company the client works for."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1512
+msgid "Services Grid"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1524
+msgid "Services per Row"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1530
+msgid "Select how many services a row should have."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1543
+msgid "Service"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1554
+msgid "Title of the service."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1558
+msgid "Service Text"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1560
+msgid "Service item text, which will appear on hover."
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1568
+msgid ""
+"Pick the media type you want to use for the service. Font Icon - use an icon "
+"from FontAwesome or LineIcons. Standard Image - upload an image(jpg, png, "
+"etc.)"
+msgstr ""
+
+#: ../extend-vc/core/delicious-vc-map.php:1585
+msgid "Upload an image for the service."
+msgstr ""
+
+#: ../extend-vc/core/includes/dt_navigation.php:36
+msgid "&laquo;"
+msgstr ""
+
+#: ../extend-vc/core/includes/dt_navigation.php:37
+msgid "&raquo;"
+msgstr ""
+
+#: ../extend-vc/core/includes/dt_navigation.php:38
+msgid "First"
+msgstr ""
+
+#: ../extend-vc/core/includes/dt_navigation.php:39
+msgid "Last"
+msgstr ""
+
+#: ../extend-vc/core/includes/dt_navigation.php:40
+msgid "Older Entries"
+msgstr ""
+
+#: ../extend-vc/core/includes/dt_navigation.php:41
+msgid "Newer Entries"
+msgstr ""
+
+#: ../extend-vc/core/includes/dt_navigation.php:165
+#, php-format
+msgid "Page %s of %s"
+msgstr ""

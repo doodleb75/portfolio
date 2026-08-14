@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<!--
+/*************************************************************************
+* @ 서비스명   : 화면 > 이용내역
+* @ 파일명     : 01.html/p_sub3.html
+* @ 페이지설명  : 레이아웃
+* @ 작성자     : 배대현
+* @ 작성일     : 2021-10-02
+************************** 수정이력 ****************************************
+* 날짜                    작업자                 변경내용
+*_________________________________________________________________________
+* 2021-10-02             배대현                 최초작성
+*************************************************************************/
+-->
+
+<html lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>화면 > index</title>
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="./css/default.css">
+</head>
+
+<body>
+
+    <!-- Sub Contents Start // -->
+
+    <div id="wrap" data-title="none">
+        <div class="sub-header">
+            <h2 class="sub-title"><button></button>결제금액 입력</h2>
+        </div>
+
+        <!-- 팀결제 -->
+        <div id="test3" class="sub-content-box payment-result-input">
+            <div class="use-history">
+                <div>남은 결제금액은
+                    <h3>1,244,000<i>원 입니다</i>.</h3>
+
+                    <div class="total-price">
+                        <button class="history-refresh"></button>
+                        <button class="history-download"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="history-price collapsible">
+                <ul>
+                    <li class="price-info title">
+                        <div class="info">
+                            <span>팀 이용금액</span>
+                            <span class="line"></span>
+                            <span>820,000 원</span>
+                        </div>
+                        <ul class="ex-box team" style="display: none;">
+                            <li class="active">
+                                <div class="collapsible-body etc-pay">
+                                    <div class="info team">
+                                        <span>김미래</span>
+                                        <span class="line"></span>
+                                        <span>62,000 원</span>
+                                    </div>
+                                    <div class="info team">
+                                        <span>이미래</span>
+                                        <span class="line"></span>
+                                        <span>2,000 원</span>
+                                    </div>
+                                    <div class="info team">
+                                        <span>프로샵</span>
+                                        <span class="line"></span>
+                                        <span>2,000 원</span>
+                                    </div>
+                                    <div class="info team">
+                                        <span>기타</span>
+                                        <span class="line"></span>
+                                        <span>2,000 원</span>
+                                    </div>
+                                    <div class="info team">
+                                        <span>개별소비세</span>
+                                        <span class="line"></span>
+                                        <span>2,000 원</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="price-info title">
+                        <div class="info">
+                            <span>결제금액</span>
+                            <span class="line"></span>
+                            <span>150,000 원</span>
+                        </div>
+                        <ul class="ex-box team" style="display: none;">
+                            <li class="active">
+                                <div class="collapsible-body etc-pay">
+                                    <div class="info team">
+                                        <span>김미래</span>
+                                        <span class="line"></span>
+                                        <span>62,000 원</span>
+                                    </div>
+                                    <div class="info team">
+                                        <span>이미래</span>
+                                        <span class="line"></span>
+                                        <span>2,000 원</span>
+                                    </div>
+                                    <div class="info team">
+                                        <span>프로샵</span>
+                                        <span class="line"></span>
+                                        <span>2,000 원</span>
+                                    </div>
+                                    <div class="info team">
+                                        <span>기타</span>
+                                        <span class="line"></span>
+                                        <span>2,000 원</span>
+                                    </div>
+                                    <div class="info team">
+                                        <span>개별소비세</span>
+                                        <span class="line"></span>
+                                        <span>2,000 원</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="payment-result">
+                            <div>
+                                <span> 남은 결제 금액</span>
+                                <span> 256,450,000 원</span>
+                            </div>
+                        </div>
+
+                        <div id="toggle-button3" class="collapsible-header detail-folding" tabindex="0">
+                            상세내역
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 2 row contents -->
+            <div class="use-history payment-input">
+                <div class="comment">
+                    결제할 금액을 입력해 주세요.
+                </div>
+                <div class="payment">
+                    <h4>결제금액</h4>
+                    <input type="text" id="result-input" readonly placeholder="0" /> 원
+                </div>
+                <ul class="tabs payment-input-type">
+                    <li class="tab">
+                        <a href="#s-result1" class='activewhite-text'>직접입력</a>
+                    </li>
+                    <li class="tab">
+                        <a href="#s-result2" class='white-text'>1/N결제</a>
+                    </li>
+                    <li class="tab active">
+                        <a href="#s-result3" class=' white-text'>개인이용금액</a>
+                    </li>
+                </ul>
+                <div class="payment-type">
+                    <div id="s-result1">
+                        직접입력(결제할 금액을 집적입력)
+                        <div class="type1">
+                            <input id="parent-input" type="button" value="결제금액 입력" class="modal-trigger"
+                                data-target="modal1" placeholder="결제금액 입력">
+                            <span>원</span>
+                        </div>
+                    </div>
+                    <div id="s-result2">
+                        1/N 결제(팀 남은 결제 금액을 나누어 결제)
+                        <div class="type2">
+                            <div class="payment-input-type">
+                                <input type="radio" id="radio1" name="radios" value="all" checked>
+                                <label for="radio1">전체결제</label>
+                                <input type="radio" id="radio2" name="radios" value="false">
+                                <label for="radio2">1/2</label>
+                                <input type="radio" id="radio3" name="radios" value="true">
+                                <label for="radio3">1/3</label>
+                                <input type="radio" id="radio4" name="radios" value="true">
+                                <label for="radio4">1/4</label>
+                            </div>
+                            <p class="pay-caution">
+                                ※ 1/N 결제는 중복선택 불가
+                            </p>
+                        </div>
+                    </div>
+                    <div id="s-result3">
+                        개인 이용금액 결제(복수선택 가능)
+                        <div class="type3">
+                            <div class="payment-input-type">
+                                <input type="checkbox" id="chk1" name="chk" value="all" checked>
+                                <label for="chk1">김미래</label>
+                                <input type="checkbox" id="chk2" name="chk" value="false">
+                                <label for="chk2">이미래</label>
+                                <input type="checkbox" id="chk3" name="chk" value="true">
+                                <label for="chk3">박미래</label>
+                                <input type="checkbox" id="chk4" name="chk" value="true">
+                                <label for="chk4">강미래</label>
+                                <input type="checkbox" id="chk5" name="chk" value="true">
+                                <label for="chk5">오미래</label>
+                                <input type="checkbox" id="chk6" name="chk" value="true">
+                                <label for="chk6">강미래</label>
+                                <input type="checkbox" id="chk7" name="chk" value="true">
+                                <label for="chk7">오미래</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- // 결제방법 3type end -->
+
+            <!-- 마일리지 사용 Start -->
+            <div class="use-history payment-input mileage">
+                <div class="title">
+                    마일리지 사용
+                </div>
+                <div class="mileage-insert">
+                    <!-- <input type="text" value="" /> -->
+                    <div>
+                        <input id="parent-input-mileage" type="button" value="" class="modal-trigger"
+                            data-target="modal2" />
+                        <button type="button">모두사용</button>
+                    </div>
+                    <div class="mileage-result">
+                        <span>김미래님 사용 가능 마일리지</span>
+                        <span>326,000 원</span>
+                    </div>
+                </div>
+                <!-- 마일리지 조회 Default display 변경 요청 -->
+                <div class="mileage-default">
+                    <button type="button">마일리지 조회</button>
+                </div>
+            </div>
+
+            <!-- 결제정보 Start -->
+            <div class="history-price team-use-pay">
+                <div class="team-payment">
+                    <h3>결제 정보</h3>
+                </div>
+                <ul>
+                    <li class="price-info title">
+                        <div class="info">
+                            <span>결제할 금액</span>
+                            <span class="line"></span>
+                            <span id="price-payment-result">0 원</span>
+                        </div>
+                        <div class="info">
+                            <span>마일리지 사용</span>
+                            <span class="line"></span>
+                            <span id="price-mileage-result">0 원</span>
+                        </div>
+                        <div class="payment-result">
+                            <div style="margin-bottom: 6px;">
+                                <span> 최종 결제 금액</span>
+                                <span id="combine-total-result">0 원</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 결제동의 -->
+            <div class="payment-agree">
+                <h5>결제 진행 필수 동의</h5>
+                <div class="info-collect-agree">
+                    <input type="checkbox" id="agree" name="i-agree">
+                    <label for="agree">개인정보 수집 및 이용에 관한 사항</label>
+                    <button type="button" class="modal-trigger" data-target="modal3">보기</button>
+                </div>
+            </div>
+
+            <!-- 결제버튼 -->
+            <div class="bot-btn-group b-width-100" style="margin: 0 20px">
+                <button id="payment-check" type="button" style="margin-bottom: 20px"
+                    class="btn-regist modal-close pop-close" href="#checkout-calculate">
+                    결제하기
+                </button>
+                <button type="button" style="margin-bottom: 20px" class="btn-cancel modal-close pop-close"
+                    href="#checkout-calculate">
+                    결제취소
+                </button>
+            </div>
+        </div>
+        <!-- 팀결제 -->
+
+        <!-- Modal Trigger -->
+        <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
+
+        <!-- Modal Structure -->
+        <!-- 결제금액입력 Modal Popup -->
+        <div id="modal1" class="modal bottom-sheet input-pay-modal">
+            <div class="modal-header">
+                <h2>결제금액 입력</h2>
+                <button type="button" class="modal-close pop-close" href="#simple-chkin"></button>
+            </div>
+            <div class="modal-content">
+                <h4>결제하실 금액을 입력해 주세요.</h4>
+                <div class="select">
+                    <div class="inputNum-calculator">
+                        <input id="modal-input" type="text" readonly placeholder="0">
+                        <span class="won-mark">원</span>
+                        <button id="clear" class="num-btn"><i></i></button>
+
+                        <div class="keypad">
+                            <button class="num-btn">1</button>
+                            <button class="num-btn">2</button>
+                            <button class="num-btn">3</button>
+                            <button class="num-btn">4</button>
+                            <button class="num-btn">5</button>
+                            <button class="num-btn">6</button>
+                            <button class="num-btn">7</button>
+                            <button class="num-btn">8</button>
+                            <button class="num-btn">9</button>
+                            <button id="clearKey" class="num-btn">취소</button>
+                            <button class="num-btn">0</button>
+                            <button id="backspace" class="num-btn backspace-icon"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="bot-btn-group">
+                        <button id="next1" type="button" class="btn-regist modal-close btn-disabled"
+                            onclick="passValueToParent()" disabled>다음</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 마일리지입력 Modal Popup -->
+        <div id="modal2" class="modal bottom-sheet input-mileage-modal">
+            <div class="modal-header">
+                <h2>마일리지 입력</h2>
+                <button type="button" class="modal-close pop-close" href="#simple-chkin"></button>
+            </div>
+            <div class="modal-content">
+                <h4>마일리지를 입력해 주세요.</h4>
+                <div class="select">
+                    <div class="inputNum-calculator">
+                        <input id="modal-input-mileage" type="text" readonly placeholder="0">
+                        <span class="won-mark">원</span>
+                        <button id="clear-mileage" class="num-btn2"><i></i></button>
+                        <div class="keypad-mileage">
+                            <button class="num-btn2">1</button>
+                            <button class="num-btn2">2</button>
+                            <button class="num-btn2">3</button>
+                            <button class="num-btn2">4</button>
+                            <button class="num-btn2">5</button>
+                            <button class="num-btn2">6</button>
+                            <button class="num-btn2">7</button>
+                            <button class="num-btn2">8</button>
+                            <button class="num-btn2">9</button>
+                            <button id="clearKey-mileage" class="num-btn2">취소</button>
+                            <button class="num-btn2">0</button>
+                            <button id="backspace-mileage" class="num-btn2 backspace-icon"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="bot-btn-group">
+                    <button id="next2" type="button" class="btn-regist modal-close btn-disabled"
+                        onclick="passValueToParentMileage()" disabled>다음</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 개인정보수집 Modal Popup -->
+        <div id="modal3" class="modal bottom-sheet input-mileage-modal">
+            <div class="modal-header">
+                <h2>개인정보 수집 및 이용에 관한 사항</h2>
+                <button type="button" class="modal-close pop-close" href="#simple-chkin"></button>
+            </div>
+            <div class="modal-content">
+                <div class="personal-collect-box">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="bot-btn-group">
+                    <button type="button" class="btn-regist modal-close">확인</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(".button-collapse").sideNav();
+            $(document).ready(function () {
+                /* Modal Initialized */
+                $('.modal-trigger').leanModal();
+                // Materialize.toast('Ready', 4000);
+            });
+
+            var elem = document.querySelector('.collapsible.expandable');
+            var instance = M.Collapsible.init(elem, {
+                accordion: false
+            });
+
+            /* A */
+            btn1Trigger1.onclick = () => {
+                Swal.fire({
+                    customClass: {
+                        popup: 'custom-popup'
+                    },
+                    html: "<h3 class='cs-pop-text'>이용내역은 체크인 후에 확인할 수 있습니다.</h3>"
+                })
+            };
+
+            /* B */
+            btn1Trigger2.onclick = () => {
+                Swal.fire({
+                    confirmButtonText: '닫기',
+                    customClass: {
+                        popup: 'custom-popup'
+                    },
+                    html: "<h3 class='cs-pop-text'>유효하지 않은 경기입니다.</h3>"
+                })
+            };
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#toggle-button3').click(function () {
+                    $('#test3 .collapsible .price-info .ex-box').slideToggle();
+                    $('#test3 .collapsible .price-info').toggleClass('active');
+                    $('#test3 #toggle-button3').toggleClass('active');
+                });
+
+                $('.collapsible').click(function () {
+                    $(this).next('.ex-box').slideToggle();
+                    $(this).toggleClass('active');
+                });
+            });
+            const buttons = document.querySelectorAll('.view-billinfo');
+
+            buttons.forEach(button => {
+                const text = button.getAttribute('data-text');
+
+                button.addEventListener('click', () => {
+                    button.textContent = button.textContent === text ? text.replace('요금정보보기', '')[0] + ' 요금정보보기' : text;
+                    button.classList.toggle('infoText');
+                });
+            });
+
+            // refresh button 클릭 시...
+            const refreshButtons = document.querySelectorAll('.history-refresh');
+            refreshButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    const isUpdated = checkUpdateStatus(); // 업데이트 상태 확인하는 함수를 호출합니다.
+
+                    if (isUpdated) {
+                        refreshStatus('새로고침되었습니다.');
+                    } else {
+                        refreshStatus('이미 최신상태입니다.');
+                    }
+                });
+            });
+            function checkUpdateStatus() {
+                // 업데이트 상태를 확인하는 로직을 구현합니다.
+                // 새로고침된 상태인지, 최신 상태인지 여부를 판단하는 조건을 작성합니다.
+                // 예를 들어, 서버와 통신하여 최신 데이터의 버전을 확인하는 등의 작업이 수행될 수 있습니다.
+                // 이 예시에서는 단순히 무작위로 true 또는 false를 반환하도록 했습니다.
+                return Math.random() < 0.5; // 50% 확률로 true 또는 false를 반환합니다.
+            }
+            function refreshStatus(message) {
+                Swal.fire({
+                    showCancelButton: false,
+                    timer: 1000,
+                    showConfirmButton: false,
+                    customClass: {
+                        popup: 'alert-status-toast'
+                    },
+                    html: `<h3 class='cs-pop-text'>${message}</h3>`
+                });
+            }
+            // 직접입력 모달
+            const input = document.getElementById('modal-input');
+            const clearBtn = document.getElementById('clear');
+            const clearKey = document.getElementById('clearKey');
+            const backspaceBtn = document.getElementById('backspace');
+            const numButtons = document.getElementsByClassName('num-btn');
+
+            for (let i = 0; i < numButtons.length; i++) {
+                numButtons[i].addEventListener('click', function () {
+                    input.value += numButtons[i].textContent;
+                    clearBtn.style.display = 'inline-block';
+                    backspaceBtn.style.display = 'inline-block';
+                    formatNumber();
+                });
+            }
+
+            clearKey.addEventListener('click', function () {
+                input.value = '';
+                checkInputValue();
+                clearBtn.style.display = 'none';
+            });
+
+            clearBtn.addEventListener('click', function () {
+                input.value = '';
+                checkInputValue();
+                clearBtn.style.display = 'none';
+            });
+
+            backspaceBtn.addEventListener('click', function () {
+                input.value = input.value.slice(0, -1);
+                if (input.value === '') {
+                    clearBtn.style.display = 'none';
+                }
+                formatNumber();
+                checkInputValue();
+            });
+
+            function formatNumber() {
+                let number = input.value.replace(/\D/g, '');
+                const originalLength = number.length;
+
+                // Insert commas every 3 digits
+                let formattedNumber = '';
+                while (number.length > 3) {
+                    formattedNumber = ',' + number.slice(-3) + formattedNumber;
+                    number = number.slice(0, -3);
+                }
+                formattedNumber = number + formattedNumber;
+
+                // Display formatted number with commas
+                input.value = formattedNumber;
+
+                // Adjust cursor position when adding commas
+                const diff = formattedNumber.length - originalLength;
+                input.setSelectionRange(input.selectionStart + diff, input.selectionEnd + diff);
+            }
+
+            function passValueToParent() {
+                const modalInput = input.value.replace(/,/g, '');
+                const resultInput = document.getElementById('result-input');
+                const parentInput = document.getElementById('parent-input');
+                const pricePayment = document.getElementById('price-payment-result');
+                const formattedModalInput = formatNumberForDisplay(modalInput);
+
+                parentInput.value = formattedModalInput;
+                resultInput.value = formattedModalInput;
+                pricePayment.textContent = formattedModalInput + ' 원';
+            }
+
+            // #modal-input 에 값이 0보다 작을 때 버튼 disabled....
+            const modalInput = document.getElementById("modal-input");
+            const numButtonsEvent = document.querySelectorAll(".num-btn:not(#clearKey):not(#clear)");
+            const nextButton = document.getElementById("next1");
+
+            numButtonsEvent.forEach(function (button) {
+                button.addEventListener("click", function () {
+                    const value = button.textContent;
+
+                    if (!modalInput.value.endsWith(value)) {
+                        modalInput.value += value;
+                    }
+
+                    checkInputValue();
+                });
+            });
+
+            function checkInputValue() {
+                const inputValue = modalInput.value.trim(); // Trim leading/trailing whitespace
+
+                if (inputValue === "" || parseFloat(inputValue) === 0) {
+                    nextButton.disabled = true;
+                    nextButton.classList.add("btn-disabled");
+                } else {
+                    const numericValue = parseFloat(inputValue.replace(/,/g, '')); // Remove commas and parse as float
+
+                    if (numericValue < 0 || isNaN(numericValue)) {
+                        // alert('입력값이 유효하지 않습니다.');
+                        nextButton.disabled = true;
+                        nextButton.classList.add("btn-disabled");
+                        showAlert();
+                    } else if (numericValue > 10000000) {
+                        // alert('백만을 초과하였습니다.');
+                        // nextButton.disabled = true;
+                        // nextButton.classList.add("btn-disabled");
+                        showAlert();
+
+                        const truncatedValue = Math.floor(numericValue / 10); // Remove the last digit
+                        const formattedValue = numberWithCommas(truncatedValue); // Add commas
+                        modalInput.value = formattedValue;
+                    } else {
+                        nextButton.disabled = false;
+                        nextButton.classList.remove("btn-disabled");
+                    }
+                }
+            }
+
+            modalInput.addEventListener("input", function () {
+                checkInputValue();
+            });
+
+            nextButton.addEventListener("click", function () {
+                const inputValue = modalInput.value.trim(); // Trim leading/trailing whitespace
+                const numericValue = parseFloat(inputValue.replace(/,/g, '')); // Remove commas and parse as float
+
+                if (numericValue > 100000000) {
+                    showAlert();
+                }
+            });
+
+            // 마일리지 모달
+            const inputMileage = document.getElementById('modal-input-mileage');
+            const clearBtnMileage = document.getElementById('clear-mileage');
+            const clearKeyMileage = document.getElementById('clearKey-mileage');
+            const backspaceBtnMileage = document.getElementById('backspace-mileage');
+            const mileageNumButtons = document.getElementsByClassName('num-btn2');
+
+            for (let i = 0; i < mileageNumButtons.length; i++) {
+                mileageNumButtons[i].addEventListener('click', function () {
+                    inputMileage.value += mileageNumButtons[i].textContent;
+                    clearBtnMileage.style.display = 'inline-block';
+                    backspaceBtnMileage.style.display = 'inline-block';
+                    formatNumberMileage();
+                });
+            }
+
+            clearKeyMileage.addEventListener('click', function () {
+                inputMileage.value = '';
+                checkInputValueMileage();
+                clearBtnMileage.style.display = 'none';
+            });
+
+            clearBtnMileage.addEventListener('click', function () {
+                inputMileage.value = '';
+                checkInputValueMileage();
+                clearBtnMileage.style.display = 'none';
+            });
+
+            backspaceBtnMileage.addEventListener('click', function () {
+                inputMileage.value = inputMileage.value.slice(0, -1);
+                if (inputMileage.value === '') {
+                    clearBtnMileage.style.display = 'none';
+                }
+                formatNumberMileage();
+                checkInputValueMileage();
+            });
+
+            function formatNumberMileage() {
+                let number = inputMileage.value.replace(/\D/g, '');
+                const originalLength = number.length;
+
+                // Insert commas every 3 digits
+                let formattedNumber = '';
+                while (number.length > 3) {
+                    formattedNumber = ',' + number.slice(-3) + formattedNumber;
+                    number = number.slice(0, -3);
+                }
+                formattedNumber = number + formattedNumber;
+
+                // Display formatted number with commas
+                inputMileage.value = formattedNumber;
+
+                // Adjust cursor position when adding commas
+                const diff = formattedNumber.length - originalLength;
+                inputMileage.setSelectionRange(
+                    inputMileage.selectionStart + diff,
+                    inputMileage.selectionEnd + diff
+                );
+            }
+
+            function passValueToParentMileage() {
+                const modalInputMileage = inputMileage.value.replace(/,/g, '');
+                const parentInputMileage = document.getElementById('parent-input-mileage');
+                const priceMileage = document.getElementById('price-mileage-result');
+                const numericValueMileage = Number(modalInputMileage);
+
+                /* if (isNaN(numericValueMileage) || numericValueMileage > 1000000) {
+                    showAlert();
+                    return;
+                } */
+
+                const formattedModalInputMileage = formatNumberForDisplay(modalInputMileage);
+                parentInputMileage.value = formattedModalInputMileage;
+                priceMileage.textContent = formattedModalInputMileage + ' 원';
+            }
+
+            function formatNumberForDisplay(number) {
+                const parts = number.toString().split('.');
+                parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                return parts.join('.');
+            }
+
+            // #modal-input-mileage 에 값이 0보다 작을 때 버튼 disabled....
+            const modalInputMileage = document.getElementById('modal-input-mileage');
+            const numButtonsMileageEvent = document.querySelectorAll(
+                '.num-btn2:not(#clearKey-mileage):not(#clear-mileage)'
+            );
+            const nextButton2 = document.getElementById('next2');
+
+            numButtonsMileageEvent.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    const value = button.textContent;
+
+                    if (!modalInputMileage.value.endsWith(value)) {
+                        modalInputMileage.value += value;
+                    }
+
+                    checkInputValueMileage();
+                });
+            });
+
+            function checkInputValueMileage() {
+                const inputValue = modalInputMileage.value.trim(); // Trim leading/trailing whitespace
+
+                if (inputValue === '' || parseFloat(inputValue) === 0) {
+                    nextButton2.disabled = true;
+                    nextButton2.classList.add('btn-disabled');
+                } else {
+                    const numericValue = parseFloat(inputValue.replace(/,/g, '')); // Remove commas and parse as float
+
+                    if (numericValue < 0 || isNaN(numericValue)) {
+                        nextButton2.disabled = true;
+                        nextButton2.classList.add('btn-disabled');
+                        showAlert();
+                    } else if (numericValue > 10000000) {
+                        // nextButton2.disabled = true;
+                        // nextButton2.classList.add('btn-disabled');
+                        showAlert();
+
+                        const truncatedValue = Math.floor(numericValue / 10); // 마지막 숫자 제거
+                        const formattedValue = numberWithCommas(truncatedValue); // 쉼표 추가
+                        modalInputMileage.value = formattedValue;
+                    } else {
+                        nextButton2.disabled = false;
+                        nextButton2.classList.remove('btn-disabled');
+                    }
+                }
+            }
+
+            modalInputMileage.addEventListener('input', function () {
+                checkInputValueMileage();
+            });
+
+            nextButton2.addEventListener("click", function () {
+                const inputValue = modalInputMileage.value.trim(); // Trim leading/trailing whitespace
+                const numericValue = parseFloat(inputValue.replace(/,/g, '')); // Remove commas and parse as float
+
+                if (numericValue > 100000000) {
+                    showAlert();
+                }
+            });
+
+            // 숫자에 쉼표 추가하는 함수
+            function numberWithCommas(value) {
+                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            }
+
+            // Custom Alert ....
+            function showAlert() {
+                Swal.fire({
+                    confirmButtonText: '닫기',
+                    customClass: {
+                        popup: 'pay-swal-popup'
+                    },
+                    html: "<h3 class='cs-pop-text'>금액은 최대 백만단위까지 입력할 수 있습니다.</h3>",
+                    onClose: function () {
+                        clearBtnMileage.style.display = 'none';
+                    }
+                });
+            }
+
+            const nextButtonResult1 = document.getElementById('next1');
+            const nextButtonResult2 = document.getElementById('next2');
+            const paymentCheckButton = document.getElementById('payment-check');
+            const parentInput = document.getElementById('parent-input');
+            const parentInputMileage = document.getElementById('parent-input-mileage');
+            const resultInput = document.getElementById('result-input');
+            const combineResult = document.getElementById('combine-total-result');
+
+            // Define a common function to handle the click event
+            function handleNextButtonClick() {
+                const inputValue = parentInput.value.trim();
+                const mileageValue = parentInputMileage.value.trim();
+                // const combineValue = combineResult.textContent.trim();
+
+                if (inputValue === '' && mileageValue === '') {
+                    // Both values are not entered
+                    return;
+                }
+
+                const totalInputValue = parseFloat(inputValue.replace(/,/g, ''));
+                const totalMileageValue = parseFloat(mileageValue.replace(/,/g, ''));
+
+                let totalPrice = 0;
+
+                if (!isNaN(totalInputValue)) {
+                    totalPrice += totalInputValue;
+                }
+
+                if (!isNaN(totalMileageValue)) {
+                    totalPrice += totalMileageValue;
+                }
+
+                const formattedTotalPrice = totalPrice.toLocaleString('en');
+                paymentCheckButton.textContent = ` ${formattedTotalPrice} 원 결제하기`;
+                combineResult.textContent = ` ${formattedTotalPrice} 원`;
+            }
+
+            // Assign the same event listener to both buttons
+            nextButtonResult1.addEventListener('click', handleNextButtonClick);
+            nextButtonResult2.addEventListener('click', handleNextButtonClick);
+
+            // make the calculator type script
+
+        </script>
+</body>
+
+</html>

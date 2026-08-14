@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--
+/*************************************************************************
+* @ 서비스명   : 서비스 안내
+* @ 파일명     : html/1th/p1.html
+* @ 페이지설명  : 서비스 안내
+* @ 작성자     : 정동훈 (hanjh@to-be.co.kr)
+* @ 작성일     : 2020-01-16
+************************** 수정이력 ****************************************
+* 날짜                    작업자                 변경내용
+*_________________________________________________________________________
+* 2020-01-16             정동훈                 최초작성
+* 2020-02-12             한주현                 header 태그 마크업 추가
+
+*************************************************************************/
+-->
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>서비스 안내</title>
+<link rel="stylesheet" href="../../common/css/commonui.css">
+<script type="text/javascript" src="../../common/js/commonui.js"></script>
+
+<script type="text/javascript">
+        function check(it) {
+      tr = it.parentNode.parentNode.parentNode.parentNode.parentNode;
+      tr.style.backgroundColor = (it.checked) ? "#ddd" : "";
+      // alert(tr);
+    }
+</script>
+<script>
+
+    $( document ).ready(function() {
+      $('.trigger1').on('click', function() {
+         $('.modal-wrapper1').toggleClass('open');
+        // $('.page-wrapper').toggleClass('blur-it');
+         return false;
+      });
+      $('.trigger2').on('click', function() {
+         $('.modal-wrapper2').toggleClass('open');
+         return false;
+      });
+    });
+
+ 
+// cookie
+$(document).ready(function () {
+    $(".reg-cookie .btn_close").click(function () {
+        setCookieMobile( "todayCookie", "done" , 1);
+        $(".reg-cookie").hide();
+    });
+});
+ 
+function setCookieMobile ( name, value, expiredays ) {
+    var todayDate = new Date();
+    todayDate.setDate( todayDate.getDate() + expiredays );
+    document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+}
+function getCookieMobile () {
+    var cookiedata = document.cookie;
+    if ( cookiedata.indexOf("todayCookier=done") < 0 ){
+         $(".pre-regist-info").show();
+    }
+    else {
+        $(".pre-regist-info").hide();
+    }
+}
+getCookieMobile();
+
+</script>
+</head>
+<body>
+
+<!-- 01 멤버리스트 팝업 --> 
+ <div class="modal-wrapper1 pre-regist-info">
+  <div class="modal">
+    <div class="modal-title">
+     </div>
+
+    <div class="cmm-radius-box none m-info-wrap">
+        <dl class="cmm-info-box none ">
+            <dt class="icon1 info_title none"><img src="../../common/img/m_guide_bool.png" alt="">동반자 사전등록 이용안내</dt>
+            <dd>
+                <p class="guide_num">1</p>
+                <p class="guide_comment">동반자 사전등록은 예약자가 직접 입력하는 방법과 카카오톡으로 초대메시지를 보내는 방법으로 등록 할 수 있습니다.</p>
+            </dd>
+            <dd>
+                <p class="guide_num">2</p>
+                <p class="guide_comment">직접입력 방법
+                    <ul>
+                        <li>1).직접입력 버튼을 누른다.</li>
+                        <li>2).동반자의 이름/성별/전화번호를 정확히 입력한다.</li>
+                        <li>3).입력정보가 맞는지 확인 후 등록이 완료 된다.</li>
+                        <li>※ 직접입력은 동반자가 00골프장의 회원 또는 인터넷 회원이 아닌 경우 등록 할 수 없습니다.</li>
+                    </ul>
+
+                 </p>
+            </dd>
+            <dd>
+                <p class="guide_num">2</p>
+                <p class="guide_comment">카카오톡 초대 방법
+                    <ul>
+                        <li>1).카카오톡 초대 버튼을 누른다.</li>
+                        <li>2).카카오톡 친구 목록 중에 동반자로 등록할 친구를 선택 한 후 보내기 버튼을 누른다.</li>
+                        <li>3).초대메시지를 받은 동반자가 직접 이름/성별/전화번호를 입력하면 등록이 완료 됩니다.</li>
+                    </ul>
+
+                 </p>
+            </dd>
+        </dl>
+  </div>
+   <div class="cmm-box">
+        <div class="cmm-checkbox reg-cookie">
+            <input type="checkbox" id="checkboxId">
+            <label for="checkboxId"></label><span class="cookie-chk-txt">다음부터 보지 않기</span>
+        </div>
+    </div>
+         <div class="cmm-box-btn flex">
+                <button type="button" class="cmm-btn cmm-btn-blue btn-close trigger1">확인</button>
+            </div>
+    </div>
+
+           
+        </div>
+  </div>
+<!-- //멤버리스트 팝업 -->
+
+<div id="wrap" data-title="서비스 안내">
+<!-- header 마크업 추가 / 이미지 명 경로는 프로그램 처리 해주시고. 주석 제거해주세요 -->
+<header id="header">
+    <a href="#" class="header-logo"><img src="../../common/img/logo.png" alt=""></a>
+    <h1>서비스 안내</h1>
+</header>
+
+<!-- Content Area S -->
+<div id="content" class="checkin">
+    <div class="radius-box">
+        <dl>
+            <dt class="icon1">모바일 체크인</dt>
+            <dd>경기당일 프론트 데스트를 거치지 않고 체크인과 락커발급이 빠르게 진행됩니다.</dd>
+            <dt class="icon2">모바일 사전등록</dt>
+            <dd>휴대폰으로 동반자를 미리 등록하면 동반자 역시 모바일 체크인을 이용 할 수 있습니다.</dd>
+        </dl>
+    </div>
+    <div class="cmm-box-btn">
+        <button type="button" class="cmm-btn-blue next">모바일체크인</button>
+        <button type="button" class="cmm-btn-blue next trigger1">동반자 사전등록</button>
+    </div>
+</div>
+<!-- // Content Area E -->
+
+
+</div>
+</body>
+</html>

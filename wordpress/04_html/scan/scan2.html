@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="js/quagga.min.js"></script>
+</head>
+
+<body>
+    <h1>바코드 스캐너</h1>
+    <button onclick="scanBarcode()">스캔</button>
+    <div id="result"></div>
+
+    <script>
+        function scanBarcode() {
+            Quagga.init({
+                inputStream: {
+                    name: "Live",
+                    type: "LiveStream",
+                    target: document.querySelector('#barcode-scanner'),
+                    constraints: {
+                        width: 640,
+                        height: 480,
+                        facingMode: "environment" // 후면 카메라 사용 (프론트 카메라 사용 시 "user"로 설정)
+                    },
+                },
+                decoder: {
+                    readers: ["ean_reader"] // 다른 리더도 지정 가능 (예: "code_128_reader", "upc_reader" 등)
+                }
+            }, function (err) {
+                if (err) {
+                    console.error(err);
+                    return;
+                }
+                console.log("Quagga 초기화 완료.");
+                Quagga.start();
+            });
+
+            Quagga.onDetected(function (result) {
+                var code = result.codeResult.code;
+                var output = document.querySelector('#result');
+                output.innerHTML = "바코드: " + code;
+                Quagga.stop();
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+@charset "utf-8";
+@font-face{
+  font-family: NanumGothicWeb;
+  font-style: normal;
+  font-weight: normal;
+  src: local('☺'), url(./font/NanumGothic.woff) format("woff"); 
+  src: url('./font/NanumGothic.eot'); 
+}
+
+@font-face{
+  font-family: 'NanumGothicWebB';
+  font-style: normal;
+  font-weight: bold;
+  src: local('☺'), url(./font/NanumGothicBold.woff) format("woff"); 
+  src: url('./font/NanumGothicExtraBold.eot');     
+}
+
+html body {
+	font-size: 12px;
+	font-family: NanumGothicWeb, sans-serif;
+	background-color: #ffffff;
+}
+
+string b { 	
+	font-family: NanumGothicWebB, sans-serif;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=euc-kr">
+<title> Div Vertical Align </title>
+</head>
+<style type='text/css'>
+/***
+* author : blueb (http://blueb.net/blog/1292)
+* date : 2008-09-02
+*/
+#wrap {
+margin:0px;
+width:100%;
+height:500px ;
+border:1px solid #000;
+}
+#body {
+position: relative;
+top:50%;
+left:50%;
+width:200px;
+height:200px;
+border:1px solid #000;
+margin-top:-100px; /*** width 값의 1/2 ***/
+margin-left:-100px; /*** height 값의 1/2 ***/
+background:yellow;
+}
+</style>
+<body>
+<div id='wrap'>
+<div id='body'>
+</div>
+</div>
+</body>
+</html>

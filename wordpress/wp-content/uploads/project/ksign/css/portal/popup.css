@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+/*
+Filename : /css/layout.css
+Data : 2011-12-01
+Copyright : www.elim.net Jang-Woong
+Charset : utf-8
+*/
+
+body{background-image:none}
+
+/* 공통 */
+.popWrap{position:relative; width:500px; height:500px; background:url(/images/portal/popup/bg_top.gif) left top no-repeat; padding-top:56px}
+.popWrap .popClose{position:absolute; right:20px; top:23px}
+.popWrap .popInner{padding:0 66px}
+
+/* 비밀번호 찾기 */
+.popWrap .findPw{border-top:1px solid #646464; border-bottom:1px solid #dcdcdc; margin-top:6px; padding:30px 0 20px 0}
+.popWrap .findPw dl{width:298px; position:relative; margin:0 auto}
+.popWrap .findPw dl dt{float:left; width:80px; padding-top:4px}
+.popWrap .findPw dl dd{padding-bottom:10px}
+.popWrap .findPw dl dd.btn_login{position:absolute; right:0; top:15px}
+.popWrap .findPw .text{letter-spacing:-1px; line-height:1.4em}
+.popWrap .findPw .info{color:#fd4c0d; text-align:center; padding:18px 0 0 0}

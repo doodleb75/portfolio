@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+/*
+Filename : /css/layout.css
+Data : 2011-12-01
+Copyright : www.elim.net Jang-Woong
+Charset : utf-8
+*/
+
+/* body */
+html, body { height:100%;}
+body{background:url(/images/portal/common/bg_top.gif) left top repeat-x}
+#wrapper{width:100%;}
+#header{width:980px; position:relative; margin:0 auto; border-bottom:1px solid #fff}
+#header #logo{height:52px; padding-top:30px}
+#header #tnb{position:absolute; right:0; top:30px}
+#header #tnb .name{display:inline-block; color:#8c8c8c; margin-right:10px; position:relative; top:-1px}
+#header #tnb .name .red{color:#fd4c0d}
+#header #tnb .link{display:inline-block}
+#header #tnb .link a{display:inline-block; background:url(/images/portal/common/tnb_bar.gif) left center no-repeat; margin-left:5px; padding-left:8px}
+#header #tnb .link a.first{background-image:none}
+#header #tnb .link img{display:block}
+
+/* visual */
+#visualWrap{height:168px; background:url(/images/portal/common/visual_bg2.gif) left 128px repeat-x}
+#visualWrap #visual{width:980px; margin:0 auto; height:168px}
+#visualWrap .v_enetner{background:url(/images/portal/common/visual_enetner.gif) left top repeat-x; height:168px}
+#visualWrap .v_service{background:url(/images/portal/common/visual_service.gif) left top repeat-x; height:168px}
+#visualWrap .v_consulting{background:url(/images/portal/common/visual_consulting.gif) left top repeat-x; height:168px}
+#visualWrap .v_customer{background:url(/images/portal/common/visual_customer.gif) left top repeat-x; height:168px}
+#visualWrap .v_membership{background:url(/images/portal/common/visual_member.gif) left top repeat-x; height:168px}
+
+
+/* GNB */
+#gnbWrap{position:relative; border-bottom:1px solid #e5e5e5}
+#gnbWrap .mycloud_go{position:absolute; right:65px; top:-17px; z-index:10000}
+#gnbWrap #gnb{position:relative; *z-index:10002; height:37px}
+#gnbWrap #gnb li{float:left; height:37px; cursor:pointer; line-height:1em}
+#gnbWrap #gnb li a{padding:0 30px; line-height:1em}
+#gnbWrap #gnb li div.depth2{position:absolute; left:10px; top:37px; z-index:10001; background:url(/images/portal/common/bg_gnb_d2.png) left top no-repeat; width:962px; height:32px; display:none}
+#gnbWrap #gnb li ul{position:absolute; left:25px; top:0; padding-top:7px}
+#gnbWrap #gnb li.m1 ul{left:25px}
+#gnbWrap #gnb li.m2 ul{left:25px}
+#gnbWrap #gnb li.m3 ul{left:270px}
+#gnbWrap #gnb li.m4 ul{left:400px}
+#gnbWrap #gnb li.m5 ul{left:500px}
+#gnbWrap #gnb li.on div.depth2{display:block}
+#gnbWrap #gnb li ul li{float:left}
+#gnbWrap #gnb li ul li a{padding:0 9px; color:#fff}
+
+/* LNB */
+#lnbWrap{width:194px; position:absolute; left:0; top:0}
+#lnbWrap .lnb_title{height:74px}
+#lnbWrap #lnb li{line-height:1em; margin-bottom:1px}
+/*#lnbWrap #lnb li ul{display:none}
+#lnbWrap #lnb li ul.on {display:block}*/
+#lnbWrap #lnb li ul{}
+#lnbWrap #lnb li ul li{background:url(/images/portal/common/bg_dot.gif) left bottom repeat-x; width:135px; padding:5px 0 5px 20px}
+
+#container:after{content:" "; display:block; clear:both}
+#container{*zoom:1; width:980px; min-height:350px; margin:0 auto; padding-bottom:150px; position:relative;}
+
+#location{position:absolute; right:0; top:-20px; font-size:.9em}
+#location span{display:inline-block; padding:1px 3px}
+#location .home{background:url(/images/portal/icon/icon_home.gif) left 1px no-repeat; padding-left:17px}
+#location .current{color:#fd4c0d}
+#content{padding-left:194px}
+#content .stitle1{height:70px}
+#content .stitle2{height:38px}
+#content .stitle3{height:24px}
+#content .stitle3 .text{font-weight:normal}
+#content .legend{height:20px}
+#content .stitle_text{padding-top:9px}
+#content .mgB40{margin-bottom:40px}
+#content .mgB30{margin-bottom:30px}
+
+#footerWrap{width:100%; border-top:1px solid #dcdcdc}
+#footer{width:980px; margin:0 auto; padding-bottom:100px}
+#footer .foot_logo{float:left; width:240px; padding-top:30px}
+#footer .foot_right{float:left; padding-top:25px}
+#footer .foot_right .foot_link{margin-bottom:20px}
+#footer .foot_right .foot_link li{float:left; background:url(/images/portal/common/foot_bar.gif) right center no-repeat; margin-right:11px; padding-right:11px; display:inline-block}
+#footer .foot_right .foot_link li img{display:block}
+#footer .foot_right .foot_link li.last{background-image:none}
+

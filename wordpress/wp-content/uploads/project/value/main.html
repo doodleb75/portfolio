@@ -1,0 +1,74 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<title>Untitled Document</title>
+<script language='javascript' src='commonjs/Embed.js'></script>
+<script language='javascript' src='commonjs/common.js'></script>
+
+<script language="javascript">
+function openwin01(){
+	window.open('pop04_01.html','','width=500, height=685, scrollbars=no, directories=no, status=no');	
+}
+function openwin02(){
+	window.open('pop04_02.html','','width=500, height=428, scrollbars=no, directories=no, status=no');	
+}
+function center(){ 
+    var x,y; 
+    if (self.innerHeight) { // IE �� ��� ������ 
+        x = (screen.availWidth - self.innerWidth) / 2; 
+        y = (screen.availHeight - self.innerHeight) / 2; 
+    }else if (document.documentElement && document.documentElement.clientHeight) { // Explorer 6 Strict ��� 
+        x = (screen.availWidth - document.documentElement.clientWidth) / 2; 
+        y = (screen.availHeight - document.documentElement.clientHeight) / 2; 
+    }else if (document.body) { // �ٸ� IE ������( IE < 6) 
+        x = (screen.availWidth - document.body.clientWidth) / 2; 
+        y = (screen.availHeight - document.body.clientHeight) / 2; 
+    } 
+    window.moveTo(x,y); 
+} 
+</script>
+<style type="text/css">
+<!--
+#Layer1 {
+	position:absolute;
+	left:0;
+	width:100%;
+	height:48;
+	z-index:1;
+}
+-->
+</style>
+
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+</head>
+
+<body onLoad="center();" topmargin="0" leftmargin="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="100%" ><table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="100%" bgcolor="#d6eab2"><table width="1024" height="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td> 
+			
+			<comment id=__NSID__>
+              <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="1020" height="644">
+                <param name="movie" value="img/body.swf?frame_num=1">
+                <param name="quality" value="high">
+                <param name="wmode" value="transparent">
+                <embed src="img/body.swf?frame_num=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="1020" height="644"></embed>
+              </object>
+			 </comment><!-- <script> __ws__(__NSID__); </script> -->
+			  
+             </td>
+          </tr>
+        </table></td>
+      </tr>
+     <!--  <tr>
+        <td height="48" background="img/lms_menu.jpg">&nbsp;</td>
+      </tr> -->
+    </table></td>
+  </tr>
+</table>
+</body>
+</html>

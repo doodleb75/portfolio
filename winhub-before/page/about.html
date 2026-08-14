@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WINHUB - ABOUT</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* Basic styles for fixed logo - can be moved to subpage_style.css */
+      .com-name-logo {
+        position: fixed;
+        top: 30px; /* Adjust as needed */
+        left: 30px; /* Adjust as needed */
+        font-size: 24px; /* Adjust as needed */
+        color: #fff; /* Adjust as needed */
+        z-index: 1001;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .menu-icon {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* Biz Domain Specific Styles (can be moved to style.css) */
+      .biz-domain-item {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.3); /* Light border for separation */
+      }
+      .biz-domain-item:last-child {
+        margin-bottom: 0;
+        border-bottom: none;
+      }
+      .biz-domain-item-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.75rem;
+      }
+      .biz-domain-item-icon {
+        font-size: 1.8rem; /* Icon size */
+        margin-right: 1rem;
+        width: 40px; /* Fixed width for alignment */
+        text-align: center;
+        color: #4dabf7; /* Default icon color (light theme) */
+      }
+      .subpage-body.scrolled-past-hero .biz-domain-item-icon {
+        color: #007bff; /* Icon color for dark text on light background */
+      }
+
+      .biz-domain-item h4 {
+        /* Sub-item title (e.g., POP 시스템) */
+        font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+      }
+      .biz-domain-item p.item-description {
+        font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+        line-height: 1.7;
+        margin-left: 50px; /* Align with text, after icon */
+      }
+    </style>
+  </head>
+  <body class="subpage-body">
+    <div id="loader">
+      <div class="loader-bar"></div>
+    </div>
+    <div id="fullscreen-threejs-bg"></div>
+    <a href="../index.html" class="com-name-logo logo-class">WINHUB</a>
+
+    <div class="gnb-container">
+      <div class="menu-icon">
+        <button id="menu-toggle" class="">☰</button>
+      </div>
+    </div>
+
+    <div id="menu-overlay" class="hidden">
+      <button id="menu-close" class="close-btn">✕</button>
+      <div class="menu-content">
+        <div class="menu-links">
+          <div class="top-link">
+            <a href="./about.html"
+              ><span class="menu-link-text">ABOUT</span>
+              <svg
+                class="menu-link-hover-svg ml-3"
+                viewBox="0 0 217.41 63.21"
+                width="100"
+                height="60"
+                style="opacity: 0; transform: translateX(-10px)"
+              >
+                <g>
+                  <polyline
+                    class="arrow-path"
+                    points="0 62.21 215 62.21 153.5 .71"
+                  />
+                </g>
+              </svg>
+            </a>
+          </div>
+          <div class="top-link">
+            <a href="./work.html"
+              ><span class="menu-link-text">WORK</span>
+              <svg
+                class="menu-link-hover-svg ml-3"
+                viewBox="0 0 217.41 63.21"
+                width="100"
+                height="60"
+                style="opacity: 0; transform: translateX(-10px)"
+              >
+                <g>
+                  <polyline
+                    class="arrow-path"
+                    points="0 62.21 215 62.21 153.5 .71"
+                  />
+                </g>
+              </svg>
+            </a>
+          </div>
+          <div class="top-link">
+            <a href="./contact.html"
+              ><span class="menu-link-text">CONTACT</span>
+              <svg
+                class="menu-link-hover-svg ml-3"
+                viewBox="0 0 217.41 63.21"
+                width="100"
+                height="60"
+                style="opacity: 0; transform: translateX(-10px)"
+              >
+                <g>
+                  <polyline
+                    class="arrow-path"
+                    points="0 62.21 215 62.21 153.5 .71"
+                  />
+                </g>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subpage-container">
+      <section id="sub-hero" class="subpage-section sub-hero-section">
+        <div class="sub-hero-content">
+          <h1 class="page-title title-class">ABOUT US</h1>
+          <p class="page-description content-class">
+            WINHUB는 고객의 비즈니스 환경에 최적화된 혁신적인 IT 솔루션을
+            제공하여, 고객의 지속 가능한 성장과 성공을 지원하는 든든한 기술
+            파트너입니다. 우리는 POP, POS, SCM 시스템 분야의 깊이 있는 전문성을
+            바탕으로 비즈니스 프로세스 혁신을 선도합니다.
+          </p>
+        </div>
+        <div id="threejs-object-container" class="sub-spline-container">
+          <canvas
+            id="spline-canvas-subpage"
+            style="
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              outline: none;
+            "
+          ></canvas>
+        </div>
+      </section>
+
+      <section id="sub-section-1" class="subpage-section content-section">
+        <div class="section-content-wrapper">
+          <h2 class="content-class section-title">Our Mission</h2>
+          <div class="animated-content">
+            <p class="content-class mission-text">
+              저희 WINHUB는 최첨단 기술과 산업에 대한 깊이 있는 이해를 바탕으로
+              고객사의 비즈니스 성장을 지원하는 것을 최우선 목표로 삼고
+              있습니다. 우리는 단순히 솔루션을 제공하는 것을 넘어, 고객과의
+              긴밀한 협력을 통해 각 기업의 고유한 특성과 요구사항에 부합하는
+              맞춤형 시스템을 구축합니다. 이를 통해 운영 효율성을 극대화하고,
+              데이터 기반의 의사결정을 지원하며, 새로운 비즈니스 가치를 창출할
+              수 있도록 돕습니다. WINHUB는 고객의 성공이 곧 우리의 성공이라는
+              믿음으로, 신뢰할 수 있는 기술과 끊임없는 혁신을 약속드립니다.
+            </p>
+            <img
+              src="https://placehold.co/700x450/4A5568/FFFFFF?text=Our+Mission+Concept"
+              alt="[회사 미션 관련 추상적 이미지]"
+              class="content-image"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="biz-domain-section" class="subpage-section content-section">
+        <div class="section-content-wrapper">
+          <h2 class="content-class section-title">BIZ DOMAIN</h2>
+          <div class="animated-content">
+            <p class="content-class service-intro-text">
+              WINHUB는 다양한 산업군의 비즈니스 요구사항을 충족시키기 위해
+              전문화된 핵심 솔루션들을 제공합니다. 각 솔루션은 고객의 비즈니스
+              효율성 증대와 경쟁력 강화를 목표로 설계되었습니다.
+            </p>
+            <div class="tabs-container">
+              <div class="tab-buttons">
+                <button
+                  class="tab-button active content-class"
+                  data-tab="biz-tab1"
+                >
+                  유통/서비스
+                </button>
+                <button class="tab-button content-class" data-tab="biz-tab2">
+                  인테리어 공사
+                </button>
+                <button class="tab-button content-class" data-tab="biz-tab3">
+                  대리점/협력사/ERP
+                </button>
+                <button class="tab-button content-class" data-tab="biz-tab4">
+                  하드웨어
+                </button>
+              </div>
+
+              <div id="biz-tab1" class="tab-content active">
+                <div class="biz-domain-item">
+                  <div class="biz-domain-item-header">
+                    <i
+                      class="fas fa-bullhorn biz-domain-item-icon content-class"
+                    ></i>
+                    <h4 class="content-class">
+                      POP (Point Of Purchase Advertising) 시스템
+                    </h4>
+                  </div>
+                  <p class="content-class item-description">
+                    판매 사원을 대신하여 고객에게 올바른 쇼핑 정보(가격, 소재,
+                    규격, 특징)를 제공하여 고객으로 하여금 구매 동기를 유발시켜
+                    매출 증대에 기여하는 중요한 광고 수단의 역할을 합니다.
+                  </p>
+                </div>
+                <div class="biz-domain-item">
+                  <div class="biz-domain-item-header">
+                    <i
+                      class="fas fa-cash-register biz-domain-item-icon content-class"
+                    ></i>
+                    <h4 class="content-class">POS (Point of Sale) 시스템</h4>
+                  </div>
+                  <p class="content-class item-description">
+                    상품 공급, 물류, 현장 서비스, 솔루션 구축에 이르는 서비스 전
+                    과정의 프로세스를 지원하며 주유소, 편의점, 리조트, 호텔,
+                    식품 사업군 등 현장 고객에서 기업 고객에 이르는 전 분야의
+                    서비스를 포괄합니다.
+                  </p>
+                </div>
+                <div class="biz-domain-item">
+                  <div class="biz-domain-item-header">
+                    <i
+                      class="fas fa-truck-loading biz-domain-item-icon content-class"
+                    ></i>
+                    <h4 class="content-class">
+                      SCM (Supply Chain Management) 시스템
+                    </h4>
+                  </div>
+                  <p class="content-class item-description">
+                    계획, 조달, 생산, 수주에 이르는 물류 전 과정의 프로세스를
+                    지원하며 공급망 관리, 공급망 실행, 공급자 관계 관리에 이르는
+                    포괄적인 공급망 관리 시스템을 구축, 제공하여 고객의 물류
+                    시스템 혁신을 주도합니다.
+                  </p>
+                </div>
+              </div>
+
+              <div id="biz-tab2" class="tab-content">
+                <div class="biz-domain-item">
+                  <div class="biz-domain-item-header">
+                    <i
+                      class="fas fa-tools biz-domain-item-icon content-class"
+                    ></i>
+                    <h4 class="content-class">Web Back Office 시스템</h4>
+                  </div>
+                  <p class="content-class item-description">
+                    시공 관련 기초 데이터, 거래 처리, 관리 리포트, 의사 결정
+                    지원 KPI 지표를 관리합니다.
+                  </p>
+                </div>
+                <div class="biz-domain-item">
+                  <div class="biz-domain-item-header">
+                    <i
+                      class="fas fa-mobile-alt biz-domain-item-icon content-class"
+                    ></i>
+                    <h4 class="content-class">Mobile Front 시스템</h4>
+                  </div>
+                  <p class="content-class item-description">
+                    시공 관리에 최적화된 Mobile 시스템을 통해 현장에서 실측 및
+                    시공 단계별 주요 Data를 실시간으로 관리합니다.
+                  </p>
+                </div>
+              </div>
+
+              <div id="biz-tab3" class="tab-content">
+                <div class="biz-domain-item">
+                  <div class="biz-domain-item-header">
+                    <i
+                      class="fas fa-users-cog biz-domain-item-icon content-class"
+                    ></i>
+                    <h4 class="content-class">WEB Back Office 시스템 (ERP)</h4>
+                  </div>
+                  <p class="content-class item-description">
+                    고객, 영업, 견적, 주문, A/S, 입고, 출고, 재고, 마감/정산에
+                    이르는 대리점 전 과정의 프로세스를 지원합니다.
+                  </p>
+                </div>
+                <div class="biz-domain-item">
+                  <div class="biz-domain-item-header">
+                    <i
+                      class="fas fa-door-open biz-domain-item-icon content-class"
+                    ></i>
+                    <h4 class="content-class">창호 견적, 주문, 제작 시스템</h4>
+                  </div>
+                  <p class="content-class item-description">
+                    원부자재 발주/입고/수불 관리, 랩핑, 가공(절단/가공/용접),
+                    출고액 프로세스를 지원합니다.
+                  </p>
+                </div>
+              </div>
+
+              <div id="biz-tab4" class="tab-content">
+                <div class="biz-domain-item">
+                  <div class="biz-domain-item-header">
+                    <i
+                      class="fas fa-server biz-domain-item-icon content-class"
+                    ></i>
+                    <h4 class="content-class">POS HW, Operating 시스템</h4>
+                  </div>
+                  <p class="content-class item-description">
+                    Self-Checkout, Kiosk, Mobile POS 등 다양한 POS 하드웨어와
+                    관련 운영 시스템을 제공하여 효율적인 매장 관리를 지원합니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <button id="scrollToTopBtn" title="위로 가기" class="show">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+      <footer class="subpage-footer">
+        <div class="footer-content-wrapper">
+          <div class="footer-links">
+            <a href="#" class="content-class">이용약관</a>
+            <a href="#" class="content-class">개인정보취급방침</a>
+            <a href="#" class="content-class">이메일주소 무단수집거부</a>
+          </div>
+          <div class="footer-info">
+            <div class="footer-info-group">
+              <span class="content-class">회사명: 주식회사 윈허브</span>
+              <span class="content-class">대표이사: 송석규</span>
+              <span class="content-class">사업자등록번호: 763-88-00939</span>
+            </div>
+            <div class="footer-info-group">
+              <span class="content-class"
+                >주소: (우)10594 경기도 고양시 덕양구 동산동 379번지 309호
+                (에이스하이엔드타워 지축역) (주)윈허브</span
+              >
+            </div>
+            <div class="footer-info-group">
+              <span class="content-class">Tel : 031-998-1815</span>
+              <span class="content-class">Fax : 031-998-1820</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script type="module" src="../assets/js/sub-app.js"></script>
+  </body>
+</html>

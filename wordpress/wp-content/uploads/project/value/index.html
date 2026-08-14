@@ -1,0 +1,42 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<title>Untitled Document</title>
+
+<script language='javascript' src="../../common/common.js"></script>
+<script language="javascript">
+		 function closeNload() { 
+		   s_link = "main.html";
+//		   n_width = screen.width;
+//		   n_height = screen.height;
+			n_width = 1026;
+			n_height = 646;
+		   n_left = (screen.width - n_width)/2;
+		   n_top = (screen.height - n_height)/2;
+		   args = "left="+n_left+", top="+n_top+", toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width="+n_width+", height="+n_height+"";
+		   w = window.open(s_link,"", args);
+		   w.focus();
+		  }
+</script>
+<style>
+a {
+	display:  inline-block;
+	text-decoration:  none; 
+	background:  #72be05;
+	color:  f9f9f9;
+	padding:  8px 60px;
+//	border-radius:  22px;
+}
+a:hover{ color:  yellow;}
+</style>
+</head>
+
+<body onLoad="center();">
+
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center"><a href="javascript:closeNload();"><div align="center" class="style1"><h1>start</h1></div></a></td>
+  </tr>
+</table>
+</body>
+</html>

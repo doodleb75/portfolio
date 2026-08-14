@@ -1,0 +1,188 @@
+<!-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+            <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+                <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %> -->
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <!-- <jsp:include page="../common/head.jsp"></jsp:include> -->
+    <title>타이틀</title>
+
+    <style>
+        #interactive.viewport {
+            position: relative;
+        }
+
+        #interactive.viewport>canvas,
+        #interactive.viewport>video {
+            max-width: 100%;
+            width: 100%;
+        }
+
+        canvas.drawing,
+        canvas.drawingBuffer {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        @media (max-width: 603px) {
+            .reader-config-group {
+                width: 100%;
+            }
+
+            .reader-config-group label>span {
+                width: 50%;
+            }
+
+            .reader-config-group label>select,
+            .reader-config-group label>input {
+                max-width: calc(50% - 2px);
+            }
+
+            #interactive.viewport {
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+            }
+        }
+    </style>
+</head>
+
+<body onload="javascript:offLoading();">
+    <!-- <jsp:include page="../common/loading.jsp"></jsp:include> -->
+
+    <form role="form" name="infoForm" id="infoForm" method="POST">
+        <input type="hidden" id="cc_id" name="cc_id" value="${params.cc_id }" />
+        <input type="hidden" id="rsv_seq" name="rsv_seq" value="${params.rsv_seq }" />
+        <input type="hidden" id="user_seq" name="user_seq" value="${params.user_seq }" />
+        <input type="hidden" id="player_seq" name="player_seq" value="${params.player_seq }" />
+    </form>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div id="interactive" class="viewport"></div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div id="result_strip">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <script src="/v2.1/js/quagga.js"></script> -->
+    <script src="./quagga.min.js"></script>
+    <script>
+        $(document).on('ready', function () {
+            //openScanner();
+        });
+        $(window).ready(function () {
+
+        });
+        $(function () {
+
+        });
+
+        var AppQuagga = {
+            init: function () {
+                var self = this;
+                Quagga.init(this.state, function (err) {
+                    if (err) {
+                        return self.handleError(err);
+                    }
+                    //Quagga.registerResultCollector(resultCollector);
+                    Quagga.start();
+
+                    Quagga.onProcessed(function (result) {
+                        var drawingCtx = Quagga.canvas.ctx.overlay, drawingCanvas = Quagga.canvas.dom.overlay;
+                        if (result) {
+                            if (result.boxes) {
+                                drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute("width")), parseInt(drawingCanvas.getAttribute("height")));
+                                result.boxes.filter(function (box) {
+                                    return box !== result.box;
+                                }).forEach(function (box) {
+                                    Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, { color: "green", lineWidth: 2 });
+                                });
+                            }
+                            if (result.box) {
+                                Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, { color: "#00F", lineWidth: 2 });
+                            }
+                            if (result.codeResult && result.codeResult.code) {
+                                Quagga.ImageDebug.drawPath(result.line, { x: 'x', y: 'y' }, drawingCtx, { color: 'red', lineWidth: 3 });
+                            }
+                        }
+                    });
+
+                    setTimeout(function () {
+                        var track = Quagga.CameraAccess.getActiveTrack();
+                        var capabilities = {};
+                        if (typeof track.getCapabilities === 'function') {
+                            try {
+                                capabilities = track.getCapabilities();
+                                track.applyConstraints({ advanced: [{ zoom: 2.5 }] });
+                            } catch (e) { }
+                        }
+                    }, 500);
+                });
+            },
+            handleError: function (err) {
+                console.log(err);
+            },
+            state: {
+                inputStream: {
+                    type: "LiveStream",
+                    constraints: {
+                        facingMode: "environment"
+                    }
+                },
+                locator: {
+                    patchSize: "medium",
+                    halfSample: true
+                },
+                numOfWorkers: (navigator.hardwareConcurrency ? navigator.hardwareConcurrency : 4),
+                frequency: 20,
+                decoder: {
+                    readers: [{
+                        format: "code_128_reader",
+                        config: {}
+                    }, {
+                        format: "ean_reader",
+                        config: {
+                        }
+                    }, {
+                        format: "code_39_reader",
+                        config: {}
+                    }, {
+                        format: "code_93_reader",
+                        config: {}
+                    }]
+                },
+                locate: true
+            },
+            lastResult: null
+        };
+
+        AppQuagga.init();
+
+        Quagga.onDetected(function (result) {
+            var code = result.codeResult.code;
+            if (code != null) {
+                if (AppQuagga.lastResult !== code) {
+                    AppQuagga.lastResult = code;
+                    var $node = null;
+                    $node = $('<p>Read: ' + code + '</p>');
+                    $("#result_strip").prepend($node);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

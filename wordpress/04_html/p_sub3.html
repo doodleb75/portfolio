@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<!--
+/*************************************************************************
+* @ 서비스명   : 화면 > 이용내역
+* @ 파일명     : 01.html/p_sub3.html
+* @ 페이지설명  : 레이아웃
+* @ 작성자     : 배대현
+* @ 작성일     : 2021-10-02
+************************** 수정이력 ****************************************
+* 날짜                    작업자                 변경내용
+*_________________________________________________________________________
+* 2021-10-02             배대현                 최초작성
+*************************************************************************/
+-->
+
+<html lang="ko">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>화면 > index</title>
+  <script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+    integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script> -->
+  <script src="js/common.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script> -->
+  <link rel="stylesheet" href="./css/default.css" />
+</head>
+
+<body>
+  <!-- Sub Contents Start // -->
+
+  <div id="wrap" data-title="none">
+    <div class="sub-header">
+      <h2 class="sub-title"><button></button>이용내역</h2>
+      <ul class="tabs use-info">
+        <li class="tab">
+          <a href="#test2" class="active white-text">팀 이용내역</a>
+        </li>
+        <li class="tab">
+          <a href="#test1" class="white-text">개인 이용내역</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 개인 이용내역 contents -->
+    <div id="test1" class="sub-content-box">
+      <div class="use-history">
+        <div>
+          전체 이용금액은
+          <h3>1,244,000<i>원 입니다</i>.</h3>
+        </div>
+        <div class="voucher_wrap">
+          <button class="voucher_btn modal-trigger" href="#modal1"><i></i>바우처 사용하기</button>
+          <button class="voucher_cancel_btn" href="" style="display: none;"><i></i>바우처 취소하기</button>
+          <p class="voucher_assigned" style="display: none;">바우처가 적용된 금액입니다.</p>
+        </div>
+        <!-- <button class="history-refresh"></button> -->
+      </div>
+
+      <div class="history-price collapsible">
+        <h3>개인이용내역</h3>
+        <ul>
+          <li class="price-info title">
+            <div class="info">
+              <span>김미래</span>
+              <span class="line"></span>
+              <span>150,000 원</span>
+            </div>
+            <ul class="ex-box" style="display: none">
+              <li class="active">
+                <div class="collapsible-body etc-pay" style="display: block">
+                  <div class="info team">
+                    <span>그린피<button class="view-billinfo" data-text=" 10%할인">
+                        요금정보보기
+                      </button></span>
+                    <span class="line"></span>
+                    <span>62,000 원</span>
+                  </div>
+                  <div class="info team">
+                    <span>카트피</span>
+                    <span class="line"></span>
+                    <span>2,000 원</span>
+                  </div>
+                  <!-- 3depth 리스트 -->
+                  <div class="info team below-category">
+                    <div class="two-category">
+                      <span>클럽하우스</span>
+                      <span class="line"></span>
+                      <span>12,000 원</span>
+                    </div>
+                    <ul class="three-below-category">
+                      <li>
+                        <span>자연송이한우국밥X4</span>
+                        <span>155,000 원</span>
+                      </li>
+                      <li>
+                        <span>반상(1인)X4</span>
+                        <span>155,000 원</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- 3depth 리스트 -->
+                  <div class="info team below-category">
+                    <div class="two-category">
+                      <span>스타트하우스</span>
+                      <span class="line"></span>
+                      <span>12,000 원</span>
+                    </div>
+                    <ul class="three-below-category">
+                      <li>
+                        <span>자연송이한우국밥X4</span>
+                        <span>155,000 원</span>
+                      </li>
+                      <li>
+                        <span>반상(1인)X4</span>
+                        <span>155,000 원</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="info team">
+                    <span>프로샵</span>
+                    <span class="line"></span>
+                    <span>2,000 원</span>
+                  </div>
+                  <div class="info team">
+                    <span>기타</span>
+                    <span class="line"></span>
+                    <span>2,000 원</span>
+                  </div>
+                  <div class="info team">
+                    <span>개별소비세</span>
+                    <span class="line"></span>
+                    <span>2,000 원</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="price-info title">
+            <div class="info">
+              <span>이미래</span>
+              <span class="line"></span>
+              <span>150,000 원</span>
+            </div>
+            <ul class="ex-box" style="display: none">
+              <li class="active">
+                <div class="collapsible-body etc-pay" style="display: block">
+                  <div class="info team">
+                    <span>그린피<button class="view-billinfo" data-text=" 10%할인">
+                        요금정보보기
+                      </button></span>
+                    <span class="line"></span>
+                    <span>62,000 원</span>
+                  </div>
+                  <div class="info team">
+                    <span>카트피</span>
+                    <span class="line"></span>
+                    <span>2,000 원</span>
+                  </div>
+                  <!-- 3depth 리스트 -->
+                  <div class="info team below-category">
+                    <div class="two-category">
+                      <span>클럽하우스</span>
+                      <span class="line"></span>
+                      <span>12,000 원</span>
+                    </div>
+                    <ul class="three-below-category">
+                      <li>
+                        <span>자연송이한우국밥X4</span>
+                        <span>155,000 원</span>
+                      </li>
+                      <li>
+                        <span>반상(1인)X4</span>
+                        <span>155,000 원</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- 3depth 리스트 -->
+                  <div class="info team below-category">
+                    <div class="two-category">
+                      <span>스타트하우스</span>
+                      <span class="line"></span>
+                      <span>12,000 원</span>
+                    </div>
+                    <ul class="three-below-category">
+                      <li>
+                        <span>자연송이한우국밥X4</span>
+                        <span>155,000 원</span>
+                      </li>
+                      <li>
+                        <span>반상(1인)X4</span>
+                        <span>155,000 원</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="info team">
+                    <span>프로샵</span>
+                    <span class="line"></span>
+                    <span>2,000 원</span>
+                  </div>
+                  <div class="info team">
+                    <span>기타</span>
+                    <span class="line"></span>
+                    <span>2,000 원</span>
+                  </div>
+                  <div class="info team">
+                    <span>개별소비세</span>
+                    <span class="line"></span>
+                    <span>2,000 원</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="price-info">
+            <div class="info">
+              <span>이미래</span>
+              <span class="line"></span>
+              <span>50,000 원</span>
+            </div>
+            <ul class="ex-box" style="display: none">
+              <li class="active">
+                <div class="collapsible-body etc-pay" style="display: block">
+                  <div class="info team">
+                    <span>식사[레스토랑]</span>
+                    <span class="line"></span>
+                    <span>62,000 원</span>
+                  </div>
+                  <div class="info team">
+                    <span>음료[그늘집]</span>
+                    <span class="line"></span>
+                    <span>2,000 원</span>
+                  </div>
+                  <div class="info team">
+                    <span>디저트[레스토랑]</span>
+                    <span class="line"></span>
+                    <span>12,000 원</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="price-info">
+            <div class="info">
+              <span>최미래</span>
+              <span class="line"></span>
+              <span>50,000 원</span>
+            </div>
+            <ul class="ex-box" style="display: none">
+              <li class="active">
+                <div class="collapsible-body etc-pay" style="display: block">
+                  <div class="info team">
+                    <span>식사[레스토랑]</span>
+                    <span class="line"></span>
+                    <span>62,000 원</span>
+                  </div>
+                  <div class="info team">
+                    <span>음료[그늘집]</span>
+                    <span class="line"></span>
+                    <span>2,000 원</span>
+                  </div>
+                  <div class="info team">
+                    <span>디저트[레스토랑]</span>
+                    <span class="line"></span>
+                    <span>12,000 원</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="price-info">
+            <div class="info">
+              <span>박미래</span>
+              <span class="line"></span>
+              <span>50,000 원</span>
+            </div>
+            <ul class="ex-box" style="display: none">
+              <li class="active">
+                <div class="collapsible-body etc-pay" style="display: block">
+                  <div class="info team">
+                    <span>식사[레스토랑]</span>
+                    <span class="line"></span>
+                    <span>62,000 원</span>
+                  </div>
+                  <div class="info team">
+                    <span>음료[그늘집]</span>
+                    <span class="line"></span>
+                    <span>2,000 원</span>
+                  </div>
+                  <div class="info team">
+                    <span>디저트[레스토랑]</span>
+                    <span class="line"></span>
+                    <span>12,000 원</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div id="toggle-button" class="collapsible-header detail-folding" tabindex="0" data-target="test1">
+          상세내역
+        </div>
+      </div>
+    </div>
+
+    <!-- 팀이용금액 -->
+    <div id="test2" class="sub-content-box">
+      <div class="use-history">
+        <div>
+          전체 이용금액은
+          <h3>1,244,000<i>원 입니다</i>.</h3>
+        </div>
+        <div class="voucher_wrap">
+          <button class="voucher_btn modal-trigger" href="#modal1"><i></i>바우처 사용하기</button>
+          <button class="voucher_cancel_btn" href="" style="display: none;"><i></i>바우처 취소하기</button>
+          <p class="voucher_assigned" style="display: none;">바우처가 적용된 금액입니다.</p>
+        </div>
+        <!-- <button class="history-refresh"></button> -->
+      </div>
+
+      <div class="history-price collapsible">
+        <h3>팀이용내역</h3>
+        <ul>
+          <li class="price-info title">
+            <div class="info">
+              <span>그린피</span>
+              <span class="line"></span>
+              <span>150,000 원</span>
+            </div>
+            <ul class="ex-box team" style="display: none">
+              <li class="active">
+                <div class="collapsible-body etc-pay" style="display: block">
+                  <div class="info team">
+                    <span>김미래<button class="view-billinfo" data-text=" 10%할인">
+                        요금정보보기
+                      </button></span>
+                    <span class="line"></span>
+                    <span>62,000 원</span>
+                  </div>
+                  <div class="info team">
+                    <span>이미래</span>
+                    <span class="line"></span>
+                    <span>2,000 원</span>
+                  </div>
+                  <div class="info team">
+                    <span>프로샵</span>
+                    <span class="line"></span>
+                    <span>2,000 원</span>
+                  </div>
+                  <div class="info team">
+                    <span>기타</span>
+                    <span class="line"></span>
+                    <span>2,000 원</span>
+                  </div>
+                  <div class="info team">
+                    <span>개별소비세</span>
+                    <span class="line"></span>
+                    <span>2,000 원</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="price-info title">
+            <div class="info">
+              <span>카트피</span>
+              <span class="line"></span>
+              <span>150,000 원</span>
+            </div>
+          </li>
+          <li class="price-info title">
+            <div class="info">
+              <span>클럽하우스</span>
+              <span class="line"></span>
+              <span>150,000 원</span>
+            </div>
+            <ul class="ex-box team" style="display: none">
+              <li class="active">
+                <div class="collapsible-body etc-pay" style="display: block">
+                  <div class="info team">
+                    <span>자연송이한우국밥X4</span>
+                    <span class="line"></span>
+                    <span>62,000 원</span>
+                  </div>
+                  <div class="info team">
+                    <span>반상(1인)X2</span>
+                    <span class="line"></span>
+                    <span>2,000 원</span>
+                  </div>
+                  <div class="info team">
+                    <span>군두부&개불낙지X3</span>
+                    <span class="line"></span>
+                    <span>2,000 원</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="price-info title">
+            <div class="info">
+              <span>스타트하우스</span>
+              <span class="line"></span>
+              <span>150,000 원</span>
+            </div>
+          </li>
+          <li class="price-info title">
+            <div class="info">
+              <span>프로샵</span>
+              <span class="line"></span>
+              <span>150,000 원</span>
+            </div>
+          </li>
+          <li class="price-info title">
+            <div class="info">
+              <span>기타</span>
+              <span class="line"></span>
+              <span>150,000 원</span>
+            </div>
+          </li>
+          <li class="price-info title">
+            <div class="info">
+              <span>개별소비세</span>
+              <span class="line"></span>
+              <span>150,000 원</span>
+            </div>
+          </li>
+        </ul>
+        <div id="toggle-button2" class="collapsible-header detail-folding" tabindex="0" data-target="test2">
+          상세내역
+        </div>
+      </div>
+    </div>
+    <!--/// 개인 이용내역 contents -->
+
+    <!-- Modal Trigger -->
+    <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
+    <!-- 바우처 Modal Popup -->
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal bottom-sheet voucher-modal">
+      <div class="modal-header">
+        <h2>바우처 적용</h2>
+        <!-- <button class="modal-close">X</button> -->
+        <button type="button" class="modal-close pop-close" href="#simple-chkin"></button>
+      </div>
+      <div class="modal-content">
+        <div class="voucher-title">
+          <h4>바우처 종류</h4>
+          <p>프리미엄 바우처 <i>2인</i>무료</p>
+        </div>
+        <div class="voucher-select">
+          <div class="voucher-commnet">
+            <h4>바우처를 적용 하실 분을 선택해 주세요.</h4>
+            <p>(선택 가능 인원 2명)</p>
+          </div>
+          <div class="prev-crew-list">
+            <!-- <h3>예전 동반자 목록</h3> -->
+            <ul class="list">
+              <li>
+                <div class="voucher-list">
+                  <input type="checkbox" id="chk-icon1">
+                  <label for="chk-icon1">
+                    <span class="">
+                      김미래
+                    </span>
+                    <p>145,000 원</p>
+                  </label>
+                </div>
+              </li>
+              <li>
+                <div class="voucher-list">
+                  <input type="checkbox" id="chk-icon2">
+                  <label for="chk-icon2">
+                    <span class="">
+                      이미래
+                    </span>
+                    <p>145,000 원</p>
+                  </label>
+                </div>
+              </li>
+              <li>
+                <div class="voucher-list">
+                  <input type="checkbox" id="chk-icon3">
+                  <label for="chk-icon3">
+                    <span class="">
+                      박미래
+                    </span>
+                    <p>145,000 원</p>
+                  </label>
+                </div>
+              </li>
+              <li>
+                <div class="voucher-list">
+                  <input type="checkbox" id="chk-icon4">
+                  <label for="chk-icon4">
+                    <span class="">
+                      김보영
+                    </span>
+                    <p>145,000 원</p>
+                  </label>
+                </div>
+              </li>
+            </ul>
+            <!-- 동반자 없을 경우 -->
+            <div class="no-crew-box">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
+        <div class="bot-btn-group">
+          <button id="voucherAssignCancel" type="button" class="btn-cancel">취소</button>
+          <button id="voucherAssign" type="button" class="btn-regist">적용하기</button>
+        </div>
+      </div>
+    </div>
+
+    <!--/// 팀 이용내역 contents -->
+    <div class="bot-btn-group b-width-100 position-sticky" style="margin: 0 !important; ">
+      <button type="button" style="margin-left:0;margin-bottom: 20px" class="btn-regist modal-close pop-close"
+        href="#checkout-calculate">
+        결제하기
+      </button>
+    </div>
+  </div>
+  <script>
+    $(".button-collapse").sideNav();
+    $(document).ready(function () {
+      /* Modal Initialized */
+      $(".modal-trigger").leanModal();
+      // Materialize.toast('Ready', 4000);
+    });
+
+    var elem = document.querySelector(".collapsible.expandable");
+    var instance = M.Collapsible.init(elem, {
+      accordion: false,
+    });
+
+    /* A */
+    btn1Trigger1.onclick = () => {
+      Swal.fire({
+        customClass: {
+          popup: "custom-popup",
+        },
+        html: "<h3 class='cs-pop-text'>이용내역은 체크인 후에 확인할 수 있습니다.</h3>",
+      });
+    };
+
+    /* B */
+    btn1Trigger2.onclick = () => {
+      Swal.fire({
+        confirmButtonText: "닫기",
+        customClass: {
+          popup: "custom-popup",
+        },
+        html: "<h3 class='cs-pop-text'>유효하지 않은 경기입니다.</h3>",
+      });
+    };
+  </script>
+  <script>
+    $(document).ready(function () {
+      $("#toggle-button").click(function () {
+        $("#test1 .collapsible .price-info .ex-box").slideToggle();
+        $("#test1 .collapsible .price-info").toggleClass("active");
+        $("#test1 #toggle-button").toggleClass("active");
+      });
+
+      $(".collapsible").click(function () {
+        $(this).next(".ex-box").slideToggle();
+        $(this).toggleClass("active");
+      });
+      $("#toggle-button2").click(function () {
+        $("#test2 .collapsible .price-info .ex-box").slideToggle();
+        $("#test2 .collapsible .price-info").toggleClass("active");
+        $("#test2 #toggle-button2").toggleClass("active");
+      });
+
+      $(".collapsible").click(function () {
+        $(this).next(".ex-box").slideToggle();
+        $(this).toggleClass("active");
+      });
+    });
+    const buttons = document.querySelectorAll(".view-billinfo");
+
+    buttons.forEach((button) => {
+      const text = button.getAttribute("data-text");
+
+      button.addEventListener("click", () => {
+        button.textContent =
+          button.textContent === text
+            ? text.replace("요금정보보기", "")[0] + " 요금정보보기"
+            : text;
+        button.classList.toggle("infoText");
+      });
+    });
+    // 체크박스 요소들을 선택합니다.ㄷ
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    // 체크박스 2개 이상 체크시 alert 창 띄움...
+    checkboxes.forEach(function (checkbox) {
+      checkbox.addEventListener('change', function () {
+        // 선택된 체크박스의 개수를 세어줍니다.
+        var checkedCount = document.querySelectorAll('.voucher-list input[type="checkbox"]:checked').length;
+
+        // 만약 선택된 체크박스의 개수가 2개 이상이라면
+        if (checkedCount > 2) {
+          // 변경된 체크박스를 다시 언체크합니다.
+          checkbox.checked = false;
+          // alert 창을 띄웁니다.
+          // alert("최대 2개까지만 선택할 수 있습니다.");
+          /* Swal.fire({
+              confirmButtonText: '닫기',
+              customClass: {
+                  popup: 'voucher-swal-popup'
+              },
+              html: "<h3 class='cs-pop-text'>선택 가능인원은 2명입니다.</h3>"
+          }) */
+          // 클립보드 복사 alert
+          Swal.fire({
+            timer: 2000,
+            timerProgressBar: true,
+            position: 'middle',
+            // showCloseButton: true,
+            showConfirmButton: false,
+            customClass: {
+              popup: 'voucher-swal-popup',
+            },
+            html: "<h3>선택 가능인원은 <i>2명</i>입니다.</h3>"
+          });
+        }
+      });
+    });
+
+    // const pppmodal = document.getElementById('modal');
+    voucherAssign.onclick = () => {
+      Swal.fire({
+        // timer: 200000,
+        // showCancelButton: true,
+        // showCloseButton: true,
+        title: '바우처가 적용 되었습니다.',
+        confirmButtonText: '확인',
+        cancelButtonText: '취소',
+        customClass: {
+          popup: 'voucher-swal-popup voucher-assignment'
+        },
+        html: "<h3 class='cs-pop-text'>사용하신 바우처는 </br> 프론트의 바우처 회수함에 넣어주세요.</h3>"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Close the modal here
+          closeParentModal();
+        }
+      });
+    };
+    document.addEventListener('DOMContentLoaded', function () {
+      M.AutoInit();
+    });
+
+    voucherAssignCancel.onclick = () => {
+      Swal.fire({
+        confirmButtonText: '확인',
+        cancelButtonText: '닫기',
+        showCancelButton: true,
+        customClass: {
+          popup: 'voucher-swal-popup voucher-assignment',
+          cancelButton: 'modal-close'
+        },
+        html: "<h3 class='cs-pop-text'>바우처 적용을 취소하시겠습니까?</h3>"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Close the modal here
+          closeParentModal();
+        }
+      });
+    };
+    function closeParentModal() {
+      const modal = document.getElementById('modal1');
+      const instance = M.Modal.getInstance(modal);
+
+      if (instance !== null) {
+        instance.close();
+        // alert('Modal closed successfully.');
+      } else {
+        console.log('Modal instance is null.');
+      }
+    }
+
+  </script>
+</body>
+
+</html>

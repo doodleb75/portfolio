@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>eNETner Cloud</title>
+	<link rel="stylesheet" type="text/css" href="/ksign/../css/import.css" />
+	<link rel="stylesheet" type="text/css" href="/ksign/../css/mgmt.css" />
+	<script type="text/javascript" src="../../../js/jquery-1.6.1.min.js"></script>
+	<script type="text/javascript" src="../../../js/dui_prototype.js"></script>
+	<script type="text/javascript" src="../../../js/dui_effect.js"></script>
+	<script type="text/javascript" src="../../../js/dui_dragndrop.js"></script>
+	<script type="text/javascript" src="../../../js/dui_hhmenu.js"></script>
+	<script type="text/javascript" src="../../../js/dui_tree.js"></script>
+	<script type="text/javascript" src="../../../js/dui_slidemenu.js"></script>
+	<script type="text/javascript" src="../../../js/dui_tab.js"></script>
+	<script type="text/javascript" src="../../../js/dui_calendar.js"></script>
+	<script type="text/javascript" src="../../../js/common.js"></script>
+	<script type="text/javascript" src="../../../js/shell_mycloud.js"></script>
+</head>
+
+<body>
+<!-- skip메뉴 -->
+<div id="LblockSkipLink">
+	<p><a href="#LblockTopMenu">주메뉴 바로가기</a></p>
+	<p><a href="#LblockLeftMenu">서브메뉴 바로가기</a></p>
+	<p><a href="#LblockBody">콘텐츠 바로가기</a></p>
+</div>
+<!-- //skip메뉴 -->
+
+<div id="LblockWrapper">
+	<!-- header영역 -->
+	<div id="LblockHeader">
+		<div id="LblockHeaderIn">
+			<div id="LblockTopLogo">
+				<h1><a href="#"><img src="../../../images/topLogo.jpg" alt="eNETner Cloud" /></a></h1>
+			</div>
+			<div id="LblockWelcome">
+				<p>2011.11.22 <span>홍길동</span></p><a href="#">로그아웃</a>
+			</div>
+			<div id="LblockTopMenu">
+				<h2  class="Lhide">대메뉴</h2>
+				<ul class="Lclear">
+					<li class="Lfirst LitemService Lcurrent"><span class="cont"><a href="../mgmt/svc_list.html"><span>서비스관리</span></a></span></li>
+					<li class="Lidx1 LitemManagement"><span class="cont"><a href="../mgmt/vm_configuration.html"><span>서비스운영관리</span></a></span></li>
+					<li class="Lidx2 LitemApplication"><span class="cont"><a href="../apply/pkg_websecu.html"><span>서비스신청</span></a></span></li>
+					<li class="Lidx3 LitemMonitoring"><span class="cont"><a href="../monitoring/guide.html"><span>모니터링</span></a></span></li>
+					<li class="Lidx4 LitemMember"><span class="cont"><a href="../mem/edit_meminfo.html"><span>회원정보관리</span></a></span></li>
+					<li class="Lidx5 LitemBilling"><span class="cont"><a href="../billing/charges.html"><span>이용료관리</span></a></span></li>
+					<li class="Llast LitemSupport"><span class="cont"><a href="../support/svcguide.html"><span>고객센터</span></a></span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- //header영역 -->
+	<div id="LblockContainer" class="Lclear">
+		<!-- leftmenu영역 -->
+		<div id="LblockLeft">
+			<div id="LblockLeftTitle">
+				<h2><img src="../../../images/lnbMenu.gif" alt="서비스관리" /></h2>
+			</div>
+			<div id="LblockLeftMenu" class="LslideMenu">
+				<h3 class="Lhide">서비스관리 하위메뉴</h3>
+				<ul>
+					<li class="Lfirst Lcurrent"><span><a href="./svc_list.html">서비스사용정보</a></span></li>
+					<li class="Llast"><span><a href="./svc_history.html">서비스신청현황</a></span></li>
+				</ul>
+			</div>
+		</div>
+		<!-- //leftmenu영역 -->
+		<div id="LblockBodySetter">
+			<!-- 컨텐츠영역 -->
+			<div id="LblockBody">
+				<!-- 페이지타이틀 영역 -->
+				<div id="LblockPageHeader">
+					<div id="LblockPageTitle">
+						<h1>서비스사용정보</h1>
+					</div>
+					<div id="LblockPageLocation">
+						<ul>
+							<li class="Lfirst"><span><a href="#">HOME</a></span></li>
+							<li><span><a href="#">서비스관리</a></span></li>
+							<li class="Llast"><span>서비스사용정보</span></li>
+						</ul>
+					</div>
+				</div>
+				<!-- //페이지타이틀 영역 -->
+				<!-- 페이지내용영역 -->
+				<div id="LblockBodyMain" class="LpageServiceDetail">
+					<!-- 서비스 상세 -->
+					<div class="lead">
+						<div class="wrap">
+							<div class="cont">
+								<div class="service db-security">
+									<h3 class="tit"><img src="../../../images/services/tit_dbsecurity.gif" alt="DB보안" /></h3>
+									<p>서비스번호: <strong class="no">KM001</strong></p>
+								</div>
+								<div class="setter">
+									<dl class="status">
+										<dt class="os">운영체제:</dt>
+										<dd class="os"><div class="val linux"><strong><span>linux</span></strong></div></dd>
+										<dt>운영:</dt>
+										<dd class="mgmt"><strong>직접운영</strong></dd>
+										<dt>상태:</dt>
+										<dd class="cur"><strong>사용중</strong> <a class="Lbtn3 sep-doc service-close" href="./sep/service_close_websecu.html"><span>해지신청</span></a></dd>
+									</dl>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<h4>사용기간</h4>
+					<div id="LblockListTable01" class="LblockListTable">
+						<div class="Lwrapper">
+							<table width="786">
+								<col width="200" span="2" /><col width="*" />
+								<thead>
+								<tr>
+									<th class="Lfirst">시작일</th>
+									<th>종료일</th>
+									<th class="Llast">약정</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr class="Lfirst">
+									<td class="Lfirst">2011.10.11</td>
+									<td>2012.10.09</td>
+									<td class="Llast">1년약정(10%할인)</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<h4>사양</h4>
+					<div id="LblockListTable01" class="LblockListTable">
+						<div class="Lwrapper">
+							<table width="786">
+								<col width="200" /><col width="200" /><col width="*" />
+								<thead>
+								<tr>
+									<th class="Lfirst">CPU</th>
+									<th>MEM</th>
+									<th class="Llast">HDD</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr class="Lfirst">
+									<td class="Lfirst">2</td>
+									<td>4</td>
+									<td class="Llast">90GB <a class="Lbtn3 sep-doc" href="./sep/goods_chg_disk.html"><span>추가</span></a></td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<h4>기본 서비스내역</h4>
+					<div class="LblockDetail">
+						<table width="785">
+							<col width="160" /><col width="*" />
+							<tr>
+								<th>DB암호화</th>
+								<td>미신청 <a class="Lbtn3 sep-doc" href="./sep/goods_add_dbencryption.html"><span>신청</span></a></td>
+							</tr>
+							<tr>
+								<th>DB접근제어</th>
+								<td>적용</td>
+							</tr>
+							<tr>
+								<th>IP</th>
+								<td>1개 <a class="Lbtn3 sep-doc" href="./sep/goods_add_ip.html"><span>추가</span></a></td>
+							</tr>
+							<tr>
+								<th>서버모니터링</th>
+								<td>신청</td>
+							</tr>
+							<tr>
+								<th>바이러스방역</th>
+								<td>신청</td>
+							</tr>
+						</table>
+					</div>
+
+					<h4>부가 서비스내역</h4>
+					<div class="LblockDetail">
+						<table width="786">
+							<col width="160" /><col width="*" />
+							<tr>
+								<th>트래픽</th>
+								<td>10Mbps (공통적용) <a class="Lbtn3 sep-doc" href="./sep/goods_chg_traffic.html"><span>변경</span></a></td>
+							</tr>
+							<tr>
+								<th>백업</th>
+								<td>10Gbps (공통적용) <a class="Lbtn3 sep-doc" href="./sep/goods_chg_backup.html"><span>변경</span></a></td>
+							</tr>
+							<tr>
+								<th>방화벽</th>
+								<td>10Mbps (공통적용) <a class="Lbtn3 sep-doc" href="./sep/goods_chg_firewall.html"><span>변경</span></a></td>
+							</tr>
+							<tr>
+								<th>SSL VPN</th>
+								<td>1EA (공통적용) <a class="Lbtn3 sep-doc" href="./sep/goods_add_sslvpn.html"><span>변경</span></a></td>
+							</tr>
+							<tr>
+								<th>로드발란싱</th>
+								<td>1개 <a class="Lbtn3 sep-doc" href="./sep/goods_add_loadbal.html"><span>신청</span></a></td>
+							</tr>
+							<tr>
+								<th>개발대행</th>
+								<td>미신청 <a class="Lbtn3 sep-doc" href="./sep/goods_add_devagent.html"><span>신청</span></a></td>
+							</tr>
+							<tr>
+								<th>이전서비스</th>
+								<td>미신청 <a class="Lbtn3 sep-doc" href="./sep/goods_add_migration.html"><span>신청</span></a></td>
+							</tr>
+							<tr>
+								<th>서비스복제</th>
+								<td>미신청 <a class="Lbtn3 sep-doc" href="./sep/goods_add_dupservice.html"><span>신청</span></a></td>
+							</tr>
+							<tr>
+								<th>운영대행</th>
+								<td>적용 <a class="Lbtn3 sep-doc" href="./sep/goods_close_crs.html"><span>변경</span></a></td>
+							</tr>
+						</table>
+					</div>
+
+					<h4>시스템 정보</h4>
+					<div class="LblockDetail">
+						<table width="786">
+							<col width="20%" /><col width="*" />
+							<tr>
+								<th>OS 버전정보</th>
+								<td>win_2008_R2_64bit_Agent</td>
+							</tr>
+							<tr>
+								<th>웹버전정보</th>
+								<td>APACH / IIS</td>
+							</tr>
+							<tr>
+								<th>IP정보</th>
+								<td>총 2개 <a class="Lbtn3 sep-doc" href="./sep/info_system_ip.html"><span>자세히보기</span></a></td>
+							</tr>
+						</table>
+					</div>
+					<!-- //서비스 상세 -->
+				</div>
+				<!-- 페이지내용영역 -->
+			</div>
+			<!-- //컨텐츠영역 -->
+		</div>
+	</div>
+	<hr />
+	<!--footer영역-->
+	<div id="LblockFooter">
+		<div id="LblockFooterIn" class="Lclear">
+			<div id="LblockFooterLogo">
+				<a href="#"><img src="../../../images/footerLogo.gif" alt="(주)엘림넷" /></a>
+			</div>
+			<div id="LblockFooterSetter">
+				<div id="LblockFooterBody">
+					<ul id="LblockFooterMenu">
+						<li class="Lfirst"><a href="#"><img src="../../../images/footerMenu_01.gif" alt="회사소개" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_02.gif" alt="서비스약관" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_03.gif" alt="개인정보취급방침" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_04.gif" alt="FAQ" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_05.gif" alt="Q&A" /></a></li>
+						<li><a href="#"><img src="../../../images/footerMenu_06.gif" alt="제휴문의" /></a></li>
+					</ul>
+					<address><img src="../../../images/address.gif" alt="서울시 서대문구 충정로3가 32-11 엘림넷빌딩  사업자등록번호: 220-81-97656  개인정보 관리책임자: 송태호 부장 (thshong@elim.net)" /></address>
+					<p><img src="../../../images/copyright.gif" alt="Copyright (C) 2012 BY ELIMNET CO.,LTD. ALL RIGHTS RESERVED." /></p>
+				</div>
+			</div>
+			<div id="LblockFooterHelp"><img src="../../../images/callservice.gif" alt="고객지원센터 TEL:02-3149-4900 FAX:02-3149-4998" /></div>
+		</div>
+	</div>
+	<!--//footer영역-->
+</div>
+</body>
+</html>

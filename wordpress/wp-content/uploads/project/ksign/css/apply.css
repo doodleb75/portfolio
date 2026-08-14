@@ -1,0 +1,173 @@
+@charset 'utf-8';
+
+.LpageApply button { margin:0; padding:0; border:0 }
+.LpageApply button::-moz-focus-inner { margin:0; padding:0; border:0 }
+.LpageApply button { *margin:-2px 0; background-color:transparent; overflow:visible }
+.LpageApply button img { position:relative }
+
+#LblockBody:after, .LpageApply .lead-page:after, .LpageApply .pod-name .cont:after, .LpageApply .pod-agreed .cont:after,
+.LpageApply .pod-os .tabs:after, .LpageApply .pod-options ul:after { content:"."; display: block; clear: both; visibility: hidden; height: 0; font-size: 0 }
+.LpageApply .creation h3, .LpageApply .pod-tabbed .list h5, .LpageApply .pod-options h4 { position:absolute; left:-1000%; top:0; width:1px; heght:1px; font-size:0; line-height:0; overflow:hidden }
+
+/* jQuery UI Theme Reset */
+.LpageApply .pod .ui-widget-content,
+.LpageApply .pod .ui-widget-header,
+.LpageApply .pod .ui-state-default,
+.LpageApply .pod .ui-widget-header .ui-state-default,
+.LpageApply .pod .ui-widget-header .ui-state-active { border-width:0; background-color:transparent; background-image:none }
+.LpageApply .pod .ui-corner-all, .LpageApply .pod .ui-corner-top, .LpageApply .pod .ui-corner-left, .LpageApply .pod .ui-corner-tl { -moz-border-radius-topleft: 0/*{cornerRadius}*/; -webkit-border-top-left-radius: 0/*{cornerRadius}*/; -khtml-border-top-left-radius: 0/*{cornerRadius}*/; border-top-left-radius: 0/*{cornerRadius}*/; }
+.LpageApply .pod .ui-corner-all, .LpageApply .pod .ui-corner-top, .LpageApply .pod .ui-corner-right, .LpageApply .pod .ui-corner-tr { -moz-border-radius-topright: 0/*{cornerRadius}*/; -webkit-border-top-right-radius: 0/*{cornerRadius}*/; -khtml-border-top-right-radius: 0/*{cornerRadius}*/; border-top-right-radius: 0/*{cornerRadius}*/; }
+.LpageApply .pod .ui-corner-all, .LpageApply .pod .ui-corner-bottom, .LpageApply .pod .ui-corner-left, .LpageApply .pod .ui-corner-bl { -moz-border-radius-bottomleft: 0/*{cornerRadius}*/; -webkit-border-bottom-left-radius: 0/*{cornerRadius}*/; -khtml-border-bottom-left-radius: 0/*{cornerRadius}*/; border-bottom-left-radius: 0/*{cornerRadius}*/; }
+.LpageApply .pod .ui-corner-all, .LpageApply .pod .ui-corner-bottom, .LpageApply .pod .ui-corner-right, .LpageApply .pod .ui-corner-br { -moz-border-radius-bottomright: 0/*{cornerRadius}*/; -webkit-border-bottom-right-radius: 0/*{cornerRadius}*/; -khtml-border-bottom-right-radius: 0/*{cornerRadius}*/; border-bottom-right-radius: 0/*{cornerRadius}*/; }
+.LpageApply .pod .ui-tabs { padding:0 } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+.LpageApply .pod .ui-tabs .ui-tabs-nav { margin: 0; padding:0; }
+.LpageApply .pod .ui-tabs .ui-tabs-nav li { list-style: none; float: left; position:static; top: 0; margin:0; border-bottom: 0; padding: 0; white-space: nowrap; }
+.LpageApply .pod .ui-tabs .ui-tabs-nav li a { float: none; padding:0; text-decoration: none; }
+.LpageApply .pod .ui-tabs .ui-tabs-nav li.ui-tabs-selected { margin-bottom: 0; padding-bottom:0; }
+.LpageApply .pod .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .LpageApply .pod .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .LpageApply .pod .ui-tabs .ui-tabs-nav li.ui-state-processing a { cursor: text; }
+.LpageApply .pod .ui-tabs .ui-tabs-nav li a, .LpageApply .pod .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+.LpageApply .pod .ui-tabs .ui-tabs-panel { display: block; border-width: 0; padding:0; background: none; }
+.LpageApply .pod .ui-tabs .ui-tabs-hide { display: none !important; }
+/* // jQuery UI Theme Reset */
+
+.LpageApply .lead-page { min-height:1em; _height:1em; margin-bottom:20px; padding:10px 10px 10px 15px; border:2px solid #CDCDCD; }
+.LpageApply .lead-page .cont { margin-right:160px }
+.LpageApply .lead-page .addl { float:left; width:150px; margin:5px 0 0 0; text-align:right }
+.LpageApply .lead-page .setter { margin-right:-150px }
+.LpageApply .setter { float:left; width:100% }
+.LpageApply .creation { min-height:400px; _height:400px; margin-right:286px }
+.LpageApply .creation .help,
+.LpageApply .creation .help .cont { background:#EEE url('../images/apply/help_box.gif') no-repeat left top; }
+.LpageApply .creation .help { clear:both; margin-right:10px; padding-top:5px; background-position:-750px 0; font-size:11px; letter-spacing:-1px }
+.LpageApply .creation .help .cont { padding:5px 15px 10px; background-position:0 100% }
+.LpageApply .creation .help .details:link, .LpageApply .creation .help .details:visited,
+.LpageApply .creation .help .details:hover, .LpageApply .creation .help .details:active { color:#A97B40 }
+.LpageApply .estimated { float:left; width:275px; margin-left:-275px }
+.LpageApply .pod { float:left; _display:inline; margin:0 10px 10px 0; width:238px; min-height:71px; _height:71px; border:1px solid #C5D1E2; }
+.LpageApply .pod h4 { min-height:16px; _height:16px; padding:6px 12px 3px; border-bottom:1px solid #C5D1E2; background:#DDE4EE url('../images/apply/pod_tit_bg.gif') no-repeat left top; font-size:12px }
+.LpageApply .pod .cont { position:relative; overflow:auto; margin:1px; padding:0 3px }
+.LpageApply .pod .holder { _height:1em }
+
+/* 서버명 입력 */
+.LpageApply .pod-name label { float:left; width:60px; line-height:22px; text-align:right }
+.LpageApply .pod-name .cont { height:43px; padding:0 5px }
+.LpageApply .pod-name .holder { margin:11px 0 10px }
+.LpageApply .pod-name .setter { margin-left:-60px }
+.LpageApply .pod-name .val, .LpageApply .pod-name .val span { display:block; background:url('../images/apply/svcname_bg.gif') no-repeat left top }
+.LpageApply .pod-name .val { margin:0 67px 0 65px; padding-left:5px }
+.LpageApply .pod-name .val span { padding:2px 5px 2px 0; background-position:right top }
+.LpageApply .pod-name .val input { width:100%; _width:84px; height:18px; *margin:-1px 0; padding:0; border:0; background-color:transparent; color:#FFF; line-height:18px; font-family:돋움,Dotum,굴림,Gulim,Verdana,Tahoma,Arial,Apple-Gothic,sans-serif }
+.LpageApply .pod-name .chk-overlap { float:left; width:62px; margin-left:-62px }
+.LpageApply .pod-name .chk-overlap button { cursor:pointer }
+
+/* 약정 */
+.LpageApply .pod-agreed label { cursor:pointer }
+.LpageApply .pod-agreed .cont { height:43px }
+.LpageApply .pod-agreed .holder { margin:9px }
+.LpageApply .pod-agreed .setter { margin-left:-50% }
+.LpageApply .pod-agreed .each { position:relative; z-index:1; float:left; width:50%; height:25px; overflow:hidden; text-align:center }
+.LpageApply .pod-agreed .each input { position:absolute; z-index:-1; top:6px; left:7px; *top:3px; *left:3px }
+.LpageApply .pod-agreed .each label { display:block; height:25px; margin-left:5px; padding-right:5px; line-height:25px }
+.LpageApply .pod-agreed .none, .LpageApply .pod-agreed .none label { background:url('../images/apply/agreed_lab_none.gif') no-repeat left top }
+.LpageApply .pod-agreed .none {  }
+.LpageApply .pod-agreed .none label { background-position:right top }
+.LpageApply .pod-agreed .one-year, .LpageApply .pod-agreed .one-year label { background:url('../images/apply/agreed_lab_1year.gif') no-repeat left top }
+.LpageApply .pod-agreed .one-year { float:none; display:block; margin-left:50% }
+.LpageApply .pod-agreed .one-year label { background-position:right top }
+.LpageApply .pod-agreed .checked { background-color:#457DA5; background-position:0 -30px; color:#FFF }
+.LpageApply .pod-agreed .checked label { padding-right:10px; background-position:100% -30px }
+.LpageApply .pod-agreed .checked .val { display:inline-block; padding-left:17px; background:url('../images/apply/pod_checked_bul.gif') no-repeat -2px 50% }
+
+/* OS 이미지 */
+.LpageApply .pod-tabbed .cont { height:104px }
+.LpageApply .pod-tabbed .tabs { margin:0 6px !important; padding:6px 0 0 !important }
+.LpageApply .pod-tabbed .tabs li { float:left; width:50%; text-align:center }
+.LpageApply .pod-tabbed .tabs .setter { width:100%; margin-left:-50% !important }
+.LpageApply .pod-tabbed .tabs .lead { margin-bottom:0; padding:0; border-width:0 }
+.LpageApply .pod-tabbed .tabs .fol { margin-left:50% }
+.LpageApply .pod-tabbed .tabs .each, .LpageApply .pod-tabbed .tabs .each a { background:#E1E1E1 url('../images/apply/os_tab_bg.gif') no-repeat left top }
+.LpageApply .pod-tabbed .tabs .each { position:relative }
+.LpageApply .pod-tabbed .tabs .each a { display:block; min-height:26px; _height:26px; margin-left:5px; padding:5px 5px 0 0 !important; background-position:right top; vertical-align:top }
+.LpageApply .pod-tabbed .tabs .each .val { line-height:21px }
+.LpageApply .pod-tabbed .tabs .windows { margin-right:1px }
+.LpageApply .pod-tabbed .tabs .linux { margin-left:2px; }
+.LpageApply .pod-tabbed .ui-tabs .ui-tabs-nav li.ui-tabs-selected a { padding-bottom:1px; background-position:100% -100px }
+.LpageApply .pod-tabbed .ui-tabs .ui-tabs-nav li.ui-tabs-selected .each { background-position:0 -100px }
+.LpageApply .pod-tabbed .list { margin:-1px 6px 0; padding:5px 0 6px !important; border-top:1px solid #CDCDCD !important; }
+.LpageApply .pod-tabbed .list li, .LpageApply .pod-tabbed .list label { background:#F6F6F6 url('../images/apply/os_lab_bg.gif') no-repeat left top }
+.LpageApply .pod-tabbed .list li { position:relative; z-index:1; height:25px; margin-bottom:1px; padding-left:5px; font-size:11px; font-family:Tahoma,Verdana,Arial,돋움,Dotum,굴림,Gulim,Apple-Gothic,sans-serif; vertical-align:top }
+.LpageApply .pod-tabbed .list label { display:block; padding-left:16px; background-position:right top; cursor:pointer }
+.LpageApply .pod-tabbed .list input { position:absolute; z-index:-1; top:6px; left:5px; *top:2px; *left:0 }
+.LpageApply .pod-tabbed .list .val { display:block; height:19px; padding:3px 5px 3px 0 }
+.LpageApply .pod-tabbed .list .checked { background-color:#457DA5; background-position:0 -30px }
+.LpageApply .pod-tabbed .list .checked label { background-color:#457DA5; background-position:100% -30px; color:#FFF; font-weight:bold; }
+.LpageApply .pod-tabbed .list .checked .val { margin-left:-16px; padding-left:16px; background:url('../images/apply/pod_checked_bul.gif') no-repeat 1px 50% }
+
+/* OS 이미지 */
+.LpageApply .pod-os .tabs .each .val { display:inline-block; margin-right:5px; padding-left:23px; background-repeat:no-repeat; background-position:-4px -25px }
+.LpageApply .pod-os .tabs .windows .val { background-image:url('../images/apply/os_tab_icon_windows.gif') }
+.LpageApply .pod-os .tabs .linux .val { background-image:url('../images/apply/os_tab_icon_linux.gif') }
+.LpageApply .pod-os .tabs .ui-tabs-selected .val { background-position:-29px 0; }
+
+/* 제공사양 */
+.LpageApply .pod-spec .cont { height:104px }
+.LpageApply .pod-spec .each { position:relative; z-index:1; float:left; width:76px; margin:9px 0; border-left:1px solid #E4E4E4; text-align:center }
+.LpageApply .pod-spec .sepr { float:left; width:10px; height:16px; padding-top:79px; margin-left:-15px }
+.LpageApply .pod-spec .lab { display:block; height:38px; margin-bottom:7px; padding-top:20px; background:url('../images/apply/spec_labels.gif') no-repeat left top }
+.LpageApply .pod-spec .lab span { position:relative; z-index:-1 }
+.LpageApply .pod-spec .val, .LpageApply .pod-spec .val strong { display:block; height:21px; margin:0 9px; background:#457DA5 url('../images/apply/spec_val_bg.gif') no-repeat left top; line-height:21px }
+.LpageApply .pod-spec .val { padding-left:4px; color:#FFF; font-size:11px; font-family:Tahoma,Verdana,Arial,돋움,Dotum,굴림,Gulim,Apple-Gothic,sans-serif }
+.LpageApply .pod-spec .val strong { margin:0; padding-right:4px; background-color:transparent; background-position:right top }
+.LpageApply .pod-spec .cpu { border-left-width:0 }
+.LpageApply .pod-spec .mem .lab { background-position:-76px 0 }
+.LpageApply .pod-spec .hdd .lab { background-position:-152px 0 }
+
+/* 선택사양 */
+.LpageApply .pod-options { clear:left; float:none; width:auto; margin-right:0; border-width:0 }
+.LpageApply .pod-options h4 { border-width:0; background:transparent none }
+.LpageApply .pod-options ul { min-height:110px; _height:110px; margin-bottom:10px }
+.LpageApply .pod-options li { position:relative; float:left; _display:inline; width:115px; height:62px; overflow:hidden; margin:0 10px 10px 0; z-index:1 }
+.LpageApply .pod-options input { position:absolute; z-index:-1; top:13px; left:0; *top:9px; *left:-4px; margin:0 }
+.LpageApply .pod-options label { display:block; min-height:42px; _height:42px; padding:20px 16px 0 16px; background:url('../images/apply/option_lab_bg.gif') no-repeat left top; color:#6F6E6E;  font-weight:bold; font-size:11px; font-family:돋움,dotum,굴림,Gulim,Verdana,Tahoma,Arial,AppleGothic,sans-serif; text-align:center; cursor:pointer }
+.LpageApply .pod-options label span { display:block }
+.LpageApply .pod-options .checked label { background-position:0 -62px; color:#FFF }
+.LpageApply .pod-options .checked span, .LpageApply .pod-options .disabled span { margin-top:13px }
+.LpageApply .pod-options .disabled label { background-position:0 -124px; color:#7898C1; cursor:default }
+
+.LpageApply .chart,
+.LpageApply .chart h3,
+.LpageApply .chart .cost { background:url('../images/apply/estimated_box.gif') no-repeat left top }
+.LpageApply .chart { margin-bottom:10px; background-repeat:repeat-y; background-position:-500px 0; font-size:11px }
+.LpageApply .chart h3 { min-height:40px; _height:40px; margin-bottom:4px; padding:21px 135px 0 25px; background-position:-1000px 0; font-size:22px }
+.LpageApply .chart img { vertical-align:top }
+.LpageApply .chart table { width:100%; border-collapse:collapse; border-spacing:0 }
+.LpageApply .chart th,
+.LpageApply .chart td { padding:2px 13px; border-bottom:1px solid #DDD }
+.LpageApply .chart th { padding:2px 0; background-color:#F7F7F7; text-align:right }
+.LpageApply .chart th .val { margin:0 9px }
+.LpageApply .chart .each { margin:0 12px 10px 13px; border-top:1px solid #DDD }
+.LpageApply .chart .comp { padding:10px 13px; line-height:1.2 }
+.LpageApply .chart .comp strong { color:#2080C4; font-weight:normal }
+.LpageApply .chart .cost { padding:5px 24px 15px 26px; background-position:0 100%; color:#000 }
+.LpageApply .cost .tit { float:left; font-size:14px }
+.LpageApply .cost .val { display:block; margin-left:70px; text-align:right }
+.LpageApply .cost .val strong { font-size:14px; color:#D50C42; }
+.LpageApply .submit { position:relative; z-index:1; height:53px; padding:3px; background:url('../images/apply/submit_btn_bg.gif') no-repeat left top }
+.LpageApply .submit button { color:#457DA5; font-weight:bold; font-size:26px; line-height:53px; cursor:pointer }
+.LpageApply .submit .trigger { width:100%; height:100%; background:url('../images/apply/submit_btn_val.gif') no-repeat center center }
+.LpageApply .submit .trigger span { position:relative; z-index:-1 }
+
+.LpageApply .branch { float:left; width:250px }
+.LpageApply .branch .pod-options ul { min-height:62px; _height:62px }
+
+
+
+
+
+
+
+
+
+
+
+

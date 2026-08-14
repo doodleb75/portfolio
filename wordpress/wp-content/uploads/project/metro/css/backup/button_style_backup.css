@@ -1,0 +1,73 @@
+/** 메트로광고 - 버튼 스타일  - **/
+
+.button {border-bottom: 0px; position: relative; border-left: 0px; padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline-block; font-family: dotum,tahoma, sans-serif; white-space: nowrap; background: url(../images/common/button_set.png) no-repeat; color: #333; font-size: 12px; vertical-align: top; overflow: visible; border-top: 0px; border-right: 0px; text-decoration: none !important; padding-top: 0px}
+.button * {border-bottom: 0px; position: relative; border-left: 0px; padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline-block; font-family: dotum,tahoma, sans-serif; white-space: nowrap; background: url(../images/common/button_set.png) no-repeat; color: #333; font-size: 12px; vertical-align: top; overflow: visible; border-top: 0px; border-right: 0px; text-decoration: none !important; padding-top: 0px}
+.button {margin-right:6px}
+.button * {cursor: pointer; left:5px; _cursor: hand}
+
+.medium-w.button {line-height: 24px; height: 24px}
+.medium-w.button * {line-height: 24px; height: 24px}
+
+.medium-g.button {line-height: 24px; height: 24px}
+.medium-g.button * {line-height: 24px; height: 24px}
+
+.medium-b.button {line-height: 24px; height: 24px}
+.medium-b.button * {line-height: 24px; height: 24px}
+
+.small-g.button {line-height: 20px; height: 20px}
+.small-g.button * {line-height: 20px; height: 20px}
+
+.small-g2.button {line-height: 20px; height: 20px}
+.small-g2.button * {line-height: 20px; height: 20px}
+
+.medium-w.button {background-position: left 0px}
+.medium-g.button {background-position: left -61px}
+.medium-b.button {background-position: left -31px}
+
+.small-g.button {background-position: left -91px}
+.small-g2.button {background-position: left -118px}
+.small-g.button * {padding-bottom: 0px; padding-left: 2px; padding-right:6px; background-position: right -91px; font-size: 11px; padding-top: 0px}
+.small-g2.button * {padding-bottom: 0px; padding-left: 2px; padding-right:6px; background-position: right -118px; font-size: 11px; padding-top: 0px}
+
+.medium-w.button * {padding-bottom: 0px; padding-left: 6px; padding-right: 10px; background-position: right top; font-size: 12px;font-weight:bold; padding-top: 0px}
+.medium-g.button * {padding-bottom: 0px; padding-left: 6px; padding-right: 10px; background-position: right -61px; font-size: 12px;font-weight:bold; padding-top: 0px}
+.medium-b.button * {padding-bottom: 0px; padding-left: 6px; padding-right: 10px; background-position: right -31px; font-size: 12px;font-weight:bold; padding-top: 0px}
+
+.button *:hover {color: #007dc5}
+.button *:active {color: #007dc5}
+.button *:focus {color: #007dc5}
+.strong.button * {font-weight: bold !important}
+.icon.button * {padding-left:16px}
+
+.icon.button span {padding-bottom: 0px !important; padding-left: 0px !important; width: 26px; padding-right: 0px !important; margin-right: -26px; padding-top: 0px !important}
+
+.medium-w.button .check {background-position: 4px -150px}
+.medium-b.button .check {background-position: 4px -150px}
+
+/** icon 추가 **/
+.small-g.button .check {background-position: -57px -331px}
+.medium-w.button .add {background-position: -16px -150px}
+
+.small-g.button .add {background-position: -18px -153px}
+.medium-w.button .delete {background-position: -34px -150px}
+
+.small-g.button .delete {background-position:  -57px -331px}
+.medium-w.button .calendar {background-position: -56px -150px}
+
+.small-g.button .calendar {background-position: -59px -153px}
+.medium-w.button .refresh {background-position: -76px -150px}
+
+.small-g.button .refresh {background-position: -79px -153px}
+.medium-w.button .refresh {background-position:   -260px -331px}
+.medium-b.button .refresh {background-position:   -260px -331px}
+.medium-w.button .download {background-position:  -218px -330px}
+.medium-b.button .download {background-position:  -218px -330px}
+.medium-w.button .search {background-position:  -12px -330px}
+.medium-b.button .search {background-position:  -12px -330px}
+
+.small-g.button .download {background-position: -99px -154px}
+
+.btn_strong{font-weight:bold;letter-spacing:-1px;}
+.txt_white{color:#fff;}
+.txt_white *{color:#fff;}
+.txt_white *:hover {color: #ffd800}

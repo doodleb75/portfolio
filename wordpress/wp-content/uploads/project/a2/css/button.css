@@ -1,0 +1,258 @@
+@charset "euc-kr";
+/* Design Team (i72mouse@naver.com) dalgona 2010.05.21 */ 
+
+/*1.±âº»_°£°Ý¾øÀ½*/
+.tab_industry{width:716px; background:url("/A2/images/common/bgTab.gif") repeat-x left bottom; overflow:hidden;}
+.tab_industry li{float:left; _display:inline; margin-right:-1px; font-size:11px; border:1px solid #d8d8d8; color:#808080; background:url("/A2/images/common/industryTabBg.gif") left top;}
+.tab_industry li a{_float:left; display:block; height:18px; padding:4px 18px 0 19px; font-size:11px; color:#808080; text-decoration:none; background:url("/A2/images/common/industryTabBg.gif") left top; font-weight:bold;}
+.tab_industry li a:hover{font-weight:bold; font-size:11px; color:#454545; background:#fff;}
+.tab_industry li.selected{border-bottom:1px solid #fff; background-image:none;}
+.tab_industry li.selected a{color:#454545; font-weight:bold; font-size:11px; letter-spacing:-1px; background-image:none;}
+
+.btn_sort li{float:left; _display:inline; margin-top:2px;margin-right:2px;font-size:0;}
+.btn_sort li input.btnSortGray{
+	font-family: "µ¸¿ò", Gulim, Verdana;
+	font-size:11px;
+	width:50px;
+	height:22px;
+	text-align:center;
+	background:url("/A2/images/common/btnSortGray.gif");
+	border-style:none;
+	padding:4px 0;
+	color:#606060;
+	cursor:pointer;
+}
+.btn_sort li input.btnSortBlue{
+	font-family: "µ¸¿ò", Gulim, Verdana;
+	font-size:11px;
+	width:50px;
+	height:22px;
+	text-align:center;
+	background:url("/A2/images/common/btnSortBlue.gif");
+	border-style:none;
+	padding:4px 0;
+	color:#01a2b4;
+	cursor:pointer;
+}
+.btn_sort li input.btnSelecDel{
+	font-family: "µ¸¿ò", Gulim, Verdana;
+	font-size:11px;
+	width:60px;
+	height:22px;
+	text-align:center;
+	background:url("/A2/images/common/btnSelecDel.gif");
+	border-style:none;
+	padding:4px 0;
+	color:#01a2b4;
+	cursor:pointer;
+}
+.btn_sort li input.btnMyDocument{
+	font-family: "µ¸¿ò", Gulim, Verdana;
+	font-size:11px;
+	width:110px;
+	height:22px;
+	text-align:center;
+	background:url("/A2/images/common/btnMyDocument.gif");
+	border-style:none;
+	padding:4px 0;
+	color:#01a2b4;
+	cursor:pointer;
+}
+.btn_sort li select.category{
+	font-family: "µ¸¿ò", Gulim, Verdana;
+	font-size:11px;
+	margin-top:3px;
+	width:150px;
+	height:18px;
+	color:#606060;
+}
+.sel {text-align:right; padding:0;}
+.sel select.selTitle {width:95px;height:20px;font-size:11px;color:#707070;font-weight:normal;}
+.sel input.textFiled {width:165px;height:20px;font-size:11px;color:#707070;border:1px solid #d3d3d3;font-weight:normal;}
+.sel input.btnSearch {
+	font-family: Verdana;
+	font-size:11px;
+	width:55px;
+	height:22px;
+	color:#868485;
+	font-weight:bold;
+	text-align:center;
+	background:url("/A2/images/common/btnSearch2.gif");
+	border-style:none;
+	padding:0;
+	cursor:pointer;
+}
+
+.btnCommon{
+	font-family: "µ¸¿ò", Gulim, Verdana;
+	font-size:12px;
+	width:50px;
+	height:25px;
+	text-align:center;
+	background:url("/A2/images/common/btnList.gif");
+	border-style:none;
+	padding:5px 0;
+	color:#7e7e7e;
+	cursor:pointer;
+}
+.btnDocBag{
+	font-family: "µ¸¿ò", Gulim, Verdana;
+	font-size:12px;
+	width:80px;
+	height:25px;
+	text-align:center;
+	background:url("/A2/images/common/btnDocBag.gif");
+	border-style:none;
+	padding:5px 0;
+	color:#7e7e7e;
+	cursor:pointer;
+}
+.btnReple{
+	font-family: "µ¸¿ò", Gulim, Verdana;
+	font-size:12px;
+	width:70px;
+	height:27px;
+	text-align:center;
+	background:url("/A2/images/common/btnReple.gif");
+	border-style:none;
+	padding:5px 0;
+	color:#118888;
+	cursor:pointer;
+}
+.btnSave{
+	font-family: "µ¸¿ò", Gulim, Verdana;
+	font-size:12px;
+	font-weight:bold;
+	width:64px;
+	height:25px;
+	text-align:center;
+	background:url("/A2/images/common/btnSave.gif");
+	border-style:none;
+	padding:3px 0 0 13px;
+	color:#7e7e7e;
+	cursor:pointer;
+}
+.btnFileBrowse{
+	font-family: "µ¸¿ò", Gulim, Verdana;
+	font-size:12px;
+	width:70px;
+	height:27px;
+	text-align:center;
+	background:url("/A2/images/common/btnFile.gif");
+	border-style:none;
+	padding:5px 0;
+	color:#7e7e7e;
+	cursor:pointer;
+}
+.btnPaperDel{
+	font-family: "µ¸¿ò", Gulim, Verdana;
+	font-size:11px;
+	width:40px;
+	height:18px;
+	text-align:center;
+	background:url("/A2/images/common/btnPaperDel.gif");
+	border-style:none;
+	padding:2px 0;
+	color:#606060;
+	cursor:pointer;
+}
+.btnOk{
+	font-family: "µ¸¿ò", Gulim, Verdana;
+	font-size:12px;
+	width:60px;
+	height:25px;
+	text-align:center;
+	background:url("/A2/images/common/btnOk.gif");
+	border-style:none;
+	padding:3px 0 0 15px;
+	color:#7e7e7e;
+	cursor:pointer;
+}
+.btnStatus{
+	font-family: "µ¸¿ò", Gulim, Verdana;
+	font-size:11px;
+	width:60px;
+	height:18px;
+	text-align:center;
+	background:url("/A2/images/common/btnStatus.gif");
+	border-style:none;
+	padding:2px 0;
+	color:#606060;
+	cursor:pointer;
+}
+.btnSend{
+	font-family: "µ¸¿ò", Gulim, Verdana;
+	font-size:11px;
+	width:78px;
+	height:22px;
+	text-align:center;
+	background:url("/A2/images/common/btnSend.gif");
+	border-style:none;
+	padding:3px 0;
+	color:#606060;
+	cursor:pointer;
+	vertical-align:middle;
+}
+.btnSendAll{
+	font-family: "µ¸¿ò", Gulim, Verdana;
+	font-size:11px;
+	width:240px;
+	height:22px;
+	text-align:center;
+	background:url("/A2/images/common/btnSendAll.gif");
+	border-style:none;
+	padding:4px 0;
+	color:#00a3b4;
+	cursor:pointer;
+}
+.btnShowcase{
+	font-family: "µ¸¿ò", Gulim, Verdana;
+	font-size:11px;
+	width:86px;
+	height:22px;
+	text-align:center;
+	background:url("/A2/images/common/btnShowcase.gif");
+	border-style:none;
+	padding:3px 0;
+	color:#606060;
+	cursor:pointer;
+	vertical-align:middle;
+}
+.btnShocaseWrite{
+	font-family: "µ¸¿ò", Gulim, Verdana;
+	font-size:12px;
+	font-weight:bold;
+	width:50px;
+	height:27px;
+	text-align:center;
+	background:url("/A2/images/common/btnShocaseWrite.gif");
+	border-style:none;
+	padding:6px 0;
+	color:#e8010a;
+	cursor:pointer;
+}
+.btnChoice{
+	font-family: "µ¸¿ò", Gulim, Verdana;
+	font-size:12px;
+	font-weight:bold;
+	width:120px;
+	height:27px;
+	text-align:center;
+	background:url("/A2/images/common/btnChoice.gif");
+	border-style:none;
+	padding:6px 0;
+	color:#e8010a;
+	cursor:pointer;
+}
+.btnDetailView{
+	font:11px µ¸¿ò;
+	color:#3c3c3c;
+	width:70px;
+	height:20px;
+	letter-spacing:-0.1em;
+	text-align:center;
+	padding:5px 0;
+	border-style:none;
+	cursor:pointer;
+	background:url("/A2/images/common/btnReple2.gif");
+}

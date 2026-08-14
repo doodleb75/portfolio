@@ -1,0 +1,301 @@
+@font-face {
+	font-family: 'sigma-v3';
+	src:url('fonts/sigma-v3.eot?8eewua');
+	src:url('fonts/sigma-v3.eot?#iefix8eewua') format('embedded-opentype'),
+		url('fonts/sigma-v3.woff?8eewua') format('woff'),
+		url('fonts/sigma-v3.ttf?8eewua') format('truetype'),
+		url('fonts/sigma-v3.svg?8eewua#sigma-v3') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="sga-"], [class*=" sga-"] {
+	font-family: 'sigma-v3';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.sga-work-education:before {
+	content: "\e600";
+}
+.sga-verify-m-onhand:before {
+	content: "\e601";
+}
+.sga-turnover-binder:before {
+	content: "\e602";
+}
+.sga-tracking:before {
+	content: "\e603";
+}
+.sga-tools:before {
+	content: "\e604";
+}
+.sga-time-progress-group:before {
+	content: "\e605";
+}
+.sga-time-progress:before {
+	content: "\e606";
+}
+.sga-system-report:before {
+	content: "\e607";
+}
+.sga-system-progress:before {
+	content: "\e608";
+}
+.sga-system:before {
+	content: "\e609";
+}
+.sga-siwp-viewer:before {
+	content: "\e60a";
+}
+.sga-sigma:before {
+	content: "\e60b";
+}
+.sga-setup-login-acount:before {
+	content: "\e60c";
+}
+.sga-setup-costcode:before {
+	content: "\e60d";
+}
+.sga-setup:before {
+	content: "\e60e";
+}
+.sga-sd-manhours:before {
+	content: "\e60f";
+}
+.sga-schedule-progress:before {
+	content: "\e610";
+}
+.sga-scaffold-request:before {
+	content: "\e611";
+}
+.sga-rules-credit:before {
+	content: "\e612";
+}
+.sga-rfi-status:before {
+	content: "\e613";
+}
+.sga-reporting:before {
+	content: "\e614";
+}
+.sga-raceway-qaqc:before {
+	content: "\e615";
+}
+.sga-raceway-manhours:before {
+	content: "\e616";
+}
+.sga-qaqc-form:before {
+	content: "\e617";
+}
+.sga-qaqc-binder:before {
+	content: "\e618";
+}
+.sga-project-report:before {
+	content: "\e619";
+}
+.sga-project-planned:before {
+	content: "\e61a";
+}
+.sga-project-costcode:before {
+	content: "\e61b";
+}
+.sga-project:before {
+	content: "\e61c";
+}
+.sga-planning:before {
+	content: "\e61d";
+}
+.sga-mto-summary:before {
+	content: "\e61e";
+}
+.sga-mto:before {
+	content: "\e61f";
+}
+.sga-manpower-uploading:before {
+	content: "\e620";
+}
+.sga-manpower-loading:before {
+	content: "\e621";
+}
+.sga-manage-schedule:before {
+	content: "\e622";
+}
+.sga-manage-personnel:before {
+	content: "\e623";
+}
+.sga-manage-onsite:before {
+	content: "\e624";
+}
+.sga-manage-iwp:before {
+	content: "\e625";
+}
+.sga-manage-costcode:before {
+	content: "\e626";
+}
+.sga-manage-component:before {
+	content: "\e627";
+}
+.sga-maintain-timesheet:before {
+	content: "\e628";
+}
+.sga-maintain-qaqc:before {
+	content: "\e629";
+}
+.sga-maintain-iwp:before {
+	content: "\e62a";
+}
+.sga-maintain-indirect:before {
+	content: "\e62b";
+}
+.sga-location-setup:before {
+	content: "\e62c";
+}
+.sga-load-schedule:before {
+	content: "\e62d";
+}
+.sga-load-iwp:before {
+	content: "\e62e";
+}
+.sga-load-drawings:before {
+	content: "\e62f";
+}
+.sga-load-data:before {
+	content: "\e630";
+}
+.sga-load-component:before {
+	content: "\e631";
+}
+.sga-lighting-manhours:before {
+	content: "\e632";
+}
+.sga-iwp-workflow:before {
+	content: "\e633";
+}
+.sga-iwp-viewer:before {
+	content: "\e634";
+}
+.sga-iwp-status:before {
+	content: "\e635";
+}
+.sga-iwp-signoff:before {
+	content: "\e636";
+}
+.sga-iwp-report:before {
+	content: "\e637";
+}
+.sga-iwp-f-equipment:before {
+	content: "\e638";
+}
+.sga-iwp-equipment:before {
+	content: "\e639";
+}
+.sga-itp-qc:before {
+	content: "\e63a";
+}
+.sga-import-schedule:before {
+	content: "\e63b";
+}
+.sga-import-mto:before {
+	content: "\e63c";
+}
+.sga-grounding-manhours:before {
+	content: "\e63d";
+}
+.sga-global-setting:before {
+	content: "\e63e";
+}
+.sga-fw-manhours:before {
+	content: "\e63f";
+}
+.sga-ewo-report:before {
+	content: "\e640";
+}
+.sga-estimated-manhours:before {
+	content: "\e641";
+}
+.sga-equipment-manhours:before {
+	content: "\e642";
+}
+.sga-drawing-viewer:before {
+	content: "\e643";
+}
+.sga-drawing-setup:before {
+	content: "\e644";
+}
+.sga-drawings:before {
+	content: "\e645";
+}
+.sga-document-control:before {
+	content: "\e646";
+}
+.sga-cwp:before {
+	content: "\e647";
+}
+.sga-crew-report:before {
+	content: "\e648";
+}
+.sga-crew-progress:before {
+	content: "\e649";
+}
+.sga-crew-attendance:before {
+	content: "\e64a";
+}
+.sga-costcode-structure:before {
+	content: "\e64b";
+}
+.sga-costcode-setting:before {
+	content: "\e64c";
+}
+.sga-costcode-progress:before {
+	content: "\e64d";
+}
+.sga-control-panel:before {
+	content: "\e64e";
+}
+.sga-consumable-material:before {
+	content: "\e64f";
+}
+.sga-client-setup:before {
+	content: "\e650";
+}
+.sga-calendar:before {
+	content: "\e651";
+}
+.sga-cable-reel:before {
+	content: "\e652";
+}
+.sga-cable-qaqc:before {
+	content: "\e653";
+}
+.sga-cable-manhours:before {
+	content: "\e654";
+}
+.sga-build-schedule:before {
+	content: "\e655";
+}
+.sga-build-iwp:before {
+	content: "\e656";
+}
+.sga-assign-system:before {
+	content: "\e657";
+}
+.sga-assign-costcode:before {
+	content: "\e658";
+}
+.sga-assign-cable:before {
+	content: "\e659";
+}
+.sga-admin:before {
+	content: "\e65a";
+}
+.sga-d-model:before {
+	content: "\e65b";
+}

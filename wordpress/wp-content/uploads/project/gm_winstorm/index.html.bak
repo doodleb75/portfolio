@@ -1,0 +1,175 @@
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<title>Untitled Document</title>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+
+
+
+function testmovie_DoFSCommand(command, args) { 
+ if(command=="close") { self.close(); };
+	 if (command == "wfull01") { 
+		window.open("engine_01.html","","fullscreen=yes");
+	}
+	else if (command == "wfull02") { 
+		window.open("engine_02.html","","fullscreen=yes");
+
+	} else if (command == "wfull03") { 
+		window.open("engine_03.html","","fullscreen=yes");
+
+	} else if (command == "wfull04") { 
+		window.open("engine_04.html","","fullscreen=yes");
+
+	} else if (command == "wfull05") { 
+		window.open("engine_05.html","","fullscreen=yes");
+
+	} else if (command == "wfull06") { 
+		window.open("engine_06.html","","fullscreen=yes");
+
+	} else if (command == "wfull07") { 
+		window.open("engine_07.html","","fullscreen=yes");
+
+	} else if (command == "wfull08") { 
+		window.open("engine_08.html","","fullscreen=yes");
+
+	} else if (command == "wfull09") { 
+		window.open("engine_09.html","","fullscreen=yes");
+
+	} else if (command == "wfull10") { 
+		window.open("engine_10.html","","fullscreen=yes");
+
+	} else if (command == "wfull11") { 
+		window.open("engine_11.html","","fullscreen=yes");
+
+	} else if (command == "wfull12") { 
+		window.open("engine_12.html","","fullscreen=yes");
+
+	} else if (command == "wfull13") { 
+		window.open("engine_13.html","","fullscreen=yes");
+
+	} else if (command == "wfull14") { 
+		window.open("engine_14.html","","fullscreen=yes");
+
+	} else if (command == "wfull15") { 
+		window.open("engine_15.html","","fullscreen=yes");
+
+	}else if (command == "wfull16") { 
+		window.open("engine_16.html","","fullscreen=yes");
+
+	}
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</SCRIPT> 
+
+<SCRIPT LANGUAGE="VBScript">
+<!-- 
+// Catch the fscommand in ie with vbscript, and pass
+// it on to JavaScript.
+
+Sub testmovie_FSCommand(ByVal command, ByVal args)
+    call testmovie_DoFSCommand(command, args)
+end sub
+
+//-->
+</SCRIPT>
+
+
+<style type="text/css">
+#Layer1 {
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	z-index:1;
+}
+body {
+	
+}
+html{
+	height:  100%;background: url(img/sha_indexbg02.jpg) left top !important;
+}
+#Layer2 {
+	position:absolute;
+	width:100%;
+	height:100%;
+	z-index:2;
+	left: 0%;
+	top: 0%;
+}
+#Layer3 {
+	position:absolute;
+	left:581px;
+	top:506px;
+	width:70px;
+	height:17px;
+	z-index:3;
+}
+.wrapper-box{
+	height:  100%;
+//	background:  red;
+	text-align:  center;
+
+}
+.wrapper-box .inner-box{
+padding-top:  100px;
+	vertical-align:  middle;
+}
+</style>
+</head>
+
+<body leftmargin="0" topmargin="0" >
+<div id="Layer1">
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="100%" height="100%">
+            <param name="movie" value="img/index_01.swf">
+			<param name="wmode" value="transparent">
+            <param name="quality" value="high">
+            <embed 
+				src="img/index_01.swf" 
+				quality="high" 
+				pluginspage="http://www.macromedia.com/go/getflashplayer" 
+				type="application/x-shockwave-flash" 
+				width="100%" 
+				height="100%">
+			</embed>
+  </object>
+
+</div>
+<div id="Layer2">
+  <div align="center">
+    <div class="wrapper-box">
+	<div class="inner-box" align="center">
+          <object 
+			classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" 
+			codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" 
+			width="900" 
+			height="480"
+			ID=testmovie>
+            <param name="movie" value="img/eng_index.swf" />
+            <param name="quality" value="high" />
+            <param name="wmode" value="transparent" />
+			<param name="allowScriptAccess" value="always" />
+            <embed 
+				NAME="testmovie"
+				src="img/eng_index.swf" 
+				quality="high" 
+				swLiveConnect="true"
+				pluginspage="http://www.macromedia.com/go/getflashplayer" 
+				type="application/x-shockwave-flash" 
+				width="900" 
+				height="480">
+			</embed>
+          </object>
+        </div>
+		</div>
+  </div>
+</div>
+</body>
+</html>

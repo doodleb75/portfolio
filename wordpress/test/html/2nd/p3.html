@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--
+/*************************************************************************
+* @ 서비스명   : 모바일 컨시어지
+* @ 파일명     : html/1th/p3.html
+* @ 페이지설명  : 모바일 컨시어지
+* @ 작성자     : 정동훈 (hanjh@to-be.co.kr)
+* @ 작성일     : 2020-01-16
+************************** 수정이력 ****************************************
+* 날짜                    작업자                 변경내용
+*_________________________________________________________________________
+* 2020-01-16             정동훈                 최초작성
+* 2020-02-12             한주현                 header 태그 마크업 추가
+
+*************************************************************************/
+-->
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>모바일 컨시어지</title>
+<link rel="stylesheet" href="../../common/css/commonui.css">
+<script type="text/javascript" src="../../common/js/commonui.js"></script>
+<script>
+
+    $( document ).ready(function() {
+      $('.trigger1').on('click', function() {
+         $('.modal-wrapper1').toggleClass('open');
+        // $('.page-wrapper').toggleClass('blur-it');
+         return false;
+      });
+      $('.trigger2').on('click', function() {
+         $('.modal-wrapper2').toggleClass('open');
+         return false;
+      });
+    });
+</script>
+</head>
+<body>
+
+<!-- 01 멤버리스트 팝업 -->
+ <div class="modal-wrapper1 pre-regist-info">
+  <div class="modal">
+    <div class="modal-title"></div>
+
+    <div class="cmm-radius-box none">
+           <h2>고객님께서 입력하신 개인정보 이용에 동의를 해주시면 모바일 체크인 서비스를 이용 하실 수 있습니다.</h2>
+               <div class="table-box">
+               <table>
+                   <tr>
+                       <th>이름</th>
+                       <th>성별</th>
+                       <th>전화번호</th>
+                   </tr>
+                   <tr>
+                       <td>박프로</td>
+                       <td>남</td>
+                       <td>01012345678</td>
+                   </tr>
+               </table>
+           </div>
+           <div class="cmm-form">
+                <div class="form-group">
+                     <span class="cmm-radio">
+                        <input type="radio" name="agree" id="agree" value="동의">
+                        <label for="agree"></label><span>동의</span>
+                    </span>
+                    <span class="cmm-radio">
+                        <input type="radio" name="agree" id="not-agree" value="비동의">
+                        <label for="not-agree"></label><span>동의하지 않음</span>
+                    </span>
+                </div>
+            </div>
+
+    <!-- 개인정보 이용동의 -->
+    <div class="pri-agree">
+        <div class="">
+            [개인정보 이용 동의]</br>
+가야컨트리클럽은 개인정보 관련 법률(개인정보보호법, 정보통신망 이용촉진 및 정보보호에 관한 법률)을 준수하며 수집된 개인 정보는 해당 서비스 외에 다른 용도로 절대 사용하지 않으며, 사용자 요청 시 바로 삭제할 수 있습니다.
+        </div>
+        <div>
+            <ul>
+            <li>
+            1. 수집항목 및 이용목적
+                </br> - 수집항목: 이름, 전화번호, 성별
+                </br> - 이용목적: 이용자 식별, 알림톡 전송, 비대면체크인
+            </li>
+            <li>
+            2. 보유 및 이용기간
+                </br> - 경기일 수집목적 달성 후 파기
+                </br>고객님께서는 개인정보 제공에 동의하지 않으실 권리가 있습니다.
+                단, 개인정보 제공에 동의하지 않을 경우
+                </br>- 모바일 체크인 서비스를 이용 하실 수 없습니다.
+                그 밖의 사항은 개인정보취급방침을 준수합니다.
+            </li>
+        </ul>
+
+        </div>
+
+    </div>
+    <!-- //개인정보 이용동의 -->
+    </div>
+
+       <div class="cmm-box-btn flex">
+            <button type="button" class="cmm-btn cmm-btn-gray btn-close trigger1">취소</button>
+            <button type="button" class="cmm-btn cmm-btn-blue btn-close trigger1">확인</button>
+        </div>
+    </div>
+</div>
+<!-- //멤버리스트 팝업 -->
+
+
+
+<div id="wrap" class="register-wrap" data-title="모바일 컨시어지">
+<!-- header 마크업 추가 / 이미지 명 경로는 프로그램 처리 해주시고. 주석 제거해주세요 -->
+<header id="header">
+    <a href="#" class="header-logo"><img src="../../common/img/logo.png" alt=""></a>
+    <h1>모바일 컨시어지</h1>
+</header>
+
+<!-- Content Area S -->
+<div id="content">
+    <div class="cmm-tab-icon">
+        <a heft="#" class="icon1 active"><span>동반자 등록</span></a>
+        <a heft="#" class="icon2"><span>체크인/락커</span></a>
+        <a heft="#" class="icon3 "><span>이용내역</span></a>
+        <a heft="#" class="icon4"><span>결제/체크아웃</span></a>
+    </div>
+
+    <div class="cmm-radius-box none">
+        <!-- <div class="txt-box">
+            <p class="tit">동반자 모바일 사전 등록</p>
+            <p class="txt">동반자를 미리 등록하시면 동반자 역시 경기 당일 모바일로 체크인하실 수 있습니다.</p>
+        </div> -->
+   <!-- 추가 정보  -->
+    <!-- <div class="cmm-radius-box none"> -->
+        <dl class="cmm-info-box none lh-reservation">
+            <dt class="icon1">예약정보</dt>
+            <dd>
+                <span>경기일시 :</span>
+                <span>2019.11.11(월)08:05</span>
+            </dd>
+            <dd>
+                <span>코스 :</span>
+                <span>수로코스</span>
+            </dd>
+            <dd>
+                <span>예약자 :</span>
+                <span>홍길동 님</span>
+            </dd>
+        </dl>
+        <dl class="cmm-info-box">
+            <dt class="icon3">동반자 정보 입력</dt>
+            <dd>※ 이름, 성별, 전화번호를 입력하시면 프론트 데스크를 거치지 않고 휴대폰으로 빠르게 체크인 할 수 있습니다. .</dd>
+        </dl>
+    <!-- </div> -->
+    <!-- //추가 정보  -->
+        <form>
+            <fieldset>
+                <legend class="tit">동반자 정보입력</legend>
+                <div class="cmm-form">
+                    <input type="text" title="이름" placeholder="이름">
+                    <p class="alert">동반자 이름을 입력해주세요.</p>
+                    <p class="info">동반자 이름을 입력해주세요.</p>
+                </div>
+                <div class="cmm-form">
+                    <div class="form-group">
+                         <span class="cmm-radio">
+                            <input type="radio" name="radioGender" id="radioGender1" value="남">
+                            <label for="radioGender1">남</label>
+                        </span>
+                        <span class="cmm-radio">
+                            <input type="radio" name="radioGender" id="radioGender2" value="여">
+                            <label for="radioGender2">여</label>
+                        </span>
+                    </div>
+                    <p class="alert">동반자 성별을 입력해주세요.</p>
+                    <p class="info">동반자 성별을 입력해주세요.</p>
+                </div>
+                <div class="cmm-form">
+                    <input type="tel" title="휴대폰번호" placeholder="휴대폰번호">
+                    <p class="alert">동반자 휴대폰번호를 입력해주세요.</p>
+                    <p class="info">동반자 휴대폰번호를 입력해주세요.</p>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="cmm-box-btn flex">
+        <button type="button" class="cmm-btn cmm-btn-gray">취소</button>
+        <button type="button" class="cmm-btn cmm-btn-blue trigger1">등록</button>
+    </div>
+</div>
+<!-- // Content Area E -->
+
+
+</div>
+</body>
+</html>

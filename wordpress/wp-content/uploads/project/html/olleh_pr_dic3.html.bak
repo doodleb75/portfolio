@@ -1,0 +1,27 @@
+<!doctype html public "-//w3c//dtd html 1.0 transitional//en">
+<html>
+ <head>
+  <title> Comjob Portal </title>
+  <meta name="generator" content="editplus">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+	<script language="JavaScript"> 
+		self.moveTo(0,0)
+		self.resizeTo(1259,167)
+	</script>
+
+  <style>
+	body{margin:0;padding:0;}
+	image{border:0;}
+	#wrap{width:100%;background:#fff;}
+	#body{margin:0 auto;}
+  </style>
+ </head>
+
+ <body>
+	<div id="wrap" >
+	<div id="body"><a href="olleh_pr_dic1.html" target="_self"><img src="../../image/html_image/olleh_step3.jpg"></div>
+	</div>
+ </body>
+</html>

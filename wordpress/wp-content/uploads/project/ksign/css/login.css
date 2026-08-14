@@ -1,0 +1,179 @@
+@charset 'utf-8';
+
+/* Block : login
+---------------------------------------------------------*/
+#LblockLogin {
+	position:absolute;
+	width:406px;
+	height:348px;
+	top:50%;
+	left:50%;
+	margin:-184px 0 0 -203px;
+	background:url(../images/login_bg.gif) no-repeat left bottom;
+}
+#LblockLogin img.Llogo {
+	position:absolute;
+	left:10px;
+	top:0px;
+}
+#LblockLogin img.Lmain {
+	position:absolute;
+	right:23px;
+	bottom:0px;
+}
+#LblockLogin h1 {
+	margin:38px 0 0 12px;
+	height:0;
+	padding-top:36px;
+	overflow:hidden;
+	background:url(../images/login_title.gif) no-repeat;
+}
+#LblockLogin .info{
+	position:absolute;
+	margin:80px 0 0 43px;
+	text-align:center;
+	width:322px;
+	font-weight:bold;
+	vertical-align:middle;
+}
+#LblockLogin ul.menu {
+	position:absolute;
+	right:0px;
+	top:11px;
+	font-family:Arial;
+}
+#LblockLogin ul.menu li {
+	float:left;
+	padding:0 10px 0 8px;
+	background:url(../images/login_menu_line.gif) no-repeat right 6px;
+}
+#LblockLogin ul.menu li.Llast {
+	background:none;
+}
+#LblockLogin ul.menu a {
+	color:#A0A0A0;
+	text-decoration:none;
+}
+#LblockLogin ul.menu a:hover {
+	color:#397ebe;
+}
+#LblockLogin div.body {
+	position:absolute;
+	left:57px;
+	top:158px;
+	width:293px;
+	height:63px;
+}
+#LblockLogin div.body div {
+	display:none;
+}
+#LblockLogin div.body p.id, #LblockLogin div.body p.pw {
+	width:199px;
+	height:21px;
+	padding:6px 0 0 37px;
+	margin-bottom:6px;
+}
+* html #LblockLogin div.body p.id, * html #LblockLogin div.body p.pw { 
+	padding:5px 0 0 37px;
+}
+*:first-child+html #LblockLogin div.body p.id, *:first-child+html #LblockLogin div.body p.pw { 
+	padding:5px 0 0 37px;
+}
+#LblockLogin div.body p.id {
+	background:url(../images/login_id_bg.gif) no-repeat;
+}
+#LblockLogin div.body p.pw {
+	background:url(../images/login_pw_bg.gif) no-repeat;
+}
+#LblockLogin div.body p.id label, #LblockLogin div.body p.pw label {
+	display:block;
+	height:0;
+	overflow:hidden;
+}
+#LblockLogin div.body p.id input, #LblockLogin div.body p.pw input {
+	color:#fff;
+	width:164px;
+	border:0;
+	vertical-align:top;
+	background-color:transparent;
+	margin:-2px 0 0 0;
+}
+#LblockLogin div.body p.remember {
+	position:absolute;
+	left:0px;
+	bottom:5px;
+	color:#606061;
+	margin:20px 0 0 2px;
+	font-family:Arial;
+}
+#LblockLogin div.body p.remember input {
+	margin-right:8px;
+}
+#LblockLogin div.body p.btn {
+	position:absolute;
+	right:0px;
+	bottom:0px;
+}
+#LblockLogin .optbtnArea {
+	position:absolute;
+	top:263px;
+	width:408px;
+	text-align:center;
+}
+#LblockLogin div.footer {
+	position:absolute;
+	top:355px;
+	width:403px;
+	text-align:center;
+}
+#LblockLogin div.footer img {
+	display:block;
+	position:relative;
+	left:-7px;
+	margin-bottom:10px;
+}
+#LblockLogin div.footer span {
+	color:#7F7F7F;
+}
+#LblockLogin div.footer span.email {
+	padding-left:5px;
+	background:url(../images/login_footer_slash.gif) no-repeat 0px 1px;
+}
+#LblockLogin div.footer span.copyright {
+	font-family:verdana;
+	font-size:11px;
+	display:block;
+	white-space:nowrap;
+}
+
+/*Loading*/
+#LblockLoading {
+	position:absolute;
+	width:406px;
+	height:348px;
+	top:50%;
+	left:50%;
+	margin:-184px 0 0 -203px;
+	background:url(../images/loading_bg.gif) no-repeat left bottom;
+}
+#LblockLoading div.body {
+	position:absolute;
+	left:38px;
+	top:84px;
+	width:332px;
+}
+#LblockLoading div.footer {
+	position:absolute;
+	top:355px;
+	width:403px;
+	text-align:center;
+}
+#LblockLoading div.footer span {
+	color:#7F7F7F;
+}
+#LblockLoading div.footer span.copyright {
+	font-family:verdana;
+	font-size:11px;
+	display:block;
+	white-space:nowrap;
+}
