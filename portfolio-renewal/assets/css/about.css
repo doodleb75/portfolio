@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/* assets/css/about.css */
+/* 섹션의 자식요소인 사각형들이 화면 밖으로 넘어가 스크롤바가 생기는 것을 방지합니다. */
+#sub-section-1 {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* 왼쪽 사각형 스타일 및 패럴랙스 배경 컨테이너 */
+.rect-random {
+  position: absolute;
+  width: 38vw;
+  height: 92vh;
+  transform: rotate(45deg);
+  z-index: 0;
+  left: -18vw;
+  top: -43vh;
+  overflow: hidden;
+}
+
+/* 패럴랙스 효과가 적용될 배경 이미지 스타일 */
+.parallax-bg {
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  /* 'IT Mission' 테마에 맞는 이미지로 교체했습니다. */
+  background-image: url("https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2232&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+  transform: rotate(-45deg); /* 부모의 회전을 상쇄 */
+}
+
+/* 오른쪽 사각형 스타일 */
+.rect-random2 {
+  position: absolute;
+  width: 40vw;
+  height: 110vh;
+  background: rgba(204, 204, 204, 0.2705882353);
+  transform: rotate(45deg);
+  z-index: 0;
+  right: -18vw;
+  bottom: -50vh;
+}

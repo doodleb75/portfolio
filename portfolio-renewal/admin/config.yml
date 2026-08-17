@@ -1,0 +1,31 @@
+backend:
+  name: github
+  repo: your-username/your-repo-name # Git 레포지토리 경로로 수정해주세요 (예: gildong/portfolio)
+  branch: main
+
+local_backend: true # 로컬 테스트 시 로컬 파일 시스템을 통해 편집을 동기화합니다
+
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+collections:
+  - name: "content"
+    label: "Content"
+    files:
+      - file: "content/projects.json"
+        label: "Projects List"
+        name: "projects_list"
+        fields:
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Category", name: "category", widget: "select", options: ["web", "mobile", "design"] }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Client", name: "client", widget: "string" }
+              - { label: "Date", name: "date", widget: "string" }
+              - { label: "Service", name: "service", widget: "string" }
+              - { label: "Overview", name: "overview", widget: "text" }
+              - { label: "Main Image", name: "mainImage", widget: "image" }
+              - { label: "List Image", name: "listImage", widget: "image" }

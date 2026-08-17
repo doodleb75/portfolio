@@ -1,0 +1,12 @@
+// assets/scss/_variables.scss
+
+// 테마 컬러 변수 정의 (추후 테마 변경이 용이하도록 변수로 관리)
+$theme-primary: #410b7a;        // 메인 배경 컬러 (Hero)
+$theme-subpage-bg: #292c35;     // 서브페이지 배경 컬러
+$theme-text-light: #fdfefe;     // 밝은 텍스트 컬러
+$theme-accent: #ff9900;         // 포인트/엑센트 컬러 (케이블 등)
+$theme-socket: #ffc400;         // 소켓 연결 성공 시 컬러
+$theme-loader-bg: #1a1a1a;      // 로더 화면 배경 컬러
+
+// 공통 믹스인 또는 전역 변수
+$font-main: "Noto Sans KR", "Nanum Gothic Coding", sans-serif;

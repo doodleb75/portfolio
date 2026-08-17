@@ -1,0 +1,104 @@
+@import "variables";
+
+/* 기본 페이지 스타일 */
+body {
+    margin: 0;
+    font-family: $font-main;
+    background-color: #f0f0f0;
+    overflow: hidden; /* 로딩 중 스크롤 방지 */
+}
+
+/* 로더 컨테이너: 화면 전체를 덮고 중앙 정렬 */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $theme-loader-bg;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 소켓 SVG: 화면 중앙보다 약간 위에 위치 (애니메이션 기준점) */
+#loader-socket {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -150px);
+    width: 67.42px;
+    height: 59.61px;
+    z-index: 10;
+}
+
+/* 소켓 경로(path) 초기 스타일 */
+#lan-hole-path {
+    fill: none;
+    stroke: #9d9d9d;
+    stroke-width: 2;
+}
+
+/* 케이블 SVG: 화면 하단 밖에서 시작하도록 초기 위치 설정 */
+#loader-cable {
+    position: absolute;
+    top: 100vh; /* 화면 아래에서 시작 */
+    left: 50%;
+    transform: translateX(-50%);
+    /* 케이블의 너비를 소켓의 너비와 동일하게 설정 */
+    width: 48.42px; 
+    /* 라인이 끊기지 않도록 높이를 충분히 길게 설정 */
+    height: 100vh;
+    z-index: 5;
+}
+
+/* 케이블 내부 스타일 */
+#loader-cable .line-path {
+    fill: none;
+    stroke: #6c6c6c;
+    stroke-miterlimit: 10;
+    stroke-width: 7px;
+}
+#loader-cable .fill-path {
+    fill: $theme-accent;
+}
+
+/* 완료 텍스트 */
+#loader-text {
+    position: absolute;
+    /* 소켓 아래에 위치하도록 top, transform 조정 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50px);
+    font-size: 1rem;
+    font-weight: bold;
+    color: $theme-socket;
+    opacity: 0; /* 처음엔 숨김 */
+    white-space: nowrap;
+    z-index: 15;
+}
+
+/* 메인 콘텐츠 */
+#main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+#main-content h1 {
+    font-size: 3rem;
+    color: #333;
+}
+#loader-socket,
+#loader-cable {
+    shape-rendering: geometricPrecision;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
