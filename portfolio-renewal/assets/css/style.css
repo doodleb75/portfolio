@@ -14,7 +14,7 @@ html {
 }
 
 body {
-  background-color: #410b7a;
+  background: radial-gradient(circle at 75% 35%, #581c87 0%, #3b0764 45%, #1e1b4b 100%);
   overflow-x: hidden;
   font-family: "Noto Sans KR", "Nanum Gothic Coding", "Bricolage Grotesque", sans-serif;
   position: relative;

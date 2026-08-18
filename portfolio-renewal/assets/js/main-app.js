@@ -313,16 +313,95 @@ function setupHeaderLogoScrollAnimation() {
     });
  }
 
+const sectionAtmospheres = {
+    hero: {
+        bg: "radial-gradient(circle at 75% 35%, #581c87 0%, #3b0764 45%, #1e1b4b 100%)",
+        colorHex: "#a855f7",
+        rimHex: "#c084fc",
+        bounceHex: "#d8b4fe"
+    },
+    part1: {
+        bg: "radial-gradient(circle at 25% 45%, #0369a1 0%, #0c4a6e 45%, #0f172a 100%)",
+        colorHex: "#0284c7",
+        rimHex: "#38bdf8",
+        bounceHex: "#7dd3fc"
+    },
+    part2: {
+        bg: "radial-gradient(circle at 75% 55%, #047857 0%, #064e3b 45%, #022c22 100%)",
+        colorHex: "#10b981",
+        rimHex: "#34d399",
+        bounceHex: "#6ee7b7"
+    },
+    part3: {
+        bg: "radial-gradient(circle at 30% 50%, #be185d 0%, #831843 45%, #4c0519 100%)",
+        colorHex: "#ec4899",
+        rimHex: "#f43f5e",
+        bounceHex: "#fb7185"
+    }
+};
+
+function updateFogColor(colorHex, rimHex, bounceHex) {
+    if (mainSplineApp && typeof THREE !== 'undefined') {
+        if (mainSplineApp.rimLight && rimHex) {
+            const rimC = new THREE.Color(rimHex);
+            gsap.to(mainSplineApp.rimLight.color, { r: rimC.r, g: rimC.g, b: rimC.b, duration: 0.9, ease: "sine.inOut" });
+        }
+        if (mainSplineApp.bounceLight && bounceHex) {
+            const bounceC = new THREE.Color(bounceHex);
+            gsap.to(mainSplineApp.bounceLight.color, { r: bounceC.r, g: bounceC.g, b: bounceC.b, duration: 0.9, ease: "sine.inOut" });
+        }
+        if (mainSplineApp.spotBounceLight && rimHex) {
+            const spotC = new THREE.Color(rimHex);
+            gsap.to(mainSplineApp.spotBounceLight.color, { r: spotC.r, g: spotC.g, b: spotC.b, duration: 0.9, ease: "sine.inOut" });
+        }
+        if (mainSplineApp.rightSpotUniforms && colorHex) {
+            const spotColorC = new THREE.Color(colorHex);
+            gsap.to(mainSplineApp.rightSpotUniforms.uRightSpotColor.value, { r: spotColorC.r, g: spotColorC.g, b: spotColorC.b, duration: 0.9, ease: "sine.inOut" });
+        }
+    }
+    if (mainPageBackgroundSphere && typeof THREE !== 'undefined') {
+        mainPageBackgroundSphere.updateColors({
+            wireframeColor: new THREE.Color(colorHex),
+            pointsColor: new THREE.Color(colorHex)
+        });
+    }
+}
+
+function transitionSectionAtmosphere(sectionKey) {
+    const atmos = sectionAtmospheres[sectionKey];
+    if (!atmos) return;
+    
+    // Animate Amaterasu.ai style asymmetric radial spotlight background
+    gsap.to(document.body, {
+        background: atmos.bg,
+        duration: 0.9,
+        ease: "sine.inOut"
+    });
+    
+    // Animate 3D rim light, color bounce, and background sphere colors
+    updateFogColor(atmos.colorHex, atmos.rimHex, atmos.bounceHex);
+}
+
 function setupMainPageBackgroundChangeAnimations() {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-    gsap.set(document.body, { backgroundColor: partBackgroundColors.hero });
+    
+    transitionSectionAtmosphere('hero');
+
     ['part1', 'part2', 'part3'].forEach(partId => {
-        const sectionElement = document.getElementById(partId); const targetColor = partBackgroundColors[partId];
-        if (sectionElement && targetColor) {
-            ScrollTrigger.create({ id: `mainPageBackgroundChangeTrigger-${partId}`, trigger: sectionElement, start: "top center+=20%", end: "bottom center-=20%", invalidateOnRefresh: true,
-                onEnter: () => gsap.to(document.body, { backgroundColor: targetColor, duration: 0.8, ease: "sine.inOut" }),
-                onEnterBack: () => gsap.to(document.body, { backgroundColor: targetColor, duration: 0.8, ease: "sine.inOut" }),
-                onLeaveBack: () => { const prevColorKey = partId === 'part1' ? 'hero' : (partId === 'part2' ? 'part1' : 'part2'); gsap.to(document.body, { backgroundColor: partBackgroundColors[prevColorKey], duration: 0.8, ease: "sine.inOut" }); }
+        const sectionElement = document.getElementById(partId);
+        if (sectionElement) {
+            ScrollTrigger.create({
+                id: `mainPageBackgroundChangeTrigger-${partId}`,
+                trigger: sectionElement,
+                start: "top center+=20%",
+                end: "bottom center-=20%",
+                invalidateOnRefresh: true,
+                onEnter: () => transitionSectionAtmosphere(partId),
+                onEnterBack: () => transitionSectionAtmosphere(partId),
+                onLeaveBack: () => {
+                    const prevColorKey = partId === 'part1' ? 'hero' : (partId === 'part2' ? 'part1' : 'part2');
+                    transitionSectionAtmosphere(prevColorKey);
+                }
             });
         }
     });
@@ -332,68 +411,102 @@ function setupSplineScrollAnimations(winhubObj, cableObj, isDesktopView) {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
     splineTimelines.forEach(tl => tl.kill()); splineTimelines = []; const currentScaleConfig = getScaleConfig(isDesktopView);
     const isMobileView = !isDesktopView;
+    const shadowObj = mainSplineApp && mainSplineApp.shadowMesh;
 
     // Reset winhubObj to its base initial state before rebuilding scroll animations.
     const baseHeroScale = currentScaleConfig.hero;
+    const heroX = getTargetWinhubX(isMobileView);
+    const heroY = getTargetWinhubY(isMobileView);
+
     gsap.set(winhubObj.position, {
-        x: getTargetWinhubX(isMobileView),
-        y: getTargetWinhubY(isMobileView),
+        x: heroX,
+        y: heroY,
         z: WINHUB_INTRO_END_Z
     });
     // Front facing rotation for GLTF router
-    gsap.set(winhubObj.rotation, { x: degToRad(15), y: degToRad(-25), z: degToRad(0) });
+    gsap.set(winhubObj.rotation, { x: degToRad(18), y: degToRad(-22), z: degToRad(0) });
     gsap.set(winhubObj.scale, { x: baseHeroScale, y: baseHeroScale, z: baseHeroScale });
+
+    if (shadowObj) {
+        gsap.set(shadowObj.position, { x: heroX, y: heroY - 3.4, z: 0 });
+        gsap.set(shadowObj.scale, { x: 0.9, y: 0.9, z: 0.9 });
+        gsap.set(shadowObj.material, { opacity: 0.35 });
+    }
 
     // Hero Timeline
     const heroTimeline = gsap.timeline({ scrollTrigger: { id: 'splineScrollTrigger-hero', trigger: "#hero", start: "top 10%", end: "bottom bottom", scrub: true, invalidateOnRefresh: true, onEnter: () => cableObj && (cableObj.visible = false), onLeaveBack: () => cableObj && (cableObj.visible = false), onRefresh: () => { if (ScrollTrigger.isInViewport("#hero") && (!document.querySelector("#part1") || !ScrollTrigger.isInViewport("#part1"))) cableObj && (cableObj.visible = false); }}});
     heroTimeline.to(winhubObj.position, {
-        x: getTargetWinhubX(isMobileView),
-        y: getTargetWinhubY(isMobileView), 
+        x: heroX,
+        y: heroY, 
         z: WINHUB_INTRO_END_Z
     }, 0)
-    .to(winhubObj.rotation, { x: degToRad(15), y: degToRad(-25), z: degToRad(0) }, 0)
+    .to(winhubObj.rotation, { x: degToRad(18), y: degToRad(-22), z: degToRad(0) }, 0)
     .to(winhubObj.scale, { x: currentScaleConfig.hero, y: currentScaleConfig.hero, z: currentScaleConfig.hero }, 0);
+
+    if (shadowObj) {
+        heroTimeline.to(shadowObj.position, { x: heroX, y: heroY - 3.4, z: 0 }, 0)
+            .to(shadowObj.scale, { x: 0.9, y: 0.9, z: 0.9 }, 0)
+            .to(shadowObj.material, { opacity: 0.35 }, 0);
+    }
     splineTimelines.push(heroTimeline);
 
-    // Part 1 Timeline
+    // Part 1 Timeline (Advantage Section - Bold Left-Shifted Top-Down Angle)
     if (document.getElementById('part1')) {
         const part1Timeline = gsap.timeline({ scrollTrigger: { id: 'splineScrollTrigger-part1', trigger: "#part1", start: "top 70%", end: "center bottom", scrub: 2, invalidateOnRefresh: true, onEnter: () => cableObj && (cableObj.visible = true), onEnterBack: () => cableObj && (cableObj.visible = true), onLeaveBack: () => cableObj && (cableObj.visible = false) }});
         const part1Position = isMobileView ?
             { x: -1.0, y: 0.2, z: 0.5 } : 
-            { x: -2.8, y: 0.5, z: 1.0 }; 
+            { x: -3.8, y: 0.8, z: 0.5 }; 
 
         part1Timeline.to(winhubObj.position, part1Position, 0)
-            .to(winhubObj.rotation, { x: degToRad(25), y: degToRad(55), z: degToRad(-15) }, 0)
+            .to(winhubObj.rotation, { x: degToRad(32), y: degToRad(38), z: degToRad(-12) }, 0)
             .to(winhubObj.scale, { x: currentScaleConfig.part1, y: currentScaleConfig.part1, z: currentScaleConfig.part1 }, 0);
+
+        if (shadowObj) {
+            part1Timeline.to(shadowObj.position, { x: part1Position.x, y: part1Position.y - 3.0, z: 0 }, 0)
+                .to(shadowObj.scale, { x: 0.75, y: 0.75, z: 0.75 }, 0)
+                .to(shadowObj.material, { opacity: 0.38 }, 0);
+        }
         splineTimelines.push(part1Timeline);
     }
 
-    // Part 2 Timeline
+    // Part 2 Timeline (Works Section - Bold Dynamic Right-Side Floating Tilt)
     if (document.getElementById('part2')) {
         const part2Timeline = gsap.timeline({ scrollTrigger: { id: "part2SplineScrollTrigger", trigger: "#part2", start: "top 85%", end: "top 30%", scrub: 2, invalidateOnRefresh: true, onEnter: () => cableObj && (cableObj.visible = true), onEnterBack: () => cableObj && (cableObj.visible = true) }});
         const part2Position = isMobileView ?
             { x: 1.0, y: -0.2, z: -0.5 } : 
-            { x: 2.8, y: -0.2, z: -0.5 }; 
+            { x: 3.4, y: 0.5, z: -0.3 }; 
 
         part2Timeline.to(winhubObj.position, part2Position, 0)
-            .to(winhubObj.rotation, { x: degToRad(-15), y: degToRad(-75), z: degToRad(10) }, 0)
+            .to(winhubObj.rotation, { x: degToRad(-12), y: degToRad(-30), z: degToRad(8) }, 0)
             .to(winhubObj.scale, { x: currentScaleConfig.part2 * 0.9, y: currentScaleConfig.part2 * 0.9, z: currentScaleConfig.part2 * 0.9 }, 0);
+
+        if (shadowObj) {
+            part2Timeline.to(shadowObj.position, { x: part2Position.x, y: part2Position.y - 2.9, z: 0 }, 0)
+                .to(shadowObj.scale, { x: 0.7, y: 0.7, z: 0.7 }, 0)
+                .to(shadowObj.material, { opacity: 0.35 }, 0);
+        }
         splineTimelines.push(part2Timeline);
     }
 
-    // Part 3 Timeline
+    // Part 3 Timeline (Outro / Partner Section - Low-Angled Dramatic Center-Left Perspective)
     if (document.getElementById('part3')) {
         const part3Timeline = gsap.timeline({ scrollTrigger: { id: 'splineScrollTrigger-part3', trigger: "#part3", start: "top 30%", end: "center bottom", scrub: 2, invalidateOnRefresh: true, onEnter: () => cableObj && (cableObj.visible = true) }});
         const part3Position = isMobileView ?
             { x: -1.2, y: -0.8, z: 0.5 } : 
-            { x: -2.5, y: -0.5, z: 1.0 };
+            { x: -3.0, y: -0.5, z: 0.8 };
 
         part3Timeline.to(winhubObj.position, part3Position, 0)
-            .to(winhubObj.rotation, { x: degToRad(35), y: degToRad(135), z: degToRad(-10) }, 0)
+            .to(winhubObj.rotation, { x: degToRad(28), y: degToRad(44), z: degToRad(-8) }, 0)
             .to(winhubObj.scale, { x: currentScaleConfig.part3, y: currentScaleConfig.part3, z: currentScaleConfig.part3 }, 0);
+
+        if (shadowObj) {
+            part3Timeline.to(shadowObj.position, { x: part3Position.x, y: part3Position.y - 3.1, z: 0 }, 0)
+                .to(shadowObj.scale, { x: 0.85, y: 0.85, z: 0.85 }, 0)
+                .to(shadowObj.material, { opacity: 0.35 }, 0);
+        }
         splineTimelines.push(part3Timeline);
     }
- }
+}
 
 function setupBarAnimations() {
     if (typeof gsap === 'undefined' || typeof MorphSVGPlugin === 'undefined' || typeof ScrollTrigger === 'undefined') return;
@@ -541,7 +654,7 @@ async function runMainPageSequence() {
         */
 
         // NEW THREE.JS NATIVE GLTF LOADER (No Spline Watermark)
-        const gltfPath = buildUrl('/assets/models/router_with_antennas/scene.gltf');
+        const gltfPath = buildUrl('/assets/models/action_intelbras_modem/scene.gltf');
         mainSplineApp = await loadGLTFScene("canvas3d", gltfPath);
         if (mainSplineApp) {
             winhub = mainSplineApp.findObjectByName("Winhub");

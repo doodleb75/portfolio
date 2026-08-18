@@ -489,10 +489,19 @@ export class InteractiveBackgroundSphere {
         this.renderer.setSize(window.innerWidth, window.innerHeight);
     }
 
-    introAnimate(scaleParams = { from: 1.5, to: 1, duration: 2.0, ease: "power2.out", delay: 0 }, rotationParams = { fromY: Math.PI, toY: 0, duration: 2.5, ease: "power2.out", delay: 0 }) {
+    introAnimate(scaleParams = { from: 1.15, to: 1, duration: 2.0, ease: "sine.out", delay: 0 }, rotationParams = { fromY: 0.15, toY: 0, duration: 2.2, ease: "sine.out", delay: 0 }) {
         if (!this.valid || !this.sphereGroup || typeof gsap === 'undefined' || typeof this.THREE === 'undefined') return this;
         this.sphereGroup.scale.set(scaleParams.from, scaleParams.from, scaleParams.from);
         this.sphereGroup.rotation.y = rotationParams.fromY;
+        
+        // Smooth organic fade-in of wireframe and points opacity
+        if (this.wireframeMesh) {
+            gsap.fromTo(this.wireframeMesh.material, { opacity: 0 }, { opacity: this.config.wireframeOpacity, duration: 1.8, ease: "sine.inOut" });
+        }
+        if (this.pointsMesh) {
+            gsap.fromTo(this.pointsMesh.material, { opacity: 0 }, { opacity: this.config.pointsOpacity, duration: 1.8, ease: "sine.inOut" });
+        }
+
         const tl = gsap.timeline({ delay: Math.max(scaleParams.delay, rotationParams.delay) });
         tl.to(this.sphereGroup.scale, { x: scaleParams.to, y: scaleParams.to, z: scaleParams.to, duration: scaleParams.duration, ease: scaleParams.ease }, 0)
           .to(this.sphereGroup.rotation, { y: rotationParams.toY, duration: rotationParams.duration, ease: rotationParams.ease }, 0);
@@ -502,8 +511,9 @@ export class InteractiveBackgroundSphere {
 
     updateColors(newColors) {
         if (!this.valid || typeof gsap === 'undefined' || typeof this.THREE === 'undefined') return this;
-        if (this.wireframeMesh && newColors.wireframeColor) gsap.to(this.wireframeMesh.material.color, { r: newColors.wireframeColor.r, g: newColors.wireframeColor.g, b: newColors.wireframeColor.b, duration: 0.5 });
-        if (this.pointsMesh && newColors.pointsColor) gsap.to(this.pointsMesh.material.color, { r: newColors.pointsColor.r, g: newColors.pointsColor.g, b: newColors.pointsColor.b, duration: 0.5 });
+        if (this.wireframeMesh && newColors.wireframeColor) gsap.to(this.wireframeMesh.material.color, { r: newColors.wireframeColor.r, g: newColors.wireframeColor.g, b: newColors.wireframeColor.b, duration: 0.8 });
+        if (this.pointsMesh && newColors.pointsColor) gsap.to(this.pointsMesh.material.color, { r: newColors.pointsColor.r, g: newColors.pointsColor.g, b: newColors.pointsColor.b, duration: 0.8 });
+        if (this.mistMesh && newColors.wireframeColor) gsap.to(this.mistMesh.material.color, { r: newColors.wireframeColor.r, g: newColors.wireframeColor.g, b: newColors.wireframeColor.b, duration: 0.8 });
         if (newColors.wireframeColor) this.config.wireframeColor = newColors.wireframeColor.clone();
         if (newColors.pointsColor) this.config.pointsColor = newColors.pointsColor.clone();
         return this;
@@ -877,31 +887,152 @@ export async function loadGLTFScene(canvasId, modelUrl) {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.5;
+    renderer.toneMappingExposure = 1.1;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
     camera.position.set(0, 0, 15);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 2.0);
+    // Ambient Light
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.15);
     scene.add(ambientLight);
 
-    const dirLight1 = new THREE.DirectionalLight(0xffffff, 3.0);
-    dirLight1.position.set(5, 10, 7);
-    scene.add(dirLight1);
+    // Key Light for front gloss highlights (Subtle to maintain dark piano black base)
+    const keyLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    keyLight.position.set(6, 8, 6);
+    scene.add(keyLight);
 
-    const dirLight2 = new THREE.DirectionalLight(0xffffff, 1.5);
-    dirLight2.position.set(-5, -5, -5);
-    scene.add(dirLight2);
+    // Amaterasu.ai Style Vivid Rim Light (Casts a strong neon outline line around router edges)
+    const rimLight = new THREE.DirectionalLight(0xc084fc, 3.5);
+    rimLight.position.set(5, 5, -2);
+    scene.add(rimLight);
+
+    // Front-Facing Lower Surface Point Light
+    const bounceLight = new THREE.PointLight(0xa855f7, 1.0, 18);
+    bounceLight.position.set(0, -2.2, 4.0);
+    scene.add(bounceLight);
+
+    // Dedicated Right Side Cap Directional Light (Top-Right Split Key Light matching Image 2)
+    const rightSideCapLight = new THREE.DirectionalLight(0xc084fc, 1.2);
+    rightSideCapLight.position.set(6, 6, 5);
+    scene.add(rightSideCapLight);
+
+    // Dedicated Right Side Cap PointLight (Illuminates bright right-side glossy split surface)
+    const spotBounceLight = new THREE.PointLight(0xc084fc, 3.0, 12.0);
+
+    // Focused Figma & Apple-Style Glossy Environment Map (Creates crisp 45-degree specular split reflection line)
+    function createFigmaStyleGlossyEnvMap(r) {
+        const pmrem = new THREE.PMREMGenerator(r);
+        pmrem.compileEquirectangularShader();
+        const c = document.createElement('canvas');
+        c.width = 2048; c.height = 1024;
+        const ctx = c.getContext('2d');
+        
+        // Pitch black base for maximum dark piano black contrast
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, c.width, c.height);
+        
+        // Focused 45-degree Specular Light Beam (Image 2 Gloss Reflection): Narrow sharp start -> Pitch black background
+        ctx.save();
+        ctx.translate(c.width * 0.42, c.height * 0.5);
+        ctx.rotate(-Math.PI / 4.0);
+        
+        const gradWidth = 360;
+        const grad = ctx.createLinearGradient(-gradWidth / 2, 0, gradWidth / 2, 0);
+        grad.addColorStop(0.0, 'rgba(0, 0, 0, 1.0)');
+        grad.addColorStop(0.40, 'rgba(0, 0, 0, 1.0)');
+        grad.addColorStop(0.44, 'rgba(255, 255, 255, 1.0)');   // Crisp 45deg Specular Cut Start
+        grad.addColorStop(0.52, 'rgba(255, 255, 255, 0.85)');  // High-gloss specular center
+        grad.addColorStop(0.58, 'rgba(0, 0, 0, 1.0)');         // Deep shadow contrast
+        grad.addColorStop(1.0, 'rgba(0, 0, 0, 1.0)');
+        
+        ctx.fillStyle = grad;
+        ctx.fillRect(-gradWidth / 2, -3000, gradWidth, 6000);
+        ctx.restore();
+
+        const tex = new THREE.CanvasTexture(c);
+        tex.mapping = THREE.EquirectangularReflectionMapping;
+        const env = pmrem.fromEquirectangular(tex).texture;
+        tex.dispose(); pmrem.dispose();
+        return env;
+    }
+
+    const studioEnvMap = createFigmaStyleGlossyEnvMap(renderer);
+    scene.environment = studioEnvMap;
 
     const { GLTFLoader } = window;
     if (!GLTFLoader) return null;
 
     const loader = new GLTFLoader();
 
+    const rightSpotUniforms = {
+        uRightSpotColor: { value: new THREE.Color(0xa855f7) },
+        uRightSpotOpacity: { value: 0.60 }
+    };
+
     return new Promise((resolve) => {
         loader.load(modelUrl, (gltf) => {
             const rawModel = gltf.scene;
+            
+            // Image 2 Apple-Style Dark Piano Black Body with High-Gloss Specular Split Light
+            rawModel.traverse((child) => {
+                if (child.isMesh && child.material) {
+                    const mat = child.material;
+                    mat.roughness = 0.05;        // Ultra-smooth glossy surface for crisp specular reflection
+                    mat.metalness = 0.15;
+                    mat.envMapIntensity = 3.5;   // High contrast specular gloss beam
+                    if ('clearcoat' in mat) {
+                        mat.clearcoat = 1.0;
+                        mat.clearcoatRoughness = 0.01;
+                    }
+
+                    // Apply Section Spot Color STRICTLY ONTO THE NARROW HIGH-GLOSS SPECULAR BEAM
+                    mat.onBeforeCompile = (shader) => {
+                        shader.uniforms.uRightSpotColor = rightSpotUniforms.uRightSpotColor;
+
+                        shader.vertexShader = `
+                            varying vec3 vModelPosCustom;
+                            varying vec3 vNormalCustom;
+                            ${shader.vertexShader}
+                        `.replace(
+                            'void main() {',
+                            'void main() {\n    vModelPosCustom = position;\n    vNormalCustom = normal;'
+                        );
+
+                        const targetChunk = shader.fragmentShader.includes('#include <colorspace_fragment>') 
+                            ? '#include <colorspace_fragment>' 
+                            : (shader.fragmentShader.includes('#include <opaque_fragment>') ? '#include <opaque_fragment>' : '#include <tonemapping_fragment>');
+
+                        shader.fragmentShader = `
+                            varying vec3 vModelPosCustom;
+                            varying vec3 vNormalCustom;
+                            uniform vec3 uRightSpotColor;
+                            ${shader.fragmentShader}
+                        `.replace(
+                            targetChunk,
+                            `
+                            ${targetChunk}
+                            // Calculate Narrow High-Gloss Specular Split Signal (Image 2 Apple Specular Beam)
+                            vec3 n_custom = normalize(vNormalCustom);
+                            vec3 keyLightDir = normalize(vec3(0.55, 0.75, 0.45));
+                            float specSignal = pow(max(0.0, dot(n_custom, keyLightDir)), 3.5);
+                            float specHighlightMask = smoothstep(0.15, 0.75, specSignal);
+                            
+                            float posRightMask = smoothstep(-0.3, 1.3, vModelPosCustom.x);
+                            float spotGlossMask = specHighlightMask * posRightMask;
+
+                            // Tint ONLY the high-gloss specular highlight beam with section spot color!
+                            // Base model body remains deep dark piano black!
+                            if (spotGlossMask > 0.01) {
+                                vec3 glossySpotColor = mix(gl_FragColor.rgb, uRightSpotColor * 1.35, spotGlossMask * 0.75);
+                                gl_FragColor.rgb = max(gl_FragColor.rgb, glossySpotColor * (0.15 + spotGlossMask * 0.85));
+                            }
+                            `
+                        );
+                    };
+                    mat.needsUpdate = true;
+                }
+            });
             
             // Create a wrapper pivot node to match Spline scale conventions
             const modelWrapper = new THREE.Group();
@@ -917,11 +1048,73 @@ export async function loadGLTFScene(canvasId, modelUrl) {
             
             rawModel.position.sub(center);
             rawModel.scale.setScalar(normalizeScale);
-            // Flip raw model 180 deg on Y axis so its front LED faces forward instead of rear ports
-            rawModel.rotation.y = Math.PI;
+            // Front-facing orientation (facing forward toward the camera)
+            rawModel.rotation.y = 0;
             modelWrapper.add(rawModel);
 
+            // Organic Right Side Accent Spotlight (Smooth natural lighting wrap around 3D curves)
+            spotBounceLight.intensity = 12.0;
+            spotBounceLight.distance = 14.0;
+            spotBounceLight.position.set(2.2, 0.4, 2.5);
+            modelWrapper.add(spotBounceLight);
+
             scene.add(modelWrapper);
+
+            // Rounded Rectangular Footprint Shadow canvas (Matches router body shape with soft blur & readable opacity)
+            const cCanvas = document.createElement('canvas');
+            cCanvas.width = 512; cCanvas.height = 256;
+            const cCtx = cCanvas.getContext('2d');
+
+            // Draw Rounded Rect Footprint matching router body geometry
+            const rx = 36, ry = 28, rw = 440, rh = 200, rad = 55;
+            
+            cCtx.fillStyle = 'rgba(0, 0, 0, 0.85)';
+            cCtx.beginPath();
+            cCtx.moveTo(rx + rad, ry);
+            cCtx.lineTo(rx + rw - rad, ry);
+            cCtx.quadraticCurveTo(rx + rw, ry, rx + rw, ry + rad);
+            cCtx.lineTo(rx + rw, ry + rh - rad);
+            cCtx.quadraticCurveTo(rx + rw, ry + rh, rx + rw - rad, ry + rh);
+            cCtx.lineTo(rx + rad, ry + rh);
+            cCtx.quadraticCurveTo(rx, ry + rh, rx, ry + rh - rad);
+            cCtx.lineTo(rx, ry + rad);
+            cCtx.quadraticCurveTo(rx, ry, rx + rad, ry);
+            cCtx.closePath();
+            cCtx.fill();
+
+            // Apply radial and top/bottom vertical blur falloff
+            cCtx.globalCompositeOperation = 'destination-in';
+            const bGrad = cCtx.createRadialGradient(256, 128, 40, 256, 128, 240);
+            bGrad.addColorStop(0.0, 'rgba(0, 0, 0, 1.0)');
+            bGrad.addColorStop(0.50, 'rgba(0, 0, 0, 0.70)');
+            bGrad.addColorStop(0.80, 'rgba(0, 0, 0, 0.20)');
+            bGrad.addColorStop(1.0, 'rgba(0, 0, 0, 0.0)');
+            cCtx.fillStyle = bGrad;
+            cCtx.fillRect(0, 0, 512, 256);
+
+            // Vertical Top/Bottom Blur Fade Pass
+            const vGrad = cCtx.createLinearGradient(0, 0, 0, 256);
+            vGrad.addColorStop(0.0, 'rgba(0, 0, 0, 0.0)');
+            vGrad.addColorStop(0.22, 'rgba(0, 0, 0, 0.65)');
+            vGrad.addColorStop(0.50, 'rgba(0, 0, 0, 1.0)');
+            vGrad.addColorStop(0.78, 'rgba(0, 0, 0, 0.65)');
+            vGrad.addColorStop(1.0, 'rgba(0, 0, 0, 0.0)');
+            cCtx.fillStyle = vGrad;
+            cCtx.fillRect(0, 0, 512, 256);
+
+            // Soft floor contact shadow plane
+            const shadowTex = new THREE.CanvasTexture(cCanvas);
+            const shadowGeo = new THREE.PlaneGeometry(5.2, 2.2);
+            const shadowMat = new THREE.MeshBasicMaterial({
+                map: shadowTex,
+                transparent: true,
+                opacity: 0.35,  // Soft transparent opacity for clear content readability
+                depthWrite: false
+            });
+            const shadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
+            shadowMesh.rotation.x = -Math.PI / 2;
+            shadowMesh.position.set(0, -3.4, 0); // Distance gap below router
+            scene.add(shadowMesh);
 
             function animate() {
                 requestAnimationFrame(animate);
@@ -941,7 +1134,13 @@ export async function loadGLTFScene(canvasId, modelUrl) {
                 findObjectByName: (name) => (name === "Winhub" ? modelWrapper : null),
                 scene,
                 camera,
-                renderer
+                renderer,
+                rimLight,
+                bounceLight,
+                spotBounceLight,
+                rightSideCapLight,
+                shadowMesh,
+                rightSpotUniforms
             });
         }, undefined, (err) => {
             console.error("COMMON-UTILS: Error loading GLTF model:", err);
