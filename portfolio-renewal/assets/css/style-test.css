@@ -281,6 +281,7 @@ a {
 }
 
 #part1,
+#part2,
 #part3 {
   width: 100%;
   min-height: 100vh;
@@ -288,22 +289,9 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 4rem 1.25rem;
-  position: relative;
-  box-sizing: border-box;
-}
-
-#part2 {
-  width: 100%;
-  min-height: 100vh;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: flex-start;
-  padding-top: 6vh;
-  padding-bottom: 4vh;
+  padding-top: 15vh !important;
+  padding-bottom: 5vh !important;
   position: relative;
   box-sizing: border-box;
 }
@@ -312,11 +300,11 @@ a {
 .part3-info {
   width: 90%;
   gap: 2.5rem;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
   color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .part2-info {
@@ -1186,6 +1174,25 @@ section#sub-hero {
 .index.subpage-footer,
 .index.subpage-footer a {
   color: #ccc;
+}
+
+.main-page .subpage-footer {
+  position: relative;
+  z-index: 11;
+  background-color: rgba(0, 0, 0, 0.55) !important;
+}
+
+.main-page .subpage-footer,
+.main-page .subpage-footer a,
+.main-page .subpage-footer span,
+.main-page .subpage-footer .content-class {
+  color: rgba(255, 255, 255, 0.85) !important;
+  transition: color 0.3s ease;
+}
+
+.main-page .subpage-footer a:hover {
+  color: #ffffff !important;
+  text-decoration: underline;
 }
 
 .subpage-body .subpage-footer {
@@ -2119,6 +2126,14 @@ section.content-section {
   }
   .gnb-container {
     padding: 1.25rem;
+  }
+  #part1,
+  #part2,
+  #part3 {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+    padding: 100px 1.25rem 60px 1.25rem !important;
   }
 }
 @media (max-width: 480px) {

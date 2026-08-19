@@ -1169,6 +1169,25 @@ section#sub-hero {
   color: #ccc;
 }
 
+.main-page .subpage-footer {
+  position: relative;
+  z-index: 11;
+  background-color: rgba(0, 0, 0, 0.55) !important;
+}
+
+.main-page .subpage-footer,
+.main-page .subpage-footer a,
+.main-page .subpage-footer span,
+.main-page .subpage-footer .content-class {
+  color: rgba(255, 255, 255, 0.85) !important;
+  transition: color 0.3s ease;
+}
+
+.main-page .subpage-footer a:hover {
+  color: #ffffff !important;
+  text-decoration: underline;
+}
+
 .subpage-body .subpage-footer {
   padding: 2.5rem 1.25rem;
   font-size: 0.875rem;

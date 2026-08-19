@@ -6,13 +6,69 @@ window.THREE = THREE_MOD;
 window.GLTFLoader = GLTFLoader;
 
 import { Draggable } from "https://esm.sh/gsap/Draggable";
-import { SplitText } from "https://esm.sh/gsap/SplitText";
 import { MorphSVGPlugin } from "https://esm.sh/gsap/MorphSVGPlugin";
 
 import { worksData, loadWorksData } from './works-data.js';
 
+class VanillaSplitText {
+    constructor(element, options = {}) {
+        this.element = element;
+        
+        // Cache the absolute original state on the first split to prevent cumulative corruption from resize/retriggering
+        if (!element.hasAttribute('data-original-text')) {
+            element.setAttribute('data-original-text', element.textContent.trim());
+            element.setAttribute('data-original-html', element.innerHTML);
+        }
+        
+        this.originalText = element.getAttribute('data-original-text');
+        this.originalHTML = element.getAttribute('data-original-html');
+        
+        this.type = options.type || "chars";
+        this.words = [];
+        this.chars = [];
+        this.init();
+    }
+
+    init() {
+        if (this.type === "chars") {
+            const text = this.originalText;
+            this.element.innerHTML = "";
+            for (let i = 0; i < text.length; i++) {
+                const span = document.createElement("span");
+                span.textContent = text[i];
+                span.style.display = "inline-block";
+                if (text[i] === " ") {
+                    span.style.whiteSpace = "pre";
+                }
+                this.element.appendChild(span);
+                this.chars.push(span);
+            }
+        } else if (this.type === "words") {
+            const wordsArray = this.originalText.split(/(\s+)/);
+            this.element.innerHTML = "";
+            wordsArray.forEach((part) => {
+                if (part.trim() === "") {
+                    const textNode = document.createTextNode(part);
+                    this.element.appendChild(textNode);
+                } else {
+                    const span = document.createElement("span");
+                    span.textContent = part;
+                    span.style.display = "inline-block";
+                    this.element.appendChild(span);
+                    this.words.push(span);
+                }
+            });
+        }
+    }
+
+    revert() {
+        this.element.innerHTML = this.originalHTML;
+    }
+}
+window.SplitText = VanillaSplitText;
+
 if (typeof gsap !== 'undefined') {
-    gsap.registerPlugin(Draggable, SplitText, MorphSVGPlugin);
+    gsap.registerPlugin(Draggable, MorphSVGPlugin);
 }
 
 // Imports from common-test-utils
@@ -55,25 +111,25 @@ const barShapesConfig = { initial: "M0 5 L0 5 L0 5 L0 5 Z", part1Enter: "M0,5 Q1
 
 const sectionAtmospheres = {
     hero: {
-        bg: "radial-gradient(circle at 75% 35%, #3b0764 0%, #1e1b4b 55%, #0f172a 100%)",
-        colorHex: "#a855f7",
-        rimHex: "#c084fc",
-        bounceHex: "#d8b4fe"
+        bg: "radial-gradient(circle at 75% 35%, #2e1065 0%, #170b30 50%, #06020c 100%)", // Rich Neon Violet/Purple
+        colorHex: "#c084fc",
+        rimHex: "#d8b4fe",
+        bounceHex: "#f3e8ff"
     },
     part1: {
-        bg: "radial-gradient(circle at 25% 45%, #1e1b4b 0%, #0f172a 55%, #020617 100%)",
-        colorHex: "#6366f1",
-        rimHex: "#818cf8",
-        bounceHex: "#a5b4fc"
+        bg: "radial-gradient(circle at 25% 45%, #082f49 0%, #0f172a 55%, #020617 100%)", // Technical Cyber Cyan/Blue
+        colorHex: "#0ea5e9",
+        rimHex: "#38bdf8",
+        bounceHex: "#7dd3fc"
     },
     part2: {
-        bg: "radial-gradient(circle at 75% 55%, #2e1065 0%, #1e1b4b 55%, #0f172a 100%)",
-        colorHex: "#8b5cf6",
-        rimHex: "#a78bfa",
-        bounceHex: "#c4b5fd"
+        bg: "radial-gradient(circle at 75% 55%, #064e3b 0%, #022c22 55%, #020617 100%)", // Premium Emerald Green
+        colorHex: "#10b981",
+        rimHex: "#34d399",
+        bounceHex: "#6ee7b7"
     },
     part3: {
-        bg: "radial-gradient(circle at 30% 50%, #4c0519 0%, #2e1065 55%, #0f172a 100%)",
+        bg: "radial-gradient(circle at 30% 50%, #500724 0%, #310416 55%, #090514 100%)", // Deep Wine Magenta/Red
         colorHex: "#ec4899",
         rimHex: "#f43f5e",
         bounceHex: "#fb7185"
@@ -108,7 +164,8 @@ function enableScrollInteraction() {
     window.removeEventListener('touchmove', preventScroll, SCROLL_PREVENTION_OPTIONS);
     window.removeEventListener('keydown', preventKeyboardScroll, SCROLL_PREVENTION_OPTIONS);
     if (typeof ScrollTrigger !== 'undefined') {
-        ScrollTrigger.normalizeScroll(true);
+        // Disabled normalizeScroll to remove scroll drag/resistance on trackpads & wheels
+        // ScrollTrigger.normalizeScroll(true);
         ScrollTrigger.enable();
     }
 }
@@ -252,6 +309,324 @@ function setupAdvantageCardAnimations() {
             onEnter: () => gsap.to(integratedValueCard, { autoAlpha: 1, y: 0, duration: 0.8, ease: "power2.out" }),
             onLeaveBack: () => gsap.to(integratedValueCard, { autoAlpha: 0, y: 50, duration: 0.4, ease: "power1.in" })
         });
+    }
+}
+
+function setupSectionTitleAnimations() {
+    // ScrollTrigger-free design. Managed sequentially by setupSectionSnapScroll.
+}
+
+function setupContentTextScrambleAnimations() {
+    // Managed sequentially by playSectionTextAnimations.
+}
+
+function initializeTextVisibility() {
+    if (typeof gsap === 'undefined' || typeof SplitText === 'undefined') return;
+    
+    // Check if the current screen width is desktop-class
+    const isDesktop = window.innerWidth >= 768;
+    const sections = ["part1", "part2", "part3"];
+    
+    sections.forEach((partId) => {
+        const part = document.getElementById(partId);
+        if (!part) return;
+        
+        // 1. sub-title setup
+        const subTitle = part.querySelector(".sub-title");
+        if (subTitle) {
+            if (subTitle._gsapSplitText) {
+                subTitle._gsapSplitText.revert();
+            }
+            const split = new VanillaSplitText(subTitle, { type: "chars" });
+            subTitle._gsapSplitText = split;
+            if (split.chars) {
+                // Desktop hides text initially for snap entry shuffles; Mobile stays fully visible immediately
+                gsap.set(split.chars, { autoAlpha: isDesktop ? 0 : 1 });
+            }
+        }
+        
+        // 2. body text setup
+        if (partId === "part1") {
+            const part1Cards = part.querySelectorAll(".advantage-card, .integrated-value-card");
+            gsap.set(part1Cards, { autoAlpha: 1, y: 0 }); // Force containers visible
+            part1Cards.forEach((card) => {
+                const textElements = card.querySelectorAll("h2, p");
+                textElements.forEach((el) => {
+                    if (el._gsapSplitText) el._gsapSplitText.revert();
+                    const split = new VanillaSplitText(el, { type: "words" });
+                    el._gsapSplitText = split;
+                    if (split.words) {
+                        gsap.set(split.words, { autoAlpha: isDesktop ? 0 : 1 });
+                    }
+                });
+            });
+        } else if (partId === "part3") {
+            const outroContent = part.querySelector(".outro-content");
+            if (outroContent) {
+                gsap.set(outroContent, { autoAlpha: 1, y: 0 }); // Force container visible
+                const textElements = outroContent.querySelectorAll("h2, p");
+                textElements.forEach((el) => {
+                    if (el._gsapSplitText) el._gsapSplitText.revert();
+                    const split = new VanillaSplitText(el, { type: "words" });
+                    el._gsapSplitText = split;
+                    if (split.words) {
+                        gsap.set(split.words, { autoAlpha: isDesktop ? 0 : 1 });
+                    }
+                });
+            }
+        }
+    });
+    console.log("📝 [TEXT ENGINE] Successfully initialized all sub-titles and cards text states (Desktop Hide/Mobile Show).");
+}
+
+function playSectionTextAnimations(partId) {
+    const part = document.getElementById(partId);
+    if (!part) return;
+    
+    const subTitle = part.querySelector(".sub-title");
+    const scrambleChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    
+    // Step 1: sub-title scramble fade-in (chars)
+    if (subTitle && subTitle._gsapSplitText && subTitle._gsapSplitText.chars) {
+        // Lock subtitle container height immediately to prevent vertical reflow jitter
+        subTitle.style.height = subTitle.offsetHeight + "px";
+
+        const chars = subTitle._gsapSplitText.chars;
+        gsap.killTweensOf(chars);
+        gsap.set(chars, { autoAlpha: 0 });
+        
+        const charStagger = 0.04;
+        const charDuration = 0.5;
+        
+        let completedCount = 0;
+        const animatableChars = chars.filter(c => c.textContent.trim() !== '');
+        const totalCount = animatableChars.length;
+        
+        chars.forEach((charEl, idx) => {
+            const originalChar = charEl.textContent;
+            if (originalChar.trim() !== '') {
+                // Show opacity in place
+                gsap.to(charEl, {
+                    autoAlpha: 1,
+                    duration: charDuration,
+                    delay: idx * charStagger,
+                    overwrite: true
+                });
+                
+                // Scramble text
+                const obj = { progress: 0 };
+                gsap.to(obj, {
+                    progress: 1.0,
+                    duration: charDuration * 0.9,
+                    delay: idx * charStagger,
+                    ease: "none",
+                    onUpdate: () => {
+                        if (obj.progress < 0.92) {
+                            charEl.textContent = scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+                        } else {
+                            charEl.textContent = originalChar;
+                        }
+                    },
+                    onComplete: () => {
+                        charEl.textContent = originalChar;
+                        completedCount++;
+                        
+                        // B) Once the title completes its shuffle, fire the body content animation immediately!
+                        if (completedCount === totalCount) {
+                            subTitle.style.height = ""; // Release height lock
+                            triggerBodyContentScramble(partId);
+                        }
+                    },
+                    overwrite: true
+                });
+            } else {
+                gsap.set(charEl, { autoAlpha: 1 });
+            }
+        });
+        
+        if (totalCount === 0) {
+            subTitle.style.height = "";
+            triggerBodyContentScramble(partId);
+        }
+    } else {
+        triggerBodyContentScramble(partId);
+    }
+}
+
+function triggerBodyContentScramble(partId) {
+    const part = document.getElementById(partId);
+    if (!part) return;
+    
+    const scrambleChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789';
+    
+    if (partId === "part1") {
+        const part1Cards = part.querySelectorAll(".advantage-card, .integrated-value-card");
+        part1Cards.forEach((card, cIdx) => {
+            const allWords = [];
+            const textElements = card.querySelectorAll("h2, p");
+            
+            // Lock height of all text container elements individually to prevent cumulative height shifting
+            textElements.forEach(el => {
+                el.style.height = el.offsetHeight + "px";
+                if (el._gsapSplitText && el._gsapSplitText.words) {
+                    allWords.push(...el._gsapSplitText.words);
+                }
+            });
+            
+            if (allWords.length === 0) {
+                textElements.forEach(el => { el.style.height = ""; });
+                return;
+            }
+            
+            // Calculate total animation duration to safely release height lock
+            const totalDuration = (allWords.length - 1) * 0.03 + cIdx * 0.12 + 0.45;
+            gsap.delayedCall(totalDuration, () => {
+                textElements.forEach(el => {
+                    el.style.height = "";
+                });
+            });
+            
+            gsap.killTweensOf(allWords);
+            gsap.set(allWords, { autoAlpha: 0 });
+            
+            allWords.forEach((wordEl, idx) => {
+                const txt = wordEl.textContent;
+                
+                // Show word opacity
+                gsap.to(wordEl, {
+                    autoAlpha: 1,
+                    duration: 0.2,
+                    delay: idx * 0.03 + cIdx * 0.12,
+                    overwrite: true
+                });
+                
+                // Scramble word text
+                const obj = { progress: 0 };
+                gsap.to(obj, {
+                    progress: 1.0,
+                    duration: 0.4,
+                    delay: idx * 0.03 + cIdx * 0.12,
+                    ease: "none",
+                    onUpdate: () => {
+                        const length = txt.length;
+                        const revealCount = Math.floor(obj.progress * length);
+                        let result = "";
+                        for (let i = 0; i < length; i++) {
+                            if (i < revealCount) {
+                                result += txt[i];
+                            } else {
+                                result += scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+                            }
+                        }
+                        wordEl.textContent = result;
+                    },
+                    onComplete: () => {
+                        wordEl.textContent = txt;
+                    },
+                    overwrite: true
+                });
+            });
+        });
+    } else if (partId === "part3") {
+        const outroContent = part.querySelector(".outro-content");
+        if (outroContent) {
+            const allWords = [];
+            const textElements = outroContent.querySelectorAll("h2, p");
+            
+            // Lock heights to preventoutro vertical jittering
+            textElements.forEach(el => {
+                el.style.height = el.offsetHeight + "px";
+                if (el._gsapSplitText && el._gsapSplitText.words) {
+                    allWords.push(...el._gsapSplitText.words);
+                }
+            });
+            
+            if (allWords.length === 0) {
+                textElements.forEach(el => { el.style.height = ""; });
+                return;
+            }
+            
+            const totalDuration = (allWords.length - 1) * 0.015 + 0.45;
+            gsap.delayedCall(totalDuration, () => {
+                textElements.forEach(el => {
+                    el.style.height = "";
+                });
+            });
+            
+            gsap.killTweensOf(allWords);
+            gsap.set(allWords, { autoAlpha: 0 });
+            
+            allWords.forEach((wordEl, idx) => {
+                const txt = wordEl.textContent;
+                
+                gsap.to(wordEl, {
+                    autoAlpha: 1,
+                    duration: 0.2,
+                    delay: idx * 0.015,
+                    overwrite: true
+                });
+                
+                const obj = { progress: 0 };
+                gsap.to(obj, {
+                    progress: 1.0,
+                    duration: 0.4,
+                    delay: idx * 0.015,
+                    ease: "none",
+                    onUpdate: () => {
+                        const length = txt.length;
+                        const revealCount = Math.floor(obj.progress * length);
+                        let result = "";
+                        for (let i = 0; i < length; i++) {
+                            if (i < revealCount) {
+                                result += txt[i];
+                            } else {
+                                result += scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+                            }
+                        }
+                        wordEl.textContent = result;
+                    },
+                    onComplete: () => {
+                        wordEl.textContent = txt;
+                    },
+                    overwrite: true
+                });
+            });
+        }
+    }
+}
+
+function resetSectionTextVisibility(partId) {
+    const part = document.getElementById(partId);
+    if (!part) return;
+    
+    const subTitle = part.querySelector(".sub-title");
+    if (subTitle && subTitle._gsapSplitText && subTitle._gsapSplitText.chars) {
+        gsap.killTweensOf(subTitle._gsapSplitText.chars);
+        gsap.set(subTitle._gsapSplitText.chars, { autoAlpha: 0 });
+    }
+    
+    if (partId === "part1") {
+        const part1Cards = part.querySelectorAll(".advantage-card, .integrated-value-card");
+        part1Cards.forEach((card) => {
+            const textElements = card.querySelectorAll("h2, p");
+            textElements.forEach((el) => {
+                if (el._gsapSplitText && el._gsapSplitText.words) {
+                    gsap.killTweensOf(el._gsapSplitText.words);
+                    gsap.set(el._gsapSplitText.words, { autoAlpha: 0 });
+                }
+            });
+        });
+    } else if (partId === "part3") {
+        const outroContent = part.querySelector(".outro-content");
+        if (outroContent) {
+            const textElements = outroContent.querySelectorAll("h2, p");
+            textElements.forEach((el) => {
+                if (el._gsapSplitText && el._gsapSplitText.words) {
+                    gsap.killTweensOf(el._gsapSplitText.words);
+                    gsap.set(el._gsapSplitText.words, { autoAlpha: 0 });
+                }
+            });
+        }
     }
 }
 
@@ -409,7 +784,7 @@ function setupSectionSnapScroll() {
     ScrollTrigger.create({
         id: "fullpage-section-snap",
         snap: {
-            snapTo: (progress) => {
+            snapTo: (progress, self) => {
                 const maxScroll = ScrollTrigger.maxScroll(window);
                 if (maxScroll <= 0) return progress;
 
@@ -422,23 +797,104 @@ function setupSectionSnapScroll() {
                     }
                 });
 
+                const currentScroll = window.scrollY;
                 const part2 = document.getElementById("part2");
+                
+                // 가로 스크롤이 작동 중인 핀 공간 우회
                 if (part2) {
                     const rect = part2.getBoundingClientRect();
-                    if (rect.top <= 30 && rect.bottom >= window.innerHeight + 30) {
+                    const part2Top = rect.top + window.scrollY;
+                    const part2Bottom = rect.bottom + window.scrollY;
+                    
+                    if (currentScroll >= part2Top + 10 && currentScroll <= part2Bottom - window.innerHeight - 10) {
                         return progress;
                     }
                 }
 
-                return gsap.utils.snap(sectionRatios, progress);
+                const direction = self.direction; // 1 = down, -1 = up
+                const lastIdx = sectionRatios.length - 1;
+                const part3TopRatio = sectionRatios[lastIdx];
+
+                // 만약 part3 시작 위치보다 아래로 휠을 굴려 내려간 상태라면 스냅을 제외하여 푸터 영역 자유 스크롤 보장!
+                if (progress > part3TopRatio + 0.015 && direction >= 0) {
+                    return progress;
+                }
+
+                // closest index
+                let closestIndex = 0;
+                let minDiff = Infinity;
+                sectionRatios.forEach((ratio, idx) => {
+                    const diff = Math.abs(ratio - progress);
+                    if (diff < minDiff) {
+                        minDiff = diff;
+                        closestIndex = idx;
+                    }
+                });
+
+                let targetIndex = closestIndex;
+                if (direction > 0 && closestIndex < lastIdx) {
+                    targetIndex = closestIndex + 1;
+                } else if (direction < 0 && closestIndex > 0) {
+                    // Mobile & Small window snap-back protection:
+                    // If scroll is deep inside footer area (progress > part3TopRatio + 0.05) and user attempts to scroll up,
+                    // snap them back to part3 Top (lastIdx) first instead of violently jumping to part2 start (index 2).
+                    if (progress > part3TopRatio + 0.05) {
+                        targetIndex = lastIdx; // Stepwise snap back to Outro Top
+                    } else {
+                        targetIndex = closestIndex - 1;
+                    }
+                }
+
+                return sectionRatios[targetIndex];
             },
-            duration: { min: 0.22, max: 0.45 },
-            delay: 0.02,
-            ease: "power2.out"
+            duration: { min: 0.18, max: 0.35 },
+            delay: 0.06,
+            ease: "power2.out",
+            onStart: () => {
+                // Pause 3D rotation during page transition animations
+                if (mainSplineApp && typeof mainSplineApp.setRotating === 'function') {
+                    mainSplineApp.setRotating(false);
+                }
+                // 스냅 이동 시작 즉시 이전/이후 섹션 텍스트들 조용히 은닉 처리
+                resetSectionTextVisibility("part1");
+                resetSectionTextVisibility("part2");
+                resetSectionTextVisibility("part3");
+            },
+            onComplete: () => {
+                // Resume slow 3D rotation after page transition completes
+                if (mainSplineApp && typeof mainSplineApp.setRotating === 'function') {
+                    mainSplineApp.setRotating(true);
+                }
+                
+                const maxScroll = ScrollTrigger.maxScroll(window);
+                if (maxScroll <= 0) return;
+                const progress = window.scrollY / maxScroll;
+                
+                const sectionRatios = [];
+                sections.forEach(secSelector => {
+                    const el = document.querySelector(secSelector);
+                    if (el) {
+                        const top = el.getBoundingClientRect().top + window.scrollY;
+                        sectionRatios.push(top / maxScroll);
+                    }
+                });
+
+                const rPart1 = sectionRatios[1];
+                const rPart2 = sectionRatios[2];
+                const rPart3 = sectionRatios[3];
+                
+                if (Math.abs(progress - rPart1) < 0.04) {
+                    playSectionTextAnimations("part1");
+                } else if (progress >= rPart2 - 0.02 && progress < rPart3 - 0.02) {
+                    playSectionTextAnimations("part2");
+                } else if (progress >= rPart3 - 0.02) {
+                    playSectionTextAnimations("part3");
+                }
+            }
         }
     });
 
-    console.log("📍 [FAST SECTION SNAP] Optimized lightweight section snapping response");
+    console.log("📍 [FAST SECTION SNAP] Initialized sensitive velocity-free ratio snapping with bottom lock.");
 }
 
 function setupScrollIconAnimation() {
@@ -478,15 +934,18 @@ function setupAllScrollTriggers(isDesktopView) {
     setupMainPageBackgroundChangeAnimations();
     if (mainSplineApp && capsuleObj) setupSplineScrollAnimations(capsuleObj, null, isDesktopView);
     setupBarAnimations();
-    setupAdvantageCardAnimations();
-    setupOutroContentAnimation();
+    setupSectionTitleAnimations();
+    setupContentTextScrambleAnimations();
     setupHeaderLogoScrollAnimation();
     setupWorksHorizontalScroll();
     setupWorkItemAnimations();
     setupHeroTextScrollMotionBlurAnimation();
-    setupSectionSnapScroll();
+    if (isDesktopView) {
+        setupSectionSnapScroll();
+    }
     setupScrollToTopButton();
     setupScrollIconAnimation();
+    initializeTextVisibility();
     if (typeof ScrollTrigger !== 'undefined') {
         ScrollTrigger.sort();
         ScrollTrigger.refresh();
@@ -542,6 +1001,8 @@ async function runMainPageSequence() {
         const gltfPath = buildUrl('/assets/models/capsule_creo_d/scene-draco.gltf');
         mainSplineApp = await loadGLTFScene("canvas3d", gltfPath);
         if (mainSplineApp) {
+            const canvas = document.getElementById("canvas3d");
+            if (canvas) gsap.set(canvas, { opacity: 0 }); // Hide canvas initially during top bar loader
             capsuleObj = mainSplineApp.findObjectByName("Winhub");
             if (capsuleObj) capsuleObj.visible = true;
         }
@@ -551,6 +1012,14 @@ async function runMainPageSequence() {
 
     // Step 1: Execute Top 6px Progress Bar Loading Sequence
     await runLoaderSequence();
+
+    // Start 3D drawing animation sequence immediately after loader finishes
+    if (mainSplineApp && typeof mainSplineApp.startDrawingAnimation === 'function') {
+        const canvas = document.getElementById("canvas3d");
+        if (canvas) gsap.to(canvas, { opacity: 1, duration: 0.35, ease: "power2.out" });
+        console.log("🎬 [MAIN TEST APP] Starting 3D Drawing Outline animation sequence...");
+        await mainSplineApp.startDrawingAnimation();
+    }
 
     // Step 2: HERO Text Animations (Starts after loader finishes!)
     const comNameElement = document.querySelector(".com-name-ani");
@@ -673,7 +1142,8 @@ function setupParticleTextExplodeInteraction() {
     }
     resizeCanvas();
 
-    const chars = document.querySelectorAll('.com-name-ani div, .headline div div');
+    // Support both div and span elements created by SplitText library (cross-version safety)
+    const chars = document.querySelectorAll('.com-name-ani div, .com-name-ani span, .headline div div, .headline div span');
     if (!chars || chars.length === 0) return;
 
     const charData = [];
@@ -702,23 +1172,9 @@ function setupParticleTextExplodeInteraction() {
         });
     });
 
-    // Compute static home coordinates when elements are in un-transformed layout state!
+    // Compute absolute home coordinates relative to the Document layout space
     function updateStaticCoordinates() {
-        charData.forEach((c) => {
-            // Temporarily reset transform to sample true static layout position
-            const prevTransform = c.el.style.transform;
-            c.el.style.transform = 'translate3d(0, 0, 0)';
-
-            const rect = c.el.getBoundingClientRect();
-            c.homeX = rect.left + rect.width / 2;
-            c.homeY = rect.top + rect.height / 2;
-            c.rectLeft = rect.left;
-            c.rectTop = rect.top;
-            c.rectWidth = rect.width;
-            c.rectHeight = rect.height;
-
-            c.el.style.transform = prevTransform;
-        });
+        // No longer caching static coordinates globally. Bounding rect is checked in real-time.
     }
 
     updateStaticCoordinates();
@@ -743,7 +1199,6 @@ function setupParticleTextExplodeInteraction() {
 
     console.log("💨 [ORGANIC TEXT SMOKE DISSOLVE] Initialized Jitter-Free Text-Smoke Vapor Engine");
 
-    // Hysteresis Thresholds (Prevents edge flickering/jitter loop 100%!)
     const enterRadius = 80;
     const exitRadius = 115;
 
@@ -774,27 +1229,57 @@ function setupParticleTextExplodeInteraction() {
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        charData.forEach((c) => {
-            // Check distance against FIXED static home coordinates (100% stable!)
-            const dist = Math.hypot(c.homeX - mouseX, c.homeY - mouseY);
+        const currentScroll = window.scrollY;
+        const heroSection = document.getElementById("hero");
+        // Only trigger hover when hero section is actually visible inside viewport
+        const isHeroVisible = heroSection ? (currentScroll < window.innerHeight - 50) : true;
 
-            // Hysteresis trigger check
+        charData.forEach((c) => {
+            // Force hover release and bypass calculations if hero section is scrolled out
+            if (!isHeroVisible) {
+                if (c.isHovered) {
+                    c.isHovered = false;
+                    c.el.style.transform = 'translate3d(0, 0, 0) scale(1, 1)';
+                    c.el.style.filter = 'blur(0px) brightness(1.0)';
+                    c.el.style.opacity = '1';
+                    c.particles = [];
+                }
+                return;
+            }
+
+            // Real-time bounding rect in viewport (client) space
+            const rect = c.el.getBoundingClientRect();
+            const currentElX = rect.left + rect.width / 2;
+            let currentElY = rect.top + rect.height / 2;
+
+            // If visually translated up by 45px, offset back to get the original visual center
+            if (c.isHovered) {
+                currentElY += 45;
+            }
+
+            // Calculate distance in client space (no scroll or animation layout shift bias!)
+            const dist = Math.hypot(currentElX - mouseX, currentElY - mouseY);
+
             if (!c.isHovered && dist < enterRadius) {
-                // ENTER HOVER: Smoothly lift upward, blur like smoke, and fade out!
                 c.isHovered = true;
                 c.el.style.transform = 'translate3d(0, -45px, 0) scaleY(1.4) scaleX(1.15)';
                 c.el.style.filter = 'blur(14px) brightness(1.6)';
                 c.el.style.opacity = '0';
+                
+                // Keep particles relative to document layout for correct scroll tracking
+                c.rectLeft = rect.left;
+                c.rectTop = rect.top + currentScroll;
+                c.rectWidth = rect.width;
+                c.rectHeight = rect.height;
+                
                 c.particles = spawnSmokeFogPuffs(c);
             } else if (c.isHovered && dist > exitRadius) {
-                // EXIT HOVER: Smoothly restore crisp static text!
                 c.isHovered = false;
                 c.el.style.transform = 'translate3d(0, 0, 0) scale(1, 1)';
                 c.el.style.filter = 'blur(0px) brightness(1.0)';
                 c.el.style.opacity = '1';
             }
 
-            // Render soft Gaussian smoke fog puffs floating upward
             if (c.particles && c.particles.length > 0) {
                 for (let i = c.particles.length - 1; i >= 0; i--) {
                     const p = c.particles[i];
@@ -809,15 +1294,18 @@ function setupParticleTextExplodeInteraction() {
                         continue;
                     }
 
+                    // Convert absolute document coordinates back to fixed viewport space for canvas rendering
+                    const drawY = p.y - currentScroll;
+
                     ctx.save();
-                    const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
+                    const grad = ctx.createRadialGradient(p.x, drawY, 0, p.x, drawY, p.size);
                     grad.addColorStop(0, `rgba(255, 255, 255, ${(p.alpha * 0.45).toFixed(2)})`);
                     grad.addColorStop(0.5, `rgba(186, 230, 253, ${(p.alpha * 0.25).toFixed(2)})`);
                     grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
 
                     ctx.fillStyle = grad;
                     ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.arc(p.x, drawY, p.size, 0, Math.PI * 2);
                     ctx.fill();
                     ctx.restore();
                 }
@@ -834,4 +1322,10 @@ document.addEventListener("DOMContentLoaded", () => {
         hideLoaderOnError();
         enableScrollInteraction();
     });
+});
+
+window.addEventListener('beforeunload', () => {
+    if (mainSplineApp && typeof mainSplineApp.cleanup === 'function') {
+        mainSplineApp.cleanup();
+    }
 });

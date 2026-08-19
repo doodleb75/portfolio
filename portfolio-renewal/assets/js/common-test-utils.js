@@ -410,6 +410,10 @@ export async function loadGLTFScene(canvasId, modelUrl) {
             rawModel.updateMatrixWorld(true);
 
             let meshCount = 0;
+            const outlineLines = [];
+            const outlineMaterials = [];
+            const originalMaterials = [];
+
             // Configure Capsule Creo D as an Atmospheric Semi-Transparent 3D Background Element
             rawModel.traverse((child) => {
                 if (child.isMesh) {
@@ -422,7 +426,7 @@ export async function loadGLTFScene(canvasId, modelUrl) {
                         child.geometry.computeVertexNormals();
                     }
 
-                    // Keep material as dark sleek background element with subtle opacity
+                    // Keep material as dark sleek background element with subtle opacity (starts at 0.0 for fade-in)
                     const mat = new THREE.MeshStandardMaterial({
                         color: 0x2e1065,
                         roughness: 0.15,
@@ -431,7 +435,7 @@ export async function loadGLTFScene(canvasId, modelUrl) {
                         emissiveIntensity: 0.3,
                         side: THREE.DoubleSide,
                         transparent: true,
-                        opacity: 0.32,         // Soft atmospheric opacity (never overpowers HTML content!)
+                        opacity: 0.0,         // Start fully transparent for fade-in
                         depthWrite: false
                     });
 
@@ -476,6 +480,82 @@ export async function loadGLTFScene(canvasId, modelUrl) {
                     };
 
                     child.material = mat;
+                    originalMaterials.push({ material: mat, targetOpacity: 0.32 });
+
+                    // Create Outline / Edges Drawing mesh
+                    if (child.geometry) {
+                        const bbox = child.geometry.boundingBox || new THREE.Box3().setFromObject(child);
+                        const minY = bbox.min.y;
+                        const maxY = bbox.max.y;
+
+                        const edgesGeom = new THREE.EdgesGeometry(child.geometry);
+                        const drawMat = new THREE.ShaderMaterial({
+                            uniforms: {
+                                uProgress: { value: 0.0 },
+                                uColor: { value: new THREE.Color(0xc084fc) }, // Neon purple
+                                uOpacity: { value: 0.0 },
+                                uMinY: { value: minY },
+                                uMaxY: { value: maxY },
+                                uPulseMode: { value: 0.0 }
+                            },
+                            vertexShader: `
+                                varying float vY;
+                                void main() {
+                                    vY = position.y;
+                                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                                }
+                            `,
+                            fragmentShader: `
+                                uniform float uProgress;
+                                uniform vec3 uColor;
+                                uniform float uOpacity;
+                                uniform float uMinY;
+                                uniform float uMaxY;
+                                uniform float uPulseMode;
+                                varying float vY;
+
+                                void main() {
+                                    float percent = (vY - uMinY) / (uMaxY - uMinY + 0.0001);
+                                    
+                                    if (uPulseMode > 0.5) {
+                                        // Pulse loop mode: only render a moving band [uProgress - 0.15, uProgress]
+                                        if (percent > uProgress || percent < uProgress - 0.15) {
+                                            discard;
+                                        }
+                                        
+                                        // Fade edges of the pulse band for organic light beam feel
+                                        float dist = uProgress - percent;
+                                        float alpha = uOpacity * (1.0 - dist / 0.15);
+                                        gl_FragColor = vec4(uColor * 2.0, alpha); // Double color brightness for glow
+                                    } else {
+                                        // Intro drawing mode
+                                        if (percent > uProgress) {
+                                            discard;
+                                        }
+                                        
+                                        // Glow effect at drawing edge
+                                        float dist = abs(percent - uProgress);
+                                        float alpha = uOpacity;
+                                        vec3 color = uColor;
+                                        if (dist < 0.05) {
+                                            color = mix(uColor * 2.0, uColor, dist / 0.05);
+                                            alpha = uOpacity;
+                                        }
+                                        gl_FragColor = vec4(color, alpha);
+                                    }
+                                }
+                            `,
+                            transparent: true,
+                            depthWrite: false,
+                            side: THREE.DoubleSide
+                        });
+
+                        const lineSegments = new THREE.LineSegments(edgesGeom, drawMat);
+                        child.add(lineSegments);
+
+                        outlineLines.push(lineSegments);
+                        outlineMaterials.push(drawMat);
+                    }
                 }
             });
 
@@ -502,10 +582,14 @@ export async function loadGLTFScene(canvasId, modelUrl) {
 
             console.log("🎉 [3D TEST LOADER] Winhub background group successfully added to 3D Scene!");
 
+            let isRotating = false;
+
             function animate() {
                 requestAnimationFrame(animate);
-                modelWrapper.rotation.y += 0.002;
-                modelWrapper.rotation.x += 0.001;
+                if (isRotating) {
+                    modelWrapper.rotation.y += 0.00005; // Super slow rotation to keep focus on UI content
+                    modelWrapper.rotation.x += 0.000025;
+                }
                 renderer.render(scene, camera);
             }
             animate();
@@ -518,8 +602,143 @@ export async function loadGLTFScene(canvasId, modelUrl) {
                 renderer.setSize(w, h, false);
             });
 
+            let loopTimer = null;
+            
+            const startGlowingPulseLoop = () => {
+                const triggerNextPulse = () => {
+                    const nextDelay = 3.5 + Math.random() * 3.5; // Random delay: 3.5s to 7.0s
+                    
+                    loopTimer = gsap.delayedCall(nextDelay, () => {
+                        // Smoothly transition pulse uProgress and opacity
+                        outlineMaterials.forEach((mat) => {
+                            mat.uniforms.uProgress.value = -0.15;
+                            mat.uniforms.uOpacity.value = 0.55; // Semi-transparent pulse glow
+                            
+                            gsap.to(mat.uniforms.uProgress, {
+                                value: 1.15,
+                                duration: 0.85,
+                                ease: "sine.inOut"
+                            });
+                            
+                            gsap.to(mat.uniforms.uOpacity, {
+                                value: 0.0,
+                                duration: 0.35,
+                                delay: 0.5,
+                                ease: "sine.out"
+                            });
+                        });
+                        
+                        triggerNextPulse();
+                    });
+                };
+                triggerNextPulse();
+            };
+
+            const startDrawingAnimation = () => {
+                return new Promise((animResolve) => {
+                    if (typeof gsap === 'undefined') {
+                        // GSAP is not loaded, immediately show mesh and finish
+                        originalMaterials.forEach((item) => {
+                            item.material.opacity = item.targetOpacity;
+                        });
+                        animResolve();
+                        return;
+                    }
+
+                    const tl = gsap.timeline({
+                        onComplete: () => {
+                            // Turn on uPulseMode to transition to looping outlines rather than deleting them
+                            outlineMaterials.forEach((mat) => {
+                                mat.uniforms.uPulseMode.value = 1.0;
+                                mat.uniforms.uProgress.value = -0.2;
+                                mat.uniforms.uOpacity.value = 0.0;
+                            });
+                            
+                            console.log("⚡ [3D DRAWING ANIMS] Intro completed. Switching to Glowing Pulse Loop mode.");
+                            isRotating = true; // Start slow rotation AFTER intro completes
+                            startGlowingPulseLoop();
+                            animResolve();
+                        }
+                    });
+
+                    // Step 1: Draw neon outlines by animating uProgress from 0 to 1
+                    outlineMaterials.forEach((mat) => {
+                        // Make outlines visible as soon as the intro animation kicks off
+                        mat.uniforms.uOpacity.value = 0.8;
+                        
+                        tl.to(mat.uniforms.uProgress, {
+                            value: 1.0,
+                            duration: 0.95,
+                            ease: "power2.out"
+                        }, 0);
+                    });
+
+                    // Step 2: Flicker (stuttering light bulb on) fade-in of original mesh materials using a single high-performance onUpdate loop to prevent frame drops
+                    const flickerObj = { opacity: 0.0 };
+                    tl.to(flickerObj, {
+                        opacity: 1.0,
+                        duration: 1.1,
+                        ease: "none",
+                        onUpdate: () => {
+                            const p = flickerObj.opacity;
+                            let currentOpacity = 0.0;
+                            
+                            // High fidelity simulated flicker curve matching the original multi-step sequence
+                            if (p < 0.32) {
+                                currentOpacity = 0.0;
+                            } else if (p < 0.39) {
+                                currentOpacity = 0.55;
+                            } else if (p < 0.44) {
+                                currentOpacity = 0.03;
+                            } else if (p < 0.55) {
+                                currentOpacity = 0.95;
+                            } else if (p < 0.61) {
+                                currentOpacity = 0.14;
+                            } else if (p < 0.68) {
+                                currentOpacity = 0.65;
+                            } else {
+                                // Smooth transition from 0.65 to 1.0
+                                const t = (p - 0.68) / 0.32;
+                                currentOpacity = 0.65 + t * 0.35;
+                            }
+                            
+                            originalMaterials.forEach((item) => {
+                                item.material.opacity = item.targetOpacity * currentOpacity;
+                            });
+                        }
+                    }, 0);
+
+                    // Step 3: Fade-out neon outlines smoothly to achieve perfect cross-fade overlap
+                    outlineMaterials.forEach((mat) => {
+                        tl.to(mat.uniforms.uOpacity, {
+                            value: 0.0,
+                            duration: 0.85,
+                            ease: "power2.out"
+                        }, 0.6); // Starts at 0.6s, completes at 1.45s synchronously with main body fade-in
+                    });
+                });
+            };
+
+            const cleanup = () => {
+                if (loopTimer) {
+                    loopTimer.kill();
+                    loopTimer = null;
+                }
+                outlineLines.forEach((line) => {
+                    if (line.parent) {
+                        line.parent.remove(line);
+                    }
+                    if (line.geometry) line.geometry.dispose();
+                });
+                outlineMaterials.forEach((mat) => mat.dispose());
+                console.log("🧹 [3D SCENE] Cleaned up glowing pulse loop timer & outline WebGL resources");
+            };
+
             resolve({
                 findObjectByName: (name) => (name === "Winhub" ? modelWrapper : null),
+                startDrawingAnimation,
+                setRotating: (val) => { isRotating = val; },
+                cleanup,
                 scene,
                 camera,
                 renderer,
