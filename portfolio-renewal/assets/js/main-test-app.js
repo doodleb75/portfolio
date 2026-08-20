@@ -13,16 +13,16 @@ import { worksData, loadWorksData } from './works-data.js';
 class VanillaSplitText {
     constructor(element, options = {}) {
         this.element = element;
-        
+
         // Cache the absolute original state on the first split to prevent cumulative corruption from resize/retriggering
         if (!element.hasAttribute('data-original-text')) {
             element.setAttribute('data-original-text', element.textContent.trim());
             element.setAttribute('data-original-html', element.innerHTML);
         }
-        
+
         this.originalText = element.getAttribute('data-original-text');
         this.originalHTML = element.getAttribute('data-original-html');
-        
+
         this.type = options.type || "chars";
         this.words = [];
         this.chars = [];
@@ -78,7 +78,7 @@ import {
     responsiveScale,
     responsiveX,
     responsiveY,
-    runLoaderSequence, 
+    runLoaderSequence,
     hideLoaderOnError,
     buildUrl,
     InteractiveBackgroundSphere,
@@ -225,7 +225,7 @@ function setupMainPageBackgroundChangeAnimations() {
 
 function setupSplineScrollAnimations(capsuleObj, cableObj, isDesktopView) {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-    splineTimelines.forEach(tl => tl.kill()); splineTimelines = []; 
+    splineTimelines.forEach(tl => tl.kill()); splineTimelines = [];
     const currentScaleConfig = getScaleConfig(isDesktopView);
     const isMobileView = !isDesktopView;
 
@@ -236,14 +236,14 @@ function setupSplineScrollAnimations(capsuleObj, cableObj, isDesktopView) {
     gsap.set(capsuleObj.rotation, { x: degToRad(25), y: degToRad(-35), z: degToRad(15) });
     gsap.set(capsuleObj.scale, { x: currentScaleConfig.hero, y: currentScaleConfig.hero, z: currentScaleConfig.hero });
 
-    const heroTimeline = gsap.timeline({ scrollTrigger: { id: 'splineScrollTrigger-hero', trigger: "#hero", start: "top 10%", end: "bottom bottom", scrub: true, invalidateOnRefresh: true }});
+    const heroTimeline = gsap.timeline({ scrollTrigger: { id: 'splineScrollTrigger-hero', trigger: "#hero", start: "top 10%", end: "bottom bottom", scrub: true, invalidateOnRefresh: true } });
     heroTimeline.to(capsuleObj.position, { x: heroX, y: heroY, z: -5.0 }, 0)
         .to(capsuleObj.rotation, { x: degToRad(25), y: degToRad(-35), z: degToRad(15) }, 0)
         .to(capsuleObj.scale, { x: currentScaleConfig.hero, y: currentScaleConfig.hero, z: currentScaleConfig.hero }, 0);
     splineTimelines.push(heroTimeline);
 
     if (document.getElementById('part1')) {
-        const part1Timeline = gsap.timeline({ scrollTrigger: { id: 'splineScrollTrigger-part1', trigger: "#part1", start: "top 70%", end: "center bottom", scrub: 2, invalidateOnRefresh: true }});
+        const part1Timeline = gsap.timeline({ scrollTrigger: { id: 'splineScrollTrigger-part1', trigger: "#part1", start: "top 70%", end: "center bottom", scrub: 2, invalidateOnRefresh: true } });
         const part1Position = isMobileView ? { x: -0.8, y: 0.3, z: -4.0 } : { x: -2.2, y: 0.5, z: -4.0 };
         part1Timeline.to(capsuleObj.position, part1Position, 0)
             .to(capsuleObj.rotation, { x: degToRad(-45), y: degToRad(65), z: degToRad(-25) }, 0)
@@ -252,7 +252,7 @@ function setupSplineScrollAnimations(capsuleObj, cableObj, isDesktopView) {
     }
 
     if (document.getElementById('part2')) {
-        const part2Timeline = gsap.timeline({ scrollTrigger: { id: "part2SplineScrollTrigger", trigger: "#part2", start: "top 85%", end: "top 30%", scrub: 2, invalidateOnRefresh: true }});
+        const part2Timeline = gsap.timeline({ scrollTrigger: { id: "part2SplineScrollTrigger", trigger: "#part2", start: "top 85%", end: "top 30%", scrub: 2, invalidateOnRefresh: true } });
         const part2Position = isMobileView ? { x: 1.2, y: -0.5, z: -4.5 } : { x: 3.2, y: -0.8, z: -4.5 };
         part2Timeline.to(capsuleObj.position, part2Position, 0)
             .to(capsuleObj.rotation, { x: degToRad(60), y: degToRad(-55), z: degToRad(35) }, 0)
@@ -261,7 +261,7 @@ function setupSplineScrollAnimations(capsuleObj, cableObj, isDesktopView) {
     }
 
     if (document.getElementById('part3')) {
-        const part3Timeline = gsap.timeline({ scrollTrigger: { id: 'splineScrollTrigger-part3', trigger: "#part3", start: "top 30%", end: "center bottom", scrub: 2, invalidateOnRefresh: true }});
+        const part3Timeline = gsap.timeline({ scrollTrigger: { id: 'splineScrollTrigger-part3', trigger: "#part3", start: "top 30%", end: "center bottom", scrub: 2, invalidateOnRefresh: true } });
         const part3Position = isMobileView ? { x: -1.0, y: -0.4, z: -3.0 } : { x: -2.2, y: -0.3, z: -3.0 };
         part3Timeline.to(capsuleObj.position, part3Position, 0)
             .to(capsuleObj.rotation, { x: degToRad(-30), y: degToRad(90), z: degToRad(20) }, 0)
@@ -273,9 +273,11 @@ function setupSplineScrollAnimations(capsuleObj, cableObj, isDesktopView) {
 function setupBarAnimations() {
     if (typeof gsap === 'undefined' || typeof MorphSVGPlugin === 'undefined' || typeof ScrollTrigger === 'undefined') return;
     const barElement = document.getElementById("barElementPath"); if (!barElement) return; gsap.set(barElement, { morphSVG: barShapesConfig.initial });
-    const sections = [ { id: "hero", shape: barShapesConfig.initial, color: "#FFD700" }, { id: "part1", shape: barShapesConfig.part1Enter, color: "#87CEEB" }, { id: "part2", shape: barShapesConfig.part2Enter, color: "#90EE90" }, { id: "part3", shape: barShapesConfig.part3Enter, color: "#FFB6C1" } ];
-    sections.forEach((section, index) => { const triggerElement = document.getElementById(section.id); if (!triggerElement) return;
-        ScrollTrigger.create({ id: `barMorphTrigger-${section.id}`, trigger: triggerElement, start: "top 10%", end: "bottom top", invalidateOnRefresh: true,
+    const sections = [{ id: "hero", shape: barShapesConfig.initial, color: "#FFD700" }, { id: "part1", shape: barShapesConfig.part1Enter, color: "#87CEEB" }, { id: "part2", shape: barShapesConfig.part2Enter, color: "#90EE90" }, { id: "part3", shape: barShapesConfig.part3Enter, color: "#FFB6C1" }];
+    sections.forEach((section, index) => {
+        const triggerElement = document.getElementById(section.id); if (!triggerElement) return;
+        ScrollTrigger.create({
+            id: `barMorphTrigger-${section.id}`, trigger: triggerElement, start: "top 10%", end: "bottom top", invalidateOnRefresh: true,
             onEnter: () => gsap.to(barElement, { morphSVG: section.shape, duration: 0.7, ease: "sine.inOut", attr: { fill: section.color } }),
             onEnterBack: () => gsap.to(barElement, { morphSVG: section.shape, duration: 0.7, ease: "sine.inOut", attr: { fill: section.color } })
         });
@@ -322,15 +324,15 @@ function setupContentTextScrambleAnimations() {
 
 function initializeTextVisibility() {
     if (typeof gsap === 'undefined' || typeof SplitText === 'undefined') return;
-    
+
     // Check if the current screen width is desktop-class
     const isDesktop = window.innerWidth >= 768;
     const sections = ["part1", "part2", "part3"];
-    
+
     sections.forEach((partId) => {
         const part = document.getElementById(partId);
         if (!part) return;
-        
+
         // 1. sub-title setup
         const subTitle = part.querySelector(".sub-title");
         if (subTitle) {
@@ -344,7 +346,7 @@ function initializeTextVisibility() {
                 gsap.set(split.chars, { autoAlpha: isDesktop ? 0 : 1 });
             }
         }
-        
+
         // 2. body text setup
         if (partId === "part1") {
             const part1Cards = part.querySelectorAll(".advantage-card, .integrated-value-card");
@@ -382,10 +384,10 @@ function initializeTextVisibility() {
 function playSectionTextAnimations(partId) {
     const part = document.getElementById(partId);
     if (!part) return;
-    
+
     const subTitle = part.querySelector(".sub-title");
     const scrambleChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    
+
     // Step 1: sub-title scramble fade-in (chars)
     if (subTitle && subTitle._gsapSplitText && subTitle._gsapSplitText.chars) {
         // Lock subtitle container height immediately to prevent vertical reflow jitter
@@ -394,14 +396,14 @@ function playSectionTextAnimations(partId) {
         const chars = subTitle._gsapSplitText.chars;
         gsap.killTweensOf(chars);
         gsap.set(chars, { autoAlpha: 0 });
-        
+
         const charStagger = 0.04;
         const charDuration = 0.5;
-        
+
         let completedCount = 0;
         const animatableChars = chars.filter(c => c.textContent.trim() !== '');
         const totalCount = animatableChars.length;
-        
+
         chars.forEach((charEl, idx) => {
             const originalChar = charEl.textContent;
             if (originalChar.trim() !== '') {
@@ -412,7 +414,7 @@ function playSectionTextAnimations(partId) {
                     delay: idx * charStagger,
                     overwrite: true
                 });
-                
+
                 // Scramble text
                 const obj = { progress: 0 };
                 gsap.to(obj, {
@@ -430,7 +432,7 @@ function playSectionTextAnimations(partId) {
                     onComplete: () => {
                         charEl.textContent = originalChar;
                         completedCount++;
-                        
+
                         // B) Once the title completes its shuffle, fire the body content animation immediately!
                         if (completedCount === totalCount) {
                             subTitle.style.height = ""; // Release height lock
@@ -443,7 +445,7 @@ function playSectionTextAnimations(partId) {
                 gsap.set(charEl, { autoAlpha: 1 });
             }
         });
-        
+
         if (totalCount === 0) {
             subTitle.style.height = "";
             triggerBodyContentScramble(partId);
@@ -456,15 +458,15 @@ function playSectionTextAnimations(partId) {
 function triggerBodyContentScramble(partId) {
     const part = document.getElementById(partId);
     if (!part) return;
-    
+
     const scrambleChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789';
-    
+
     if (partId === "part1") {
         const part1Cards = part.querySelectorAll(".advantage-card, .integrated-value-card");
         part1Cards.forEach((card, cIdx) => {
             const allWords = [];
             const textElements = card.querySelectorAll("h2, p");
-            
+
             // Lock height of all text container elements individually to prevent cumulative height shifting
             textElements.forEach(el => {
                 el.style.height = el.offsetHeight + "px";
@@ -472,12 +474,12 @@ function triggerBodyContentScramble(partId) {
                     allWords.push(...el._gsapSplitText.words);
                 }
             });
-            
+
             if (allWords.length === 0) {
                 textElements.forEach(el => { el.style.height = ""; });
                 return;
             }
-            
+
             // Calculate total animation duration to safely release height lock
             const totalDuration = (allWords.length - 1) * 0.03 + cIdx * 0.12 + 0.45;
             gsap.delayedCall(totalDuration, () => {
@@ -485,13 +487,13 @@ function triggerBodyContentScramble(partId) {
                     el.style.height = "";
                 });
             });
-            
+
             gsap.killTweensOf(allWords);
             gsap.set(allWords, { autoAlpha: 0 });
-            
+
             allWords.forEach((wordEl, idx) => {
                 const txt = wordEl.textContent;
-                
+
                 // Show word opacity
                 gsap.to(wordEl, {
                     autoAlpha: 1,
@@ -499,7 +501,7 @@ function triggerBodyContentScramble(partId) {
                     delay: idx * 0.03 + cIdx * 0.12,
                     overwrite: true
                 });
-                
+
                 // Scramble word text
                 const obj = { progress: 0 };
                 gsap.to(obj, {
@@ -532,7 +534,7 @@ function triggerBodyContentScramble(partId) {
         if (outroContent) {
             const allWords = [];
             const textElements = outroContent.querySelectorAll("h2, p");
-            
+
             // Lock heights to preventoutro vertical jittering
             textElements.forEach(el => {
                 el.style.height = el.offsetHeight + "px";
@@ -540,32 +542,32 @@ function triggerBodyContentScramble(partId) {
                     allWords.push(...el._gsapSplitText.words);
                 }
             });
-            
+
             if (allWords.length === 0) {
                 textElements.forEach(el => { el.style.height = ""; });
                 return;
             }
-            
+
             const totalDuration = (allWords.length - 1) * 0.015 + 0.45;
             gsap.delayedCall(totalDuration, () => {
                 textElements.forEach(el => {
                     el.style.height = "";
                 });
             });
-            
+
             gsap.killTweensOf(allWords);
             gsap.set(allWords, { autoAlpha: 0 });
-            
+
             allWords.forEach((wordEl, idx) => {
                 const txt = wordEl.textContent;
-                
+
                 gsap.to(wordEl, {
                     autoAlpha: 1,
                     duration: 0.2,
                     delay: idx * 0.015,
                     overwrite: true
                 });
-                
+
                 const obj = { progress: 0 };
                 gsap.to(obj, {
                     progress: 1.0,
@@ -598,13 +600,13 @@ function triggerBodyContentScramble(partId) {
 function resetSectionTextVisibility(partId) {
     const part = document.getElementById(partId);
     if (!part) return;
-    
+
     const subTitle = part.querySelector(".sub-title");
     if (subTitle && subTitle._gsapSplitText && subTitle._gsapSplitText.chars) {
         gsap.killTweensOf(subTitle._gsapSplitText.chars);
         gsap.set(subTitle._gsapSplitText.chars, { autoAlpha: 0 });
     }
-    
+
     if (partId === "part1") {
         const part1Cards = part.querySelectorAll(".advantage-card, .integrated-value-card");
         part1Cards.forEach((card) => {
@@ -667,7 +669,7 @@ function populateWorksList() {
         const li = document.createElement("li");
         li.className = "work-item";
         li.innerHTML = `
-            <a href="page/work-detail.html?id=${item.id}">
+            <a href="page-test/work-detail.html?id=${item.id}">
                 <div class="work-item-thumbnail">
                     <img src="${item.thumbnail}" alt="${item.title}" loading="lazy" />
                 </div>
@@ -798,15 +800,34 @@ function setupSectionSnapScroll() {
                 });
 
                 const currentScroll = window.scrollY;
+                const windowHeight = window.innerHeight;
+
+                // 1) PART 1 (WINHUB ADVANTAGE) 모바일 긴 섹션 스크롤 자유 조작 & 끝자락 스냅
+                const part1 = document.getElementById("part1");
+                if (part1) {
+                    const p1Top = part1.getBoundingClientRect().top + window.scrollY;
+                    const p1Bottom = p1Top + part1.offsetHeight;
+
+                    // 만약 WINHUB ADVANTAGE 섹션 내부를 스크롤 중이라면
+                    // 하단 여유 공간(+40px)까지 소비하여 최하단 카드 컨텐츠가 완전히 시야에 다 들어올 때까지 자유 스크롤을 유지
+                    if (currentScroll >= p1Top - 20 && currentScroll <= p1Bottom - windowHeight + 40) {
+                        // 사용자가 정말로 최하단 끝까지(p1Bottom - 10) 완벽히 스크롤을 내렸을 때만 다음 섹션(part2)으로 스냅
+                        if (self.direction > 0 && (currentScroll + windowHeight) >= (p1Bottom - 10)) {
+                            return sectionRatios[2]; // Snap to part2
+                        }
+                        // 아직 내부 컨텐츠 감상 중일 때는 스냅 간섭 없이 100% 자유 스크롤 보장
+                        return progress;
+                    }
+                }
+
+                // 2) PART 2 가로 스크롤 핀 공간 우회
                 const part2 = document.getElementById("part2");
-                
-                // 가로 스크롤이 작동 중인 핀 공간 우회
                 if (part2) {
                     const rect = part2.getBoundingClientRect();
                     const part2Top = rect.top + window.scrollY;
                     const part2Bottom = rect.bottom + window.scrollY;
-                    
-                    if (currentScroll >= part2Top + 10 && currentScroll <= part2Bottom - window.innerHeight - 10) {
+
+                    if (currentScroll >= part2Top + 10 && currentScroll <= part2Bottom - windowHeight - 10) {
                         return progress;
                     }
                 }
@@ -815,7 +836,7 @@ function setupSectionSnapScroll() {
                 const lastIdx = sectionRatios.length - 1;
                 const part3TopRatio = sectionRatios[lastIdx];
 
-                // 만약 part3 시작 위치보다 아래로 휠을 굴려 내려간 상태라면 스냅을 제외하여 푸터 영역 자유 스크롤 보장!
+                // 푸터 영역 자유 스크롤 보장
                 if (progress > part3TopRatio + 0.015 && direction >= 0) {
                     return progress;
                 }
@@ -835,11 +856,8 @@ function setupSectionSnapScroll() {
                 if (direction > 0 && closestIndex < lastIdx) {
                     targetIndex = closestIndex + 1;
                 } else if (direction < 0 && closestIndex > 0) {
-                    // Mobile & Small window snap-back protection:
-                    // If scroll is deep inside footer area (progress > part3TopRatio + 0.05) and user attempts to scroll up,
-                    // snap them back to part3 Top (lastIdx) first instead of violently jumping to part2 start (index 2).
                     if (progress > part3TopRatio + 0.05) {
-                        targetIndex = lastIdx; // Stepwise snap back to Outro Top
+                        targetIndex = lastIdx;
                     } else {
                         targetIndex = closestIndex - 1;
                     }
@@ -865,11 +883,11 @@ function setupSectionSnapScroll() {
                 if (mainSplineApp && typeof mainSplineApp.setRotating === 'function') {
                     mainSplineApp.setRotating(true);
                 }
-                
+
                 const maxScroll = ScrollTrigger.maxScroll(window);
                 if (maxScroll <= 0) return;
                 const progress = window.scrollY / maxScroll;
-                
+
                 const sectionRatios = [];
                 sections.forEach(secSelector => {
                     const el = document.querySelector(secSelector);
@@ -882,7 +900,7 @@ function setupSectionSnapScroll() {
                 const rPart1 = sectionRatios[1];
                 const rPart2 = sectionRatios[2];
                 const rPart3 = sectionRatios[3];
-                
+
                 if (Math.abs(progress - rPart1) < 0.04) {
                     playSectionTextAnimations("part1");
                 } else if (progress >= rPart2 - 0.02 && progress < rPart3 - 0.02) {
@@ -894,7 +912,7 @@ function setupSectionSnapScroll() {
         }
     });
 
-    console.log("📍 [FAST SECTION SNAP] Initialized sensitive velocity-free ratio snapping with bottom lock.");
+    console.log("📍 [SMART SECTION SNAP] Initialized snapping with long-section inner scroll handling.");
 }
 
 function setupScrollIconAnimation() {
@@ -902,15 +920,150 @@ function setupScrollIconAnimation() {
     if (scrollIcon) gsap.to(scrollIcon, { autoAlpha: 1, duration: 0.8, delay: 0.5 });
 }
 
+function startRightSloganLoopAnimation() {
+    const sloganBlock = document.querySelector(".hero-right-slogan");
+    const steamingEl = document.querySelector(".slogan-steaming");
+    const subEl = document.querySelector(".slogan-sub");
+
+    if (!sloganBlock || !steamingEl || !subEl) return;
+
+    const scrambleChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+    function runCycle() {
+        steamingEl.style.filter = "none";
+        subEl.style.filter = "none";
+        gsap.set([steamingEl, subEl], { autoAlpha: 0, y: 0, x: 0 });
+        gsap.set(sloganBlock, { autoAlpha: 1 });
+
+        const cycleTl = gsap.timeline({
+            onComplete: () => {
+                gsap.delayedCall(3.5, runCycle);
+            }
+        });
+
+        try {
+            const steamingSplit = new SplitText(steamingEl, { type: "chars" });
+            const subSplit = new SplitText(subEl, { type: "chars" });
+
+            if (steamingSplit.chars && subSplit.chars) {
+                const steamingChars = steamingSplit.chars;
+                const subChars = subSplit.chars;
+
+                gsap.set(sloganBlock, { autoAlpha: 1 });
+                gsap.set([steamingEl, subEl], { autoAlpha: 1 });
+                gsap.set([...steamingChars, ...subChars], { autoAlpha: 0 });
+
+                // Calculate screen center X offset for dynamic slide-in from screen center
+                const centerTargetX = window.innerWidth / 2;
+
+                steamingChars.forEach((charEl, idx) => {
+                    const originalChar = charEl.textContent;
+                    if (originalChar.trim() !== '') {
+                        const rect = charEl.getBoundingClientRect();
+                        const charCenterX = rect.left + rect.width / 2;
+                        // Slide-in distance starting from center of screen
+                        const slideX = (centerTargetX - charCenterX) - (idx * 5);
+
+                        cycleTl.fromTo(charEl, {
+                            x: slideX,
+                            autoAlpha: 0,
+                            filter: "blur(12px)"
+                        }, {
+                            x: 0,
+                            autoAlpha: 1,
+                            filter: "blur(0px)",
+                            duration: 0.85,
+                            ease: "power3.out",
+                            scrambleText: {
+                                text: originalChar,
+                                chars: scrambleChars,
+                                speed: 2.5,
+                                revealDelay: 0.06,
+                                tweenLength: false
+                            }
+                        }, idx * 0.04);
+                    } else {
+                        gsap.set(charEl, { autoAlpha: 1, x: 0 });
+                    }
+                });
+
+                const subStartOffset = steamingChars.length * 0.04 + 0.1;
+                subChars.forEach((charEl, idx) => {
+                    const originalChar = charEl.textContent;
+                    if (originalChar.trim() !== '') {
+                        const rect = charEl.getBoundingClientRect();
+                        const charCenterX = rect.left + rect.width / 2;
+                        const slideX = (centerTargetX - charCenterX) - (idx * 4);
+
+                        cycleTl.fromTo(charEl, {
+                            x: slideX,
+                            autoAlpha: 0,
+                            filter: "blur(10px)"
+                        }, {
+                            x: 0,
+                            autoAlpha: 1,
+                            filter: "blur(0px)",
+                            duration: 0.75,
+                            ease: "power3.out",
+                            scrambleText: {
+                                text: originalChar,
+                                chars: scrambleChars,
+                                speed: 2.5,
+                                revealDelay: 0.06,
+                                tweenLength: false
+                            }
+                        }, subStartOffset + idx * 0.03);
+                    } else {
+                        gsap.set(charEl, { autoAlpha: 1, x: 0 });
+                    }
+                });
+            }
+        } catch (e) {
+            console.error("SplitText error on slogan loop:", e);
+            cycleTl.to(steamingEl, { autoAlpha: 1, duration: 0.6 }, 0)
+                .to(subEl, { autoAlpha: 1, duration: 0.6 }, 0.2);
+        }
+
+        cycleTl.to({}, { duration: 2.5 });
+
+        // 3) Smoke vapor rise & dissipate (exact match to left side text hover smoke interaction)
+        const allChars = sloganBlock.querySelectorAll(".slogan-steaming span, .slogan-steaming div, .slogan-sub span, .slogan-sub div");
+        if (allChars && allChars.length > 0) {
+            const charArray = Array.from(allChars).filter(c => c.textContent.trim() !== '');
+            // Randomize order for organic smoke puffing
+            const shuffled = [...charArray].sort(() => Math.random() - 0.5);
+
+            shuffled.forEach((charEl, i) => {
+                charEl.style.display = 'inline-block';
+                charEl.style.transformOrigin = 'center bottom';
+
+                cycleTl.to(charEl, {
+                    y: -45 - Math.random() * 20,
+                    x: (Math.random() - 0.5) * 25,
+                    scaleY: 1.5,
+                    scaleX: 1.2,
+                    filter: "blur(16px) brightness(1.8)",
+                    opacity: 0,
+                    duration: 0.75 + Math.random() * 0.25,
+                    ease: "power2.out"
+                }, `smokeStart+=${i * 0.025}`);
+            });
+        } else {
+            cycleTl.to([steamingEl, subEl], {
+                y: -50,
+                filter: "blur(18px) brightness(1.8)",
+                opacity: 0,
+                duration: 0.9,
+                ease: "power2.out"
+            });
+        }
+    }
+
+    gsap.delayedCall(2.0, runCycle);
+}
+
 function onMasterIntroComplete() {
     enableScrollInteraction();
-    // Commented out background wireframe sphere per user request so Capsule 3D object is the main background:
-    /*
-    if (typeof window.THREE !== 'undefined') {
-        mainPageBackgroundSphere = new InteractiveBackgroundSphere('threejs-background-container', { sphereOffsetX: .1, sphereOffsetY: 0 });
-        if (mainPageBackgroundSphere.valid && mainPageBackgroundSphere.init) mainPageBackgroundSphere.init().introAnimate();
-    }
-    */
     if (!initialSetupDone) {
         setupResponsiveScrollTriggers();
         initialSetupDone = true;
@@ -924,13 +1077,15 @@ function onMasterIntroComplete() {
     if (scrollIcon) gsap.to(scrollIcon, { duration: 0.8, autoAlpha: 1, ease: "power2.out", delay: 0.3 });
     window.scrollTo(0, 0);
     setupParticleTextExplodeInteraction();
+    setupCustomCyberCursor();
+    startRightSloganLoopAnimation();
 }
 
 function setupAllScrollTriggers(isDesktopView) {
     const elementsToClear = ["#part2 .part2-info", "#part2 .works-list", "#part2 .works-list-container"];
     elementsToClear.forEach(selector => { const el = document.querySelector(selector); if (el) gsap.set(el, { clearProps: "all" }); });
     gsap.set(document.body, { clearProps: "backgroundColor" });
-    
+
     setupMainPageBackgroundChangeAnimations();
     if (mainSplineApp && capsuleObj) setupSplineScrollAnimations(capsuleObj, null, isDesktopView);
     setupBarAnimations();
@@ -940,9 +1095,7 @@ function setupAllScrollTriggers(isDesktopView) {
     setupWorksHorizontalScroll();
     setupWorkItemAnimations();
     setupHeroTextScrollMotionBlurAnimation();
-    if (isDesktopView) {
-        setupSectionSnapScroll();
-    }
+    setupSectionSnapScroll();
     setupScrollToTopButton();
     setupScrollIconAnimation();
     initializeTextVisibility();
@@ -971,17 +1124,17 @@ function setupResponsiveScrollTriggers() {
     });
 
     ScrollTrigger.matchMedia({
-        "(min-width: 768px)": function() {
+        "(min-width: 768px)": function () {
             killAllScrollTriggers();
             splineTimelines.forEach(tl => tl.kill()); splineTimelines = [];
             setupAllScrollTriggers(true);
-            return function() { killAllScrollTriggers(); splineTimelines.forEach(tl => tl.kill()); splineTimelines = []; };
+            return function () { killAllScrollTriggers(); splineTimelines.forEach(tl => tl.kill()); splineTimelines = []; };
         },
-        "(max-width: 767px)": function() {
+        "(max-width: 767px)": function () {
             killAllScrollTriggers();
             splineTimelines.forEach(tl => tl.kill()); splineTimelines = [];
             setupAllScrollTriggers(false);
-            return function() { killAllScrollTriggers(); splineTimelines.forEach(tl => tl.kill()); splineTimelines = []; };
+            return function () { killAllScrollTriggers(); splineTimelines.forEach(tl => tl.kill()); splineTimelines = []; };
         }
     });
 }
@@ -989,12 +1142,12 @@ function setupResponsiveScrollTriggers() {
 async function runMainPageSequence() {
     setupScrollRestoration();
     console.log("🎬 [MAIN TEST APP] Starting test page sequence...");
-    
+
     // Load common UI and works data
     await loadCommonUI();
     await loadWorksData();
     populateWorksList();
-    
+
     disableScrollInteraction();
 
     try {
@@ -1030,13 +1183,17 @@ async function runMainPageSequence() {
         if (comNameElement.parentNode !== heroTextBlock) {
             heroTextBlock.prepend(comNameElement);
         }
-        
+
         // Initial setup for WINHUB
         gsap.set(comNameElement, {
             position: 'relative',
             autoAlpha: 1
         });
     }
+
+    // Initial setup for hero elements
+    const sloganBlock = document.querySelector(".hero-right-slogan");
+    if (sloganBlock) gsap.set(sloganBlock, { autoAlpha: 0 });
 
     gsap.set(".headline", { autoAlpha: 1 });
     gsap.set(headlineDivs, { autoAlpha: 1 });
@@ -1116,7 +1273,7 @@ async function runMainPageSequence() {
                             gsap.set(charEl, { autoAlpha: 1, x: 0, y: 0 });
                         }
                     });
-                    
+
                     // Continuous line flow: Line N+1 starts immediately at next char stagger interval!
                     currentLineStartTime += validCharsInLine * headlineCharStagger;
                 }
@@ -1203,18 +1360,18 @@ function setupParticleTextExplodeInteraction() {
     const exitRadius = 115;
 
     function spawnSmokeFogPuffs(c) {
-        const numPuffs = 16;
+        const numPuffs = 18;
         const particles = [];
         for (let i = 0; i < numPuffs; i++) {
             particles.push({
                 x: c.rectLeft + Math.random() * (c.rectWidth || 30),
                 y: c.rectTop + Math.random() * (c.rectHeight || 40),
-                vx: (Math.random() - 0.5) * 1.2,
-                vy: -(1.8 + Math.random() * 2.5),
-                size: 14.0 + Math.random() * 16.0,
-                maxSize: 35.0 + Math.random() * 25.0,
-                alpha: 0.5 + Math.random() * 0.3,
-                fadeSpeed: 0.01 + Math.random() * 0.015,
+                vx: (Math.random() - 0.5) * 1.0,
+                vy: -(1.2 + Math.random() * 1.8),
+                size: 16.0 + Math.random() * 18.0,
+                maxSize: 40.0 + Math.random() * 30.0,
+                alpha: 0.6 + Math.random() * 0.3,
+                fadeSpeed: 0.003 + Math.random() * 0.005, // Slower fade out for lasting smoke fog
                 phase: Math.random() * Math.PI * 2
             });
         }
@@ -1265,13 +1422,13 @@ function setupParticleTextExplodeInteraction() {
                 c.el.style.transform = 'translate3d(0, -45px, 0) scaleY(1.4) scaleX(1.15)';
                 c.el.style.filter = 'blur(14px) brightness(1.6)';
                 c.el.style.opacity = '0';
-                
+
                 // Keep particles relative to document layout for correct scroll tracking
                 c.rectLeft = rect.left;
                 c.rectTop = rect.top + currentScroll;
                 c.rectWidth = rect.width;
                 c.rectHeight = rect.height;
-                
+
                 c.particles = spawnSmokeFogPuffs(c);
             } else if (c.isHovered && dist > exitRadius) {
                 c.isHovered = false;
@@ -1286,7 +1443,7 @@ function setupParticleTextExplodeInteraction() {
 
                     p.y += p.vy;
                     p.x += p.vx + Math.sin(timestamp * 0.003 + p.phase) * 0.8;
-                    if (p.size < p.maxSize) p.size += 0.45;
+                    if (p.size < p.maxSize) p.size += 0.35;
                     p.alpha -= p.fadeSpeed;
 
                     if (p.alpha <= 0) {
@@ -1314,6 +1471,84 @@ function setupParticleTextExplodeInteraction() {
     }
 
     renderFrame();
+}
+
+function setupCustomCyberCursor() {
+    const cursorContainer = document.getElementById('custom-cursor');
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+    if (!cursorContainer || !dot || !ring) return;
+
+    let targetX = window.innerWidth / 2;
+    let targetY = window.innerHeight / 2;
+
+    let dotX = targetX, dotY = targetY;
+    let ringX = targetX, ringY = targetY;
+
+    let prevMouseX = targetX, prevMouseY = targetY;
+    let currentVelocity = 0;
+    let cursorActive = false;
+
+    window.addEventListener('mousemove', (e) => {
+        targetX = e.clientX;
+        targetY = e.clientY;
+
+        if (!cursorActive) {
+            cursorActive = true;
+            dotX = targetX;
+            dotY = targetY;
+            ringX = targetX;
+            ringY = targetY;
+            cursorContainer.style.display = 'block';
+            gsap.to(cursorContainer, { autoAlpha: 1, duration: 0.2 });
+        }
+
+        const vx = targetX - prevMouseX;
+        const vy = targetY - prevMouseY;
+        currentVelocity = Math.hypot(vx, vy);
+
+        prevMouseX = targetX;
+        prevMouseY = targetY;
+    });
+
+    let isHoveringLink = false;
+    window.addEventListener('mouseover', (e) => {
+        const target = e.target;
+        if (target && (target.closest('a') || target.closest('button') || target.closest('.clickable') || target.closest('input') || target.closest('[onclick]'))) {
+            isHoveringLink = true;
+        } else {
+            isHoveringLink = false;
+        }
+    });
+
+    function updateCursor() {
+        requestAnimationFrame(updateCursor);
+
+        // Center red ball moves smoothly with constant linear interpolation (equal speed tracking)
+        dotX += (targetX - dotX) * 0.4;
+        dotY += (targetY - dotY) * 0.4;
+
+        // Outer white outline ring follows with physics lag & velocity acceleration
+        ringX += (targetX - ringX) * 0.18;
+        ringY += (targetY - ringY) * 0.18;
+
+        // Decay velocity for smooth blur dissipation
+        currentVelocity *= 0.92;
+
+        // Calculate velocity-based blur, scale, and ball expansion
+        const blurAmount = Math.min(currentVelocity * 0.65, 24);
+        const ringScale = isHoveringLink ? 1.6 : (1 + Math.min(currentVelocity * 0.015, 0.85));
+        const dotScale = isHoveringLink ? 0.4 : (1 + Math.min(currentVelocity * 0.012, 0.6));
+
+        dot.style.opacity = isHoveringLink ? '0.3' : '1';
+        ring.style.borderColor = isHoveringLink ? 'rgba(192, 132, 252, 0.9)' : 'rgba(255, 255, 255, 0.85)';
+
+        dot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%) scale(${dotScale})`;
+        ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%) scale(${ringScale})`;
+        ring.style.filter = `blur(${blurAmount.toFixed(1)}px)`;
+    }
+
+    updateCursor();
 }
 
 document.addEventListener("DOMContentLoaded", () => {

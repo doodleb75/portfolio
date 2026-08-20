@@ -24,7 +24,7 @@ import {
     responsiveScale,
     responsiveX,
     responsiveY,
-    runLoaderSequence, 
+    runLoaderSequence,
     hideLoaderOnError,
     buildUrl,
     InteractiveBackgroundSphere,
@@ -122,8 +122,8 @@ function playHeadlineCharsAnimation(animateIn) {
     }
 
     if (splitHeadlineChars.length === 0 && headlineDivs.length > 0) {
-        headlineDivs.forEach(div => gsap.set(div, { autoAlpha: animateIn ? 1 : 0, xPercent: 0}));
-        gsap.set(".headline div em", {color: animateIn ? "#FFFF00" : ""});
+        headlineDivs.forEach(div => gsap.set(div, { autoAlpha: animateIn ? 1 : 0, xPercent: 0 }));
+        gsap.set(".headline div em", { color: animateIn ? "#FFFF00" : "" });
         return;
     }
     if (splitHeadlineChars.length === 0) return;
@@ -142,7 +142,7 @@ function playHeadlineCharsAnimation(animateIn) {
             }
         });
         if (emElements.length > 0) {
-             gsap.set(emElements, {clearProps: "color"});
+            gsap.set(emElements, { clearProps: "color" });
         }
 
         splitHeadlineChars.forEach((lineSplit, lineIndex) => {
@@ -206,13 +206,15 @@ function setupSubTitleAnimation() {
             if (isOutroTitle) {
                 if (splitInstance.chars && splitInstance.chars.length > 0) {
                     const part3Info = element.closest('.part3-info'); if (part3Info) gsap.set(part3Info, { autoAlpha: 1 });
-                    ScrollTrigger.create({ id: triggerId, trigger: element, start: "top 75%", toggleActions: "play none none reverse", invalidateOnRefresh: true, markers: false,
+                    ScrollTrigger.create({
+                        id: triggerId, trigger: element, start: "top 75%", toggleActions: "play none none reverse", invalidateOnRefresh: true, markers: false,
                         onEnter: () => gsap.fromTo(splitInstance.chars, { opacity: 0, y: -60 }, { opacity: 1, y: 0, color: '', duration: 0.6, ease: "bounce.out", stagger: 0.08, overwrite: true }),
                         onLeaveBack: () => gsap.to(splitInstance.chars, { opacity: 0, y: -60, duration: 0.3, ease: "power1.in", stagger: { each: 0.04, from: "start" } }),
                     });
                 } else gsap.set(element, { autoAlpha: 1, y: 0 });
             } else {
-                ScrollTrigger.create({ id: triggerId, trigger: element, start: "top 85%", toggleActions: "restart reverse restart reverse", invalidateOnRefresh: true,
+                ScrollTrigger.create({
+                    id: triggerId, trigger: element, start: "top 85%", toggleActions: "restart reverse restart reverse", invalidateOnRefresh: true,
                     onEnter: () => gsap.fromTo(splitInstance.chars, { opacity: 0, y: -60 }, { opacity: 1, y: 0, duration: 0.6, ease: "bounce.out", stagger: 0.08, overwrite: true }),
                     onLeave: () => gsap.to(splitInstance.chars, { opacity: 0, y: 70, duration: 0.3, ease: "power1.in", stagger: { each: 0.04, from: "end" }, overwrite: true }),
                     onEnterBack: () => gsap.fromTo(splitInstance.chars, { opacity: 0, y: -60 }, { opacity: 1, y: 0, duration: 0.6, ease: "bounce.out", stagger: 0.08, overwrite: true }),
@@ -221,7 +223,7 @@ function setupSubTitleAnimation() {
             }
         } catch (e) { console.error(`Error with SplitText/ScrollTrigger for .sub-title (${triggerId}):`, element, e); gsap.set(element, { autoAlpha: 1, y: 0 }); }
     });
- }
+}
 
 function setupWorksHorizontalScroll() {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
@@ -237,15 +239,17 @@ function setupWorksHorizontalScroll() {
     }
     const getXAmount = () => (!list || !pinTargetElement || pinTargetElement.offsetWidth === 0) ? 0 : -(list.scrollWidth - pinTargetElement.offsetWidth + 40);
     const getEndAmount = () => (!list || !pinTargetElement || pinTargetElement.offsetWidth === 0) ? "+=0" : "+=" + (list.scrollWidth - pinTargetElement.offsetWidth);
-    gsap.to(list, { x: getXAmount, ease: "none", scrollTrigger: {
+    gsap.to(list, {
+        x: getXAmount, ease: "none", scrollTrigger: {
             id: 'worksHorizontalScrollTrigger', trigger: pinTargetElement, pin: pinTargetElement, pinType: 'transform', start: "center center", pinSpacing: true, end: getEndAmount, anticipatePin: 1, scrub: 1.2, invalidateOnRefresh: true,
             onRefresh: (self) => { if (list) void list.offsetWidth; if (pinTargetElement) void pinTargetElement.offsetHeight; },
             onEnter: () => { const st = ScrollTrigger.getById(worksTitleTriggerId); if (st && st.enabled) st.disable(false); },
             onLeave: () => { const st = ScrollTrigger.getById(worksTitleTriggerId); if (st && !st.enabled) st.enable(false); },
             onEnterBack: () => { const st = ScrollTrigger.getById(worksTitleTriggerId); if (st && st.enabled) st.disable(false); },
             onLeaveBack: () => { const st = ScrollTrigger.getById(worksTitleTriggerId); if (st && !st.enabled) st.enable(false); }
-    }});
- }
+        }
+    });
+}
 
 function setupWorkItemAnimations() {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
@@ -309,9 +313,9 @@ function setupHeaderLogoScrollAnimation() {
         onEnter: () => { gsap.to(headerLogo, { autoAlpha: 0, duration: 0.2, ease: "power1.out" }); },
         onLeave: () => { gsap.to(headerLogo, { autoAlpha: 1, duration: 0.2, ease: "power1.in" }); },
         onEnterBack: () => { gsap.to(headerLogo, { autoAlpha: 0, duration: 0.2, ease: "power1.out" }); },
-        onLeaveBack: () => { gsap.to(headerLogo, { autoAlpha: 0, duration: 0.2, ease: "power1.out" });}
+        onLeaveBack: () => { gsap.to(headerLogo, { autoAlpha: 0, duration: 0.2, ease: "power1.out" }); }
     });
- }
+}
 
 const sectionAtmospheres = {
     hero: {
@@ -370,21 +374,21 @@ function updateFogColor(colorHex, rimHex, bounceHex) {
 function transitionSectionAtmosphere(sectionKey) {
     const atmos = sectionAtmospheres[sectionKey];
     if (!atmos) return;
-    
+
     // Animate Amaterasu.ai style asymmetric radial spotlight background
     gsap.to(document.body, {
         background: atmos.bg,
         duration: 0.9,
         ease: "sine.inOut"
     });
-    
+
     // Animate 3D rim light, color bounce, and background sphere colors
     updateFogColor(atmos.colorHex, atmos.rimHex, atmos.bounceHex);
 }
 
 function setupMainPageBackgroundChangeAnimations() {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-    
+
     transitionSectionAtmosphere('hero');
 
     ['part1', 'part2', 'part3'].forEach(partId => {
@@ -405,7 +409,7 @@ function setupMainPageBackgroundChangeAnimations() {
             });
         }
     });
- }
+}
 
 function setupSplineScrollAnimations(winhubObj, cableObj, isDesktopView) {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
@@ -434,14 +438,14 @@ function setupSplineScrollAnimations(winhubObj, cableObj, isDesktopView) {
     }
 
     // Hero Timeline
-    const heroTimeline = gsap.timeline({ scrollTrigger: { id: 'splineScrollTrigger-hero', trigger: "#hero", start: "top 10%", end: "bottom bottom", scrub: true, invalidateOnRefresh: true, onEnter: () => cableObj && (cableObj.visible = false), onLeaveBack: () => cableObj && (cableObj.visible = false), onRefresh: () => { if (ScrollTrigger.isInViewport("#hero") && (!document.querySelector("#part1") || !ScrollTrigger.isInViewport("#part1"))) cableObj && (cableObj.visible = false); }}});
+    const heroTimeline = gsap.timeline({ scrollTrigger: { id: 'splineScrollTrigger-hero', trigger: "#hero", start: "top 10%", end: "bottom bottom", scrub: true, invalidateOnRefresh: true, onEnter: () => cableObj && (cableObj.visible = false), onLeaveBack: () => cableObj && (cableObj.visible = false), onRefresh: () => { if (ScrollTrigger.isInViewport("#hero") && (!document.querySelector("#part1") || !ScrollTrigger.isInViewport("#part1"))) cableObj && (cableObj.visible = false); } } });
     heroTimeline.to(winhubObj.position, {
         x: heroX,
-        y: heroY, 
+        y: heroY,
         z: WINHUB_INTRO_END_Z
     }, 0)
-    .to(winhubObj.rotation, { x: degToRad(18), y: degToRad(-22), z: degToRad(0) }, 0)
-    .to(winhubObj.scale, { x: currentScaleConfig.hero, y: currentScaleConfig.hero, z: currentScaleConfig.hero }, 0);
+        .to(winhubObj.rotation, { x: degToRad(18), y: degToRad(-22), z: degToRad(0) }, 0)
+        .to(winhubObj.scale, { x: currentScaleConfig.hero, y: currentScaleConfig.hero, z: currentScaleConfig.hero }, 0);
 
     if (shadowObj) {
         heroTimeline.to(shadowObj.position, { x: heroX, y: heroY - 3.4, z: 0 }, 0)
@@ -452,10 +456,10 @@ function setupSplineScrollAnimations(winhubObj, cableObj, isDesktopView) {
 
     // Part 1 Timeline (Advantage Section - Bold Left-Shifted Top-Down Angle)
     if (document.getElementById('part1')) {
-        const part1Timeline = gsap.timeline({ scrollTrigger: { id: 'splineScrollTrigger-part1', trigger: "#part1", start: "top 70%", end: "center bottom", scrub: 2, invalidateOnRefresh: true, onEnter: () => cableObj && (cableObj.visible = true), onEnterBack: () => cableObj && (cableObj.visible = true), onLeaveBack: () => cableObj && (cableObj.visible = false) }});
+        const part1Timeline = gsap.timeline({ scrollTrigger: { id: 'splineScrollTrigger-part1', trigger: "#part1", start: "top 70%", end: "center bottom", scrub: 2, invalidateOnRefresh: true, onEnter: () => cableObj && (cableObj.visible = true), onEnterBack: () => cableObj && (cableObj.visible = true), onLeaveBack: () => cableObj && (cableObj.visible = false) } });
         const part1Position = isMobileView ?
-            { x: -1.0, y: 0.2, z: 0.5 } : 
-            { x: -3.8, y: 0.8, z: 0.5 }; 
+            { x: -1.0, y: 0.2, z: 0.5 } :
+            { x: -3.8, y: 0.8, z: 0.5 };
 
         part1Timeline.to(winhubObj.position, part1Position, 0)
             .to(winhubObj.rotation, { x: degToRad(32), y: degToRad(38), z: degToRad(-12) }, 0)
@@ -471,10 +475,10 @@ function setupSplineScrollAnimations(winhubObj, cableObj, isDesktopView) {
 
     // Part 2 Timeline (Works Section - Bold Dynamic Right-Side Floating Tilt)
     if (document.getElementById('part2')) {
-        const part2Timeline = gsap.timeline({ scrollTrigger: { id: "part2SplineScrollTrigger", trigger: "#part2", start: "top 85%", end: "top 30%", scrub: 2, invalidateOnRefresh: true, onEnter: () => cableObj && (cableObj.visible = true), onEnterBack: () => cableObj && (cableObj.visible = true) }});
+        const part2Timeline = gsap.timeline({ scrollTrigger: { id: "part2SplineScrollTrigger", trigger: "#part2", start: "top 85%", end: "top 30%", scrub: 2, invalidateOnRefresh: true, onEnter: () => cableObj && (cableObj.visible = true), onEnterBack: () => cableObj && (cableObj.visible = true) } });
         const part2Position = isMobileView ?
-            { x: 1.0, y: -0.2, z: -0.5 } : 
-            { x: 3.4, y: 0.5, z: -0.3 }; 
+            { x: 1.0, y: -0.2, z: -0.5 } :
+            { x: 3.4, y: 0.5, z: -0.3 };
 
         part2Timeline.to(winhubObj.position, part2Position, 0)
             .to(winhubObj.rotation, { x: degToRad(-12), y: degToRad(-30), z: degToRad(8) }, 0)
@@ -490,9 +494,9 @@ function setupSplineScrollAnimations(winhubObj, cableObj, isDesktopView) {
 
     // Part 3 Timeline (Outro / Partner Section - Low-Angled Dramatic Center-Left Perspective)
     if (document.getElementById('part3')) {
-        const part3Timeline = gsap.timeline({ scrollTrigger: { id: 'splineScrollTrigger-part3', trigger: "#part3", start: "top 30%", end: "center bottom", scrub: 2, invalidateOnRefresh: true, onEnter: () => cableObj && (cableObj.visible = true) }});
+        const part3Timeline = gsap.timeline({ scrollTrigger: { id: 'splineScrollTrigger-part3', trigger: "#part3", start: "top 30%", end: "center bottom", scrub: 2, invalidateOnRefresh: true, onEnter: () => cableObj && (cableObj.visible = true) } });
         const part3Position = isMobileView ?
-            { x: -1.2, y: -0.8, z: 0.5 } : 
+            { x: -1.2, y: -0.8, z: 0.5 } :
             { x: -3.0, y: -0.5, z: 0.8 };
 
         part3Timeline.to(winhubObj.position, part3Position, 0)
@@ -511,36 +515,42 @@ function setupSplineScrollAnimations(winhubObj, cableObj, isDesktopView) {
 function setupBarAnimations() {
     if (typeof gsap === 'undefined' || typeof MorphSVGPlugin === 'undefined' || typeof ScrollTrigger === 'undefined') return;
     const barElement = document.getElementById("barElementPath"); if (!barElement) return; gsap.set(barElement, { morphSVG: barShapesConfig.initial });
-    const sections = [ { id: "hero", shape: barShapesConfig.initial, nextShape: barShapesConfig.part1Enter, color: "#FFD700" }, { id: "part1", shape: barShapesConfig.part1Enter, nextShape: barShapesConfig.part2Enter, color: "#87CEEB" }, { id: "part2", shape: barShapesConfig.part2Enter, nextShape: barShapesConfig.part3Enter, color: "#90EE90" }, { id: "part3", shape: barShapesConfig.part3Enter, nextShape: barShapesConfig.full, color: "#FFB6C1" } ];
-    sections.forEach((section, index) => { const triggerElement = document.getElementById(section.id); if (!triggerElement) return;
-        ScrollTrigger.create({ id: `barMorphTrigger-${section.id}`, trigger: triggerElement, start: "top 10%", end: "bottom top", invalidateOnRefresh: true,
+    const sections = [{ id: "hero", shape: barShapesConfig.initial, nextShape: barShapesConfig.part1Enter, color: "#FFD700" }, { id: "part1", shape: barShapesConfig.part1Enter, nextShape: barShapesConfig.part2Enter, color: "#87CEEB" }, { id: "part2", shape: barShapesConfig.part2Enter, nextShape: barShapesConfig.part3Enter, color: "#90EE90" }, { id: "part3", shape: barShapesConfig.part3Enter, nextShape: barShapesConfig.full, color: "#FFB6C1" }];
+    sections.forEach((section, index) => {
+        const triggerElement = document.getElementById(section.id); if (!triggerElement) return;
+        ScrollTrigger.create({
+            id: `barMorphTrigger-${section.id}`, trigger: triggerElement, start: "top 10%", end: "bottom top", invalidateOnRefresh: true,
             onEnter: () => gsap.to(barElement, { morphSVG: section.shape, duration: 0.7, ease: "sine.inOut", attr: { fill: section.color } }),
             onEnterBack: () => gsap.to(barElement, { morphSVG: section.shape, duration: 0.7, ease: "sine.inOut", attr: { fill: section.color } }),
             onLeaveBack: () => { if (index > 0) gsap.to(barElement, { morphSVG: sections[index - 1].shape, duration: 0.7, ease: "sine.inOut", attr: { fill: sections[index - 1].color } }); else gsap.to(barElement, { morphSVG: barShapesConfig.initial, duration: 0.7, ease: "sine.inOut", attr: { fill: sections[0].color } }); }
         });
     });
- }
+}
 
 function setupAdvantageCardAnimations() {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
     const advantageCards = gsap.utils.toArray("#part1 .advantage-card"); const integratedCard = document.querySelector("#part1 .integrated-value-card");
-    advantageCards.forEach((card, index) => { gsap.set(card, { autoAlpha: 0, y: 50 });
-        ScrollTrigger.create({ id: `advantageCardTrigger-${index}`, trigger: card, start: "top 85%", end: "bottom 15%", invalidateOnRefresh: true,
+    advantageCards.forEach((card, index) => {
+        gsap.set(card, { autoAlpha: 0, y: 50 });
+        ScrollTrigger.create({
+            id: `advantageCardTrigger-${index}`, trigger: card, start: "top 85%", end: "bottom 15%", invalidateOnRefresh: true,
             onEnter: () => gsap.to(card, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power2.out", delay: index * 0.1, overwrite: true }),
             onLeave: () => gsap.to(card, { autoAlpha: 0, y: 50, duration: 0.3, ease: "power1.in", overwrite: true }),
             onEnterBack: () => gsap.to(card, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power2.out", delay: index * 0.1, overwrite: true }),
             onLeaveBack: () => gsap.to(card, { autoAlpha: 0, y: 50, duration: 0.3, ease: "power1.in", overwrite: true })
         });
     });
-    if (integratedCard) { gsap.set(integratedCard, { autoAlpha: 0, y: 50 });
-        ScrollTrigger.create({ id: 'integratedCardTrigger', trigger: integratedCard, start: "top 85%", end: "bottom 15%", invalidateOnRefresh: true,
+    if (integratedCard) {
+        gsap.set(integratedCard, { autoAlpha: 0, y: 50 });
+        ScrollTrigger.create({
+            id: 'integratedCardTrigger', trigger: integratedCard, start: "top 85%", end: "bottom 15%", invalidateOnRefresh: true,
             onEnter: () => gsap.to(integratedCard, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power2.out", delay: advantageCards.length * 0.1, overwrite: true }),
             onLeave: () => gsap.to(integratedCard, { autoAlpha: 0, y: 50, duration: 0.3, ease: "power1.in", overwrite: true }),
             onEnterBack: () => gsap.to(integratedCard, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power2.out", delay: advantageCards.length * 0.1, overwrite: true }),
             onLeaveBack: () => gsap.to(integratedCard, { autoAlpha: 0, y: 50, duration: 0.3, ease: "power1.in", overwrite: true })
         });
     }
- }
+}
 
 function setupOutroContentAnimation() {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
@@ -549,7 +559,8 @@ function setupOutroContentAnimation() {
     gsap.set(outroContentContainer, { autoAlpha: 1 });
     const elementsToAnimate = gsap.utils.toArray(outroContentContainer.children); if (elementsToAnimate.length === 0) return;
     gsap.set(elementsToAnimate, { autoAlpha: 0, y: 40 });
-    ScrollTrigger.create({ id: `outroContentAllTrigger`, trigger: outroContentContainer, start: "top 80%", invalidateOnRefresh: true, toggleActions: "play none none reverse", markers: false,
+    ScrollTrigger.create({
+        id: `outroContentAllTrigger`, trigger: outroContentContainer, start: "top 80%", invalidateOnRefresh: true, toggleActions: "play none none reverse", markers: false,
         onEnter: () => gsap.to(elementsToAnimate, { autoAlpha: 1, y: 0, color: '', duration: 0.5, ease: "power2.out", stagger: 0.15 }),
         onLeaveBack: () => gsap.to(elementsToAnimate, { autoAlpha: 0, y: 40, duration: 0.3, ease: "power1.in" }),
     });
@@ -557,9 +568,9 @@ function setupOutroContentAnimation() {
 
 function setupScrollToTopButton() {
     const scrollToTopBtn = document.getElementById("scrollToTopBtn"); if (!scrollToTopBtn) return;
-    window.addEventListener("scroll", () => { if (window.scrollY > window.innerHeight / 2) { if (!scrollToTopBtn.classList.contains("show")) scrollToTopBtn.classList.add("show"); } else { if (scrollToTopBtn.classList.contains("show")) scrollToTopBtn.classList.remove("show"); }});
+    window.addEventListener("scroll", () => { if (window.scrollY > window.innerHeight / 2) { if (!scrollToTopBtn.classList.contains("show")) scrollToTopBtn.classList.add("show"); } else { if (scrollToTopBtn.classList.contains("show")) scrollToTopBtn.classList.remove("show"); } });
     scrollToTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
- }
+}
 
 function setupScrollIconAnimation() {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
@@ -578,7 +589,7 @@ function setupScrollIconAnimation() {
         onEnter: () => gsap.to(scrollIcon, { autoAlpha: 0, duration: 0.2 }),
         onLeaveBack: () => gsap.to(scrollIcon, { autoAlpha: 1, duration: 0.2 }),
     });
- }
+}
 
 function populateWorksList() {
     const worksListContainer = document.querySelector("#part2 .works-list");
@@ -592,7 +603,7 @@ function populateWorksList() {
         listItem.classList.add('work-item');
 
         const link = document.createElement('a');
-        link.href = buildUrl(`/page/works_details/works-detail.html?id=${work.id}`); 
+        link.href = buildUrl(`/page/works_details/works-detail.html?id=${work.id}`);
         link.setAttribute('aria-label', `View Project ${work.title}`);
 
         const thumbnailDiv = document.createElement('div');
@@ -600,7 +611,7 @@ function populateWorksList() {
         const thumbnailImg = document.createElement('img');
         thumbnailImg.src = buildUrl(work.listImage);
         thumbnailImg.alt = `[프로젝트 ${work.title} 썸네일]`;
-        thumbnailImg.onerror = function() {
+        thumbnailImg.onerror = function () {
             this.onerror = null;
             this.src = `https://placehold.co/600x450/cccccc/333333?text=Image+Not+Found`;
         };
@@ -621,7 +632,7 @@ function populateWorksList() {
 
         worksListContainer.appendChild(listItem);
     });
- }
+}
 
 // --- Main Sequence ---
 async function runMainPageSequence() {
@@ -633,9 +644,9 @@ async function runMainPageSequence() {
     if (typeof ScrollTrigger !== 'undefined') {
         ScrollTrigger.normalizeScroll(true);
     }
-    
+
     const loaderPromise = runLoaderSequence('.part-container');
-    
+
     const splineCanvas = document.getElementById("canvas3d");
     if (splineCanvas) gsap.set(splineCanvas, { autoAlpha: 0 });
 
@@ -679,11 +690,11 @@ async function runMainPageSequence() {
         enableScrollInteraction();
         return;
     }
-    
+
     gsap.set(comNameElement, { autoAlpha: 0 });
     gsap.set(".headline", { autoAlpha: 0 });
     gsap.set(".headline div", { autoAlpha: 0 });
-    
+
     const masterIntroTimeline = gsap.timeline({ onComplete: onMasterIntroComplete });
     const isMobileViewInitial = window.innerWidth <= 767;
 
@@ -738,7 +749,7 @@ async function runMainPageSequence() {
     }
 
     // 3. Build the animation timeline
-        if (splitComName && splitComName.chars && finalPositions.length === splitComName.chars.length) {
+    if (splitComName && splitComName.chars && finalPositions.length === splitComName.chars.length) {
         // Part 1: Animate characters appearing at the center of the screen
         masterIntroTimeline.from(splitComName.chars, {
             y: -50,
@@ -782,7 +793,7 @@ async function runMainPageSequence() {
     }
 
     // 4. Time the rest of the animations relative to the main timeline
-    const headlineStartTime = "<+=0.02"; 
+    const headlineStartTime = "<+=0.02";
     masterIntroTimeline
         .set(".headline", { autoAlpha: 1, xPercent: -50, left: "50%" }, headlineStartTime)
         .to(".headline", { xPercent: 0, left: "0%", duration: .5, ease: "power3.inOut" })
@@ -848,10 +859,10 @@ async function runMainPageSequence() {
             .fromTo(winhub.scale, { x: 0.8, y: 0.8, z: 0.8 }, { x: getScaleConfig(!isMobileViewInitial).hero, y: getScaleConfig(!isMobileViewInitial).hero, z: getScaleConfig(!isMobileViewInitial).hero, duration: 1.5, ease: "power3.out" }, "<+0.2")
             .fromTo(winhub.rotation, { x: degToRad(45), y: degToRad(-360), z: degToRad(0) }, { x: degToRad(15), y: degToRad(-25), z: degToRad(0), duration: 1.5, ease: "power3.out" }, "<")
             .fromTo(winhub.position,
-                { x: 0, y: 0, z: WINHUB_INTRO_END_Z }, 
+                { x: 0, y: 0, z: WINHUB_INTRO_END_Z },
                 {
                     x: getTargetWinhubX(isMobileViewInitial),
-                    y: getTargetWinhubY(isMobileViewInitial), 
+                    y: getTargetWinhubY(isMobileViewInitial),
                     z: WINHUB_INTRO_END_Z,
                     duration: 1.5,
                     ease: "power3.out"
@@ -884,18 +895,18 @@ function setupAllScrollTriggers(isDesktopView) {
     const elementsToClear = ["#part2 .part2-info", "#part2 .works-list", "#part2 .works-list-container"];
     elementsToClear.forEach(selector => { const el = document.querySelector(selector); if (el) gsap.set(el, { clearProps: "all" }); });
     gsap.set(document.body, { clearProps: "backgroundColor" });
-    
+
     const comNameElement = document.querySelector(".com-name-ani");
     if (comNameElement) {
         comNameElement.classList.remove('scrolled');
         if (splitComName && splitComName.revert) {
             splitComName.revert();
-            splitComName = null; 
+            splitComName = null;
         }
         gsap.set(comNameElement, {
             /* clearProps: "all", */
             clearProps: "top,left,right,bottom,x,y,xPercent,yPercent,zIndex",
-            autoAlpha: 1, 
+            autoAlpha: 1,
             position: 'absolute',
             top: '0px',
             left: '0px',
@@ -944,7 +955,7 @@ function setupResponsiveScrollTriggers() {
     });
 
     ScrollTrigger.matchMedia({
-        "(min-width: 768px)": function() {
+        "(min-width: 768px)": function () {
             killAllScrollTriggers();
             heroHeadlineTriggerEnabled = false;
             splineTimelines.forEach(tl => tl.kill()); splineTimelines = [];
@@ -952,16 +963,16 @@ function setupResponsiveScrollTriggers() {
             if (splitComName) { splitComName.revert(); splitComName = null; }
             splitHeadlineChars.forEach(st => st?.revert()); splitHeadlineChars = [];
             setupAllScrollTriggers(true);
-            return function() { 
-                killAllScrollTriggers(); 
-                heroHeadlineTriggerEnabled = false; 
-                splineTimelines.forEach(tl => tl.kill()); splineTimelines = []; 
-                splitSubTitles.forEach(st => st?.revert()); splitSubTitles = []; 
-                if (splitComName) { splitComName.revert(); splitComName = null; } 
-                splitHeadlineChars.forEach(st => st?.revert()); splitHeadlineChars = []; 
+            return function () {
+                killAllScrollTriggers();
+                heroHeadlineTriggerEnabled = false;
+                splineTimelines.forEach(tl => tl.kill()); splineTimelines = [];
+                splitSubTitles.forEach(st => st?.revert()); splitSubTitles = [];
+                if (splitComName) { splitComName.revert(); splitComName = null; }
+                splitHeadlineChars.forEach(st => st?.revert()); splitHeadlineChars = [];
             };
         },
-        "(max-width: 767px)": function() {
+        "(max-width: 767px)": function () {
             killAllScrollTriggers();
             heroHeadlineTriggerEnabled = false;
             splineTimelines.forEach(tl => tl.kill()); splineTimelines = [];
@@ -969,13 +980,13 @@ function setupResponsiveScrollTriggers() {
             if (splitComName) { splitComName.revert(); splitComName = null; }
             splitHeadlineChars.forEach(st => st?.revert()); splitHeadlineChars = [];
             setupAllScrollTriggers(false);
-            return function() { 
-                killAllScrollTriggers(); 
-                heroHeadlineTriggerEnabled = false; 
-                splineTimelines.forEach(tl => tl.kill()); splineTimelines = []; 
-                splitSubTitles.forEach(st => st?.revert()); splitSubTitles = []; 
-                if (splitComName) { splitComName.revert(); splitComName = null; } 
-                splitHeadlineChars.forEach(st => st?.revert()); splitHeadlineChars = []; 
+            return function () {
+                killAllScrollTriggers();
+                heroHeadlineTriggerEnabled = false;
+                splineTimelines.forEach(tl => tl.kill()); splineTimelines = [];
+                splitSubTitles.forEach(st => st?.revert()); splitSubTitles = [];
+                if (splitComName) { splitComName.revert(); splitComName = null; }
+                splitHeadlineChars.forEach(st => st?.revert()); splitHeadlineChars = [];
             };
         }
     });
@@ -996,10 +1007,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         await loadCommonUI();
         const headerLogoForEarlyHide = document.querySelector("#header-placeholder .com-name-logo");
         if (headerLogoForEarlyHide) gsap.set(headerLogoForEarlyHide, { autoAlpha: 0 });
-        
+
         await loadWorksData();
         populateWorksList();
-        
+
         runMainPageSequence().catch(error => {
             console.error("Error in runMainPageSequence:", error);
             hideLoaderOnError();

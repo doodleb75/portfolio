@@ -74,128 +74,52 @@ function safeSessionSet(key, value) {
  */
 export function runLoaderSequence(mainContentSelector = '#main-content') {
     return new Promise((resolve) => {
-        // Select loader elements
         const loader = document.getElementById('loader');
-        const socket = document.getElementById('loader-socket');
-        const socketPath = document.getElementById('lan-hole-path');
-        const cable = document.getElementById('loader-cable');
-        const loaderText = document.getElementById('loader-text');
+        const loaderBar = document.querySelector('.loader-bar');
+        const percentEl = document.querySelector('.loader-percentage');
+        const centerContent = document.querySelector('.loader-center-content');
         const mainContent = document.querySelector(mainContentSelector);
 
-        if (!loader || !socket || !socketPath || !cable || !loaderText) {
-            console.warn("Loader elements not found. Skipping animation.");
-            if (loader) gsap.set(loader, { autoAlpha: 0 });
+        if (!loader) {
             if (mainContent) gsap.set(mainContent, { autoAlpha: 1 });
             document.body.style.overflow = 'auto';
             resolve();
             return;
         }
-        
-        // --- Shared Completion Logic ---
-        const completeAndShowContent = () => {
-            window.scrollTo(0, 0); 
-            gsap.to(loader, {
-                opacity: 0,
-                duration: 0.5,
-                onComplete: () => {
-                    loader.style.visibility = 'hidden';
-                    if (mainContent) {
-                        gsap.to(mainContent, { 
-                            opacity: 1, 
-                            visibility: 'visible', 
-                            duration: 0.5,
-                            onComplete: () => {
-                                if (typeof ScrollTrigger !== 'undefined') {
-                                    ScrollTrigger.refresh();
-                                }
-                            }
-                        });
+
+        gsap.set(loader, { opacity: 1, visibility: 'visible', display: 'flex' });
+        if (loaderBar) gsap.set(loaderBar, { width: "0%" });
+        if (percentEl) percentEl.textContent = "0";
+
+        const counter = { val: 0 };
+        const tl = gsap.timeline({
+            onComplete: () => {
+                window.scrollTo(0, 0);
+                gsap.to(loader, {
+                    opacity: 0,
+                    duration: 0.5,
+                    onComplete: () => {
+                        loader.style.display = 'none';
+                        if (mainContent) gsap.set(mainContent, { autoAlpha: 1 });
+                        document.body.style.overflow = 'auto';
+                        resolve();
                     }
-                    document.body.style.overflow = 'auto';
-                    resolve();
-                }
-            });
-        };
+                });
+            }
+        });
 
-        // --- Initial setup ---
-        gsap.set(loader, { opacity: 1, visibility: 'visible' });
-        document.body.style.overflow = 'hidden';
-        if (mainContent) {
-             gsap.set(mainContent, { opacity: 0, visibility: 'hidden' });
+        if (loaderBar) {
+            tl.to(loaderBar, { width: "100%", duration: 1.2, ease: "power2.inOut" }, 0);
         }
-
-        const visitedKey = `visited_${window.location.pathname}`;
-        const hasVisited = safeSessionGet(visitedKey); // [FIX] Use safe getter
-        
-        const socketRect = socket.getBoundingClientRect();
-        const yOffset = 6; 
-        const finalCableTop = socketRect.top + yOffset;
-
-        if (hasVisited) {
-            // --- SKIP ANIMATION (Already Visited) ---
-            gsap.set(socketPath, { strokeDashoffset: 0, fill: '#ffc400', stroke: '#ffc400' });
-            gsap.set(cable, { top: finalCableTop, opacity: 1, scale: 1 });
-            gsap.set(socket, { opacity: 1, scale: 1 });
-            gsap.set(loaderText, { opacity: 1 });
-
-            const tl = gsap.timeline({ onComplete: completeAndShowContent });
-            tl.to([socket, cable, loaderText], {
-                delay: 0.2,
-                scale: 0.8,
-                opacity: 0,
-                duration: 0.5,
-                ease: "power1.in",
-                stagger: 0.05
-            });
-
-        } else {
-            // --- FULL ANIMATION (First Visit) ---
-            const socketPathLength = socketPath.getTotalLength();
-            gsap.set(socketPath, {
-                strokeDasharray: socketPathLength,
-                strokeDashoffset: socketPathLength,
-                fill: 'none',
-                stroke: '#9d9d9d'
-            });
-            gsap.set(loaderText, { opacity: 0 });
-            gsap.set([socket, cable], { scale: 1, opacity: 1 });
-            gsap.set(cable, { top: '100vh' });
-
-            const tl = gsap.timeline({
-                onComplete: () => {
-                    safeSessionSet(visitedKey, 'true'); // [FIX] Use safe setter
-                    completeAndShowContent();
+        if (percentEl) {
+            tl.to(counter, {
+                val: 100,
+                duration: 1.2,
+                ease: "power2.inOut",
+                onUpdate: () => {
+                    percentEl.textContent = Math.floor(counter.val);
                 }
-            });
-
-            // Original animation sequence
-            tl.to(socketPath, {
-                strokeDashoffset: 0,
-                duration: 1.5,
-                ease: "power1.inOut"
-            })
-            .to(cable, {
-                top: finalCableTop,
-                duration: 2,
-                ease: "power2.out" 
-            }, "-=1.0")
-            .to(socketPath, {
-                fill: "#ffc400",
-                stroke: "#ffc400",
-                duration: 0.3
-            }, "-=0.1")
-            .to(loaderText, {
-                opacity: 1,
-                duration: 0.5
-            }, ">-0.2")
-            .to([socket, cable, loaderText], {
-                delay: 0.5,
-                scale: 0.8,
-                opacity: 0,
-                duration: 0.5,
-                ease: "power1.in",
-                stagger: 0.05
-            });
+            }, 0);
         }
     });
 }

@@ -16,7 +16,9 @@ html {
 body {
   background-color: #410b7a;
   overflow-x: hidden;
-  font-family: /* "Spoqa Han Sans Neo", */"Noto Sans KR", "Nanum Gothic Coding", "Bricolage Grotesque",
+  font-family:
+    /* "Spoqa Han Sans Neo", */
+    "Noto Sans KR", "Nanum Gothic Coding", "Bricolage Grotesque",
     sans-serif;
   position: relative;
   line-height: 1.6;
@@ -56,11 +58,13 @@ h1.gnb-title {
 .flex {
   display: flex;
 }
+
 .flex.row {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
+
 .flex.column {
   flex-direction: column;
   align-items: flex-start;
@@ -76,26 +80,144 @@ a {
   transition: color 0.3s ease;
 }
 
+body.main-page {
+  cursor: default;
+}
+
+body.main-page a,
+body.main-page button,
+body.main-page .clickable,
+body.main-page input,
+body.main-page select,
+body.main-page textarea,
+body.main-page [onclick] {
+  cursor: pointer !important;
+}
+
+#custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 999999;
+  mix-blend-mode: screen;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.cursor-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  background-color: #e60026;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 12px rgba(230, 0, 38, 0.9), 0 0 24px rgba(230, 0, 38, 0.6);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.cursor-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  box-sizing: border-box;
+  will-change: transform, filter, border-color;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
 #loader {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #1a1a1a;
-  z-index: 9999;
+  height: 100dvh;
+  background: #090514;
+  z-index: 99999;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   opacity: 1;
   visibility: visible;
+  overflow: hidden;
 }
 
 .loader-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 0%;
   height: 4px;
-  background: #007bff;
-  border-radius: 3px;
+  background: linear-gradient(90deg, #a855f7 0%, #38bdf8 50%, #ec4899 100%);
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.9);
+}
+
+.loader-center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  pointer-events: none;
+  user-select: none;
+}
+
+.loader-concept-text {
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
+  font-size: clamp(0.75rem, 2vw, 1.05rem);
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.loader-percentage-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin: 0.2rem 0 0.8rem;
+}
+
+.loader-percentage {
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
+  font-size: clamp(3.5rem, 10vw, 6.5rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff 30%, #c084fc 70%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.loader-percent-symbol {
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #c084fc;
+  margin-left: 0.2rem;
+}
+
+.loader-status-subtext {
+  font-family: 'Spoqa Han Sans Neo', monospace;
+  font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+  letter-spacing: 0.25em;
+  color: rgba(192, 132, 252, 0.75);
+  font-weight: 400;
 }
 
 #fullscreen-threejs-bg,
@@ -139,12 +261,49 @@ a {
 .container {
   position: relative;
   width: 100%;
-  padding-left: 60px;
+  padding-left: clamp(100px, 12vw, 160px);
+  padding-right: clamp(40px, 6vw, 100px);
   top: -1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .hero-text-block {
   position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-right-slogan {
+  position: relative;
+  text-align: right;
+  z-index: 12;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.slogan-steaming {
+  font-size: clamp(3.2rem, 6.5vw, 7.5rem);
+  font-weight: 800;
+  color: #ff0033;
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+  text-shadow: 0 0 25px rgba(255, 0, 51, 0.6);
+}
+
+.slogan-sub {
+  font-size: clamp(1.1rem, 2.2vw, 2.5rem);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: 0.08em;
+  margin-top: 0.4rem;
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
 .headline {
@@ -242,10 +401,12 @@ a {
     transform: translateY(0);
     opacity: 1;
   }
+
   80% {
     transform: translateY(1.25rem);
     opacity: 0;
   }
+
   100% {
     transform: translateY(0);
     opacity: 1;
@@ -256,9 +417,11 @@ a {
   0% {
     opacity: 1;
   }
+
   80% {
     opacity: 0.25;
   }
+
   100% {
     opacity: 1;
   }
@@ -409,6 +572,7 @@ a {
   color: #ffffffba;
   line-height: 1.4;
 }
+
 .work-item-caption:hover h3,
 .work-item-caption:hover p {
   color: #fff;
@@ -551,14 +715,19 @@ button:hover {
 }
 
 .menu-link-arrow {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   vertical-align: middle;
   margin-left: 1.5rem;
+  overflow: visible;
 }
 
 .menu-link-hover-svg {
-  width: clamp(60px, 10vw, 100px);
+  width: 1.35em;
   height: auto;
+  overflow: visible !important;
+  transition: width 0.3s ease, transform 0.3s ease;
 }
 
 .goto-works {
@@ -570,7 +739,7 @@ button.goto-work {
 }
 
 button.goto-work:hover {
-  background: #10101075;
+  background: rgba(16, 16, 16, 0.4588235294);
   color: #fff;
   border-radius: 50px;
 }
@@ -580,10 +749,16 @@ button.goto-work:hover {
   stroke: currentColor;
   stroke-miterlimit: 100;
   stroke-width: 6px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .menu-links .top-link a.active-nav-link {
   position: relative;
+}
+
+.menu-links .top-link a.active-nav-link .menu-link-arrow {
+  display: none !important;
 }
 
 .menu-links .top-link a.active-nav-link span.menu-link-text {
@@ -617,8 +792,7 @@ button.goto-work:hover {
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
-  background: url("https://assets.codepen.io/128315/navi-bg.png") no-repeat 10%
-    center;
+  background: url("https://assets.codepen.io/128315/navi-bg.png") no-repeat 10% center;
   background-size: contain;
 }
 
@@ -1152,6 +1326,7 @@ section#sub-hero {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1395,7 +1570,7 @@ section#sub-hero {
 }
 
 .sub-hero-section,
-.page-title > div {
+.page-title>div {
   opacity: 0;
 }
 
@@ -1472,36 +1647,24 @@ body.subpage-body.scrolled-past-hero-colors {
   color: #2c3e50;
 }
 
-.subpage-body.scrolled-past-hero-colors
-  .subpage-section:not(#sub-hero)
-  .section-content-wrapper,
-.subpage-body.scrolled-past-hero-colors
-  .subpage-section:not(#sub-hero)
-  .content-class,
+.subpage-body.scrolled-past-hero-colors .subpage-section:not(#sub-hero) .section-content-wrapper,
+.subpage-body.scrolled-past-hero-colors .subpage-section:not(#sub-hero) .content-class,
 .subpage-body.scrolled-past-hero-colors .subpage-section:not(#sub-hero) h2,
 .subpage-body.scrolled-past-hero-colors .subpage-section:not(#sub-hero) h3,
 .subpage-body.scrolled-past-hero-colors .subpage-section:not(#sub-hero) p,
-.subpage-body.scrolled-past-hero-colors
-  .subpage-section:not(#sub-hero)
-  .tab-button,
-.subpage-body.scrolled-past-hero-colors
-  .subpage-section:not(#sub-hero)
-  .biz-domain-item-icon,
+.subpage-body.scrolled-past-hero-colors .subpage-section:not(#sub-hero) .tab-button,
+.subpage-body.scrolled-past-hero-colors .subpage-section:not(#sub-hero) .biz-domain-item-icon,
 .subpage-body.scrolled-past-hero-colors .subpage-footer .content-class,
 .subpage-body.scrolled-past-hero-colors .subpage-footer span,
 .subpage-body.scrolled-past-hero-colors .subpage-footer a {
   color: #2c3e50;
 }
 
-.subpage-body.scrolled-past-hero-colors
-  .subpage-section:not(#sub-hero)
-  .section-content-wrapper {
+.subpage-body.scrolled-past-hero-colors .subpage-section:not(#sub-hero) .section-content-wrapper {
   background-color: #ffffff;
 }
 
-.subpage-body.scrolled-past-hero-colors
-  .subpage-section:not(#sub-hero)
-  .section-title {
+.subpage-body.scrolled-past-hero-colors .subpage-section:not(#sub-hero) .section-title {
   border: 0;
 }
 
@@ -1590,10 +1753,7 @@ body.subpage-body.scrolled-past-hero-colors {
   color: #ecf0f1;
 }
 
-.subpage-body:not(.scrolled-past-hero-colors)
-  .contact-info-item
-  .info-value
-  a:hover {
+.subpage-body:not(.scrolled-past-hero-colors) .contact-info-item .info-value a:hover {
   color: #4dabf7;
 }
 
@@ -1601,10 +1761,7 @@ body.subpage-body.scrolled-past-hero-colors {
   color: #007bff;
 }
 
-.subpage-body.scrolled-past-hero-colors
-  .contact-info-item
-  .info-value
-  a:hover {
+.subpage-body.scrolled-past-hero-colors .contact-info-item .info-value a:hover {
   color: #0056b3;
 }
 
@@ -1672,7 +1829,7 @@ body.subpage-body.scrolled-past-hero-colors {
   font-weight: 500;
   pointer-events: none;
   cursor: text;
-  
+
   /* 이 부분이 가장 중요합니다! */
   /* top, font-size, color 속성이 바뀔 때 0.2초 동안 부드럽게 전환되도록 설정합니다. */
   transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out, color 0.2s ease-in-out !important;
@@ -1686,10 +1843,10 @@ body.subpage-body.scrolled-past-hero-colors {
   color: #6c757d;
 }
 
-.form-input:focus ~ .form-label,
-.form-input:not(:placeholder-shown) ~ .form-label,
-.form-textarea:focus ~ .form-label,
-.form-textarea:not(:placeholder-shown) ~ .form-label {
+.form-input:focus~.form-label,
+.form-input:not(:placeholder-shown)~.form-label,
+.form-textarea:focus~.form-label,
+.form-textarea:not(:placeholder-shown)~.form-label {
   top: -22px;
   font-size: 13px;
   color: #0056b3 !important;
@@ -1872,14 +2029,17 @@ section.content-section {
     height: auto;
     max-height: 480px;
   }
+
   .subpage-body .section-content-wrapper {
     max-width: 800px;
     padding: 2.5rem 1.25rem;
   }
+
   .advantage-cards-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
+
   .advantage-card {
     min-height: 280px;
   }
@@ -1889,16 +2049,37 @@ section.content-section {
   html {
     font-size: 15px;
   }
+
   .container {
-    padding-left: 20px;
-    top: -6rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    top: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
   }
+
+  .hero-right-slogan {
+    align-items: flex-start;
+    text-align: left;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .slogan-sub {
+    white-space: normal;
+    word-break: keep-all;
+  }
+
   .com-name-ani {
     font-size: 3.5rem !important;
   }
+
   .headline div {
     line-height: 1;
   }
+
   .menu-content {
     flex-direction: column;
     justify-content: center;
@@ -1906,6 +2087,7 @@ section.content-section {
     height: 100%;
     width: 100%;
   }
+
   .menu-links {
     flex: 0 1 auto;
     width: 100%;
@@ -1913,9 +2095,11 @@ section.content-section {
     margin-bottom: 3rem;
     align-items: stretch;
   }
+
   .menu-links .top-link {
     margin-bottom: 1.2rem;
   }
+
   .menu-links .top-link a {
     font-size: clamp(1.8rem, 8vw, 2.5rem);
     justify-content: space-between;
@@ -1923,12 +2107,15 @@ section.content-section {
     padding: 0.5rem 0;
     text-align: left;
   }
+
   .menu-link-arrow {
     margin-left: 1rem;
   }
+
   .menu-link-hover-svg {
     width: clamp(40px, 80px, 100px);
   }
+
   .menu-info {
     flex: 0 1 auto;
     width: 100%;
@@ -1939,72 +2126,91 @@ section.content-section {
     background-image: none;
     justify-content: flex-start;
   }
+
   .menu-info-title {
     font-size: 1.4rem;
     margin-bottom: 1.5rem;
   }
+
   .menu-info-copyright {
     margin-top: 1.5rem;
     font-size: 0.8rem;
   }
+
   .close-btn {
     right: 1rem;
   }
+
   #part1 .part1-info {
     width: 95%;
     padding: 1.5rem 0;
   }
+
   .advantage-cards-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+
   .advantage-card {
     min-height: auto;
     padding: 1.5rem;
   }
+
   .advantage-icon {
     font-size: 2.5rem;
     margin-bottom: 1rem;
   }
+
   .advantage-card h2 {
     font-size: clamp(1.1rem, 4vw, 1.4rem);
   }
+
   .advantage-card p {
     font-size: clamp(0.8rem, 2.5vw, 0.9rem);
   }
+
   .integrated-value-card {
     padding: 2rem 1.5rem;
   }
+
   .integrated-value-icon {
     font-size: 2.8rem;
   }
+
   .integrated-value-card h2 {
     font-size: clamp(1.3rem, 4.5vw, 1.7rem);
   }
+
   .integrated-value-card p {
     font-size: clamp(0.85rem, 2.8vw, 1rem);
   }
+
   .works-list-container {
     padding-bottom: 0.5rem;
   }
+
   .work-item {
     width: clamp(250px, 80vw, 320px);
     margin-right: 1rem;
     min-height: 340px;
   }
+
   .sub-title {
     font-size: clamp(1.8rem, 7vw, 3rem);
   }
+
   .com-name-logo.logo-class {
     font-size: clamp(1.35rem, 2.5vw, 1.3rem);
     top: 1rem;
     left: 1rem;
   }
+
   .menu-icon {
     top: 0.8rem;
     right: 0.8rem;
     font-size: clamp(1.35rem, 3.5vw, 1.6rem);
   }
+
   .subpage-body .sub-hero-section {
     flex-direction: column;
     text-align: center;
@@ -2012,6 +2218,7 @@ section.content-section {
     padding-top: clamp(5rem, 15vh, 8rem);
     padding-bottom: 2rem;
   }
+
   .subpage-body .sub-hero-content {
     max-width: 100%;
     padding-right: 0;
@@ -2021,28 +2228,34 @@ section.content-section {
     transform: none !important;
     visibility: visible !important;
   }
+
   .subpage-body .sub-hero-content .page-title {
     font-size: clamp(2rem, 4rem, 3.5rem);
   }
+
   .subpage-body .sub-hero-content .page-description {
     font-size: clamp(0.85rem, 3.5vw, 2rem);
     max-width: 60vw;
   }
+
   .subpage-body #threejs-object-container.sub-spline-container {
     width: 100vw;
     height: 50vh;
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
+
   .subpage-body .section-content-wrapper {
     padding: 2rem 1rem;
     margin-bottom: 1.5rem;
   }
+
   .subpage-body .section-content-wrapper .section-title {
     font-size: clamp(1.5rem, 5vw, 2.2rem);
     margin-bottom: 1.5rem;
     padding-bottom: 0.8rem;
   }
+
   .subpage-body .section-content-wrapper p,
   .subpage-body .section-content-wrapper .mission-text,
   .subpage-body .section-content-wrapper .service-intro-text {
@@ -2050,45 +2263,56 @@ section.content-section {
     line-height: 1.7;
     margin-bottom: 1.25rem;
   }
+
   .subpage-body .service-intro-text {
     font-size: clamp(0.9rem, 3.2vw, 1.05rem);
   }
+
   .subpage-body .tab-buttons {
     justify-content: flex-start;
   }
+
   .subpage-body .tab-button {
     padding: 0.6rem 1rem;
     font-size: clamp(0.8rem, 2.5vw, 0.9rem);
     margin-bottom: 0;
   }
+
   .subpage-body .tab-content {
     padding: 1.5rem 1rem;
   }
+
   .subpage-body .tab-content h3 {
     font-size: clamp(1.1rem, 3.5vw, 1.3rem);
     margin-bottom: 1rem;
   }
+
   .subpage-body .service-features li {
     font-size: clamp(0.8rem, 2.4vw, 0.95rem);
     padding-left: 1.25rem;
   }
+
   .footer-info-group {
     flex-direction: column;
     align-items: center;
   }
+
   .footer-info-group span {
     border-right: none;
     padding-right: 0;
     margin-right: 0;
     margin-bottom: 0.3125rem;
   }
+
   .subpage-footer {
     padding: 2rem 1rem;
   }
+
   .footer-links {
     gap: 1rem;
     padding-bottom: 1rem;
   }
+
   #scrollToTopBtn {
     width: 45px;
     height: 45px;
@@ -2096,6 +2320,7 @@ section.content-section {
     bottom: 20px;
     right: 20px;
   }
+
   .scroll-icon {
     width: 1.5rem;
     height: 2.1rem;
@@ -2103,6 +2328,7 @@ section.content-section {
     border-width: 1px;
     transition: all 0.2s;
   }
+
   .scroll {
     width: 0.2125rem;
     height: 0.525rem;
@@ -2111,21 +2337,44 @@ section.content-section {
     margin-top: 0.4rem;
     animation: scrollLoop 2s infinite;
   }
+
   .contact-main-content {
     flex-direction: column;
     gap: 2.5rem;
   }
+
   .contact-info-container {
     order: 2;
   }
+
   .contact-form-container {
     order: 1;
   }
+
   .map-container {
     height: 400px;
   }
+
   .gnb-container {
     padding: 1.25rem;
+  }
+
+  #part1 {
+    height: auto !important;
+    min-height: 100dvh !important;
+    overflow: visible !important;
+    padding: 80px 1.25rem 100px 1.25rem !important;
+    box-sizing: border-box !important;
+  }
+
+  #part2,
+  #part3 {
+    height: 100% !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    overflow: hidden !important;
+    padding: 90px 1.25rem 40px 1.25rem !important;
+    box-sizing: border-box !important;
   }
 }
 
@@ -2133,31 +2382,40 @@ section.content-section {
   html {
     font-size: 14px;
   }
+
   .headline div {
     line-height: 1.1;
     letter-spacing: -0.02em;
   }
+
   .works-list-container {
     margin: 1.5rem 0;
   }
+
   .work-item {
     width: clamp(220px, 85vw, 280px);
   }
+
   .sub-title {
     font-size: clamp(1.5rem, 6vw, 2.5rem);
   }
+
   .subpage-body .sub-hero-content .page-title {
     font-size: clamp(1.8rem, 4rem, 3rem);
   }
+
   .subpage-body .sub-hero-content .page-description {
     font-size: clamp(0.8rem, 3vw, 0.95rem);
   }
+
   .subpage-body .section-content-wrapper .section-title {
     font-size: clamp(1.3rem, 4.5vw, 2rem);
   }
+
   .subpage-body .tab-button {
     padding: 0.5rem 0.8rem;
   }
+
   .biz-domain-item p.item-description {
     margin-left: 0;
   }
@@ -2167,4 +2425,9 @@ section.content-section {
   color: #4dabf7 !important;
   text-decoration: none;
   transition: color 0.3s ease;
+}
+
+color: #4dabf7 !important;
+text-decoration: none;
+transition: color 0.3s ease;
 }

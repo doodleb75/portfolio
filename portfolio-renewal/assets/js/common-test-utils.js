@@ -1,9 +1,9 @@
 // assets/js/common-test-utils.js
 
-import { Application as SplineApplication } from 'https://unpkg.com/@splinetool/runtime/build/runtime.js';
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js';
+import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/loaders/DRACOLoader.js';
-export { THREE, DRACOLoader };
+export { THREE, GLTFLoader, DRACOLoader };
 
 import { ScrollTrigger } from "https://esm.sh/gsap/ScrollTrigger";
 import { ScrambleTextPlugin } from "https://esm.sh/gsap/ScrambleTextPlugin";
@@ -51,23 +51,27 @@ export function runLoaderSequence() {
     return new Promise((resolve) => {
         const loaderContainer = document.getElementById("loader");
         const loaderBar = document.querySelector(".loader-bar");
+        const percentEl = document.querySelector(".loader-percentage");
+        const centerContent = document.querySelector(".loader-center-content");
+
         if (!loaderContainer || !loaderBar) {
             resolve();
             return;
         }
 
         gsap.set(loaderBar, { width: "0%" });
-        gsap.set(loaderContainer, { display: "block", opacity: 1 });
+        gsap.set(loaderContainer, { display: "flex", opacity: 1 });
+        if (centerContent) gsap.set(centerContent, { opacity: 1, scale: 1 });
+        if (percentEl) percentEl.textContent = "0";
 
-        gsap.to(loaderBar, {
-            width: "100%",
-            duration: 0.85,
-            ease: "power2.inOut",
+        const counter = { val: 0 };
+
+        const tl = gsap.timeline({
             onComplete: () => {
                 gsap.to(loaderContainer, {
                     opacity: 0,
-                    duration: 0.4,
-                    ease: "power2.out",
+                    duration: 0.5,
+                    ease: "power2.inOut",
                     onComplete: () => {
                         loaderContainer.style.display = "none";
                         resolve();
@@ -75,6 +79,23 @@ export function runLoaderSequence() {
                 });
             }
         });
+
+        tl.to(loaderBar, {
+            width: "100%",
+            duration: 1.2,
+            ease: "power2.inOut"
+        }, 0);
+
+        if (percentEl) {
+            tl.to(counter, {
+                val: 100,
+                duration: 1.2,
+                ease: "power2.inOut",
+                onUpdate: () => {
+                    percentEl.textContent = Math.floor(counter.val);
+                }
+            }, 0);
+        }
     });
 }
 
@@ -111,7 +132,7 @@ export async function loadCommonUI() {
     try {
         await Promise.all([
             loadHTML('header-placeholder', `${baseCommonPath}_header.html`),
-            loadHTML('menu-overlay-placeholder', `${baseCommonPath}_menu_overlay.html`),
+            loadHTML('menu-overlay-placeholder', `${baseCommonPath}_menu_overlay_test.html`),
             loadHTML('footer-placeholder', `${baseCommonPath}_footer.html`),
             loadHTML('loader-placeholder', `${baseCommonPath}_loader.html`)
         ]);
@@ -391,12 +412,6 @@ export async function loadGLTFScene(canvasId, modelUrl) {
         uRightSpotColor: { value: new THREE.Color(0xa855f7) },
         uRightSpotOpacity: { value: 0.85 }
     };
-
-    const { GLTFLoader } = window;
-    if (!GLTFLoader) {
-        console.error("❌ [3D TEST LOADER] GLTFLoader is not available on window.");
-        return null;
-    }
 
     const loader = new GLTFLoader();
     const dracoLoader = new DRACOLoader();
