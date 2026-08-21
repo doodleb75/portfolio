@@ -116,10 +116,18 @@
     <div id="part2" class="flex row">
       <div class="part2-info flex column">
         <div class="sub-title">WORKS</div>
-        <div class="works-list-container">
-          <ul class="works-list">
-            <!-- Work items are populated by JS -->
-          </ul>
+        <div class="works-carousel-wrapper">
+          <button class="works-nav-btn prev-btn" aria-label="Previous Work">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="works-list-container">
+            <ul class="works-list">
+              <!-- Work items populated dynamically for infinite carousel loop -->
+            </ul>
+          </div>
+          <button class="works-nav-btn next-btn" aria-label="Next Work">
+            <i class="fas fa-chevron-right"></i>
+          </button>
         </div>
         <button class="goto-work" onclick="location.href='page/works.html'">
           Go To WorkList

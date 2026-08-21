@@ -123,10 +123,10 @@ const sectionAtmospheres = {
         bounceHex: "#7dd3fc"
     },
     part2: {
-        bg: "radial-gradient(circle at 75% 55%, #064e3b 0%, #022c22 55%, #020617 100%)", // Premium Emerald Green
-        colorHex: "#10b981",
-        rimHex: "#34d399",
-        bounceHex: "#6ee7b7"
+        bg: "radial-gradient(circle at 75% 55%, #1e1b4b 0%, #0f172a 55%, #020617 100%)", // Deep Electric Indigo / Sapphire Blue
+        colorHex: "#3b82f6",
+        rimHex: "#60a5fa",
+        bounceHex: "#93c5fd"
     },
     part3: {
         bg: "radial-gradient(circle at 30% 50%, #500724 0%, #310416 55%, #090514 100%)", // Deep Wine Magenta/Red
@@ -325,8 +325,6 @@ function setupContentTextScrambleAnimations() {
 function initializeTextVisibility() {
     if (typeof gsap === 'undefined' || typeof SplitText === 'undefined') return;
 
-    // Check if the current screen width is desktop-class
-    const isDesktop = window.innerWidth >= 768;
     const sections = ["part1", "part2", "part3"];
 
     sections.forEach((partId) => {
@@ -342,8 +340,7 @@ function initializeTextVisibility() {
             const split = new VanillaSplitText(subTitle, { type: "chars" });
             subTitle._gsapSplitText = split;
             if (split.chars) {
-                // Desktop hides text initially for snap entry shuffles; Mobile stays fully visible immediately
-                gsap.set(split.chars, { autoAlpha: isDesktop ? 0 : 1 });
+                gsap.set(split.chars, { autoAlpha: 0 });
             }
         }
 
@@ -358,7 +355,7 @@ function initializeTextVisibility() {
                     const split = new VanillaSplitText(el, { type: "words" });
                     el._gsapSplitText = split;
                     if (split.words) {
-                        gsap.set(split.words, { autoAlpha: isDesktop ? 0 : 1 });
+                        gsap.set(split.words, { autoAlpha: 0 });
                     }
                 });
             });
@@ -372,13 +369,13 @@ function initializeTextVisibility() {
                     const split = new VanillaSplitText(el, { type: "words" });
                     el._gsapSplitText = split;
                     if (split.words) {
-                        gsap.set(split.words, { autoAlpha: isDesktop ? 0 : 1 });
+                        gsap.set(split.words, { autoAlpha: 0 });
                     }
                 });
             }
         }
     });
-    console.log("📝 [TEXT ENGINE] Successfully initialized all sub-titles and cards text states (Desktop Hide/Mobile Show).");
+    console.log("📝 [TEXT ENGINE] Successfully initialized all sub-titles and cards text states for animated entry.");
 }
 
 function playSectionTextAnimations(partId) {
@@ -618,6 +615,12 @@ function resetSectionTextVisibility(partId) {
                 }
             });
         });
+    } else if (partId === "part2") {
+        // Part 2 Works title character reset
+        if (subTitle && subTitle._gsapSplitText && subTitle._gsapSplitText.chars) {
+            gsap.killTweensOf(subTitle._gsapSplitText.chars);
+            gsap.set(subTitle._gsapSplitText.chars, { autoAlpha: 0 });
+        }
     } else if (partId === "part3") {
         const outroContent = part.querySelector(".outro-content");
         if (outroContent) {
@@ -633,18 +636,8 @@ function resetSectionTextVisibility(partId) {
 }
 
 function setupOutroContentAnimation() {
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-    const outroContent = document.querySelector("#part3 .outro-content");
-    if (!outroContent) return;
-    gsap.set(outroContent, { autoAlpha: 0, y: 60 });
-    ScrollTrigger.create({
-        id: 'outroContentTrigger',
-        trigger: outroContent,
-        start: "top 80%",
-        toggleActions: "play none none reverse",
-        onEnter: () => gsap.to(outroContent, { autoAlpha: 1, y: 0, duration: 0.9, ease: "power2.out" }),
-        onLeaveBack: () => gsap.to(outroContent, { autoAlpha: 0, y: 60, duration: 0.4, ease: "power1.in" })
-    });
+    // Disabled to let playSectionTextAnimations handle part3 text scramble and reset consistently with part1/part2
+    return;
 }
 
 function setupHeaderLogoScrollAnimation() {
@@ -663,70 +656,175 @@ function setupHeaderLogoScrollAnimation() {
 
 function populateWorksList() {
     const list = document.querySelector("#part2 .works-list");
-    if (!list || !worksData) return;
+    if (!list) return;
+
+    // worksData가 아직 없으면 기본 6개 백업 프로젝트 데이터 사용
+    let targetData = worksData;
+    if (!targetData || targetData.length === 0) {
+        targetData = [
+            { id: "abc-mart-pos", title: "ABC 마트 차세대 POS 시스템 구축", client: "ABC 마트", overview: "PC POS, SCO(셀프 계산대), 모바일 지원 차세대 판매 시점 정보 관리 시스템" },
+            { id: "lx-hausys-investment", title: "LX 하우시스 투자관리 시스템 구축", client: "LX 하우시스", overview: "ERP 연동 투자 효율성 증대 체계적 투자 계획/집행/분석 시스템" },
+            { id: "ak-plaza-finance", title: "AK PLAZA 新 재무회계/결제 시스템 개발", client: "AK PLAZA", overview: "재무회계 도입, 스마트 영수증 및 네이버페이 연동 개발" },
+            { id: "lx-hausys-zin", title: "LX 하우시스 판매기준정보 및 지인스페이스 고도화", client: "LX 하우시스", overview: "판매기준정보 시스템 구축 및 인테리어 주문 지인스페이스 고도화" },
+            { id: "ak-plaza-vip", title: "AK PLAZA 新 VIP 회원 정책 적용 시스템 구축", client: "AK PLAZA", overview: "VIP 회원 정책 시스템 적용 및 차별화된 CRM 혜택 시스템" },
+            { id: "shinsegae-inc-ev", title: "신세계아이앤씨 전기차 충전 솔루션 I/F 개발", client: "신세계아이앤씨", overview: "전기차 충전 솔루션 인터페이스 I/F 연동 개발" }
+        ];
+    }
+
     list.innerHTML = "";
-    worksData.slice(0, 6).forEach((item) => {
+
+    // Recently Work 5~6개 선택 (최신 6개 프로젝트)
+    const recentProjects = targetData.slice(0, 6);
+
+    // 무한 루프 캐러셀을 위해 앞/뒤로 3 세트 복제 (Infinite Loop Seamless Scroll)
+    const displayList = [...recentProjects, ...recentProjects, ...recentProjects];
+
+    displayList.forEach((item, index) => {
         const li = document.createElement("li");
         li.className = "work-item";
+        li.dataset.index = index;
+        
+        // 프로젝트 아이템 이미지 주소 폴백 설정 (item.thumbnail, item.listImage, id 기반 고해상도 테크 이미지)
+        const fallbackImages = {
+            'abc-mart-pos': 'https://images.unsplash.com/photo-1556742049-0a67daf4005a?q=80&w=800&auto=format&fit=crop',
+            'lx-hausys-investment': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
+            'ak-plaza-finance': 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=800&auto=format&fit=crop',
+            'lx-hausys-zin': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop',
+            'ak-plaza-vip': 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop',
+            'shinsegae-inc-ev': 'https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=800&auto=format&fit=crop'
+        };
+
+        const thumbnailSrc = item.thumbnail || item.listImage || item.image || fallbackImages[item.id] || `https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop`;
+        const clientName = item.client || "WINHUB PROJECT";
+        const titleText = item.title || "차세대 시스템 구축";
+        const overviewText = item.overview || item.description || "WINHUB의 차세대 기술이 적용된 비즈니스 혁신 프로젝트입니다.";
+
         li.innerHTML = `
-            <a href="page-test/work-detail.html?id=${item.id}">
-                <div class="work-item-thumbnail">
-                    <img src="${item.thumbnail}" alt="${item.title}" loading="lazy" />
+            <div class="work-card-inner">
+                <!-- Front: Full-size image & title badge -->
+                <div class="work-card-front">
+                    <img src="${thumbnailSrc}" alt="${titleText}" loading="lazy" />
+                    <div class="front-title-badge">
+                        <h3>${titleText}</h3>
+                    </div>
                 </div>
-                <div class="work-item-caption">
-                    <h3>${item.title}</h3>
-                    <p>${item.description}</p>
+                <!-- Back: Rollover 180deg Flip Content -->
+                <div class="work-card-back">
+                    <div class="work-card-back-header">
+                        <span class="client-tag">${clientName}</span>
+                        <h3>${titleText}</h3>
+                    </div>
+                    <div class="work-card-back-body">
+                        <p class="overview-text">${overviewText}</p>
+                    </div>
+                    <div class="work-card-back-footer">
+                        <a href="page-test/work-detail.html?id=${item.id}" class="detail-link-btn">
+                            상세보기 <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
-            </a>
+            </div>
         `;
         list.appendChild(li);
     });
+
+    setupWorksCarouselControls();
+}
+
+function setupWorksCarouselControls() {
+    const container = document.querySelector("#part2 .works-list-container");
+    const list = document.querySelector("#part2 .works-list");
+    const prevBtn = document.querySelector("#part2 .prev-btn");
+    const nextBtn = document.querySelector("#part2 .next-btn");
+    if (!container || !list) return;
+
+    let isScrolling = false;
+
+    // 카드 한 개의 너비 + 간격 계산
+    const getCardWidth = () => {
+        const item = list.querySelector(".work-item");
+        if (!item) return 320;
+        const style = window.getComputedStyle(list);
+        const gap = parseFloat(style.gap) || 24;
+        return item.offsetWidth + gap;
+    };
+
+    // 무한 루프 위치 초기화 (중앙 블록으로 스크롤 세팅)
+    const initInfinitePosition = () => {
+        const cardWidth = getCardWidth();
+        const singleSetWidth = cardWidth * 6; // 6개 아이템
+        container.scrollLeft = singleSetWidth;
+    };
+
+    // 무한 루프 범위 경계 자동 재배치 (Seamless Loop Check)
+    const checkInfiniteLoopBounds = () => {
+        const cardWidth = getCardWidth();
+        const singleSetWidth = cardWidth * 6;
+
+        if (container.scrollLeft <= 10) {
+            container.scrollLeft += singleSetWidth;
+        } else if (container.scrollLeft >= singleSetWidth * 2 - 10) {
+            container.scrollLeft -= singleSetWidth;
+        }
+    };
+
+    setTimeout(initInfinitePosition, 100);
+
+    // 1) 마우스 휠 세로 스크롤 -> 가로 스크롤 변환 & 한 카드씩 스냅 이동
+    container.addEventListener("wheel", (e) => {
+        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+            e.preventDefault();
+            if (isScrolling) return;
+
+            const cardWidth = getCardWidth();
+            const direction = e.deltaY > 0 ? 1 : -1;
+            
+            isScrolling = true;
+            container.scrollBy({
+                left: direction * cardWidth,
+                behavior: "smooth"
+            });
+
+            setTimeout(() => {
+                checkInfiniteLoopBounds();
+                isScrolling = false;
+            }, 380);
+        }
+    }, { passive: false });
+
+    // 스크롤 멈췄을 때 무한 루프 경계 체크
+    let scrollEndTimer;
+    container.addEventListener("scroll", () => {
+        clearTimeout(scrollEndTimer);
+        scrollEndTimer = setTimeout(checkInfiniteLoopBounds, 150);
+    });
+
+    // 2) 이전 / 다음 반투명 보조 버튼 클릭 이벤트
+    if (prevBtn) {
+        prevBtn.onclick = (e) => {
+            e.preventDefault();
+            const cardWidth = getCardWidth();
+            container.scrollBy({ left: -cardWidth, behavior: "smooth" });
+            setTimeout(checkInfiniteLoopBounds, 400);
+        };
+    }
+
+    if (nextBtn) {
+        nextBtn.onclick = (e) => {
+            e.preventDefault();
+            const cardWidth = getCardWidth();
+            container.scrollBy({ left: cardWidth, behavior: "smooth" });
+            setTimeout(checkInfiniteLoopBounds, 400);
+        };
+    }
 }
 
 function setupWorksHorizontalScroll() {
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-    const pinTargetElement = document.querySelector("#part2 .part2-info");
-    const list = document.querySelector("#part2 .works-list");
-    if (!pinTargetElement || !list) return;
-
-    const getXAmount = () => -(list.scrollWidth - pinTargetElement.offsetWidth + 40);
-    const getEndAmount = () => "+=" + (list.scrollWidth - pinTargetElement.offsetWidth);
-
-    gsap.to(list, {
-        x: getXAmount,
-        ease: "none",
-        scrollTrigger: {
-            id: 'worksHorizontalScrollTrigger',
-            trigger: pinTargetElement,
-            pin: pinTargetElement,
-            pinType: 'transform',
-            start: "center center",
-            pinSpacing: true,
-            end: getEndAmount,
-            scrub: 1.2,
-            invalidateOnRefresh: true
-        }
-    });
+    // 3D Flip & Horizontal Carousel 사용에 따라 기존 GSAP Pinning 축소 대체
 }
 
 function setupWorkItemAnimations() {
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-    const workItems = gsap.utils.toArray("#part2 .work-item");
-    const horizontalScrollTrigger = ScrollTrigger.getById('worksHorizontalScrollTrigger');
-    if (!horizontalScrollTrigger || workItems.length === 0) return;
-
-    workItems.forEach((item, index) => {
-        gsap.set(item, { autoAlpha: 0, y: 75, scale: 0.8, rotationZ: -10 });
-        ScrollTrigger.create({
-            id: `work-item-anim-${index}`,
-            trigger: item,
-            containerAnimation: horizontalScrollTrigger.animation,
-            start: "left 95%",
-            toggleActions: "restart pause resume reverse",
-            onEnter: self => gsap.to(self.trigger, { autoAlpha: 1, y: 0, scale: 1, rotationZ: 0, duration: 0.6, ease: "back.out(1.4)", overwrite: true }),
-            onLeaveBack: self => gsap.to(self.trigger, { autoAlpha: 0, y: 75, scale: 0.8, rotationZ: -10, duration: 0.4, ease: "power1.in", overwrite: true })
-        });
-    });
+    // 3D Flip Card 캐러셀 애니메이션 제어
 }
 
 function setupScrollToTopButton() {
@@ -802,25 +900,29 @@ function setupSectionSnapScroll() {
                 const currentScroll = window.scrollY;
                 const windowHeight = window.innerHeight;
 
-                // 1) PART 1 (WINHUB ADVANTAGE) 모바일 긴 섹션 스크롤 자유 조작 & 끝자락 스냅
+                // 1) PART 1 (WINHUB ADVANTAGE) 스크롤 영역 내부 검사
                 const part1 = document.getElementById("part1");
                 if (part1) {
                     const p1Top = part1.getBoundingClientRect().top + window.scrollY;
-                    const p1Bottom = p1Top + part1.offsetHeight;
+                    const p1Height = part1.offsetHeight;
+                    const p1Bottom = p1Top + p1Height;
 
-                    // 만약 WINHUB ADVANTAGE 섹션 내부를 스크롤 중이라면
-                    // 하단 여유 공간(+40px)까지 소비하여 최하단 카드 컨텐츠가 완전히 시야에 다 들어올 때까지 자유 스크롤을 유지
-                    if (currentScroll >= p1Top - 20 && currentScroll <= p1Bottom - windowHeight + 40) {
-                        // 사용자가 정말로 최하단 끝까지(p1Bottom - 10) 완벽히 스크롤을 내렸을 때만 다음 섹션(part2)으로 스냅
-                        if (self.direction > 0 && (currentScroll + windowHeight) >= (p1Bottom - 10)) {
-                            return sectionRatios[2]; // Snap to part2
+                    // 1번 섹션에 실제로 진입해 있는 경우에만 (Hero 영역에 있을 때는 간섭 금지!)
+                    if (currentScroll >= p1Top + 30 && currentScroll <= p1Bottom - windowHeight + 40) {
+                        // 최하단 마지막 카드 영역까지 도달했을 때 아래로 스크롤하면 PART 2로 스냅
+                        if (self.direction > 0 && (currentScroll + windowHeight) >= (p1Bottom - 20)) {
+                            return sectionRatios[2];
                         }
-                        // 아직 내부 컨텐츠 감상 중일 때는 스냅 간섭 없이 100% 자유 스크롤 보장
+                        // 1번 섹션 상단 근처에서 위로 스크롤하면 HERO로 스냅
+                        if (self.direction < 0 && currentScroll <= p1Top + 50) {
+                            return sectionRatios[0];
+                        }
+                        // 그 외 1번 섹션 내부 감상 중에는 자유 스크롤 유지
                         return progress;
                     }
                 }
 
-                // 2) PART 2 가로 스크롤 핀 공간 우회
+                // 2) PART 2 (WORKS) 가로 스크롤 핀 공간 우회
                 const part2 = document.getElementById("part2");
                 if (part2) {
                     const rect = part2.getBoundingClientRect();
@@ -868,17 +970,47 @@ function setupSectionSnapScroll() {
             duration: { min: 0.18, max: 0.35 },
             delay: 0.06,
             ease: "power2.out",
-            onStart: () => {
+            onStart: (self) => {
                 // Pause 3D rotation during page transition animations
                 if (mainSplineApp && typeof mainSplineApp.setRotating === 'function') {
                     mainSplineApp.setRotating(false);
                 }
-                // 스냅 이동 시작 즉시 이전/이후 섹션 텍스트들 조용히 은닉 처리
-                resetSectionTextVisibility("part1");
-                resetSectionTextVisibility("part2");
-                resetSectionTextVisibility("part3");
+
+                // 이동할 스냅 위치와 현재 스크롤 위치를 비교하여 실제 '다른 섹션'으로 넘어가 스냅될 때만 텍스트 초기화!
+                const maxScroll = ScrollTrigger.maxScroll(window);
+                if (maxScroll > 0) {
+                    const currentRatio = window.scrollY / maxScroll;
+                    const targetRatio = self.tween ? self.tween.vars.snap : currentRatio;
+
+                    const secSelectors = ["#hero", "#part1", "#part2", "#part3"];
+                    const secRatios = secSelectors.map(s => {
+                        const el = document.querySelector(s);
+                        return el ? (el.getBoundingClientRect().top + window.scrollY) / maxScroll : 0;
+                    });
+
+                    // 현재 위치 섹션
+                    let currIdx = 0;
+                    for (let i = secSelectors.length - 1; i >= 0; i--) {
+                        if (currentRatio >= secRatios[i] - 0.03) { currIdx = i; break; }
+                    }
+                    // 타겟 위치 섹션
+                    let targetIdx = 0;
+                    for (let i = secSelectors.length - 1; i >= 0; i--) {
+                        if (targetRatio >= secRatios[i] - 0.03) { targetIdx = i; break; }
+                    }
+
+                    // 스냅 아웃(Snap Out)이 시작되는 그 순간(onStart)에 현재 벗어나는 섹션과 진입할 타겟 섹션의 텍스트를 즉시 opacity: 0 초기화!
+                    if (currIdx !== targetIdx) {
+                        resetSectionTextVisibility("part1");
+                        resetSectionTextVisibility("part2");
+                        resetSectionTextVisibility("part3");
+                        if (targetIdx === 0 && window.restartHeroRightSloganLoop) {
+                            window.restartHeroRightSloganLoop();
+                        }
+                    }
+                }
             },
-            onComplete: () => {
+            onComplete: (self) => {
                 // Resume slow 3D rotation after page transition completes
                 if (mainSplineApp && typeof mainSplineApp.setRotating === 'function') {
                     mainSplineApp.setRotating(true);
@@ -901,15 +1033,52 @@ function setupSectionSnapScroll() {
                 const rPart2 = sectionRatios[2];
                 const rPart3 = sectionRatios[3];
 
-                if (Math.abs(progress - rPart1) < 0.04) {
-                    playSectionTextAnimations("part1");
-                } else if (progress >= rPart2 - 0.02 && progress < rPart3 - 0.02) {
-                    playSectionTextAnimations("part2");
-                } else if (progress >= rPart3 - 0.02) {
-                    playSectionTextAnimations("part3");
+                let newlyEnteredSecIdx = 0;
+                if (progress < rPart1 - 0.04) newlyEnteredSecIdx = 0;
+                else if (progress >= rPart1 - 0.04 && progress < rPart2 - 0.04) newlyEnteredSecIdx = 1;
+                else if (progress >= rPart2 - 0.04 && progress < rPart3 - 0.04) newlyEnteredSecIdx = 2;
+                else if (progress >= rPart3 - 0.04) newlyEnteredSecIdx = 3;
+
+                // 실제로 '다른 섹션'으로 진입 안착했을 때만 애니메이션 실행! (같은 섹션 내 스크롤에서는 절대 애니메이션 금지!)
+                if (window._currentActiveSecIdx !== newlyEnteredSecIdx) {
+                    window._currentActiveSecIdx = newlyEnteredSecIdx;
+                    if (newlyEnteredSecIdx === 0 && window.restartHeroRightSloganLoop) {
+                        window.restartHeroRightSloganLoop();
+                    } else if (newlyEnteredSecIdx === 1) {
+                        playSectionTextAnimations("part1");
+                    } else if (newlyEnteredSecIdx === 2) {
+                        playSectionTextAnimations("part2");
+                    } else if (newlyEnteredSecIdx === 3) {
+                        playSectionTextAnimations("part3");
+                    }
                 }
             }
         }
+    });
+
+    // 각 섹션 영역을 뷰포트에서 벗어나는 (Leave / LeaveBack) 순간 텍스트를 즉시 opacity: 0 으로 은닉 리셋!
+    sections.forEach((secSelector, index) => {
+        const partId = secSelector.replace("#", "");
+        ScrollTrigger.create({
+            id: `section-leave-reset-${partId}`,
+            trigger: secSelector,
+            start: "top bottom",
+            end: "bottom top",
+            onLeave: () => {
+                if (index === 0) {
+                    if (window.resetHeroRightSloganLoopOnLeave) window.resetHeroRightSloganLoopOnLeave();
+                } else {
+                    resetSectionTextVisibility(partId);
+                }
+            },
+            onLeaveBack: () => {
+                if (index === 0) {
+                    if (window.resetHeroRightSloganLoopOnLeave) window.resetHeroRightSloganLoopOnLeave();
+                } else {
+                    resetSectionTextVisibility(partId);
+                }
+            }
+        });
     });
 
     console.log("📍 [SMART SECTION SNAP] Initialized snapping with long-section inner scroll handling.");
@@ -929,7 +1098,19 @@ function startRightSloganLoopAnimation() {
 
     const scrambleChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
+    let currentCycleTl = null;
+    let currentDelayedCall = null;
+
     function runCycle() {
+        if (currentCycleTl) {
+            currentCycleTl.kill();
+            currentCycleTl = null;
+        }
+        if (currentDelayedCall) {
+            currentDelayedCall.kill();
+            currentDelayedCall = null;
+        }
+
         steamingEl.style.filter = "none";
         subEl.style.filter = "none";
         gsap.set([steamingEl, subEl], { autoAlpha: 0, y: 0, x: 0 });
@@ -937,9 +1118,10 @@ function startRightSloganLoopAnimation() {
 
         const cycleTl = gsap.timeline({
             onComplete: () => {
-                gsap.delayedCall(3.5, runCycle);
+                currentDelayedCall = gsap.delayedCall(3.5, runCycle);
             }
         });
+        currentCycleTl = cycleTl;
 
         try {
             const steamingSplit = new SplitText(steamingEl, { type: "chars" });
@@ -1024,29 +1206,38 @@ function startRightSloganLoopAnimation() {
                 .to(subEl, { autoAlpha: 1, duration: 0.6 }, 0.2);
         }
 
-        cycleTl.to({}, { duration: 2.5 });
+        // 텍스트가 완성된 후 화면에 더 오래 머무르도록 유지 시간 지정 (4.5초)
+        cycleTl.to({}, { duration: 4.5 });
 
-        // 3) Smoke vapor rise & dissipate (exact match to left side text hover smoke interaction)
+        // 3) Smoke vapor rise & dissipate (왼쪽 마우스 오버처럼 캔버스 안개 연기 파티클이 실제로 피어오르며 텍스트 기화 소멸)
         const allChars = sloganBlock.querySelectorAll(".slogan-steaming span, .slogan-steaming div, .slogan-sub span, .slogan-sub div");
         if (allChars && allChars.length > 0) {
             const charArray = Array.from(allChars).filter(c => c.textContent.trim() !== '');
-            // Randomize order for organic smoke puffing
             const shuffled = [...charArray].sort(() => Math.random() - 0.5);
 
+            const smokeStartTime = cycleTl.duration();
             shuffled.forEach((charEl, i) => {
                 charEl.style.display = 'inline-block';
                 charEl.style.transformOrigin = 'center bottom';
 
                 cycleTl.to(charEl, {
-                    y: -45 - Math.random() * 20,
-                    x: (Math.random() - 0.5) * 25,
+                    y: -45 - Math.random() * 25,
+                    x: (Math.random() - 0.5) * 20,
                     scaleY: 1.5,
                     scaleX: 1.2,
-                    filter: "blur(16px) brightness(1.8)",
+                    filter: "blur(14px) brightness(1.8)",
                     opacity: 0,
-                    duration: 0.75 + Math.random() * 0.25,
-                    ease: "power2.out"
-                }, `smokeStart+=${i * 0.025}`);
+                    duration: 0.8 + Math.random() * 0.2,
+                    ease: "power2.out",
+                    onStart: function() {
+                        // STEAMING(빨간색 글자)은 강렬한 레드 화염 연기 파티클로, 서브 텍스트는 화이트/블루 연기 파티클로 기화!
+                        if (window.spawnSloganEndingSmokePuffs) {
+                            const rect = charEl.getBoundingClientRect();
+                            const isRedSteaming = charEl.closest('.slogan-steaming') !== null;
+                            window.spawnSloganEndingSmokePuffs(rect.left, rect.top + window.scrollY, rect.width, rect.height, isRedSteaming);
+                        }
+                    }
+                }, smokeStartTime + i * 0.025);
             });
         } else {
             cycleTl.to([steamingEl, subEl], {
@@ -1059,7 +1250,30 @@ function startRightSloganLoopAnimation() {
         }
     }
 
-    gsap.delayedCall(2.0, runCycle);
+    window.resetHeroRightSloganLoopOnLeave = function() {
+        if (currentCycleTl) {
+            currentCycleTl.kill();
+            currentCycleTl = null;
+        }
+        if (currentDelayedCall) {
+            currentDelayedCall.kill();
+            currentDelayedCall = null;
+        }
+        gsap.killTweensOf([steamingEl, subEl]);
+        const allChars = sloganBlock.querySelectorAll(".slogan-steaming span, .slogan-steaming div, .slogan-sub span, .slogan-sub div");
+        if (allChars) {
+            gsap.killTweensOf(allChars);
+            gsap.set(allChars, { autoAlpha: 0 });
+        }
+        gsap.set([steamingEl, subEl], { autoAlpha: 0 });
+    };
+
+    window.restartHeroRightSloganLoop = function() {
+        window.resetHeroRightSloganLoopOnLeave();
+        runCycle();
+    };
+
+    currentDelayedCall = gsap.delayedCall(2.0, runCycle);
 }
 
 function onMasterIntroComplete() {
@@ -1082,11 +1296,12 @@ function onMasterIntroComplete() {
 }
 
 function setupAllScrollTriggers(isDesktopView) {
-    const elementsToClear = ["#part2 .part2-info", "#part2 .works-list", "#part2 .works-list-container"];
+    const elementsToClear = ["#part2 .part2-info"];
     elementsToClear.forEach(selector => { const el = document.querySelector(selector); if (el) gsap.set(el, { clearProps: "all" }); });
     gsap.set(document.body, { clearProps: "backgroundColor" });
 
     setupMainPageBackgroundChangeAnimations();
+    populateWorksList();
     if (mainSplineApp && capsuleObj) setupSplineScrollAnimations(capsuleObj, null, isDesktopView);
     setupBarAnimations();
     setupSectionTitleAnimations();
@@ -1293,6 +1508,8 @@ function setupParticleTextExplodeInteraction() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    let sparkParticles = [];
+
     function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -1341,6 +1558,58 @@ function setupParticleTextExplodeInteraction() {
         updateStaticCoordinates();
     });
 
+      // Helper to spawn fiery sparks and dynamic smoke trails for the right slogan leading edge
+    window.spawnSloganFireSparks = function(x, y) {
+        // Fiery sparks (bright orange/yellow core with high speed)
+        for (let i = 0; i < 4; i++) {
+            sparkParticles.push({
+                x: x + (Math.random() - 0.5) * 15,
+                y: y + (Math.random() - 0.5) * 15,
+                vx: -(2.5 + Math.random() * 4.0), // Shoot backwards to create tail
+                vy: (Math.random() - 0.5) * 3.0 - 0.8,
+                size: 3.5 + Math.random() * 4.5,
+                alpha: 1.0,
+                color: Math.random() > 0.3 ? '#ffcc00' : '#ff4400',
+                type: 'spark',
+                life: 1.0,
+                decay: 0.03 + Math.random() * 0.04
+            });
+        }
+        // Heavy smoke tail (dark gray/black volumetric puff)
+        for (let i = 0; i < 2; i++) {
+            sparkParticles.push({
+                x: x - Math.random() * 10,
+                y: y + (Math.random() - 0.5) * 12,
+                vx: -(1.0 + Math.random() * 2.0),
+                vy: -(0.5 + Math.random() * 1.2), // Rises up organically
+                size: 14.0 + Math.random() * 10.0,
+                maxSize: 35.0 + Math.random() * 20.0,
+                alpha: 0.6 + Math.random() * 0.2,
+                type: 'smoke',
+                life: 1.0,
+                decay: 0.012 + Math.random() * 0.015
+            });
+        }
+    };
+
+    // Helper to spawn real Volumetric Canvas Smoke Puffs when slogan text dissipates
+    window.spawnSloganEndingSmokePuffs = function(left, top, width, height, isRed = false) {
+        for (let i = 0; i < 7; i++) {
+            sparkParticles.push({
+                x: left + Math.random() * (width || 20),
+                y: top + Math.random() * (height || 20),
+                vx: (Math.random() - 0.5) * 1.2,
+                vy: -(1.5 + Math.random() * 2.2),
+                size: 16.0 + Math.random() * 18.0,
+                maxSize: 45.0 + Math.random() * 25.0,
+                alpha: 0.8 + Math.random() * 0.2,
+                type: isRed ? 'red-smoke' : 'white-smoke',
+                life: 1.0,
+                decay: 0.01 + Math.random() * 0.015
+            });
+        }
+    };
+
     let mouseX = -9999;
     let mouseY = -9999;
 
@@ -1388,8 +1657,73 @@ function setupParticleTextExplodeInteraction() {
 
         const currentScroll = window.scrollY;
         const heroSection = document.getElementById("hero");
-        // Only trigger hover when hero section is actually visible inside viewport
         const isHeroVisible = heroSection ? (currentScroll < window.innerHeight - 50) : true;
+        // Render global fire sparks & smoke trail particles
+        if (sparkParticles.length > 0) {
+            for (let i = sparkParticles.length - 1; i >= 0; i--) {
+                const p = sparkParticles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.life -= p.decay;
+                p.alpha = Math.max(0, p.life);
+
+                if (p.life <= 0) {
+                    sparkParticles.splice(i, 1);
+                    continue;
+                }
+
+                ctx.save();
+                if (p.type === 'spark') {
+                    // Bright Fiery Glow Spark
+                    ctx.shadowBlur = 12;
+                    ctx.shadowColor = p.color;
+                    ctx.fillStyle = p.color;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, Math.max(0.5, p.size * p.life), 0, Math.PI * 2);
+                    ctx.fill();
+                } else if (p.type === 'smoke') {
+                    // Dark Thick Smoke Trail (Matching 2nd Reference Image)
+                    if (p.size < p.maxSize) p.size += 0.4;
+                    const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
+                    grad.addColorStop(0, `rgba(30, 25, 45, ${(p.alpha * 0.55).toFixed(2)})`);
+                    grad.addColorStop(0.5, `rgba(50, 40, 70, ${(p.alpha * 0.35).toFixed(2)})`);
+                    grad.addColorStop(1, 'rgba(15, 10, 25, 0)');
+
+                    ctx.fillStyle = grad;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+                } else if (p.type === 'white-smoke') {
+                    // White & Neon Light-Blue Volumetric Smoke Dissipate (Exact match to left text hover effect!)
+                    if (p.size < p.maxSize) p.size += 0.45;
+                    const drawY = p.y - currentScroll;
+                    const grad = ctx.createRadialGradient(p.x, drawY, 0, p.x, drawY, p.size);
+                    grad.addColorStop(0, `rgba(255, 255, 255, ${(p.alpha * 0.65).toFixed(2)})`);
+                    grad.addColorStop(0.5, `rgba(186, 230, 253, ${(p.alpha * 0.35).toFixed(2)})`);
+                    grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+                    ctx.fillStyle = grad;
+                    ctx.beginPath();
+                    ctx.arc(p.x, drawY, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+                } else if (p.type === 'red-smoke') {
+                    // Fiery Crimson Red Volumetric Smoke Dissipate for STEAMING text
+                    if (p.size < p.maxSize) p.size += 0.45;
+                    const drawY = p.y - currentScroll;
+                    const grad = ctx.createRadialGradient(p.x, drawY, 0, p.x, drawY, p.size);
+                    grad.addColorStop(0, `rgba(255, 35, 75, ${(p.alpha * 0.85).toFixed(2)})`);
+                    grad.addColorStop(0.4, `rgba(220, 20, 60, ${(p.alpha * 0.5).toFixed(2)})`);
+                    grad.addColorStop(0.8, `rgba(120, 10, 35, ${(p.alpha * 0.2).toFixed(2)})`);
+                    grad.addColorStop(1, 'rgba(255, 0, 0, 0)');
+
+                    ctx.fillStyle = grad;
+                    ctx.beginPath();
+                    ctx.arc(p.x, drawY, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                ctx.restore();
+            }
+        }
 
         charData.forEach((c) => {
             // Force hover release and bypass calculations if hero section is scrolled out

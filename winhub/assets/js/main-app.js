@@ -650,10 +650,9 @@ async function runMainPageSequence() {
                 autoAlpha: 1 // 이 속성이 요소를 계속 보이게 하는 핵심입니다.
             });
         }
-    });
-} else { // Fallback if splitting fails
-    masterIntroTimeline.to(comNameElement, { autoAlpha: 1, duration: 1 });
-}
+    } else { // Fallback if splitting fails
+        masterIntroTimeline.to(comNameElement, { autoAlpha: 1, duration: 1 });
+    }
 
 // 4. Time the rest of the animations relative to the main timeline
 const headlineStartTime = "<+=0.02";
@@ -1057,26 +1056,4 @@ document.addEventListener("DOMContentLoaded", async () => {
         hideLoaderOnError();
         enableScrollInteraction();
     }
-});
-if (headerLogoForEarlyHide) gsap.set(headerLogoForEarlyHide, { autoAlpha: 0 });
-
-populateWorksList();
-
-runMainPageSequence().catch(error => {
-    console.error("Error in runMainPageSequence:", error);
-    hideLoaderOnError();
-    enableScrollInteraction();
-    window.scrollTo(0, 0);
-    if (!initialSetupDone) {
-        setupResponsiveScrollTriggers();
-        initialSetupDone = true;
-    } else {
-        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh(true);
-    }
-});
-    } catch (error) {
-    console.error("Failed to load common UI or initialize its scripts:", error);
-    hideLoaderOnError();
-    enableScrollInteraction();
-}
 });

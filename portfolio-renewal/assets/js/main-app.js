@@ -331,10 +331,10 @@ const sectionAtmospheres = {
         bounceHex: "#7dd3fc"
     },
     part2: {
-        bg: "radial-gradient(circle at 75% 55%, #047857 0%, #064e3b 45%, #022c22 100%)",
-        colorHex: "#10b981",
-        rimHex: "#34d399",
-        bounceHex: "#6ee7b7"
+        bg: "radial-gradient(circle at 75% 55%, #1e1b4b 0%, #0f172a 55%, #020617 100%)",
+        colorHex: "#3b82f6",
+        rimHex: "#60a5fa",
+        bounceHex: "#93c5fd"
     },
     part3: {
         bg: "radial-gradient(circle at 30% 50%, #be185d 0%, #831843 45%, #4c0519 100%)",
@@ -592,46 +592,155 @@ function setupScrollIconAnimation() {
 }
 
 function populateWorksList() {
-    const worksListContainer = document.querySelector("#part2 .works-list");
-    if (!worksListContainer) {
-        console.error("populateWorksList: .works-list element not found.");
-        return;
+    const list = document.querySelector("#part2 .works-list");
+    if (!list) return;
+
+    let targetData = worksData;
+    if (!targetData || targetData.length === 0) {
+        targetData = [
+            { id: "abc-mart-pos", title: "ABC 마트 차세대 POS 시스템 구축", client: "ABC 마트", overview: "PC POS, SCO(셀프 계산대), 모바일 지원 차세대 판매 시점 정보 관리 시스템" },
+            { id: "lx-hausys-investment", title: "LX 하우시스 투자관리 시스템 구축", client: "LX 하우시스", overview: "ERP 연동 투자 효율성 증대 체계적 투자 계획/집행/분석 시스템" },
+            { id: "ak-plaza-finance", title: "AK PLAZA 新 재무회계/결제 시스템 개발", client: "AK PLAZA", overview: "재무회계 도입, 스마트 영수증 및 네이버페이 연동 개발" },
+            { id: "lx-hausys-zin", title: "LX 하우시스 판매기준정보 및 지인스페이스 고도화", client: "LX 하우시스", overview: "판매기준정보 시스템 구축 및 인테리어 주문 지인스페이스 고도화" },
+            { id: "ak-plaza-vip", title: "AK PLAZA 新 VIP 회원 정책 적용 시스템 구축", client: "AK PLAZA", overview: "VIP 회원 정책 시스템 적용 및 차별화된 CRM 혜택 시스템" },
+            { id: "shinsegae-inc-ev", title: "신세계아이앤씨 전기차 충전 솔루션 I/F 개발", client: "신세계아이앤씨", overview: "전기차 충전 솔루션 인터페이스 I/F 연동 개발" }
+        ];
     }
-    worksListContainer.innerHTML = '';
-    worksData.forEach(work => {
-        const listItem = document.createElement('li');
-        listItem.classList.add('work-item');
 
-        const link = document.createElement('a');
-        link.href = buildUrl(`/page/works_details/works-detail.html?id=${work.id}`);
-        link.setAttribute('aria-label', `View Project ${work.title}`);
+    list.innerHTML = "";
 
-        const thumbnailDiv = document.createElement('div');
-        thumbnailDiv.classList.add('work-item-thumbnail');
-        const thumbnailImg = document.createElement('img');
-        thumbnailImg.src = buildUrl(work.listImage);
-        thumbnailImg.alt = `[프로젝트 ${work.title} 썸네일]`;
-        thumbnailImg.onerror = function () {
-            this.onerror = null;
-            this.src = `https://placehold.co/600x450/cccccc/333333?text=Image+Not+Found`;
+    const recentProjects = targetData.slice(0, 6);
+    const displayList = [...recentProjects, ...recentProjects, ...recentProjects];
+
+    displayList.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.className = "work-item";
+        li.dataset.index = index;
+        
+        const fallbackImages = {
+            'abc-mart-pos': 'https://images.unsplash.com/photo-1556742049-0a67daf4005a?q=80&w=800&auto=format&fit=crop',
+            'lx-hausys-investment': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
+            'ak-plaza-finance': 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=800&auto=format&fit=crop',
+            'lx-hausys-zin': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop',
+            'ak-plaza-vip': 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop',
+            'shinsegae-inc-ev': 'https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=800&auto=format&fit=crop'
         };
-        thumbnailDiv.appendChild(thumbnailImg);
 
-        const captionDiv = document.createElement('div');
-        captionDiv.classList.add('work-item-caption');
-        const titleHeading = document.createElement('h3');
-        titleHeading.textContent = work.title;
-        const serviceParagraph = document.createElement('p');
-        serviceParagraph.textContent = work.service.split('・')[0];
-        captionDiv.appendChild(titleHeading);
-        captionDiv.appendChild(serviceParagraph);
+        const thumbnailSrc = item.thumbnail || item.listImage || item.image || fallbackImages[item.id] || `https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop`;
+        const clientName = item.client || "WINHUB PROJECT";
+        const titleText = item.title || "차세대 시스템 구축";
+        const overviewText = item.overview || item.description || "WINHUB의 차세대 기술이 적용된 비즈니스 혁신 프로젝트입니다.";
 
-        link.appendChild(thumbnailDiv);
-        link.appendChild(captionDiv);
-        listItem.appendChild(link);
-
-        worksListContainer.appendChild(listItem);
+        li.innerHTML = `
+            <div class="work-card-inner">
+                <div class="work-card-front">
+                    <img src="${thumbnailSrc}" alt="${titleText}" loading="lazy" />
+                    <div class="front-title-badge">
+                        <h3>${titleText}</h3>
+                    </div>
+                </div>
+                <div class="work-card-back">
+                    <div class="work-card-back-header">
+                        <span class="client-tag">${clientName}</span>
+                        <h3>${titleText}</h3>
+                    </div>
+                    <div class="work-card-back-body">
+                        <p class="overview-text">${overviewText}</p>
+                    </div>
+                    <div class="work-card-back-footer">
+                        <a href="page/work-detail.html?id=${item.id}" class="detail-link-btn">
+                            상세보기 <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+        list.appendChild(li);
     });
+
+    setupWorksCarouselControls();
+}
+
+function setupWorksCarouselControls() {
+    const container = document.querySelector("#part2 .works-list-container");
+    const list = document.querySelector("#part2 .works-list");
+    const prevBtn = document.querySelector("#part2 .prev-btn");
+    const nextBtn = document.querySelector("#part2 .next-btn");
+    if (!container || !list) return;
+
+    let isScrolling = false;
+
+    const getCardWidth = () => {
+        const item = list.querySelector(".work-item");
+        if (!item) return 320;
+        const style = window.getComputedStyle(list);
+        const gap = parseFloat(style.gap) || 24;
+        return item.offsetWidth + gap;
+    };
+
+    const initInfinitePosition = () => {
+        const cardWidth = getCardWidth();
+        const singleSetWidth = cardWidth * 6;
+        container.scrollLeft = singleSetWidth;
+    };
+
+    const checkInfiniteLoopBounds = () => {
+        const cardWidth = getCardWidth();
+        const singleSetWidth = cardWidth * 6;
+
+        if (container.scrollLeft <= 10) {
+            container.scrollLeft += singleSetWidth;
+        } else if (container.scrollLeft >= singleSetWidth * 2 - 10) {
+            container.scrollLeft -= singleSetWidth;
+        }
+    };
+
+    setTimeout(initInfinitePosition, 100);
+
+    container.addEventListener("wheel", (e) => {
+        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+            e.preventDefault();
+            if (isScrolling) return;
+
+            const cardWidth = getCardWidth();
+            const direction = e.deltaY > 0 ? 1 : -1;
+            
+            isScrolling = true;
+            container.scrollBy({
+                left: direction * cardWidth,
+                behavior: "smooth"
+            });
+
+            setTimeout(() => {
+                checkInfiniteLoopBounds();
+                isScrolling = false;
+            }, 380);
+        }
+    }, { passive: false });
+
+    let scrollEndTimer;
+    container.addEventListener("scroll", () => {
+        clearTimeout(scrollEndTimer);
+        scrollEndTimer = setTimeout(checkInfiniteLoopBounds, 150);
+    });
+
+    if (prevBtn) {
+        prevBtn.onclick = (e) => {
+            e.preventDefault();
+            const cardWidth = getCardWidth();
+            container.scrollBy({ left: -cardWidth, behavior: "smooth" });
+            setTimeout(checkInfiniteLoopBounds, 400);
+        };
+    }
+
+    if (nextBtn) {
+        nextBtn.onclick = (e) => {
+            e.preventDefault();
+            const cardWidth = getCardWidth();
+            container.scrollBy({ left: cardWidth, behavior: "smooth" });
+            setTimeout(checkInfiniteLoopBounds, 400);
+        };
+    }
 }
 
 // --- Main Sequence ---
@@ -895,6 +1004,9 @@ function setupAllScrollTriggers(isDesktopView) {
     const elementsToClear = ["#part2 .part2-info", "#part2 .works-list", "#part2 .works-list-container"];
     elementsToClear.forEach(selector => { const el = document.querySelector(selector); if (el) gsap.set(el, { clearProps: "all" }); });
     gsap.set(document.body, { clearProps: "backgroundColor" });
+
+    setupMainPageBackgroundChangeAnimations();
+    populateWorksList();
 
     const comNameElement = document.querySelector(".com-name-ani");
     if (comNameElement) {

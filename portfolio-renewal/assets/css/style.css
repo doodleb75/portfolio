@@ -476,108 +476,248 @@ body.main-page [onclick] {
   margin: 0 auto;
 }
 
+/* Works Carousel Wrapper & Navigation Controls */
+.works-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  overflow: hidden; /* Prevent side overflow cards from bleeding past section boundaries */
+}
+
 .works-list-container {
   width: 100%;
-  height: auto;
-  max-height: none;
   overflow-x: auto;
   overflow-y: hidden;
-  margin: 1.875rem 0;
-  position: relative;
+  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 1rem;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  scroll-snap-type: x mandatory;
+  padding: 1.25rem 0;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
 }
 
 .works-list-container::-webkit-scrollbar {
-  display: none;
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .works-list {
   display: flex;
   flex-direction: row;
-  width: max-content;
   flex-wrap: nowrap;
-  padding: 1.25rem 0;
+  gap: 1.5rem;
+  padding: 0;
   margin: 0;
   list-style: none;
-  position: relative;
-  align-items: stretch;
+  width: max-content;
 }
 
+/* Semi-transparent Nav Buttons at Left/Right Ends */
+.works-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 25;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(96, 165, 250, 0.4);
+  color: #ffffff;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.45;
+  backdrop-filter: blur(10px);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s ease, border-color 0.35s ease;
+  padding: 0 !important;
+  margin: 0 !important;
+  align-self: auto !important;
+}
+
+.works-nav-btn.prev-btn {
+  left: 6px;
+}
+
+.works-nav-btn.next-btn {
+  right: 6px;
+}
+
+.works-nav-btn:hover {
+  opacity: 1 !important;
+  background: rgba(59, 130, 246, 0.9);
+  border-color: rgba(147, 197, 253, 0.9);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.8);
+}
+
+/* =================================================== */
+/* 3D Flip Card Interaction Structure                 */
+/* =================================================== */
 .work-item {
   flex-shrink: 0;
-  width: clamp(280px, 30vw, 360px);
-  height: auto;
-  min-height: 380px;
-  margin-right: 1.5rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  overflow: hidden;
+  width: clamp(260px, 20vw, 320px);
+  height: 420px;
+  perspective: 1200px; /* 3D Depth Perspective */
+  scroll-snap-align: center;
   position: relative;
-  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-  display: flex;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  flex-direction: column;
+  cursor: pointer;
 }
 
-.work-item a {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  color: inherit;
+.work-card-inner {
+  position: relative;
+  width: 100%;
   height: 100%;
-  width: 100%;
+  text-align: center;
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
 }
 
-.work-item-thumbnail {
-  width: 100%;
-  height: 0;
-  padding-bottom: 60%;
-  position: relative;
-  overflow: hidden;
-  background-color: #333;
+/* Mouse Rollover -> 180deg Flip Effect */
+.work-item:hover .work-card-inner {
+  transform: rotateY(180deg);
 }
 
-.work-item-thumbnail img {
+/* Front & Back Cards Shared Style */
+.work-card-front,
+.work-card-back {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(96, 165, 250, 0.25);
 }
 
-.work-item-caption {
-  padding: 1.25rem;
+/* Front Face: Full-Size Image with Modern Dark Cyber Overlay */
+.work-card-front {
+  background-color: #0b1329;
+  position: relative;
+}
+
+.work-card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.82) contrast(1.12) saturate(0.95);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+/* Cyber Blue Tint Overlay for 3D Background Harmony */
+.work-card-front::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(30, 27, 75, 0.3) 0%, rgba(15, 23, 42, 0.75) 100%);
+  pointer-events: none;
+}
+
+.work-card-front .front-title-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.25rem 1rem 1rem 1rem;
+  background: linear-gradient(to top, rgba(2, 6, 23, 0.98) 0%, rgba(2, 6, 23, 0.7) 60%, transparent 100%);
   text-align: left;
-  flex-grow: 1;
+  z-index: 2;
+}
+
+.work-card-front .front-title-badge h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+}
+
+/* Back Face: Project Title & Detailed Description */
+.work-card-back {
+  background: linear-gradient(135deg, rgba(30, 27, 75, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%);
+  transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  background-color: rgba(255, 255, 255, 0.03);
-  transition: all 0.3s ease;
+  justify-content: space-between;
+  padding: 2rem 1.5rem;
+  text-align: left;
+  box-sizing: border-box;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(96, 165, 250, 0.4);
 }
 
-.work-item-caption h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: clamp(1.1rem, 3vw, 1.4rem);
-  color: #e0e0e0;
-  font-weight: 600;
+.work-card-back-header .client-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #60a5fa;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(59, 130, 246, 0.18);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  margin-bottom: 0.85rem;
 }
 
-.work-item-caption p {
+.work-card-back-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.35;
+}
+
+.work-card-back-body p.overview-text {
+  font-size: 0.88rem;
+  color: rgba(226, 232, 240, 0.9);
+  line-height: 1.6;
   margin: 0;
-  font-size: clamp(0.8rem, 2vw, 0.9rem);
-  color: rgba(255, 255, 255, 0.7294117647);
-  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.work-item-caption:hover h3,
-.work-item-caption:hover p {
-  color: #fff;
+.work-card-back-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.work-card-back-footer .detail-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #38bdf8;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.work-card-back-footer .detail-link-btn:hover {
+  color: #93c5fd;
+  transform: translateX(4px);
 }
 
 button {
@@ -1598,13 +1738,14 @@ section#sub-hero {
 .subpage-body .subpage-section:not(#sub-hero) .content-class,
 .subpage-body .subpage-section:not(#sub-hero) h2,
 .subpage-body .subpage-section:not(#sub-hero) h3,
+.subpage-body .subpage-section:not(#sub-hero) h4,
 .subpage-body .subpage-section:not(#sub-hero) p,
 .subpage-body .subpage-section:not(#sub-hero) .tab-button,
 .subpage-body .subpage-section:not(#sub-hero) .biz-domain-item-icon,
 .subpage-body .subpage-footer .content-class,
 .subpage-body .subpage-footer span,
 .subpage-body .subpage-footer a {
-  color: #fdfefe;
+  color: #1e293b !important;
   transition: color 0.5s ease-in-out;
 }
 
@@ -2467,9 +2608,4 @@ section.content-section {
   left: -80px !important;
   bottom: -80px !important;
   right: -80px !important;
-}
-
-left: -80px !important;
-bottom: -80px !important;
-right: -80px !important;
 }
