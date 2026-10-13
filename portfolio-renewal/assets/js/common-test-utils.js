@@ -26,9 +26,9 @@ export function buildUrl(path) {
     return path.startsWith('/') ? path.substring(1) : path;
 }
 export function degToRad(degrees) { return degrees * (Math.PI / 180); }
-export function responsiveScale(percentage, currentBaselineWidth = 1920) { 
+export function responsiveScale(percentage, currentBaselineWidth = 1920) {
     const calculationWidth = window.innerWidth >= 768 ? Math.max(window.innerWidth, 1100) : window.innerWidth;
-    return (percentage / 100) * (calculationWidth / currentBaselineWidth); 
+    return (percentage / 100) * (calculationWidth / currentBaselineWidth);
 }
 export function responsiveX(percent) { return (percent / 100) * window.innerWidth; }
 export function responsiveY(percent) { return (percent / 100) * window.innerHeight; }
@@ -44,7 +44,7 @@ function safeSessionGet(key) {
 function safeSessionSet(key, value) {
     try {
         sessionStorage.setItem(key, value);
-    } catch (e) {}
+    } catch (e) { }
 }
 
 export function runLoaderSequence() {
@@ -128,7 +128,7 @@ async function loadHTML(elementId, filePath) {
 }
 
 export async function loadCommonUI() {
-    const baseCommonPath = 'assets/common/'; 
+    const baseCommonPath = 'assets/common/';
     try {
         await Promise.all([
             loadHTML('header-placeholder', `${baseCommonPath}_header.html`),
@@ -196,21 +196,21 @@ export function setupMenu(toggleId, overlayId, closeId, linksSelector) {
             menuOverlay.classList.remove("hidden");
         }
         document.body.style.overflow = "hidden";
-        gsap.set(menuOverlay, { autoAlpha: 1 }); 
+        gsap.set(menuOverlay, { autoAlpha: 1 });
         const openTl = gsap.timeline();
         openTl.to(blindPanels, { duration: 0.4, yPercent: 0, ease: "power2.out", stagger: 0.07 })
-              .to(menuLinkElements, { duration: 0.7, opacity: 1, y: 0, ease: "power3.out", stagger: { each: 0.1 } }, "-=0.2");
+            .to(menuLinkElements, { duration: 0.7, opacity: 1, y: 0, ease: "power3.out", stagger: { each: 0.1 } }, "-=0.2");
         if (menuInfo) openTl.to(menuInfo, { duration: 0.6, opacity: 1, y: 0, ease: "power2.out" }, "-=0.5");
     };
 
     const closeMenu = () => {
         const closeTl = gsap.timeline({
             onComplete: () => {
-                gsap.set(menuOverlay, { autoAlpha: 0 }); 
+                gsap.set(menuOverlay, { autoAlpha: 0 });
                 menuOverlay.classList.add("hidden");
                 document.body.style.overflow = "auto";
                 gsap.set(menuLinkElements, { opacity: 0, y: initialY });
-                if(menuInfo) gsap.set(menuInfo, { opacity: 0, y: initialY });
+                if (menuInfo) gsap.set(menuInfo, { opacity: 0, y: initialY });
             }
         });
         closeTl.to([menuLinkElements, menuInfo], { duration: 0.4, opacity: 0, y: initialY, ease: "power3.in", stagger: { each: 0.07, from: "end" } });
@@ -288,9 +288,9 @@ export class InteractiveBackgroundSphere {
         this.scene = new this.THREE.Scene();
         this.camera = new this.THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         this.camera.position.z = this.config.cameraZ;
-        this.renderer = new this.THREE.WebGLRenderer({ antialias: true, alpha: true });
+        this.renderer = new this.THREE.WebGLRenderer({ antialias: window.devicePixelRatio < 2, alpha: true, powerPreference: "high-performance" });
         this.renderer.setSize(window.innerWidth, window.innerHeight);
-        this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.25));
         this.renderer.setClearColor(0x000000, 0);
         this.container.appendChild(this.renderer.domElement);
         this.sphereGroup = new this.THREE.Group();
@@ -349,7 +349,7 @@ export class InteractiveBackgroundSphere {
         }
         const tl = gsap.timeline({ delay: Math.max(scaleParams.delay, rotationParams.delay) });
         tl.to(this.sphereGroup.scale, { x: scaleParams.to, y: scaleParams.to, z: scaleParams.to, duration: scaleParams.duration, ease: scaleParams.ease }, 0)
-          .to(this.sphereGroup.rotation, { y: rotationParams.toY, duration: rotationParams.duration, ease: rotationParams.ease }, 0);
+            .to(this.sphereGroup.rotation, { y: rotationParams.toY, duration: rotationParams.duration, ease: rotationParams.ease }, 0);
         this.targetProps.scale = scaleParams.to; this.targetProps.rotationX = 0; this.targetProps.rotationY = rotationParams.toY;
         return this;
     }
@@ -382,8 +382,14 @@ export async function loadGLTFScene(canvasId, modelUrl) {
     console.log("🚀 [3D TEST LOADER] Requesting Capsule Creo D GLTF model from:", modelUrl);
     console.log(`📐 [3D TEST LOADER] Canvas Dimensions: ${width}x${height}`);
 
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    const renderer = new THREE.WebGLRenderer({
+        canvas,
+        antialias: window.devicePixelRatio < 2,
+        alpha: true,
+        powerPreference: "high-performance",
+        precision: "mediump"
+    });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.25));
     renderer.setSize(width, height, false);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.3;
@@ -425,8 +431,6 @@ export async function loadGLTFScene(canvasId, modelUrl) {
             rawModel.updateMatrixWorld(true);
 
             let meshCount = 0;
-            const outlineLines = [];
-            const outlineMaterials = [];
             const originalMaterials = [];
 
             // Configure Capsule Creo D as an Atmospheric Semi-Transparent 3D Background Element
@@ -434,7 +438,7 @@ export async function loadGLTFScene(canvasId, modelUrl) {
                 if (child.isMesh) {
                     meshCount++;
                     child.visible = true;
-                    child.frustumCulled = false;
+                    child.frustumCulled = true;
                     if (child.geometry) {
                         child.geometry.computeBoundingBox();
                         child.geometry.computeBoundingSphere();
@@ -448,7 +452,7 @@ export async function loadGLTFScene(canvasId, modelUrl) {
                         metalness: 0.7,
                         emissive: 0x1e0938,
                         emissiveIntensity: 0.3,
-                        side: THREE.DoubleSide,
+                        side: THREE.FrontSide,
                         transparent: true,
                         opacity: 0.0,         // Start fully transparent for fade-in
                         depthWrite: false
@@ -467,8 +471,8 @@ export async function loadGLTFScene(canvasId, modelUrl) {
                             'void main() {\n    vModelPosCustom = position;\n    vNormalCustom = normal;'
                         );
 
-                        const targetChunk = shader.fragmentShader.includes('#include <colorspace_fragment>') 
-                            ? '#include <colorspace_fragment>' 
+                        const targetChunk = shader.fragmentShader.includes('#include <colorspace_fragment>')
+                            ? '#include <colorspace_fragment>'
                             : (shader.fragmentShader.includes('#include <opaque_fragment>') ? '#include <opaque_fragment>' : '#include <tonemapping_fragment>');
 
                         shader.fragmentShader = `
@@ -496,81 +500,6 @@ export async function loadGLTFScene(canvasId, modelUrl) {
 
                     child.material = mat;
                     originalMaterials.push({ material: mat, targetOpacity: 0.32 });
-
-                    // Create Outline / Edges Drawing mesh
-                    if (child.geometry) {
-                        const bbox = child.geometry.boundingBox || new THREE.Box3().setFromObject(child);
-                        const minY = bbox.min.y;
-                        const maxY = bbox.max.y;
-
-                        const edgesGeom = new THREE.EdgesGeometry(child.geometry);
-                        const drawMat = new THREE.ShaderMaterial({
-                            uniforms: {
-                                uProgress: { value: 0.0 },
-                                uColor: { value: new THREE.Color(0xc084fc) }, // Neon purple
-                                uOpacity: { value: 0.0 },
-                                uMinY: { value: minY },
-                                uMaxY: { value: maxY },
-                                uPulseMode: { value: 0.0 }
-                            },
-                            vertexShader: `
-                                varying float vY;
-                                void main() {
-                                    vY = position.y;
-                                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-                                }
-                            `,
-                            fragmentShader: `
-                                uniform float uProgress;
-                                uniform vec3 uColor;
-                                uniform float uOpacity;
-                                uniform float uMinY;
-                                uniform float uMaxY;
-                                uniform float uPulseMode;
-                                varying float vY;
-
-                                void main() {
-                                    float percent = (vY - uMinY) / (uMaxY - uMinY + 0.0001);
-                                    
-                                    if (uPulseMode > 0.5) {
-                                        // Pulse loop mode: only render a moving band [uProgress - 0.15, uProgress]
-                                        if (percent > uProgress || percent < uProgress - 0.15) {
-                                            discard;
-                                        }
-                                        
-                                        // Fade edges of the pulse band for organic light beam feel
-                                        float dist = uProgress - percent;
-                                        float alpha = uOpacity * (1.0 - dist / 0.15);
-                                        gl_FragColor = vec4(uColor * 2.0, alpha); // Double color brightness for glow
-                                    } else {
-                                        // Intro drawing mode
-                                        if (percent > uProgress) {
-                                            discard;
-                                        }
-                                        
-                                        // Glow effect at drawing edge
-                                        float dist = abs(percent - uProgress);
-                                        float alpha = uOpacity;
-                                        vec3 color = uColor;
-                                        if (dist < 0.05) {
-                                            color = mix(uColor * 2.0, uColor, dist / 0.05);
-                                            alpha = uOpacity;
-                                        }
-                                        gl_FragColor = vec4(color, alpha);
-                                    }
-                                }
-                            `,
-                            transparent: true,
-                            depthWrite: false,
-                            side: THREE.DoubleSide
-                        });
-
-                        const lineSegments = new THREE.LineSegments(edgesGeom, drawMat);
-                        child.add(lineSegments);
-
-                        outlineLines.push(lineSegments);
-                        outlineMaterials.push(drawMat);
-                    }
                 }
             });
 
@@ -598,16 +527,37 @@ export async function loadGLTFScene(canvasId, modelUrl) {
             console.log("🎉 [3D TEST LOADER] Winhub background group successfully added to 3D Scene!");
 
             let isRotating = false;
+            let animFrameId = null;
+            let isCanvasVisible = true;
+            let lastFrameTime = performance.now();
+            const targetFPS = 60;
+            const frameInterval = 1000 / targetFPS;
 
-            function animate() {
-                requestAnimationFrame(animate);
+            const visibilityObserver = new IntersectionObserver(([entry]) => {
+                isCanvasVisible = entry.isIntersecting;
+            }, { threshold: 0.05 });
+            visibilityObserver.observe(canvas);
+
+            const onDocVisibilityChange = () => {
+                isCanvasVisible = !document.hidden;
+            };
+            document.addEventListener('visibilitychange', onDocVisibilityChange);
+
+            function animate(currentTime) {
+                animFrameId = requestAnimationFrame(animate);
+                if (!isCanvasVisible) return;
+
+                const delta = currentTime - lastFrameTime;
+                if (delta < frameInterval) return;
+                lastFrameTime = currentTime - (delta % frameInterval);
+
                 if (isRotating) {
                     modelWrapper.rotation.y += 0.00005; // Super slow rotation to keep focus on UI content
                     modelWrapper.rotation.x += 0.000025;
                 }
                 renderer.render(scene, camera);
             }
-            animate();
+            animFrameId = requestAnimationFrame(animate);
 
             window.addEventListener('resize', () => {
                 const w = canvas.clientWidth || window.innerWidth;
@@ -617,136 +567,47 @@ export async function loadGLTFScene(canvasId, modelUrl) {
                 renderer.setSize(w, h, false);
             });
 
-            let loopTimer = null;
-            
-            const startGlowingPulseLoop = () => {
-                const triggerNextPulse = () => {
-                    const nextDelay = 3.5 + Math.random() * 3.5; // Random delay: 3.5s to 7.0s
-                    
-                    loopTimer = gsap.delayedCall(nextDelay, () => {
-                        // Smoothly transition pulse uProgress and opacity
-                        outlineMaterials.forEach((mat) => {
-                            mat.uniforms.uProgress.value = -0.15;
-                            mat.uniforms.uOpacity.value = 0.55; // Semi-transparent pulse glow
-                            
-                            gsap.to(mat.uniforms.uProgress, {
-                                value: 1.15,
-                                duration: 0.85,
-                                ease: "sine.inOut"
-                            });
-                            
-                            gsap.to(mat.uniforms.uOpacity, {
-                                value: 0.0,
-                                duration: 0.35,
-                                delay: 0.5,
-                                ease: "sine.out"
-                            });
-                        });
-                        
-                        triggerNextPulse();
-                    });
-                };
-                triggerNextPulse();
-            };
-
             const startDrawingAnimation = () => {
                 return new Promise((animResolve) => {
                     if (typeof gsap === 'undefined') {
-                        // GSAP is not loaded, immediately show mesh and finish
                         originalMaterials.forEach((item) => {
                             item.material.opacity = item.targetOpacity;
                         });
+                        isRotating = true;
                         animResolve();
                         return;
                     }
 
                     const tl = gsap.timeline({
                         onComplete: () => {
-                            // Turn on uPulseMode to transition to looping outlines rather than deleting them
-                            outlineMaterials.forEach((mat) => {
-                                mat.uniforms.uPulseMode.value = 1.0;
-                                mat.uniforms.uProgress.value = -0.2;
-                                mat.uniforms.uOpacity.value = 0.0;
-                            });
-                            
-                            console.log("⚡ [3D DRAWING ANIMS] Intro completed. Switching to Glowing Pulse Loop mode.");
-                            isRotating = true; // Start slow rotation AFTER intro completes
-                            startGlowingPulseLoop();
+                            console.log("✨ [3D SCENE] Model entrance completed.");
+                            isRotating = true; // Start slow ambient rotation AFTER intro completes
                             animResolve();
                         }
                     });
 
-                    // Step 1: Draw neon outlines by animating uProgress from 0 to 1
-                    outlineMaterials.forEach((mat) => {
-                        // Make outlines visible as soon as the intro animation kicks off
-                        mat.uniforms.uOpacity.value = 0.8;
-                        
-                        tl.to(mat.uniforms.uProgress, {
-                            value: 1.0,
-                            duration: 0.95,
-                            ease: "power2.out"
-                        }, 0);
-                    });
-
-                    // Step 2: Flicker (stuttering light bulb on) fade-in of original mesh materials using a single high-performance onUpdate loop to prevent frame drops
-                    const flickerObj = { opacity: 0.0 };
-                    tl.to(flickerObj, {
-                        opacity: 1.0,
-                        duration: 1.1,
-                        ease: "none",
-                        onUpdate: () => {
-                            const p = flickerObj.opacity;
-                            let currentOpacity = 0.0;
-                            
-                            // High fidelity simulated flicker curve matching the original multi-step sequence
-                            if (p < 0.32) {
-                                currentOpacity = 0.0;
-                            } else if (p < 0.39) {
-                                currentOpacity = 0.55;
-                            } else if (p < 0.44) {
-                                currentOpacity = 0.03;
-                            } else if (p < 0.55) {
-                                currentOpacity = 0.95;
-                            } else if (p < 0.61) {
-                                currentOpacity = 0.14;
-                            } else if (p < 0.68) {
-                                currentOpacity = 0.65;
-                            } else {
-                                // Smooth transition from 0.65 to 1.0
-                                const t = (p - 0.68) / 0.32;
-                                currentOpacity = 0.65 + t * 0.35;
-                            }
-                            
-                            originalMaterials.forEach((item) => {
-                                item.material.opacity = item.targetOpacity * currentOpacity;
-                            });
-                        }
-                    }, 0);
-
-                    // Step 3: Fade-out neon outlines smoothly to achieve perfect cross-fade overlap
-                    outlineMaterials.forEach((mat) => {
-                        tl.to(mat.uniforms.uOpacity, {
-                            value: 0.0,
+                    // Smooth, elegant fade-in of the 3D capsule object
+                    originalMaterials.forEach((item) => {
+                        tl.to(item.material, {
+                            opacity: item.targetOpacity,
                             duration: 0.85,
                             ease: "power2.out"
-                        }, 0.6); // Starts at 0.6s, completes at 1.45s synchronously with main body fade-in
+                        }, 0);
                     });
                 });
             };
 
             const cleanup = () => {
-                if (loopTimer) {
-                    loopTimer.kill();
-                    loopTimer = null;
+                if (animFrameId) {
+                    cancelAnimationFrame(animFrameId);
+                    animFrameId = null;
                 }
-                outlineLines.forEach((line) => {
-                    if (line.parent) {
-                        line.parent.remove(line);
-                    }
-                    if (line.geometry) line.geometry.dispose();
-                });
-                outlineMaterials.forEach((mat) => mat.dispose());
-                console.log("🧹 [3D SCENE] Cleaned up glowing pulse loop timer & outline WebGL resources");
+                if (visibilityObserver) {
+                    visibilityObserver.disconnect();
+                }
+                document.removeEventListener('visibilitychange', onDocVisibilityChange);
+                renderer.dispose();
+                console.log("🧹 [3D SCENE] Cleaned up 3D WebGL resources");
             };
 
             resolve({

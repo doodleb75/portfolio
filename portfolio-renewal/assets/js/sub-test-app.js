@@ -695,7 +695,7 @@ async function initializeSubpage() {
 
     const loaderPromise = runLoaderSequence('.subpage-container');
 
-    const gltfPath = buildUrl('/assets/models/capsule_creo_d/scene-draco.gltf');
+    const gltfPath = buildUrl('/assets/models/capsule_creo_d/scene-draco-v1.glb');
     const gltfLoadPromise = loadGLTFScene("canvas3d", gltfPath)
         .then(app => {
             subpageSplineApp = app;

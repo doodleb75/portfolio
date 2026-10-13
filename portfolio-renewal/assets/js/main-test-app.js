@@ -106,7 +106,12 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     });
 }
 
-const getScaleConfig = (isDesktopView) => ({ hero: isDesktopView ? 2.5 : 1.8, part1: isDesktopView ? 3.2 : 2.2, part2: isDesktopView ? 3.0 : 2.0, part3: isDesktopView ? 3.6 : 2.5 });
+const getScaleConfig = (isDesktopView) => ({
+    hero: isDesktopView ? 4.2 : 2.5,
+    part1: isDesktopView ? 4.8 : 3.0,
+    part2: isDesktopView ? 4.4 : 2.8,
+    part3: isDesktopView ? 5.2 : 3.2
+});
 const barShapesConfig = { initial: "M0 5 L0 5 L0 5 L0 5 Z", part1Enter: "M0,5 Q15,0 30,4 Q50,7 70,4 Q85,0 100,5 V5 Q85,10 70,6 Q50,3 30,6 Q15,10 0,5 Z", part2Enter: "M0,5 C20,-5 40,15 50,5 C60,-5 80,15 100,5 V5 C80,0 60,10 50,5 C40,0 20,10 0,5 Z", part3Enter: "M0,5 Q20,10 40,5 Q60,0 80,5 Q100,10 100,5 V5 Q80,0 60,5 Q40,10 20,5 Q0,0 0,5 Z", full: "M0,0 H100 V10 H0 Z" };
 
 const sectionAtmospheres = {
@@ -229,15 +234,15 @@ function setupSplineScrollAnimations(capsuleObj, cableObj, isDesktopView) {
     const currentScaleConfig = getScaleConfig(isDesktopView);
     const isMobileView = !isDesktopView;
 
-    const heroX = isMobileView ? 0.0 : 1.2;
+    const heroX = isMobileView ? 0.0 : 1.0;
     const heroY = isMobileView ? -0.2 : 0.0;
 
-    gsap.set(capsuleObj.position, { x: heroX, y: heroY, z: -5.0 });
+    gsap.set(capsuleObj.position, { x: heroX, y: heroY, z: -3.8 });
     gsap.set(capsuleObj.rotation, { x: degToRad(25), y: degToRad(-35), z: degToRad(15) });
     gsap.set(capsuleObj.scale, { x: currentScaleConfig.hero, y: currentScaleConfig.hero, z: currentScaleConfig.hero });
 
     const heroTimeline = gsap.timeline({ scrollTrigger: { id: 'splineScrollTrigger-hero', trigger: "#hero", start: "top 10%", end: "bottom bottom", scrub: true, invalidateOnRefresh: true } });
-    heroTimeline.to(capsuleObj.position, { x: heroX, y: heroY, z: -5.0 }, 0)
+    heroTimeline.to(capsuleObj.position, { x: heroX, y: heroY, z: -3.8 }, 0)
         .to(capsuleObj.rotation, { x: degToRad(25), y: degToRad(-35), z: degToRad(15) }, 0)
         .to(capsuleObj.scale, { x: currentScaleConfig.hero, y: currentScaleConfig.hero, z: currentScaleConfig.hero }, 0);
     splineTimelines.push(heroTimeline);
@@ -683,7 +688,7 @@ function populateWorksList() {
         const li = document.createElement("li");
         li.className = "work-item";
         li.dataset.index = index;
-        
+
         // 프로젝트 아이템 이미지 주소 폴백 설정 (item.thumbnail, item.listImage, id 기반 고해상도 테크 이미지)
         const fallbackImages = {
             'abc-mart-pos': 'https://images.unsplash.com/photo-1556742049-0a67daf4005a?q=80&w=800&auto=format&fit=crop',
@@ -778,7 +783,7 @@ function setupWorksCarouselControls() {
 
             const cardWidth = getCardWidth();
             const direction = e.deltaY > 0 ? 1 : -1;
-            
+
             isScrolling = true;
             container.scrollBy({
                 left: direction * cardWidth,
@@ -900,25 +905,24 @@ function setupSectionSnapScroll() {
                 const currentScroll = window.scrollY;
                 const windowHeight = window.innerHeight;
 
-                // 1) PART 1 (WINHUB ADVANTAGE) 스크롤 영역 내부 검사
+                // 1) PART 1 (WINHUB ADVANTAGE) 스크롤 영역 검사
                 const part1 = document.getElementById("part1");
                 if (part1) {
                     const p1Top = part1.getBoundingClientRect().top + window.scrollY;
                     const p1Height = part1.offsetHeight;
                     const p1Bottom = p1Top + p1Height;
 
-                    // 1번 섹션에 실제로 진입해 있는 경우에만 (Hero 영역에 있을 때는 간섭 금지!)
-                    if (currentScroll >= p1Top + 30 && currentScroll <= p1Bottom - windowHeight + 40) {
-                        // 최하단 마지막 카드 영역까지 도달했을 때 아래로 스크롤하면 PART 2로 스냅
-                        if (self.direction > 0 && (currentScroll + windowHeight) >= (p1Bottom - 20)) {
-                            return sectionRatios[2];
+                    // 콘텐츠가 화면 높이보다 확연히 긴 작은 화면에서만 내부 스크롤 허용
+                    if (p1Height > windowHeight + 80) {
+                        if (currentScroll >= p1Top + 50 && currentScroll <= p1Bottom - windowHeight - 50) {
+                            if (self.direction > 0 && (currentScroll + windowHeight) >= (p1Bottom - 60)) {
+                                return sectionRatios[2];
+                            }
+                            if (self.direction < 0 && currentScroll <= p1Top + 60) {
+                                return sectionRatios[0];
+                            }
+                            return progress;
                         }
-                        // 1번 섹션 상단 근처에서 위로 스크롤하면 HERO로 스냅
-                        if (self.direction < 0 && currentScroll <= p1Top + 50) {
-                            return sectionRatios[0];
-                        }
-                        // 그 외 1번 섹션 내부 감상 중에는 자유 스크롤 유지
-                        return progress;
                     }
                 }
 
@@ -1229,7 +1233,7 @@ function startRightSloganLoopAnimation() {
                     opacity: 0,
                     duration: 0.8 + Math.random() * 0.2,
                     ease: "power2.out",
-                    onStart: function() {
+                    onStart: function () {
                         // STEAMING(빨간색 글자)은 강렬한 레드 화염 연기 파티클로, 서브 텍스트는 화이트/블루 연기 파티클로 기화!
                         if (window.spawnSloganEndingSmokePuffs) {
                             const rect = charEl.getBoundingClientRect();
@@ -1250,7 +1254,7 @@ function startRightSloganLoopAnimation() {
         }
     }
 
-    window.resetHeroRightSloganLoopOnLeave = function() {
+    window.resetHeroRightSloganLoopOnLeave = function () {
         if (currentCycleTl) {
             currentCycleTl.kill();
             currentCycleTl = null;
@@ -1268,7 +1272,7 @@ function startRightSloganLoopAnimation() {
         gsap.set([steamingEl, subEl], { autoAlpha: 0 });
     };
 
-    window.restartHeroRightSloganLoop = function() {
+    window.restartHeroRightSloganLoop = function () {
         window.resetHeroRightSloganLoopOnLeave();
         runCycle();
     };
@@ -1290,7 +1294,8 @@ function onMasterIntroComplete() {
     const scrollIcon = document.querySelector(".scroll-icon");
     if (scrollIcon) gsap.to(scrollIcon, { duration: 0.8, autoAlpha: 1, ease: "power2.out", delay: 0.3 });
     window.scrollTo(0, 0);
-    setupParticleTextExplodeInteraction();
+    // [USER REQUEST] 텍스트 마우스 호버 파티클 연기 소멸 효과 임시 주석 처리
+    // setupParticleTextExplodeInteraction();
     setupCustomCyberCursor();
     startRightSloganLoopAnimation();
 }
@@ -1366,13 +1371,22 @@ async function runMainPageSequence() {
     disableScrollInteraction();
 
     try {
-        const gltfPath = buildUrl('/assets/models/capsule_creo_d/scene-draco.gltf');
+        const gltfPath = buildUrl('/assets/models/capsule_creo_d/scene-draco-v1.glb');
         mainSplineApp = await loadGLTFScene("canvas3d", gltfPath);
         if (mainSplineApp) {
             const canvas = document.getElementById("canvas3d");
             if (canvas) gsap.set(canvas, { opacity: 0 }); // Hide canvas initially during top bar loader
             capsuleObj = mainSplineApp.findObjectByName("Winhub");
-            if (capsuleObj) capsuleObj.visible = true;
+            if (capsuleObj) {
+                capsuleObj.visible = true;
+                const isDesktop = window.innerWidth >= 768;
+                const scaleConfig = getScaleConfig(isDesktop);
+                const heroX = isDesktop ? 1.0 : 0.0;
+                const heroY = isDesktop ? 0.0 : -0.2;
+                gsap.set(capsuleObj.position, { x: heroX, y: heroY, z: -3.8 });
+                gsap.set(capsuleObj.rotation, { x: degToRad(25), y: degToRad(-35), z: degToRad(15) });
+                gsap.set(capsuleObj.scale, { x: scaleConfig.hero, y: scaleConfig.hero, z: scaleConfig.hero });
+            }
         }
     } catch (error) {
         console.error("❌ MAIN-TEST-APP: Error loading Capsule Creo D GLTF model:", error);
@@ -1381,11 +1395,11 @@ async function runMainPageSequence() {
     // Step 1: Execute Top 6px Progress Bar Loading Sequence
     await runLoaderSequence();
 
-    // Start 3D drawing animation sequence immediately after loader finishes
+    // Start 3D entrance animation sequence immediately after loader finishes
     if (mainSplineApp && typeof mainSplineApp.startDrawingAnimation === 'function') {
         const canvas = document.getElementById("canvas3d");
         if (canvas) gsap.to(canvas, { opacity: 1, duration: 0.35, ease: "power2.out" });
-        console.log("🎬 [MAIN TEST APP] Starting 3D Drawing Outline animation sequence...");
+        console.log("🎬 [MAIN TEST APP] Starting 3D Model Entrance sequence...");
         await mainSplineApp.startDrawingAnimation();
     }
 
@@ -1502,6 +1516,9 @@ async function runMainPageSequence() {
 }
 
 function setupParticleTextExplodeInteraction() {
+    // [USER REQUEST] 텍스트 마우스 호버 시 파티클/연기처럼 사라지는 효과 임시 비활성화 (필요 시 복구)
+    return;
+
     const canvas = document.getElementById('particle-text-canvas');
     if (!canvas) return;
 
@@ -1558,8 +1575,8 @@ function setupParticleTextExplodeInteraction() {
         updateStaticCoordinates();
     });
 
-      // Helper to spawn fiery sparks and dynamic smoke trails for the right slogan leading edge
-    window.spawnSloganFireSparks = function(x, y) {
+    // Helper to spawn fiery sparks and dynamic smoke trails for the right slogan leading edge
+    window.spawnSloganFireSparks = function (x, y) {
         // Fiery sparks (bright orange/yellow core with high speed)
         for (let i = 0; i < 4; i++) {
             sparkParticles.push({
@@ -1593,7 +1610,7 @@ function setupParticleTextExplodeInteraction() {
     };
 
     // Helper to spawn real Volumetric Canvas Smoke Puffs when slogan text dissipates
-    window.spawnSloganEndingSmokePuffs = function(left, top, width, height, isRed = false) {
+    window.spawnSloganEndingSmokePuffs = function (left, top, width, height, isRed = false) {
         for (let i = 0; i < 7; i++) {
             sparkParticles.push({
                 x: left + Math.random() * (width || 20),
@@ -1651,6 +1668,7 @@ function setupParticleTextExplodeInteraction() {
 
     function renderFrame() {
         requestAnimationFrame(renderFrame);
+        if (document.hidden) return;
         timestamp += 16;
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
